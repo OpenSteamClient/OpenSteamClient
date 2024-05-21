@@ -5,8 +5,8 @@
             "name": "IsInterfaceValid",
             "argc": "1",
             "interfaceid": "60",
-            "functionid": "862245958",
-            "fencepost": "907866390",
+            "functionid": "862245976",
+            "fencepost": "907963182",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
             ],
@@ -18,8 +18,8 @@
             "name": "GetState",
             "argc": "2",
             "interfaceid": "60",
-            "functionid": "2169953899",
-            "fencepost": "2215638847",
+            "functionid": "2169953905",
+            "fencepost": "2215735627",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
             ],
@@ -32,8 +32,8 @@
             "name": "SetMode",
             "argc": "2",
             "interfaceid": "60",
-            "functionid": "2139887759",
-            "fencepost": "2185669481",
+            "functionid": "2139887745",
+            "fencepost": "2185766241",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "protobuf"
@@ -46,8 +46,8 @@
             "name": "ClearModeOverride",
             "argc": "2",
             "interfaceid": "60",
-            "functionid": "3934404347",
-            "fencepost": "3980234456",
+            "functionid": "3934404349",
+            "fencepost": "3980331232",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4"
@@ -60,8 +60,8 @@
             "name": "SetCompatibilityMode",
             "argc": "2",
             "interfaceid": "60",
-            "functionid": "206061327",
-            "fencepost": "251907565",
+            "functionid": "206061365",
+            "fencepost": "252004377",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4"

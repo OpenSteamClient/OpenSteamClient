@@ -5,8 +5,8 @@
             "name": "SetAppUpdateDisabledSecondsRemaining",
             "argc": "3",
             "interfaceid": "42",
-            "functionid": "2352927187",
-            "fencepost": "2449012974",
+            "functionid": "2352927231",
+            "fencepost": "2449593662",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",

@@ -103,16 +103,4 @@ public unsafe interface IClientVideo
     // WARNING: Arguments are unknown!
     [BlacklistedInCrossProcessIPC]
     public unknown_ret WebRTCGetAnswer();  // argc: 3, index: 53, ipc args: [bytes8, bytes4], ipc returns: []
-    // WARNING: Arguments are unknown!
-    public unknown_ret SetTimelineStateDescription();  // argc: 2, index: 54, ipc args: [string, bytes4], ipc returns: []
-    // WARNING: Arguments are unknown!
-    public unknown_ret ClearTimelineStateDescription();  // argc: 1, index: 55, ipc args: [bytes4], ipc returns: []
-    // WARNING: Arguments are unknown!
-    public unknown_ret AddTimelineEvent();  // argc: 7, index: 56, ipc args: [string, string, string, bytes4, bytes4, bytes4, bytes1], ipc returns: []
-    // WARNING: Arguments are unknown!
-    public unknown_ret SetTimelineGameMode();  // argc: 1, index: 57, ipc args: [bytes4], ipc returns: []
-    // WARNING: Arguments are unknown!
-    public unknown_ret AddUserMarkerForGame();  // argc: 1, index: 58, ipc args: [bytes8], ipc returns: []
-    // WARNING: Arguments are unknown!
-    public unknown_ret ToggleVideoRecordingForGame(CGameID gameid);  // argc: 1, index: 59, ipc args: [bytes8], ipc returns: []
 }

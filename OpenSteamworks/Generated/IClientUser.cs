@@ -522,4 +522,5 @@ public unsafe interface IClientUser
     // WARNING: Arguments are unknown!
     [BlacklistedInCrossProcessIPC]
     public unknown_ret BGetProcessIDsForGame();  // argc: 2, index: 275, ipc args: [bytes8, bytes4], ipc returns: [boolean]
+    public SteamAPICall_t CancelLicenseForApp(AppId_t appid);  // argc: 1, index: 276, ipc args: [bytes4], ipc returns: [bytes8]
 }

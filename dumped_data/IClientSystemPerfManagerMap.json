@@ -68,6 +68,20 @@
             ],
             "serializedreturns": [
             ]
+        },
+        {
+            "name": "GetLegacySettings",
+            "argc": "2",
+            "interfaceid": "57",
+            "functionid": "33780543",
+            "fencepost": "78723176",
+            "cannotcallincrossprocess": "0",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes1",
+                "unknown"
+            ]
         }
     ]
 }

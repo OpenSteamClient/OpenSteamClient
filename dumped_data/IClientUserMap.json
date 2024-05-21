@@ -3902,6 +3902,20 @@
             "serializedreturns": [
                 "boolean"
             ]
+        },
+        {
+            "name": "CancelLicenseForApp",
+            "argc": "2",
+            "interfaceid": "1",
+            "functionid": "3077635802",
+            "fencepost": "3092248803",
+            "cannotcallincrossprocess": "0",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         }
     ]
 }

@@ -38,18 +38,20 @@ public unsafe interface IClientShader
     // WARNING: Arguments are unknown!
     public unknown_ret GetAppPendingShaderDownloadSize(AppId_t appid);  // argc: 1, index: 16, ipc args: [bytes4], ipc returns: [bytes8]
     // WARNING: Arguments are unknown!
-    public unknown_ret GetBucketManifest();  // argc: 3, index: 17, ipc args: [bytes4, string, string], ipc returns: [bytes8]
+    public unknown_ret CheckDepotManifestID();  // argc: 1, index: 17, ipc args: [bytes4], ipc returns: [bytes8]
     // WARNING: Arguments are unknown!
-    public unknown_ret GetStaleBucket();  // argc: 2, index: 18, ipc args: [string, string], ipc returns: [bytes8]
+    public unknown_ret GetBucketManifest();  // argc: 3, index: 18, ipc args: [bytes4, string, string], ipc returns: [bytes8]
     // WARNING: Arguments are unknown!
-    public unknown_ret ReportExternalBuild();  // argc: 9, index: 19, ipc args: [bytes4, string, string, bytes8, string, string, bytes8], ipc returns: [bytes8]
+    public unknown_ret GetStaleBucket();  // argc: 2, index: 19, ipc args: [string, string], ipc returns: [bytes8]
     // WARNING: Arguments are unknown!
-    public unknown_ret PrepopulatePrecompiledCache();  // argc: 7, index: 20, ipc args: [bytes4, bytes4, string, string, string, string, string], ipc returns: [bytes8]
+    public unknown_ret ReportExternalBuild();  // argc: 9, index: 20, ipc args: [bytes4, string, string, bytes8, string, string, bytes8], ipc returns: [bytes8]
     // WARNING: Arguments are unknown!
-    public unknown_ret WritePrecompiledCache();  // argc: 4, index: 21, ipc args: [bytes4, string, string, string], ipc returns: [bytes8]
+    public unknown_ret PrepopulatePrecompiledCache();  // argc: 7, index: 21, ipc args: [bytes4, bytes4, string, string, string, string, string], ipc returns: [bytes8]
     // WARNING: Arguments are unknown!
-    public unknown_ret CompileShaders();  // argc: 4, index: 22, ipc args: [bytes4, bytes4, string, string], ipc returns: [bytes8]
+    public unknown_ret WritePrecompiledCache();  // argc: 4, index: 22, ipc args: [bytes4, string, string, string], ipc returns: [bytes8]
     // WARNING: Arguments are unknown!
-    public unknown_ret GetShaderBucketForGraphicsAPI();  // argc: 2, index: 23, ipc args: [bytes4, bytes4], ipc returns: [bytes8]
-    public void EnableShaderManagementSystem(bool enable);  // argc: 1, index: 24, ipc args: [bytes1], ipc returns: []
+    public unknown_ret CompileShaders();  // argc: 4, index: 23, ipc args: [bytes4, bytes4, string, string], ipc returns: [bytes8]
+    // WARNING: Arguments are unknown!
+    public unknown_ret GetShaderBucketForGraphicsAPI();  // argc: 2, index: 24, ipc args: [bytes4, bytes4], ipc returns: [bytes8]
+    public void EnableShaderManagementSystem(bool enable);  // argc: 1, index: 25, ipc args: [bytes1], ipc returns: []
 }

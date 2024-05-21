@@ -5,8 +5,8 @@
             "name": "IsInterfaceValid",
             "argc": "1",
             "interfaceid": "43",
-            "functionid": "862242823",
-            "fencepost": "958457769",
+            "functionid": "862242875",
+            "fencepost": "959038465",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
             ],
@@ -18,8 +18,8 @@
             "name": "GetBluetoothDevicesData",
             "argc": "2",
             "interfaceid": "43",
-            "functionid": "140762104",
-            "fencepost": "237041566",
+            "functionid": "140762052",
+            "fencepost": "237622158",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
             ],
@@ -32,8 +32,8 @@
             "name": "SetEnabled",
             "argc": "2",
             "interfaceid": "43",
-            "functionid": "2077551352",
-            "fencepost": "2173895330",
+            "functionid": "2077551316",
+            "fencepost": "2174475938",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes1"
@@ -46,8 +46,8 @@
             "name": "SetDiscovering",
             "argc": "3",
             "interfaceid": "43",
-            "functionid": "1041711727",
-            "fencepost": "1138071834",
+            "functionid": "1041711683",
+            "fencepost": "1138652434",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -61,8 +61,8 @@
             "name": "Pair",
             "argc": "3",
             "interfaceid": "43",
-            "functionid": "1670907936",
-            "fencepost": "1767284172",
+            "functionid": "1670907916",
+            "fencepost": "1767864796",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -76,8 +76,8 @@
             "name": "CancelPairing",
             "argc": "3",
             "interfaceid": "43",
-            "functionid": "1677458779",
-            "fencepost": "1773851144",
+            "functionid": "1677458815",
+            "fencepost": "1774431824",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -91,8 +91,8 @@
             "name": "UnPair",
             "argc": "3",
             "interfaceid": "43",
-            "functionid": "1218045125",
-            "fencepost": "1314453619",
+            "functionid": "1218045153",
+            "fencepost": "1315034291",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -106,8 +106,8 @@
             "name": "Connect",
             "argc": "3",
             "interfaceid": "43",
-            "functionid": "4220174981",
-            "fencepost": "21632308",
+            "functionid": "4220175009",
+            "fencepost": "22212980",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -121,8 +121,8 @@
             "name": "Disconnect",
             "argc": "3",
             "interfaceid": "43",
-            "functionid": "1811507698",
-            "fencepost": "1907948450",
+            "functionid": "1811507670",
+            "fencepost": "1908529066",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",

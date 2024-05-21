@@ -214,8 +214,8 @@ export class VirtualHeader {
             const unknownBehaviourWarning = "// WARNING: Do not use this function! Unknown behaviour will occur!";
             const argcCountNotMatchWarning = "// WARNING: Arguments are unknown!"
             if (funcToAdd.name.endsWith("_DONTUSE") && !skipUnknownWarning) {
-                if (!funcToAdd.precedingLines.includes(unknownBehaviourWarning))
-                funcToAdd.precedingLines.push(unknownBehaviourWarning)
+                //if (!funcToAdd.precedingLines.includes(unknownBehaviourWarning))
+                //funcToAdd.precedingLines.push(unknownBehaviourWarning)
             } else if (addWarning) {
                 // Remove leftover warnings
                 if (Number(dumpfunc.argc) == 0) {
@@ -230,7 +230,7 @@ export class VirtualHeader {
                 }
 
                 if ((Number(dumpfunc.argc) != 0) && !funcToAdd.precedingLines.includes(argcCountNotMatchWarning)) {
-                    funcToAdd.precedingLines.push(argcCountNotMatchWarning)
+                    //funcToAdd.precedingLines.push(argcCountNotMatchWarning)
                 }
             }
             
