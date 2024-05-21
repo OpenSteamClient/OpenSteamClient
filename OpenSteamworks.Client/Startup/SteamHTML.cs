@@ -131,6 +131,9 @@ public class SteamHTML : IClientLifetime {
     }
 
     public bool CanRun() {
+        logger.Info("Not running SteamHTML, feature force disabled.");
+        return false;
+
         if (!globalSettings.EnableWebHelper) {
             logger.Info("Not running SteamHTML due to user preference");
             return false;

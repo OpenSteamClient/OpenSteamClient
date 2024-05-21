@@ -63,6 +63,8 @@ public class Library
         {
             namespaceData = await cloudConfigStore.GetNamespaceData(Enums.EUserConfigStoreNamespace.Library);
             var keyValues = namespaceData.GetEntriesStartingWithKeyName("user-collections.");
+
+            List<string> collections = new();
             foreach (var entry in keyValues)
             {
                 logger.Trace("Attempting to deserialize: " + entry.Value);
@@ -72,13 +74,16 @@ public class Library
                     throw new NullReferenceException("Deserializing collection " + entry.Key + " failed");
                 }
 
-                var collection = Collection.FromJSONCollection(json);
-                this.Collections.Add(collection);
+                collections.Add(json.id);
+                var collection = UpdateOrCreateCollection(Collection.FromJSONCollection(json));
                 foreach (var item in this.GetAppsInCollection(collection))
                 {
                     AppIDsInCollections.Add(item);
                 }
             }
+
+            // Remove collections that no longer exist
+            this.Collections.RemoveAll(c => !collections.Contains(c.ID));
         }
         catch (Exception e)
         {
@@ -112,12 +117,23 @@ public class Library
         }
         catch (System.Exception e)
         {
-            logger.Error("Errot in LibraryUpdated event");
+            logger.Error("Error in LibraryUpdated event");
             logger.Error(e);
             throw;
         }
         
         return all;
+    }
+
+    private Collection UpdateOrCreateCollection(Collection collection) {
+        var existingCollection = this.Collections.Find(c => c.ID == collection.ID);
+        if (existingCollection != null) {
+            existingCollection.MergeFrom(collection);
+            return existingCollection;
+        } else {
+            this.Collections.Add(collection);
+            return collection;
+        }
     }
 
     private static void UnionOrIntersect<T>(ref HashSet<T> set, HashSet<T> target, bool union) {

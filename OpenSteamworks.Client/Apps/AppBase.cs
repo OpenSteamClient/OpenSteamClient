@@ -11,6 +11,8 @@ namespace OpenSteamworks.Client.Apps;
 /// </summary>
 public abstract class AppBase
 {
+    public event EventHandler? NameChanged;
+
     /// <summary>
     /// Generic launch option for implementation and display purposes
     /// </summary>
@@ -62,11 +64,18 @@ public abstract class AppBase
         }
     }
 
+    private string nameOverride = string.Empty;
     /// <summary>
     /// Use this to set a custom name. <br/> 
     /// It will override the name defined in the app's appdata sections, or in the case of mods it will override the mod's name (from it's gameinfo.txt)
     /// </summary>
-    public string NameOverride { get; set; } = "";
+    public string NameOverride {
+        get => nameOverride;
+        set {
+            nameOverride = value;
+            NameChanged?.Invoke(this, EventArgs.Empty);
+        }
+    }
 
     /// <summary>
     /// Use this to set a custom hero artwork url. <br/> 

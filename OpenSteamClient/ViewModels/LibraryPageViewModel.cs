@@ -11,17 +11,40 @@ using OpenSteamworks.Client;
 using OpenSteamworks.Client.Apps;
 using OpenSteamworks.Client.Apps.Library;
 using OpenSteamworks.Client.Managers;
+using AvaloniaCommon.Utils;
 
 namespace OpenSteamClient.ViewModels;
 
 public partial class LibraryPageViewModel : AvaloniaCommon.ViewModelBase
 {
-    public ObservableCollection<CollectionItemViewModel> Nodes { get; init; } = new();
-    public ObservableCollection<Node> SelectedNodes { get; } = new();
+    public ObservableCollectionEx<CollectionItemViewModel> Nodes { get; init; } = new();
+    public ObservableCollectionEx<Node> SelectedNodes { get; } = new();
 
 
     [ObservableProperty]
     private Control? sideContent;
+
+    private string searchText = string.Empty;
+    public string SearchText {
+        get => searchText;
+        set {
+            searchText = value;
+            UpdateGamesList();
+        }
+    }
+
+    private void UpdateGamesList()
+    {
+        foreach (var coll in Nodes)
+        {
+            if (searchText == string.Empty) {
+                coll.Children.ClearFilter();
+            } else {
+                coll.Children.FilterOriginal(f => f.GetSortableName().Contains(searchText, StringComparison.InvariantCultureIgnoreCase));
+                coll.Children.Sort();
+            }
+        }
+    }
 
     private readonly OpenSteamworks.Client.Apps.Library.Library library;
 
@@ -38,23 +61,14 @@ public partial class LibraryPageViewModel : AvaloniaCommon.ViewModelBase
     {
         foreach (var collection in library.Collections)
         {
-            var collectionviewmodel = this.GetOrCreateCategory(library, collection);
             var appids = library.GetAppsInCollection(collection.ID);
-
-            //TODO: Write our own observable collection to implement RemoveAll, Find, Sort, etc (this is seriously stupid, leaving lots of performance on the table here)
-            //TODO: Also having a SortedInsert would be useful
-            //collectionviewmodel.Children.RemoveAll()
-
-            int removeCount = 0;
-            foreach (var item in collectionviewmodel.Children.ToList())
-            {
-                if (!appids.Contains(item.GameID)) {
-                    // Remove item if it no longer exists
-                    collectionviewmodel.Children.Remove(item);
-                    removeCount++;
-                }
+            if (appids.Count == 0) {
+                // Don't show empty collections
+                continue;
             }
 
+            var collectionviewmodel = this.GetOrCreateCategory(library, collection);
+            int removeCount = collectionviewmodel.Children.RemoveAll(i => !appids.Contains(i.GameID));
             Console.WriteLine("Removed " + removeCount + " apps");
 
             int addCount = 0;
@@ -67,15 +81,24 @@ public partial class LibraryPageViewModel : AvaloniaCommon.ViewModelBase
                     continue;
                 }
 
-                // This add isn't sorted, so we need to do some trickery
-                //collectionviewmodel.Children.Add(new LibraryAppViewModel(this, app));
-
-                // So do this instead for a sorted insert ;) (this is terrible)
-                SortedAddInefficient(collectionviewmodel.Children, new LibraryAppViewModel(this, app));
+                collectionviewmodel.Children.AddUnique(new LibraryAppViewModel(this, app));
                 addCount++;
             }
 
+            collectionviewmodel.Children.Sort();
             Console.WriteLine("Added " + addCount + " apps");
+        }
+
+        // Delete collections that no longer exist
+        foreach (var item in Nodes.ToList())
+        {
+            if (item is CollectionItemViewModel cvm)
+            {
+                if (library.Collections.Find(c => c.ID == cvm.ID) == null)
+                {
+                    Nodes.Remove(item);
+                }
+            }
         }
     }
 
@@ -104,23 +127,15 @@ public partial class LibraryPageViewModel : AvaloniaCommon.ViewModelBase
             {
                 if (cvm.ID == collection.ID)
                 {
-                    cvm.Name = CollectionItemViewModel.CalculateName(library, collection);
                     return cvm;
                 }
             }
         }
 
-        CollectionItemViewModel vm = new(library, collection);
-        SortedAddInefficient(Nodes, vm);
+        CollectionItemViewModel vm = new(collection);
+        Nodes.Add(vm);
+        Nodes.Sort();
         
         return vm;
-    }
-
-    private static void SortedAddInefficient<T>(ObservableCollection<T> coll, T val) {
-        // Add the copy to the list, sort and find out what index it goes to
-        var copy = new List<T>(coll);
-        copy.Add(val);
-        copy.Sort();
-        coll.Insert(copy.IndexOf(val), val);
     }
 }

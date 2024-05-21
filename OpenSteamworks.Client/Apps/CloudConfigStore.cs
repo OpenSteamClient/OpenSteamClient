@@ -113,7 +113,7 @@ public class NamespaceData {
         }
     }    
 
-    public RepeatedField<CCloudConfigStore_Entry> Entries => ProtobufData.Entries;
+    private RepeatedField<CCloudConfigStore_Entry> Entries => ProtobufData.Entries;
     public CCloudConfigStore_NamespaceData ProtobufData { get; private set; }
     private readonly IClientUtils clientUtils;
     private readonly CloudConfigStore ccs;
@@ -174,7 +174,7 @@ public class CloudConfigStore : ILogonLifetime {
     }
 
     internal static string GetNamespaceFilename(CSteamID belongsToUser, EUserConfigStoreNamespace @namespace) {
-        return $"U-{belongsToUser.AccountID}-ccs-namespace-{(uint)@namespace}";
+        return $"U{belongsToUser.AccountID}-ns-{(uint)@namespace}";
     }
 
     /// <summary>
@@ -399,6 +399,7 @@ public class CloudConfigStore : ILogonLifetime {
             }
 
             req.body.Data.Add(changes);
+            changes.Clear();
         }
 
         var resp = await connection.ProtobufSendMessageAndAwaitResponse<CCloudConfigStore_Upload_Response, CCloudConfigStore_Upload_Request>(req);

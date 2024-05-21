@@ -247,6 +247,11 @@ public class ILGeneratorEx {
         }
     }
 
+    public void Stfld(FieldBuilder field)
+    {
+        this.Emit(OpCodes.Stfld, field);
+    }
+
     public void EmitPlatformLoad(IntPtr pointer)
     {
         switch (IntPtr.Size)

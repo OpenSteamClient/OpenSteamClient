@@ -21,10 +21,16 @@ public partial class PageHeaderViewModel : AvaloniaCommon.ViewModelBase
     [ObservableProperty]
     private string pageName;
 
+    [ObservableProperty]
+    private string pageLocToken;
+
+    [ObservableProperty]
+    private bool isVisible = true;
+
     public Type PageType { get; init; }
     public Type ViewModelType { get; init; }
     public Func<BasePage> PageCtor { get; init; }
-    public Func<object> ViewModelCtor { get; init; }
+    public Func<object, object> ViewModelCtor { get; init; }
     public ICommand SwitchPageAction { get; init; }
     public ObservableCollection<MenuItem> ContextMenuItems { get; } = new() { };
     public bool HasContextMenu
@@ -46,9 +52,11 @@ public partial class PageHeaderViewModel : AvaloniaCommon.ViewModelBase
     [ObservableProperty]
     private bool canUse;
 
-    public PageHeaderViewModel(MainWindowViewModel mainWindowViewModel, string name, Type pageType, Type viewModelType)
+    public PageHeaderViewModel(MainWindowViewModel mainWindowViewModel, string name, string locToken, Type pageType, Type viewModelType, bool defaultVisible = true)
     {
+        this.IsVisible = defaultVisible;
         this.PageName = name;
+        this.PageLocToken = locToken;
         this.PageType = pageType;
         this.IsWebPage = pageType.IsAssignableTo(typeof(BaseWebPage));
         this.ViewModelType = viewModelType;
@@ -63,7 +71,7 @@ public partial class PageHeaderViewModel : AvaloniaCommon.ViewModelBase
             return ctrl;
         };
 
-        this.ViewModelCtor = () => AvaloniaApp.Container.ConstructOnly(viewModelType);
+        this.ViewModelCtor = (page) => AvaloniaApp.Container.ConstructOnly(viewModelType, page);
         this.SwitchPageAction = new RelayCommand(() => mainWindowViewModel.SwitchToPage(pageType));
         this.ContextMenuItems.CollectionChanged += (object? sender, NotifyCollectionChangedEventArgs e) =>
         {

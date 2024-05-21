@@ -286,12 +286,14 @@ public class AppsManager : ILogonLifetime
         if (existing != null) {
             return existing;
         }
-#if !_WINDOWS
-        CGameID shortcutGameID = SteamClient.GetInstance().IPCClientShortcuts.GetGameIDForAppID(appid);
-#else
-        CGameID shortcutGameID = CGameID.Zero;
-#endif
+        
+// #if !_WINDOWS
+//         CGameID shortcutGameID = SteamClient.GetInstance().IPCClientShortcuts.GetGameIDForAppID(appid);
+// #else
+//         CGameID shortcutGameID = CGameID.Zero;
+// #endif
         AppBase app;
+        var shortcutGameID = CGameID.Zero;
         if (shortcutGameID.IsValid() && shortcutGameID.IsShortcut()) {
             // Handle non-steam appids
             app = GetShortcutApp(appid);

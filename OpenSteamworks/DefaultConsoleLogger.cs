@@ -68,4 +68,9 @@ public class DefaultConsoleLogger : ILogger
     {
         Console.WriteLine(e);
     }
+
+    public void Write(string message)
+    {
+        Console.Write(message);
+    }
 }

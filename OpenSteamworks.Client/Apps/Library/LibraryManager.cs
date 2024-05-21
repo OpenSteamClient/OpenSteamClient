@@ -325,19 +325,19 @@ public class LibraryManager : ILogonLifetime
         } else {
             targetPath = LibraryAssetToFilename(app.AppID, assetType);
 
-            if (asset.StoreAssetsLastModified < app.StoreAssetsLastModified) {
-                logger.Info($"Downloading {assetType} for {app.AppID} due to StoreAssetsLastModified ({asset.StoreAssetsLastModified} < {app.StoreAssetsLastModified})");
-                shouldDownload = true;
-            }
-
-            if (assetType != ELibraryAssetType.Icon && asset.GetExpires(assetType) == 0) {
-                logger.Info($"Downloading {assetType} for {app.AppID} due to GetExpires");
-                shouldDownload = true;
-            }
-
             // If the store assets last modified is set to 0, don't download store assets since they don't exist (but the icon is fine to download, as it's not a library asset)
             if (app.StoreAssetsLastModified == 0 && assetType != ELibraryAssetType.Icon) {
                 shouldDownload = false;
+            } else {
+                if (asset.StoreAssetsLastModified < app.StoreAssetsLastModified) {
+                    logger.Info($"Downloading {assetType} for {app.AppID} due to StoreAssetsLastModified ({asset.StoreAssetsLastModified} < {app.StoreAssetsLastModified})");
+                    shouldDownload = true;
+                }
+
+                if (assetType != ELibraryAssetType.Icon && asset.GetExpires(assetType) == 0) {
+                    logger.Info($"Downloading {assetType} for {app.AppID} due to GetExpires");
+                    shouldDownload = true;
+                }
             }
 
             // Don't try to download if icon hash is empty
@@ -346,7 +346,6 @@ public class LibraryManager : ILogonLifetime
                     shouldDownload = false;
                 }
             }
-
 
             if (shouldDownload) {
                 logger.Info($"Downloading library asset {assetType} for {app.AppID} with url {uri}");
@@ -412,8 +411,6 @@ public class LibraryManager : ILogonLifetime
                         asset.SetExpires(DateTimeOffset.UtcNow.AddYears(5).ToUnixTimeSeconds(), assetType);
                     }        
                 }
-            } else {
-                logger.Info($"Not downloading library asset {assetType} for {app.AppID}, as shouldDownload is false");
             }
             
             if (!suppressSet && success) {
@@ -465,16 +462,13 @@ public class LibraryManager : ILogonLifetime
     }
     
     private async Task DownloadAppAssets(SteamApp app) {
-        Console.WriteLine("Waiting for semaphore");
         await assetUpdateSemaphore.WaitAsync();
-        Console.WriteLine("Got semaphore");
         try
         {
             await UpdateLibraryAssets(app, true);
         }
         finally {
             assetUpdateSemaphore.Release();
-            Console.WriteLine("Free'd semaphore");
         }
     }
 

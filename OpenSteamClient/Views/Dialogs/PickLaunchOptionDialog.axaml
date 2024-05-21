@@ -1,0 +1,35 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:OpenSteamClient.ViewModels"
+        xmlns:c="using:OpenSteamClient.Controls"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="OpenSteamClient.Views.PickLaunchOptionDialog"
+        x:DataType="vm:PickLaunchOptionDialogViewModel"
+        Icon="/Assets/opensteam-logo.ico"
+        Width="500" Height="300">
+
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+             to set the actual DataContext for runtime, set the DataContext property in code (look at AvaloniaApp.axaml.cs) -->
+        <vm:PickLaunchOptionDialogViewModel/>
+    </Design.DataContext>
+
+    <StackPanel>
+        <TextBlock x:Name="DescText" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <ListBox ItemsSource="{Binding LaunchOptions}" SelectedItem="{Binding SelectedOption}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="{Binding Name}"/>
+                        <TextBlock IsVisible="{Binding HasDescription}" Text="{Binding Description}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <Button c:Translatable.TranslationKey="#Dialog_Cancel" Command="{Binding Close}"/>
+        <Button c:Translatable.TranslationKey="#Dialog_OK" IsEnabled="{Binding CanPressOK}" Command="{Binding OK}"/>
+    </StackPanel>
+</Window>

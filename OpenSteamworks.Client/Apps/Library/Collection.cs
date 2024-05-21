@@ -218,4 +218,18 @@ public class Collection
 
         return json;
     }
+
+    public void MergeFrom(Collection collection)
+    {
+        this.explicitlyAddedApps = collection.explicitlyAddedApps;
+        this.explicitlyRemovedApps = collection.explicitlyRemovedApps;
+        this.dynamicCollectionAppsCached = collection.dynamicCollectionAppsCached;
+        this.Name = collection.Name;
+
+        // Dynamic filters
+        this.StateFilter = collection.StateFilter;
+        this.StoreTagsFilter = collection.StoreTagsFilter;
+        this.FriendsInCommonFilter = collection.FriendsInCommonFilter;
+        this.FeatureAndSupportFilter = collection.FeatureAndSupportFilter;
+    }
 }

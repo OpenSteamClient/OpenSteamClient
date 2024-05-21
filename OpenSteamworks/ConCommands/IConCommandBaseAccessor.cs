@@ -9,5 +9,5 @@ namespace OpenSteamworks.ConCommands;
 [StructLayout(LayoutKind.Sequential)]
 public unsafe struct IConCommandBaseAccessor
 {
-    public delegate* unmanaged[Cdecl]<IConCommandBaseAccessor*,ConCommandBase*,byte>* accessorFunc;
+    public delegate* unmanaged[Cdecl]<IConCommandBaseAccessor*, nint, byte>* accessorFunc;
 };

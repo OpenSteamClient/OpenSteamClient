@@ -17,6 +17,7 @@ namespace OpenSteamClient.ViewModels.Library;
 public partial class LibraryAppViewModel : Node
 {
     public AppBase App { get; init; }
+    protected override string ActualName => App.Name;
 
     public LibraryAppViewModel(LibraryPageViewModel page, CGameID gameid)
     {
@@ -24,27 +25,36 @@ public partial class LibraryAppViewModel : Node
         this.IsApp = true;
 
         App = AvaloniaApp.Container.Get<AppsManager>().GetApp(gameid);
-        this.Name = App.Name;
         this.GameID = App.GameID;
 
         SetLibraryAssets();
         SetStatusIcon();
         App.LibraryAssetsUpdated += OnLibraryAssetsUpdated;
+        App.NameChanged += OnNameChanged;
+    }
+
+    private void OnNameChanged(object? sender, EventArgs e)
+    {
+        OnPropertyChanged(nameof(Name));
     }
 
     private void SetLibraryAssets()
     {
-        if (App.LocalIconPath != null)
+        // Constructing an ImageBrush needs to happen on the main thread (strange design but sure, whatever)
+        AvaloniaApp.Current?.RunOnUIThread(DispatcherPriority.Send, () =>
         {
-            this.Icon = new ImageBrush()
+            if (App.LocalIconPath != null)
             {
-                Source = new Bitmap(App.LocalIconPath),
-            };
-        }
-        else
-        {
-            this.Icon = Brushes.DarkGray;
-        }
+                this.Icon = new ImageBrush()
+                {
+                    Source = new Bitmap(App.LocalIconPath),
+                };
+            }
+            else
+            {
+                this.Icon = Brushes.DarkGray;
+            }
+        });
     }
 
     private void SetStatusIcon()

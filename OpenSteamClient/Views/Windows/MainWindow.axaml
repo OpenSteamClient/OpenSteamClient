@@ -50,7 +50,7 @@
                 
             </MenuItem>
 
-            <MenuItem Header="Debug">
+            <MenuItem IsVisible="{Binding IsDebug}" Header="Debug">
                 <MenuItem c:Translatable.TranslationKey="#MainWindow_Header_Debug_OpenInterfaceList" Header="Interface list" Command="{Binding DBG_OpenInterfaceList}"/>
                 <MenuItem Header="Dump profiler to console" Command="{Binding DBG_DumpProfiler}" />
                 <MenuItem Header="Test HTMLSurface" Command="{Binding DBG_TestHTMLSurface}" />
@@ -61,10 +61,10 @@
             </MenuItem>
         </Menu>
 
-        <!-- Downloads section -->
-        <StackPanel DockPanel.Dock="Bottom" Background="Red" HorizontalAlignment="Center">
+        <!-- Downloads section (TODO: We moved this to the top. Would it be better on the bottom?) -->
+        <!-- <StackPanel DockPanel.Dock="Bottom" Background="Red" HorizontalAlignment="Center">
             <TextBlock Text="Downloads section" />
-        </StackPanel>
+        </StackPanel> -->
         
         <!-- Header buttons -->
         <ItemsControl ItemsSource="{Binding PageList}" DockPanel.Dock="Top">
@@ -79,7 +79,7 @@
                         <Button.ContextMenu>
                             <ContextMenu ItemsSource="{Binding ContextMenuItems}" />
                         </Button.ContextMenu>     
-                        <ContentControl Content="{Binding PageName}"/>
+                        <ContentControl c:Translatable.TranslationKey="{Binding PageLocToken}" Content="{Binding PageName}"/>
                     </Button>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>

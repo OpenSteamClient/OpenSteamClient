@@ -79,12 +79,12 @@ public interface ISteamClient {
     public DownloadManager DownloadManager { get; }
     public ConnectionType ConnectedWith { get; }
 
-#if !_WINDOWS
-    /// <summary>
-    /// Use this for shortcuts functionality. There's some unhandled shit going on in the native interface with CGameIDs and other UInt64's
-    /// </summary>
-    public ClientShortcuts IPCClientShortcuts { get; }
-#endif
+// #if !_WINDOWS
+//     /// <summary>
+//     /// Use this for shortcuts functionality. There's some unhandled shit going on in the native interface with CGameIDs and other UInt64's
+//     /// </summary>
+//     public ClientShortcuts IPCClientShortcuts { get; }
+// #endif
 
     public bool BGetCallback(out CallbackMsg_t callbackMsg);
     public void FreeLastCallback();

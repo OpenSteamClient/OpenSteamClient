@@ -491,7 +491,7 @@ public class IPCClient {
             msg = _WaitForMessage();
         }
 
-        Console.WriteLine("Got msg " + string.Join(" ", msg));
+        Logging.IPCLogger.Debug("Got msg " + string.Join(" ", msg));
 
         return msg;
     }

@@ -52,6 +52,7 @@ public partial class MainWindowViewModel : AvaloniaCommon.ViewModelBase
     private PageHeaderViewModel? CurrentPageHeader;
     private readonly Dictionary<Type, BasePage> LoadedPages = new();
     public ObservableCollection<PageHeaderViewModel> PageList { get; } = new() { };
+    public bool IsDebug => AvaloniaApp.DebugEnabled;
 
     public bool CanLogonOffline => client.IClientUser.CanLogonOffline() == 1;
     public bool IsOfflineMode => client.IClientUtils.GetOfflineMode();
@@ -76,16 +77,15 @@ public partial class MainWindowViewModel : AvaloniaCommon.ViewModelBase
         this.client.CallbackManager.RegisterHandler(1210004, OnCGameNetworkingUI_AppSummary);
         this.client.CallbackManager.RegisterHandler(1210001, OnClientNetworking_ConnectionStateChanged);
 
-        PageList.Add(new(this, "Store", typeof(StorePage), typeof(ViewModelBase)));
-        PageList.Add(new(this, "Library", typeof(LibraryPage), typeof(LibraryPageViewModel)));
+        //TODO: need some other way to make the store and community pages work. (steamhtml is not very good for that purpose)
+        //PageList.Add(new(this, "Store", typeof(StorePage), typeof(ViewModelBase)));
+        PageList.Add(new(this, "Library", "#Library", typeof(LibraryPage), typeof(LibraryPageViewModel)));
         //TODO: this isn't final, we might move downloads to the bottom still
-        PageList.Add(new(this, "Downloads", typeof(DownloadsPage), typeof(DownloadsPageViewModel)));
-        PageList.Add(new(this, "Community", typeof(CommunityPage), typeof(ViewModelBase)));
-        PageList.Add(new(this, "Console", typeof(ConsolePage), typeof(ConsolePageViewModel)));
+        PageList.Add(new(this, "Downloads", "#Tab_Downloads", typeof(DownloadsPage), typeof(DownloadsPageViewModel)));
+        //PageList.Add(new(this, "Community", typeof(CommunityPage), typeof(ViewModelBase)));
+        PageList.Add(new(this, "Console", "#Tab_Console", typeof(ConsolePage), typeof(ConsolePageViewModel)));
 
         SwitchToPage(typeof(LibraryPage));
-        this.client.IClientAppManager.GetUpdateInfo(1281930, out AppUpdateInfo_s updateInfo);
-        Console.WriteLine(updateInfo.ToString());
     }
 
 #pragma warning disable MVVMTK0034
@@ -99,7 +99,7 @@ public partial class MainWindowViewModel : AvaloniaCommon.ViewModelBase
         if (page == null)
         {
             page = model.PageCtor();
-            page.DataContext = model.ViewModelCtor();
+            page.DataContext = model.ViewModelCtor(page);
             LoadedPages.Add(model.PageType, page);
         }
 

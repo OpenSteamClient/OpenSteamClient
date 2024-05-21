@@ -2,6 +2,7 @@ using System;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.VisualTree;
+using OpenSteamClient.Translation;
 
 namespace OpenSteamClient.Extensions;
 
@@ -52,7 +53,7 @@ public static class ControlExtensions
             return false;
         }
 
-        Console.WriteLine($"Translating control {control.GetType().Name}{(dueToLayoutChange ? " (due to layout change)" : "")}");
+        tm.Logger.Info($"Translating control {control.GetType().Name}{(dueToLayoutChange ? " (due to layout change)" : "")}");
         tm.TranslateVisual(control);
         return true;
     }

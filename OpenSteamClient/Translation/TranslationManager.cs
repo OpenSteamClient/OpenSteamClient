@@ -41,6 +41,7 @@ public class TranslationManager : ILogonLifetime
     private readonly Container container;
     private readonly ConfigManager configManager;
     private readonly Logger logger;
+    internal Logger Logger => logger;
 
     private UserSettings userSettings
     {
@@ -189,15 +190,11 @@ public class TranslationManager : ILogonLifetime
         if (!string.IsNullOrEmpty(translationKey))
         {
             bool translationFailed = false;
-            string translatedText = "TRANSLATION FAILED";
-            if (!this.CurrentTranslation.TranslationKeys.ContainsKey(translationKey))
+            if (!CurrentTranslation.TranslationKeys.TryGetValue(translationKey, out string? translatedText))
             {
                 translationFailed = true;
-                Console.WriteLine("Cannot translate " + translationKey + ", no key!");
-            }
-            else
-            {
-                translatedText = this.CurrentTranslation.TranslationKeys[translationKey];
+                logger.Error("Cannot translate " + translationKey + ", no such key for current language!");
+                translatedText = "TRANSLATION FAILED";
             }
 
             void TranslateTextInternal<T>(StyledProperty<T> property)

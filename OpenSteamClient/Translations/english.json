@@ -55,7 +55,7 @@
         "#App_StopApp": "Stop",
         "#App_StoppingApp": "Stopping",
         "#App_CancelAppLaunch": "Cancel",
-        "#Console_Send": "Send",
+        "#Console_Send": "Run",
         "#Dialog_Cancel": "Cancel",
         "#Dialog_OK": "OK",
         "#Dialog_Yes": "Yes",
@@ -63,6 +63,21 @@
         "#SelectInstallDirectoryDialog_Title": "Install {0}",
         "#SelectInstallDirectoryDialog_SelectLibraryFolder": "Select a library folder to install {0} in",
         "#UserSettings_AutologinFriendsNetworkDesc": "Automatically login to the friends network when logging in",
-        "#UserSettings_AutologinFriendsNetwork": "Auto-login to friends network"
+        "#UserSettings_AutologinFriendsNetwork": "Auto-login to friends network",
+        "#App_Tray_Tooltip": "OpenSteamClient is running",
+        "#App_Tray_Friends": "Friends",
+        "#Library": "Library",
+        "#Tab_Downloads": "Downloads",
+        "#Tab_Console": "Console",
+        "#FriendsUI_ShowList": "Show Friends list",
+        "#FriendsUI_PersonaState_Online": "Online",
+        "#FriendsUI_PersonaState_Away": "Away",
+        "#FriendsUI_PersonaState_Invisible": "Invisible",
+        "#FriendsUI_PersonaState_Offline": "Offline",
+        "#Library_SearchBarWatermark": "Search by name",
+        "#LaunchOptionDialog_Title": "Launch Options - {0}",
+        "#LaunchOptionDialog_ChooseHowToLaunch": "Choose how {0} should be started:",
+        "#LaunchOptionDialog_GenericOptionGame": "Play {0}",
+        "#LaunchOptionDialog_GenericOptionApp": "Launch {0}"
     }
 }

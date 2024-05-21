@@ -61,7 +61,9 @@ public class Client : IClientLifetime
         container.RegisterFactoryMethod<ISteamClient>((Bootstrapper bootstrapper, AdvancedConfig advancedConfig, InstallManager im) =>
         {
             Logging.GeneralLogger = Logger.GetLogger("OpenSteamworks", im.GetLogPath("OpenSteamworks"));
-            Logging.NativeClientLogger = Logger.GetLogger("OpenSteamworks-NativeClient", im.GetLogPath("OpenSteamworks_NativeClient"));
+            var nativeClientLogger = Logger.GetLogger("OpenSteamworks-NativeClient"); // im.GetLogPath("OpenSteamworks_NativeClient")
+            nativeClientLogger.AddPrefix = false;
+            Logging.NativeClientLogger = nativeClientLogger;
             Logging.IPCLogger = Logger.GetLogger("OpenSteamworks-IPCClient", im.GetLogPath("OpenSteamworks_IPCClient"));
             Logging.CallbackLogger = Logger.GetLogger("OpenSteamworks-Callbacks", im.GetLogPath("OpenSteamworks_Callbacks"));
             Logging.JITLogger = Logger.GetLogger("OpenSteamworks-JIT", im.GetLogPath("OpenSteamworks_JIT"));

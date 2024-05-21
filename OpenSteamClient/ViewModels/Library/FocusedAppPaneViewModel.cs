@@ -283,8 +283,18 @@ public partial class FocusedAppPaneViewModel : AvaloniaCommon.ViewModelBase
         {
             await this.app.Launch("", this.app.DefaultLaunchOptionID.Value);
         } else {
-            Console.WriteLine("No default launch option!!!");
-            Console.WriteLine("TODO: launch option switcher");
+            AvaloniaApp.Current?.RunOnUIThread(DispatcherPriority.Normal, () =>
+            {
+                var dialog = new PickLaunchOptionDialog();
+                var vm = new PickLaunchOptionDialogViewModel(dialog, app);
+                dialog.DataContext = vm;
+                vm.OptionSelected += (object? sender, int selectedOption) =>
+                {
+                    this.app.Launch("", selectedOption);
+                };
+
+                dialog.Show();
+            });
         }
     }
 }

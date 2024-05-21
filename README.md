@@ -8,8 +8,11 @@ Everything below is blockers. Lots of stuff that's only documented in my head is
 Stuff marked later can wait for after we make an MVP.
 Stuff marked future can be done eventually or just completely ignored
 
+- [ ] Startup wizard
+  - [ ] initial settings
+  - [ ] steamapps linking 
 - [ ] Backend stuff:
-  - [ ] (optional) JITEngine classgen with fields
+  - [x] (optional) JITEngine classgen with fields
   - [x] Callback system
     - [ ] Make more performant
       - Chokes pretty badly right now with the HTML rendering
@@ -17,31 +20,30 @@ Stuff marked future can be done eventually or just completely ignored
   - [ ] Fix TODO:s and BLOCKER:s
   - [x] Callresult system for non-callback results (needed for steamwebhelper/chromehtml/storepages)
     - [ ] Make not spaghetti
-- [ ] Account system:
+- [x] Account system:
   - [ ] Profile pictures
   - [ ] QR code in the loginwindow doesn't have bottom margin
-  - [ ] 2FA 
-    - [ ] 2FA window improvements
+  - [x] 2FA 
+    - [ ] 2FA window improvements (the layout is VERY crude)
 - [ ] Client settings UI
   - [ ] Library folder management
   - [ ] Compat settings
   - [ ] Persona name change
   - [ ] Download speed cap
-- [ ] Fix CPU fan speeding due to IPCClient
+- [x] Fix CPU fan speeding due to IPCClient
 - [ ] Library UI
   - [ ] Game news and patch notes
-  - [ ] Search bar
+  - [x] Search bar
   - [x] Collections backend
-    - [ ] Fix
-     - Sometimes it's missing games. Why?
     - [ ] Needs to have edit functionality
-    - [ ] Sync to the cloud
+    - [x] Sync to the cloud
   - [ ] Collection editing GUI (later)
   - [x] Games list
+    - [ ] Stop using TreeView
+      - Perf. problems
+      - Stupid "Name" hack.
     - [ ] Context menu for launching, settings, etc
   - [ ] Focused game view (library art, friends who play, etc)
-    - [x] Library hero art 
-    - [x] Play button 
     - [ ] Friends who play section (later)
     - [ ] Store, Community, Workshop, etc buttons (later)
     - [ ] Settings button
@@ -54,7 +56,7 @@ Stuff marked future can be done eventually or just completely ignored
       - [ ] How much space is used
       - [ ] Cloud file viewer UI (later)
     - [ ] Launch settings
-      - [ ] Launch settings dialog
+      - [x] Launch settings dialog
       - [ ] Set command line
       - [ ] Set default launch option (later)
         - [ ] Visualize the full launch option in the command line box (later)
@@ -167,8 +169,10 @@ NOTE: The features mentioned here are the criteria for replacing the old Qt/C++ 
 - Build history browser
   - Lock specific build
 - Steam cloud filebrowser
+- Misc QOL features, such as:
+  - Download all updates button
 - Linux users will also enjoy:
-  - 64-bit main executable
+  - 64-bit main executable  
     - One app less that requires multilib/32-bit libraries
   - ProtonDB Integration
   - Compat tool improvements:

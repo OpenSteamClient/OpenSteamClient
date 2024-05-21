@@ -45,7 +45,7 @@ struct NativeFuncs {
     public delegate void Steam_FreeLastCallback(HSteamPipe steamPipe);
 }
 
-public class ClientNative {
+public partial class ClientNative {
     public NativeLibraryEx SteamClientLib;
 
     /// <summary>
@@ -155,6 +155,7 @@ public class ClientNative {
     public IClientVR IClientVR { get; private set; }
 
     public ConCommands.ConsoleNative consoleNative;
+    private static readonly string[] separator = new string[] { "\n" };
 
 
     /// <summary>
@@ -339,27 +340,32 @@ public class ClientNative {
     [UnmanagedCallersOnly(CallConvs = new[] { typeof(CallConvCdecl) })]
     public static unsafe SpewRetval_t SpewOutputFuncHook(SpewType_t pSeverity, void* str) {
         string? message = Marshal.PtrToStringUTF8((IntPtr)str);
-        message ??= "";
-        var lines = message.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
-        foreach (var line in lines)
-        {
-            var toPrint = Regex.Replace(line, "\\[....-..-.. ..\\:..\\:..\\] +", "");
-            switch (pSeverity)
+        message ??= string.Empty;
+        if (!message.Contains('\n')) {
+            Logging.NativeClientLogger.Write(message);
+        } else {
+            var lines = message.Split(separator, StringSplitOptions.RemoveEmptyEntries);
+            foreach (var line in lines)
             {
-                case SpewType_t.SPEW_WARNING:
-                    Logging.NativeClientLogger.Warning(toPrint);
-                    break;
-                case SpewType_t.SPEW_ERROR:
-                    Logging.NativeClientLogger.Error(toPrint);
-                    break;
-                case SpewType_t.SPEW_ASSERT:
-                    Logging.NativeClientLogger.Warning(toPrint);
-                    break;
-                case SpewType_t.SPEW_MESSAGE:
-                case SpewType_t.SPEW_LOG:
-                default:
-                    Logging.NativeClientLogger.Info(toPrint);
-                    break;
+                // Replace the time and date if one exists
+                //var toPrint = TimeDateRegex().Replace(line, string.Empty);
+                switch (pSeverity)
+                {
+                    case SpewType_t.SPEW_WARNING:
+                        Logging.NativeClientLogger.Warning(line);
+                        break;
+                    case SpewType_t.SPEW_ERROR:
+                        Logging.NativeClientLogger.Error(line);
+                        break;
+                    case SpewType_t.SPEW_ASSERT:
+                        Logging.NativeClientLogger.Warning(line);
+                        break;
+                    case SpewType_t.SPEW_MESSAGE:
+                    case SpewType_t.SPEW_LOG:
+                    default:
+                        Logging.NativeClientLogger.Info(line);
+                        break;
+                }
             }
         }
         
@@ -459,4 +465,7 @@ public class ClientNative {
 
         return JITEngine.GenerateClass<IFaceT>(returned);
     }
+
+    [GeneratedRegex("\\[....-..-.. ..\\:..\\:..\\] +")]
+    private static partial Regex TimeDateRegex();
 }

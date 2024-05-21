@@ -114,9 +114,9 @@ public class SteamClient : ISteamClient
     public IClientVideo IClientVideo => NativeClient.IClientVideo;
     public IClientVR IClientVR => NativeClient.IClientVR;
 
-#if !_WINDOWS
-    public ClientShortcuts IPCClientShortcuts { get; init; }
-#endif
+// #if !_WINDOWS
+//     public ClientShortcuts IPCClientShortcuts { get; init; }
+// #endif
 
     internal static readonly IPlatform platform;
     private ClientAPI_WarningMessageHook_t warningMessageHook;
@@ -139,15 +139,15 @@ public class SteamClient : ISteamClient
         }
     }
 
-#if !_WINDOWS
-    /// <summary>
-    /// Use at your own discretion.
-    /// This is experimental and may be removed or broken at any time.
-    /// (And is not implemented correctly)
-    /// </summary>
-    public IPCClient.IPCClient IPCClient;
+// #if !_WINDOWS
+//     /// <summary>
+//     /// Use at your own discretion.
+//     /// This is experimental and may be removed or broken at any time.
+//     /// (And is not implemented correctly)
+//     /// </summary>
+//     public IPCClient.IPCClient IPCClient;
 
-#endif
+// #endif
 
     /// <summary>
     /// Constructs a OpenSteamworks.Client. 
@@ -208,10 +208,10 @@ public class SteamClient : ISteamClient
         this.DownloadManager = new DownloadManager(this);
         
         if (!barebones) {
-#if !_WINDOWS
-            this.IPCClient = new("Steam3Master", OpenSteamworks.IPCClient.IPCClient.IPCConnectionType.Client);
-            this.IPCClientShortcuts = new ClientShortcuts(this.IPCClient, (uint)(int)this.NativeClient.User);
-#endif
+// #if !_WINDOWS
+//             this.IPCClient = new("Steam3Master", OpenSteamworks.IPCClient.IPCClient.IPCConnectionType.Client);
+//             this.IPCClientShortcuts = new ClientShortcuts(this.IPCClient, (uint)(int)this.NativeClient.User);
+// #endif
             // Before this, most important callbacks should be registered
             this.CallbackManager.StartThread();
         }

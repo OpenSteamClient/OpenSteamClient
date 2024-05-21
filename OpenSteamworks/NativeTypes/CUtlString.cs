@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
+using System.Text;
 
 
 
@@ -11,6 +12,12 @@ public unsafe struct CUtlString {
     public CUtlString() {}
     public string? ToManaged() {
         return Marshal.PtrToStringAuto((IntPtr)this.m_pchString);
+    }
+
+    public CUtlString(string str) {
+        var bytes = Encoding.UTF8.GetBytes(str + "\0");
+        this.m_pchString = (byte*)NativeMemory.Alloc((nuint)bytes.Length);
+        bytes.CopyTo(new Span<byte>(this.m_pchString, bytes.Length));
     }
 
     public override string ToString() {

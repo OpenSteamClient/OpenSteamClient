@@ -77,11 +77,12 @@ public class ShortcutApp : AppBase {
     internal ShortcutApp(AppId_t appidShortcut)
     {
         this.ShortcutAppID = appidShortcut;
-#if !_WINDOWS
-        this.GameID = SteamClient.GetInstance().IPCClientShortcuts.GetGameIDForAppID(appidShortcut);
-#else
         this.GameID = CGameID.Zero;
-#endif
+// #if !_WINDOWS
+//         this.GameID = SteamClient.GetInstance().IPCClientShortcuts.GetGameIDForAppID(appidShortcut);
+// #else
+//         this.GameID = CGameID.Zero;
+// #endif
     }
 
     public override async Task<EAppError> Launch(string userLaunchOptions, int launchOption)

@@ -1,15 +1,21 @@
 using System;
 using System.Collections.ObjectModel;
+using System.Collections.Specialized;
 using Avalonia.Media;
+using AvaloniaCommon.Utils;
 using CommunityToolkit.Mvvm.ComponentModel;
 using OpenSteamworks.Structs;
 
 namespace OpenSteamClient.ViewModels.Library;
 
-public partial class Node : AvaloniaCommon.ViewModelBase, IComparable<Node>
+public abstract partial class Node : AvaloniaCommon.ViewModelBase, IComparable<Node>
 {
-    [ObservableProperty]
-    private string name = "";
+    // This is real stupid. 
+    // Avalonia breaks if CollectionViewModel (parent) has an override for a bound property, causing binding to fail for all LibraryAppViewModel (children)
+    // So instead, do this hack.
+    // TODO: Stop using TreeView.
+    public string Name => ActualName;
+    protected abstract string ActualName { get; }
 
     [ObservableProperty]
     private IBrush icon = Brushes.Transparent;
@@ -26,8 +32,17 @@ public partial class Node : AvaloniaCommon.ViewModelBase, IComparable<Node>
     [ObservableProperty]
     private bool isExpanded;
 
-    public ObservableCollection<Node> Children { get; protected set; } = new();
+    public ObservableCollectionEx<Node> Children { get; protected set; } = new();
     public CGameID GameID { get; protected set; }
+
+    public Node() {
+        Children.CollectionChanged += OnChildrenChanged;
+    }
+
+    protected void OnChildrenChanged(object? sender, NotifyCollectionChangedEventArgs e)
+    {
+        base.OnPropertyChanged(nameof(Name));
+    }
 
     public int CompareTo(Node? other)
     {

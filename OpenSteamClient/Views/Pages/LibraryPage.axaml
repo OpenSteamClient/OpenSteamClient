@@ -23,25 +23,43 @@
             <ColumnDefinition Width="4*" MinWidth="64" />
         </Grid.ColumnDefinitions>
 
-        <TreeView SelectedItems="{Binding SelectedNodes}" ItemsSource="{Binding Nodes}">
+        <Grid x:Name="GameListAndFilters">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
 
-            <!-- To set properties in the constructed TreeItem, do this -->
-            <TreeView.Styles>
-                <Style Selector="TreeViewItem" x:DataType="vml:Node">
-                    <!-- <Setter Property="ShowExpandCollapseChevron" Value="{Binding !IsApp}"/> -->
-                </Style>
-            </TreeView.Styles>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="4*" />
+            </Grid.RowDefinitions>
+            
+            <!-- Game list and filters -->
+            <StackPanel Grid.Row="0" x:Name="GameFilters">
+                <!-- Filters area -->
+                <TextBox x:Name="SearchBar" c:Translatable.TranslationKey="#Library_SearchBarWatermark" Text="{Binding SearchText}"/>
+            </StackPanel>
 
-            <TreeView.ItemTemplate>
-                <TreeDataTemplate ItemsSource="{Binding Children}">
-                    <StackPanel Orientation="Horizontal">
-                        <Canvas Height="20" Width="20" Top="0" Left="0" Margin="0,0,4,0" IsVisible="{Binding HasIcon}" Background="{Binding Icon}"/>
-                        <TextBlock Text="{Binding Name}"/>
-                    </StackPanel>
-                </TreeDataTemplate>
-            </TreeView.ItemTemplate>
-        </TreeView>
-        <GridSplitter Grid.Column="1" ResizeDirection="Columns" Background="White"/>
+            <TreeView Grid.Row="1" SelectedItems="{Binding SelectedNodes}" ItemsSource="{Binding Nodes}">
+                <!-- Game list -->
+
+                <!-- To set properties in the constructed TreeItem, do this -->
+                <TreeView.Styles>
+                    <Style Selector="TreeViewItem" x:DataType="vml:Node">
+                        <!-- <Setter Property="ShowExpandCollapseChevron" Value="{Binding !IsApp}"/> -->
+                    </Style>
+                </TreeView.Styles>
+
+                <TreeView.ItemTemplate>
+                    <TreeDataTemplate ItemsSource="{Binding Children}">
+                        <StackPanel Orientation="Horizontal">
+                            <Canvas Height="20" Width="20" Top="0" Left="0" Margin="0,0,4,0" IsVisible="{Binding HasIcon}" Background="{Binding Icon}"/>
+                            <TextBlock Text="{Binding Name, Mode=OneWay}"/>
+                        </StackPanel>
+                    </TreeDataTemplate>
+                </TreeView.ItemTemplate>
+            </TreeView>
+        </Grid>
+        <GridSplitter Grid.Column="1" ResizeDirection="Columns" Background="Black"/>
 
         <!-- Side content (game detail view, "big coverart" view) -->
         <ContentControl Grid.Column="2" Content="{Binding SideContent}" />

@@ -72,5 +72,9 @@ namespace OpenSteamworks.Native.JIT
         public static void EndProfile(CProfiler.INodeLifetime? lifetime) {
             lifetime?.Dispose();
         }
+
+        public static nint LoadVTPtr(nint vtable_ptr, int vt_slot) {
+            return Marshal.ReadIntPtr(vtable_ptr, IntPtr.Size * vt_slot);
+        }
     }
 }

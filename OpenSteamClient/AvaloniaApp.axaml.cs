@@ -282,7 +282,7 @@ public class AvaloniaApp : Application
     /// </summary>
     /// <param name="dialog"></param>
     public void TryShowDialogSingle<T>(Func<T> dialogFactory) where T: Window {
-        RunOnUIThread(() =>
+        RunOnUIThread(DispatcherPriority.Send, () =>
         {
             var existingDialog = TryGetDialogSingle<T>();
             if (existingDialog != null) {
@@ -299,12 +299,19 @@ public class AvaloniaApp : Application
         });
     }
 
-    public void RunOnUIThread(Action func) {
+    /// <summary>
+    /// Runs the given action on the UI thread.
+    /// If we're already on the UI thread, executes the function inline.
+    /// Blocks until the function has been executed.
+    /// </summary>
+    /// <param name="func"></param>
+    public void RunOnUIThread(DispatcherPriority priority, Action func) {
         if (Dispatcher.UIThread.CheckAccess()) {
             func();
+            return;
         }
-
-        Dispatcher.UIThread.Invoke(func);
+        
+        Dispatcher.UIThread.Invoke(func, priority);
     }
 
     public T? TryGetDialogSingle<T>() where T: Window {

@@ -55,7 +55,7 @@
         "#App_StopApp": "Lopeta",
         "#App_StoppingApp": "Lopetetaan",
         "#App_CancelAppLaunch": "Peruuta",
-        "#Console_Send": "Lähetä",
+        "#Console_Send": "Suorita",
         "#Dialog_Cancel": "Peruuta",
         "#Dialog_OK": "OK",
         "#Dialog_Yes": "Kyllä",
@@ -63,6 +63,21 @@
         "#SelectInstallDirectoryDialog_Title": "Asenna {0}",
         "#SelectInstallDirectoryDialog_SelectLibraryFolder": "Valitse kirjastokansio minne {0} asennetaan",
         "#UserSettings_AutologinFriendsNetworkDesc": "Automaattisesti kirjaudu kaveriverkkoon kun kirjaudut sisään",
-        "#UserSettings_AutologinFriendsNetwork": "Kirjaudu sisään kaveriverkkoon automaattisesti"
+        "#UserSettings_AutologinFriendsNetwork": "Kirjaudu sisään kaveriverkkoon automaattisesti",
+        "#App_Tray_Tooltip": "OpenSteamClient on päällä",
+        "#App_Tray_Friends": "Kaverit",
+        "#Library": "Kirjasto",
+        "#Tab_Downloads": "Lataukset",
+        "#Tab_Console": "Pääte",
+        "#FriendsUI_ShowList": "Näytä kaverilista",
+        "#FriendsUI_PersonaState_Online": "Paikalla",
+        "#FriendsUI_PersonaState_Away": "Poissa",
+        "#FriendsUI_PersonaState_Invisible": "Näkymätön",
+        "#FriendsUI_PersonaState_Offline": "Kirjautunut ulos",
+        "#Library_SearchBarWatermark": "Hae nimellä",
+        "#LaunchOptionDialog_Title": "Käynnistysasetukset - {0}",
+        "#LaunchOptionDialog_ChooseHowToLaunch": "Valitse, miten {0} käynnistetään:",
+        "#LaunchOptionDialog_GenericOptionGame": "Pelaa {0}",
+        "#LaunchOptionDialog_GenericOptionApp": "Käynnistä {0}"
     }
 }

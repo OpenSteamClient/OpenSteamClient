@@ -1,4 +1,6 @@
+using System.Collections.Concurrent;
 using System.Runtime.InteropServices;
+using System.Runtime.Intrinsics.X86;
 using System.Runtime.Versioning;
 using System.Text;
 using Microsoft.VisualBasic;
@@ -15,8 +17,31 @@ public class Logger : ILogger {
         FATAL
     }
 
+    private struct LogData {
+        public Logger logger;
+        public DateTime Timestamp;
+        public Level Level;
+        public string Message;
+        public string Category;
+        public bool FullLine;
+
+        public LogData(Logger logger, Level level, string msg, string category, bool fullLine) {
+            this.logger = logger;
+            this.Timestamp = DateTime.Now;
+            this.Level = level;
+            this.Message = msg;
+            this.Category = category;
+            this.FullLine = fullLine;
+        }
+    }
+
     public string Name { get; set; } = "";
     public string? LogfilePath { get; init; } = null;
+
+    /// <summary>
+    /// Should the logger prefix messages it receives?
+    /// </summary>
+    public bool AddPrefix { get; set; } = true;
 
     /// <summary>
     /// If this logger is a sublogger, this is it's name.
@@ -29,15 +54,39 @@ public class Logger : ILogger {
     private Logger? parentLogger { get; set; }
 
     // https://no-color.org/
-    private bool disableColors = Environment.GetEnvironmentVariable("NO_COLOR") != null;
+    private static bool disableColors = Environment.GetEnvironmentVariable("NO_COLOR") != null;
     private object logStreamLock = new();
     private FileStream? logStream;
     private static List<Logger> loggers = new();
+    private static readonly Thread logThread;
+
+    public class DataReceivedEventArgs : EventArgs {
+        public Level Level { get; set; }
+        public string Text { get; set; }
+        public string AnsiColorSequence { get; set; }
+        public string AnsiResetCode { get; set; }
+        public bool FullLine { get; set; }
+        public DataReceivedEventArgs(Level level, string text, bool fullLine, string ansiColorSequence, string ansiResetCode) {
+            this.Level = level;
+            this.Text = text;
+            this.FullLine = fullLine;
+            this.AnsiColorSequence = ansiColorSequence;
+            this.AnsiResetCode = ansiResetCode;
+        }
+    }
+
+    public static event EventHandler<DataReceivedEventArgs>? DataReceived;
+
+    static Logger() {
+        logThread = new(LogThreadMain);
+        logThread.Name = "LogThread";
+        logThread.Start();
+    }
 
     private Logger(string name, string? filepath = "") {
         this.Name = name;
         this.LogfilePath = filepath;
-        
+
         loggers.Add(this);
         if (!string.IsNullOrEmpty(filepath)) {
             if (File.Exists(filepath)) {
@@ -53,6 +102,31 @@ public class Logger : ILogger {
         
         if (!hasRanWindowsHack && OperatingSystem.IsWindows()) {
             RunWindowsConsoleColorsHack();
+        }
+    }
+
+    private static volatile bool dataWaiting = false;
+    private static readonly object dataToLogLock = new();
+    private static readonly Queue<LogData> dataToLog = new();
+    private static void LogThreadMain() {
+        while (true)
+        {
+            if (!dataWaiting) {
+                System.Threading.Thread.Sleep(50);
+                continue;
+            }
+
+            lock (dataToLogLock)
+            {
+                var data = dataToLog.Dequeue();
+                if (data.FullLine) {
+                    MessageInternal(data.logger, data.Timestamp, data.Level, data.Message, data.Category);
+                } else {
+                    WriteInternal(data.logger, data.Message);
+                }
+                
+                dataWaiting = dataToLog.Count != 0;
+            }
         }
     }
 
@@ -79,21 +153,25 @@ public class Logger : ILogger {
         return logger;
     }
 
-    private void MessageInternal(Level level, string message, string category = "") {
-        if (parentLogger != null) {
-            var actualCategory = this.subLoggerName;
+    private static void MessageInternal(Logger logger, DateTime timestamp, Level level, string message, string category) {
+        if (logger.parentLogger != null) {
+            var actualCategory = logger.subLoggerName;
             if (!string.IsNullOrEmpty(category)) {
                 actualCategory += "/" + category;
             }
             
-            parentLogger.MessageInternal(level, message, actualCategory);
+            MessageInternal(logger.parentLogger, timestamp, level, message, actualCategory);
             return;
         }
 
-        // welp. we can't just use the system's date format, but we also need to use the system's time at the same time, which won't include milliseconds and will always have AM/PM appended, even on 24-hour clocks. So use the better formatting system of dd/MM/yyyy and always use 24-hour time
-        string formatted = string.Format("[{0} {1}{2}: {3}] {4}", DateTime.UtcNow.ToString("dd/MM/yyyy HH:mm:ss.ff"), this.Name, string.IsNullOrEmpty(category) ? "" : $"/{category}", level.ToString(), message);
-        string ansiColorCode = "";
-        string ansiResetCode = "";
+        string formatted = message;
+        if (logger.AddPrefix) {
+            // welp. we can't just use the system's date format, but we also need to use the system's time at the same time, which won't include milliseconds and will always have AM/PM appended, even on 24-hour clocks. So use the objectively better formatting system of dd/MM/yyyy and always use 24-hour time (which will also make it easier for the devs reviewing bug reports)
+            formatted = string.Format("[{0} {1}{2}: {3}] {4}", timestamp.ToString("dd/MM/yyyy HH:mm:ss.ff"), logger.Name, string.IsNullOrEmpty(category) ? "" : $"/{category}", level.ToString(), message);
+        }
+
+        string ansiColorCode = string.Empty;
+        string ansiResetCode = string.Empty;
 
         if (!disableColors) {
             ansiResetCode = "\x1b[0m";
@@ -112,30 +190,63 @@ public class Logger : ILogger {
 
         Console.WriteLine(ansiColorCode + formatted + ansiResetCode);
 
-        if (logStream != null) {
-            lock (logStreamLock)
+        if (logger.logStream != null) {
+            lock (logger.logStreamLock)
             {
-                logStream.Write(Encoding.Default.GetBytes(formatted + Environment.NewLine));
-                //TODO: This is very bad
-                logStream.Flush();
+                logger.logStream.Write(Encoding.Default.GetBytes(formatted + Environment.NewLine));
             }
+        }
+
+        DataReceived?.Invoke(logger, new(level, formatted + Environment.NewLine, true, ansiColorCode, ansiResetCode));
+    }
+
+    private void AddLine(Level level, string message, string category = "") {
+        lock (dataToLogLock)
+        {
+            dataToLog.Enqueue(new LogData(this, level, message, category, true));
+            dataWaiting = true;
         }
     }
 
+    private void AddData(string message) {
+        lock (dataToLogLock)
+        {
+            dataToLog.Enqueue(new LogData(this, Level.INFO, message, string.Empty, false));
+            dataWaiting = true;
+        }
+    }
+
+    private static void WriteInternal(Logger logger, string message) {
+        Console.Write(message);
+        if (logger.logStream != null) {
+            lock (logger.logStreamLock)
+            {
+                logger.logStream.Write(Encoding.Default.GetBytes(message));
+            }
+        }
+
+        DataReceived?.Invoke(logger, new(Level.INFO, message, false, string.Empty, string.Empty));
+    }
+
+    /// <inheritdoc/>
+    public void Write(string message) {
+        AddData(message);
+    }
+
     public void Message(Level level, string message) {
-        MessageInternal(level, message);
+        AddLine(level, message);
     }
     
     public void Message(Level level, string message, string category) {
-        MessageInternal(level, message, category);
+        AddLine(level, message, category);
     }
     
     public void Message(Level level, string message, params object?[] formatObjs) {
-        MessageInternal(level, string.Format(message, formatObjs));
+        AddLine(level, string.Format(message, formatObjs));
     }
 
     public void Message(Level level, string message, string category, params object?[] formatObjs) {
-        MessageInternal(level, string.Format(message, formatObjs), category);
+        AddLine(level, string.Format(message, formatObjs), category);
     }
 
     public void Trace(string message) {
@@ -250,13 +361,13 @@ public class Logger : ILogger {
         loggers.Remove(this);
     }
 
-    private bool hasRanWindowsHack = false;
+    private static bool hasRanWindowsHack = false;
 
     /// <summary>
     /// Windows is stuck using legacy settings unless you tell it explicitly to use "ENABLE_VIRTUAL_TERMINAL_PROCESSING". Why???
     /// </summary>
     [SupportedOSPlatform("windows")]
-    private void RunWindowsConsoleColorsHack() {
+    private static void RunWindowsConsoleColorsHack() {
         hasRanWindowsHack = true;
         const int STD_INPUT_HANDLE = -10;
         const int STD_OUTPUT_HANDLE = -11;

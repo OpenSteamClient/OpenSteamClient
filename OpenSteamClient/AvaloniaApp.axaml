@@ -14,6 +14,7 @@
   
     <Application.Styles>
         <FluentTheme />
+        <StyleInclude Source="avares://AvaloniaEdit/Themes/Fluent/AvaloniaEdit.xaml" />
     </Application.Styles>
 
     
@@ -38,7 +39,7 @@
             <NativeMenuItem IsVisible="{Binding HasRecent1}" Header="" Command="{Binding PlayRecent1}" />
             <NativeMenuItemSeparator IsVisible="{Binding IsLoggedIn}"/>
             <NativeMenuItem IsVisible="{Binding IsLoggedIn}" c:Translatable.TranslationKey="#App_Tray_Friends" Header="Friends" Command="{Binding OpenFriendsList}" />
-            <NativeMenuItem IsVisible="{Binding IsLoggedIn}" c:Translatable.TranslationKey="#App_Tray_Library" Header="Library" Command="{Binding OpenLibrary}" />
+            <NativeMenuItem IsVisible="{Binding IsLoggedIn}" c:Translatable.TranslationKey="#Library" Header="Library" Command="{Binding OpenLibrary}" />
             <NativeMenuItemSeparator IsVisible="{Binding IsLoggedIn}" />
             <NativeMenuItem c:Translatable.TranslationKey="#MainWindow_Header_Steam_OpenSettings" Header="Settings" Command="{Binding OpenSettings}" />
             <NativeMenuItem IsVisible="{Binding IsVRAvailable}" c:Translatable.TranslationKey="#App_Tray_OpenSteamVR" Header="Open SteamVR" Command="{Binding OpenSteamVR}" />

@@ -27,8 +27,8 @@ public class AppDataConfigSection : TypedKVObject
         public KVConfig? Config => DefaultIfUnset("config", kv => new KVConfig(kv), null);
 
         public int ID => int.Parse(kv.Name, CultureInfo.InvariantCulture.NumberFormat);
-        string AppBase.ILaunchOption.Name => "";
-        string AppBase.ILaunchOption.Description => Description;
+        string AppBase.ILaunchOption.Name => Description;
+        string AppBase.ILaunchOption.Description => string.Empty;
 
         //TODO: handle description_loc (which doesn't really seem to be used by many games)
         public LaunchOption(KVObject kv) : base(kv) { }

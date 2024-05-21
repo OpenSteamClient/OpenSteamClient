@@ -44,18 +44,14 @@ public class ClientRemoteStorage {
         this.remoteStorage.LoadLocalFileInfoCache(appid);
         await remoteStorageAppInfoLoaded;
 
-        Console.WriteLine("Got RemoteStorageAppInfoLoaded_t");
         TaskCompletionSource<EResult> tcs = new();
         callbackManager.RegisterHandler((CallbackManager.CallbackHandler<RemoteStorageAppSyncedClient_t> handler, RemoteStorageAppSyncedClient_t data) =>
         {
             if (data.appid == appid) {
-                Console.WriteLine("Got appid==appid");
                 tcs.SetResult(data.result);
                 callbackManager.DeregisterHandler(handler);
             }
         });
-
-        Console.WriteLine("Registered");
 
         if (!remoteStorage.SynchronizeApp(appid, type, flags)) {
             Console.WriteLine("Got failure. Why?");

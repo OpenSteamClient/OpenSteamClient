@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -183,19 +184,40 @@ namespace OpenSteamworks.Native.JIT
         }
     }
 
+    class PropertyJITInfo
+    {
+        public string Name { get; private set; }
+        public Type Type { get; private set; }
+        public PropertyInfo PropertyInfo { get; private set; }
+        public PropertyJITInfo(PropertyInfo property)
+        {
+            this.Name = property.Name;
+            this.PropertyInfo = property;
+            this.Type = property.PropertyType;
+        }
+    }
+
     class ClassJITInfo
     {
         public List<MethodJITInfo> Methods { get; private set; }
+        public List<PropertyJITInfo> Properties { get; private set; }
 
         public ClassJITInfo(Type classType)
         {
-            MethodInfo[] methods = classType.GetMethods(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static | BindingFlags.Instance | BindingFlags.DeclaredOnly);
+            MethodInfo[] methods = classType.GetMethods(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.DeclaredOnly).Where(m => !m.IsSpecialName).ToArray();
+            PropertyInfo[] properties = classType.GetProperties(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.DeclaredOnly);
 
             Methods = new List<MethodJITInfo>(methods.Length);
+            Properties = new List<PropertyJITInfo>(properties.Length);
 
             for (int i = 0; i < methods.Length; i++)
             {
                 Methods.Add(new MethodJITInfo(i, methods[i]));
+            }
+
+            for (int i = 0; i < properties.Length; i++)
+            {
+                Properties.Add(new PropertyJITInfo(properties[i]));
             }
         }
     }

@@ -86,15 +86,20 @@ public unsafe struct CUtlStringList {
     }
 
     public void Free() {
-        this.m_Memory.Free();
-    }
-
-    public List<string> ToManagedAndFree() {
-        var str = this.ToManaged();
         for (int i = 0; i < this.m_Size; i++)
         {
             this.Element(i).Free();
         }
+        this.m_Memory.Free();
+    }
+
+    public void Add(string str) {
+        m_Memory.Grow(1);
+        Base()[this.m_Size] = new CUtlString(str);
+    }
+
+    public List<string> ToManagedAndFree() {
+        var str = this.ToManaged();
         this.Free();
         return str;
     }

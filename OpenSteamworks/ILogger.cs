@@ -3,6 +3,10 @@ using System;
 namespace OpenSteamworks;
 
 public interface ILogger {
+    /// <summary>
+    /// Write a (partial) message without a newline.
+    /// </summary>
+    public void Write(string message);
     public void Debug(string message, params object?[] formatObjs);
     public void Debug(string message);
     public void Info(string message, params object?[] formatObjs);

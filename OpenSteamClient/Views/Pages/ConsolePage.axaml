@@ -3,6 +3,7 @@
         xmlns:vm="using:OpenSteamClient.ViewModels"
         xmlns:views="using:OpenSteamClient.Views"
         xmlns:c="using:OpenSteamClient.Controls"
+        xmlns:AvaloniaEdit="clr-namespace:AvaloniaEdit;assembly=AvaloniaEdit"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
@@ -16,9 +17,15 @@
     </Design.DataContext>
 
     <DockPanel>
-        <!-- Items="{Binding AutocompleteNames}" -->
-        <AutoCompleteBox DockPanel.Dock="Bottom" FilterMode="StartsWith" HorizontalAlignment="Stretch" Text="{Binding CurrentCommandText}"/>
-        <TextBox AcceptsReturn="true" Text="{Binding OutputText}" IsReadOnly="true" TextWrapping="Wrap"/>
-        <Button IsDefault="True" Command="{Binding SendCommand}" c:Translatable.TranslationKey="#Console_Send"/>
+        <DockPanel DockPanel.Dock="Bottom">
+            <Button IsDefault="True" DockPanel.Dock="Right" Command="{Binding SendCommand}" HotKey="Enter" c:Translatable.TranslationKey="#Console_Send"/>
+            <AutoCompleteBox FilterMode="StartsWith" ItemsSource="{Binding AutocompleteNames}" HorizontalAlignment="Stretch" Text="{Binding CurrentCommandText}"/>
+        </DockPanel>
+        
+        <AvaloniaEdit:TextEditor x:Name="LogLines"
+                           Document="{Binding OutputText}"
+                           Options="{Binding Options}"
+                           ShowLineNumbers="False"
+                           FontFamily="Consolas,Lucida Console,Menlo,Monospace" IsReadOnly="true"/>
     </DockPanel>
 </c:BasePage>
