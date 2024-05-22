@@ -47,6 +47,16 @@
                     <Style Selector="TreeViewItem" x:DataType="vml:Node">
                         <!-- <Setter Property="ShowExpandCollapseChevron" Value="{Binding !IsApp}"/> -->
                     </Style>
+
+                    <Style Selector="Panel#PART_ExpandCollapseChevronContainer" x:DataType="vml:Node">
+                        <Setter Property="IsEnabled" Value="{Binding !IsApp}" />
+                        <Setter Property="IsVisible" Value="{Binding !IsApp}" />
+                    </Style>
+
+                    <!-- TODO: Find a way to remove the extra margin at the start of the element, but only for apps and not collections -->
+                    <!-- <Style Selector="Grid#PART_Header" x:DataType="vml:Node">
+                        <Setter Property="Margin" Value="0" />
+                    </Style> -->
                 </TreeView.Styles>
 
                 <TreeView.ItemTemplate>

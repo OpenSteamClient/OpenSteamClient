@@ -153,6 +153,7 @@ public partial class ClientNative {
     public IClientUtils IClientUtils { get; private set; }
     public IClientVideo IClientVideo { get; private set; }
     public IClientVR IClientVR { get; private set; }
+    public IClientTimeline IClientTimeline { get; private set; }
 
     public ConCommands.ConsoleNative consoleNative;
     private static readonly string[] separator = new string[] { "\n" };
@@ -256,6 +257,7 @@ public partial class ClientNative {
     [MemberNotNull(nameof(IClientUtils))]
     [MemberNotNull(nameof(IClientVideo))]
     [MemberNotNull(nameof(IClientVR))]
+    [MemberNotNull(nameof(IClientTimeline))]
     private void LoadInterfaces() {
         this.IClientAppDisableUpdate = this.IClientEngine.GetIClientAppDisableUpdate(this.User, this.Pipe);
         this.IClientAppManager = this.IClientEngine.GetIClientAppManager(this.User, this.Pipe);
@@ -318,6 +320,7 @@ public partial class ClientNative {
         this.IClientUtils = this.IClientEngine.GetIClientUtils(this.Pipe);
         this.IClientVideo = this.IClientEngine.GetIClientVideo(this.User, this.Pipe);
         this.IClientVR = this.IClientEngine.GetIClientVR(this.Pipe);
+        this.IClientTimeline = this.IClientEngine.GetIClientTimeline(this.User, this.Pipe);
     }
 
     private bool TryConnectToGlobalUser() {

@@ -71,12 +71,15 @@ public interface ISteamClient {
     public IClientUtils IClientUtils { get; }
     public IClientVideo IClientVideo { get; }
     public IClientVR IClientVR { get; }
+    public IClientTimeline IClientTimeline { get; }
+
     public ClientApps ClientApps { get; }
     public ClientConfigStore ClientConfigStore { get; }
     public ClientMessaging ClientMessaging { get; }
     public CallbackManager CallbackManager { get; }
     public ClientRemoteStorage ClientRemoteStorage { get; }
     public DownloadManager DownloadManager { get; }
+    
     public ConnectionType ConnectedWith { get; }
 
 // #if !_WINDOWS

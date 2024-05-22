@@ -113,10 +113,11 @@ public class SteamClient : ISteamClient
     public IClientUtils IClientUtils => NativeClient.IClientUtils;
     public IClientVideo IClientVideo => NativeClient.IClientVideo;
     public IClientVR IClientVR => NativeClient.IClientVR;
+    public IClientTimeline IClientTimeline => NativeClient.IClientTimeline;
 
-// #if !_WINDOWS
-//     public ClientShortcuts IPCClientShortcuts { get; init; }
-// #endif
+    // #if !_WINDOWS
+    //     public ClientShortcuts IPCClientShortcuts { get; init; }
+    // #endif
 
     internal static readonly IPlatform platform;
     private ClientAPI_WarningMessageHook_t warningMessageHook;

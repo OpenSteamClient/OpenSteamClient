@@ -105,27 +105,21 @@ public class Logger : ILogger {
         }
     }
 
-    private static volatile bool dataWaiting = false;
-    private static readonly object dataToLogLock = new();
-    private static readonly Queue<LogData> dataToLog = new();
+    private static readonly ConcurrentQueue<LogData> dataToLog = new();
     private static void LogThreadMain() {
         while (true)
         {
-            if (!dataWaiting) {
+            if (dataToLog.IsEmpty) {
                 System.Threading.Thread.Sleep(50);
                 continue;
             }
 
-            lock (dataToLogLock)
-            {
-                var data = dataToLog.Dequeue();
+            if (dataToLog.TryDequeue(out LogData data)) {
                 if (data.FullLine) {
                     MessageInternal(data.logger, data.Timestamp, data.Level, data.Message, data.Category);
                 } else {
                     WriteInternal(data.logger, data.Message);
                 }
-                
-                dataWaiting = dataToLog.Count != 0;
             }
         }
     }
@@ -201,19 +195,11 @@ public class Logger : ILogger {
     }
 
     private void AddLine(Level level, string message, string category = "") {
-        lock (dataToLogLock)
-        {
-            dataToLog.Enqueue(new LogData(this, level, message, category, true));
-            dataWaiting = true;
-        }
+        dataToLog.Enqueue(new LogData(this, level, message, category, true));
     }
 
     private void AddData(string message) {
-        lock (dataToLogLock)
-        {
-            dataToLog.Enqueue(new LogData(this, Level.INFO, message, string.Empty, false));
-            dataWaiting = true;
-        }
+        dataToLog.Enqueue(new LogData(this, Level.INFO, message, string.Empty, false));
     }
 
     private static void WriteInternal(Logger logger, string message) {

@@ -107,6 +107,7 @@ public unsafe interface IClientEngine {
 	public IClientVR GetIClientVR( HSteamPipe hSteamPipe );
 	public IClientGameNotifications GetIClientGameNotifications( HSteamUser hSteamUser, HSteamPipe hSteamPipe );
 	public IClientHTMLSurface GetIClientHTMLSurface( HSteamUser hSteamUser, HSteamPipe hSteamPipe );
+	public IClientTimeline GetIClientTimeline( HSteamUser hSteamUser, HSteamPipe hSteamPipe );
 	public IClientVideo GetIClientVideo( HSteamUser hSteamUser, HSteamPipe hSteamPipe );
 	public IClientControllerSerialized GetIClientControllerSerialized( HSteamPipe hSteamPipe );
 	public IClientAppDisableUpdate GetIClientAppDisableUpdate( HSteamUser hSteamUser, HSteamPipe hSteamPipe );

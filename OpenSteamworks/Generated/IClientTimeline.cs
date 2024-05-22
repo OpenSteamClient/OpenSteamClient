@@ -8,21 +8,21 @@
 //=============================================================================
 
 using System;
+using OpenSteamworks.Enums;
+using OpenSteamworks.Structs;
 
 namespace OpenSteamworks.Generated;
 
 public unsafe interface IClientTimeline
 {
     // WARNING: Arguments are unknown!
-    public unknown_ret SetTimelineStateDescription();  // argc: 2, index: 1, ipc args: [string, bytes4], ipc returns: []
+    public void SetTimelineStateDescription(string description, uint unk1);  // argc: 2, index: 1, ipc args: [string, bytes4], ipc returns: []
     // WARNING: Arguments are unknown!
-    public unknown_ret ClearTimelineStateDescription();  // argc: 1, index: 2, ipc args: [bytes4], ipc returns: []
+    public void ClearTimelineStateDescription(uint unk);  // argc: 1, index: 2, ipc args: [bytes4], ipc returns: []
     // WARNING: Arguments are unknown!
-    public unknown_ret AddTimelineEvent();  // argc: 7, index: 3, ipc args: [string, string, string, bytes4, bytes4, bytes4, bytes4], ipc returns: []
+    public void AddTimelineEvent(string unk, string unk1, string unk2, uint unk3, uint unk4, uint unk5, float duration);  // argc: 7, index: 3, ipc args: [string, string, string, bytes4, bytes4, bytes4, bytes4], ipc returns: []
+    public void SetTimelineGameMode(ETimelineGameMode mode);  // argc: 1, index: 4, ipc args: [bytes4], ipc returns: []
     // WARNING: Arguments are unknown!
-    public unknown_ret SetTimelineGameMode();  // argc: 1, index: 4, ipc args: [bytes4], ipc returns: []
-    // WARNING: Arguments are unknown!
-    public unknown_ret AddUserMarkerForGame();  // argc: 1, index: 5, ipc args: [bytes8], ipc returns: []
-    // WARNING: Arguments are unknown!
-    public unknown_ret ToggleVideoRecordingForGame();  // argc: 1, index: 6, ipc args: [bytes8], ipc returns: []
+    public void AddUserMarkerForGame(in CGameID gameid);  // argc: 1, index: 5, ipc args: [bytes8], ipc returns: []
+    public void ToggleVideoRecordingForGame(in CGameID gameid);  // argc: 1, index: 6, ipc args: [bytes8], ipc returns: []
 }
