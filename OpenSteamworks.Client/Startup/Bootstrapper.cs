@@ -65,7 +65,7 @@ public class Bootstrapper {
     public string Ubuntu12_32Dir => Path.Combine(installManager.InstallDir, "ubuntu12_32");
 
     [SupportedOSPlatform("linux")]
-    public string SteamRuntimeDir => Path.Combine(Ubuntu12_32Dir, "steam-runtime");
+    public string Ubuntu12_64Dir => Path.Combine(installManager.InstallDir, "ubuntu12_64");
     
     //TODO: make this into an interface so clients can decide what packages they want
     private bool IsPackageBlacklisted(string packageName) {
@@ -770,106 +770,135 @@ public class Bootstrapper {
     [SupportedOSPlatform("linux")] 
     private async Task CheckSteamRuntime(IExtendedProgress<int> progressHandler) {
         using var scope = CProfiler.CurrentProfiler?.EnterScope("Bootstrapper.CheckSteamRuntime");
-        
-        progressHandler.SetOperation($"Processing Steam Runtime");
-        progressHandler.SetThrobber();
-
-        progressHandler.SetSubOperation("Checking for runtime version change...");
-
-        var runtimeChecksumBytes = File.ReadAllBytes(Path.Combine(Ubuntu12_32Dir, "steam-runtime.checksum"));
-        var runtime_checksum_md5_new = Convert.ToHexString(MD5.HashData(runtimeChecksumBytes));
-        var runtime_checksum_md5_old = bootstrapperState.LinuxRuntimeChecksum;
-        bool extractRuntime = !(runtime_checksum_md5_new == runtime_checksum_md5_old);
-
-        var setupScriptPath = Path.Combine(SteamRuntimeDir, "setup.sh");
-        if (!File.Exists(setupScriptPath)) {
-            extractRuntime = true;
+        await CheckSteamRuntimeSingle(progressHandler, Ubuntu12_32Dir);
+        try
+        {
+            await CheckSteamRuntimeSingle(progressHandler, Ubuntu12_64Dir, "sniper");
+            await CheckSteamRuntimeSingle(progressHandler, Ubuntu12_64Dir, "heavy");
         }
-        
-        if (extractRuntime) {
-            await ExtractSteamRuntime(progressHandler);
-
-            // If everything succeeds, record current hash to file
-            bootstrapperState.LinuxRuntimeChecksum = runtime_checksum_md5_new;
+        catch (System.Exception e)
+        {
+            logger.Warning("Failed to process optional runtimes (sniper/heavy):");
+            logger.Warning(e);
         }
-
-        // Always run setup.sh
-        using var subScope = CProfiler.CurrentProfiler?.EnterScope("Bootstrapper.CheckSteamRuntime - Runtime setup.sh");
-        progressHandler.SetThrobber();
-        progressHandler.SetSubOperation("Running runtime setup...");
-
-        Process proc = new();
-        proc.StartInfo.FileName = setupScriptPath;
-        proc.StartInfo.Arguments = "";
-        proc.StartInfo.WorkingDirectory = SteamRuntimeDir;
-        proc.StartInfo.CreateNoWindow = true;
-        proc.StartInfo.UseShellExecute = true;
-        proc.Start();
-
-        await proc.WaitForExitAsync();
     }
 
     [SupportedOSPlatform("linux")]
-    private async Task ExtractSteamRuntime(IExtendedProgress<int> progressHandler) {
-        using var scope = CProfiler.CurrentProfiler?.EnterScope("Bootstrapper.ExtractSteamRuntime");
+    private async Task CheckSteamRuntimeSingle(IExtendedProgress<int> progressHandler, string rootPath, string flavour = "") {
+        using var scope = CProfiler.CurrentProfiler?.EnterScope("Bootstrapper.CheckSteamRuntimeSingle");
 
-        // Create a place in memory to store the runtime for combining and unzipping
-        var fullFile = new MemoryStream();
-        {
-            using var subScope = CProfiler.CurrentProfiler?.EnterScope("Bootstrapper.ExtractSteamRuntime - Combine");
-            progressHandler.SetSubOperation($"Combining Steam Runtime parts");
+        string flavourPrefix = string.Empty;
 
-            // First get all the parts
-            List<string> parts = new(Directory.EnumerateFiles(Ubuntu12_32Dir, "steam-runtime.tar.xz.part*"));
-            
-            // Sort them to get an order like part0, part1, part2, part3
-            parts.Sort();
-
-            // Then combine all the parts to one zip file 
-            foreach (var part in parts)
-            {
-                using (var file = new FileStream(part, FileMode.Open, FileAccess.Read, FileShare.Read)) {
-                    file.CopyTo(fullFile);
-                }
-            }
-
-            // Seek to the beginning so we can read
-            fullFile.Seek(0, SeekOrigin.Begin);
+        if (!string.IsNullOrEmpty(flavour)) {
+            flavourPrefix = $"-{flavour}";
         }
 
-        Directory.CreateDirectory(SteamRuntimeDir);
+        // Vanilla is not real, we use it to refer to the regular 32-bit runtime
+        if (string.IsNullOrEmpty(flavour)) {
+            flavour = "vanilla";
+        }
 
-        // Get checksums from the checksum file
+        progressHandler.SetOperation($"Processing Steam Runtime ({flavour})");
+
+        string runtimeDir = Path.Combine(rootPath, $"steam-runtime{flavourPrefix}");
+        
+        progressHandler.SetThrobber();
+        progressHandler.SetSubOperation("Checking for runtime version change...");
+
+        bool extractRuntime = false;
+        byte[] checksumBytes;
+        var ckFile = Path.Combine(rootPath, $"steam-runtime{flavourPrefix}.tar.xz.checksum");
+        if (!File.Exists(ckFile)) {
+            var verFile = Path.Combine(rootPath, $"steam-runtime{flavourPrefix}.version.txt");
+            checksumBytes = File.ReadAllBytes(verFile);
+        } else {
+            checksumBytes = File.ReadAllBytes(ckFile);
+        }
+
+        string runtime_checksum_md5_new = Convert.ToHexString(MD5.HashData(checksumBytes));
+        if (!bootstrapperState.LinuxRuntimeChecksums.TryGetValue(flavour, out string? runtime_checksum_md5_old)) {
+            logger.Info("Extract runtime due to: No saved checksum");
+            extractRuntime = true;
+        } else {
+            extractRuntime = !(runtime_checksum_md5_new == runtime_checksum_md5_old);
+            if (extractRuntime) {
+                logger.Info("Extract runtime due to: Checksum mismatch");
+            }
+        }
+
+        var setupScriptPath = Path.Combine(runtimeDir, "setup.sh");
+        bool hasSetupScript = File.Exists(setupScriptPath);
+
+        if (extractRuntime) {
+            await ExtractSteamRuntime(progressHandler, rootPath, flavourPrefix);
+
+            // If everything succeeds, record current hash to file
+            bootstrapperState.LinuxRuntimeChecksums[flavour] = runtime_checksum_md5_new;
+        }
+
+        // SLR sniper has no setup script. Strange but let's handle that too.
+        if (hasSetupScript)
+        {
+            // Always run setup.sh (if it exists)
+            using var subScope = CProfiler.CurrentProfiler?.EnterScope("Bootstrapper.CheckSteamRuntimeSingle - Runtime setup.sh");
+            progressHandler.SetThrobber();
+            progressHandler.SetSubOperation("Running runtime setup...");
+
+            Process proc = new();
+            proc.StartInfo.FileName = setupScriptPath;
+            proc.StartInfo.Arguments = "";
+            proc.StartInfo.WorkingDirectory = runtimeDir;
+            proc.StartInfo.CreateNoWindow = true;
+            proc.StartInfo.UseShellExecute = true;
+            proc.Start();
+
+            await proc.WaitForExitAsync();
+
+            // Only run pinning if we extracted a new runtime
+            if (extractRuntime) {
+                progressHandler.SetSubOperation("Pinning runtime libs");
+
+                Process procpin = new();
+                procpin.StartInfo.FileName = setupScriptPath;
+                procpin.StartInfo.Arguments = "--force";
+                procpin.StartInfo.WorkingDirectory = runtimeDir;
+                procpin.StartInfo.CreateNoWindow = true;
+                procpin.StartInfo.UseShellExecute = true;
+                procpin.Start();
+            }
+        }
+    }
+
+    [SupportedOSPlatform("linux")]
+    private static async Task ExtractSteamRuntime(IExtendedProgress<int> progressHandler, string rootPath, string flavourPrefix) {
+        using var scope = CProfiler.CurrentProfiler?.EnterScope("Bootstrapper.ExtractSteamRuntime");
+        string runtimeDir = Path.Combine(rootPath, $"steam-runtime{flavourPrefix}");
+
+        Directory.CreateDirectory(runtimeDir);
+
+        // Verify checksums if there's a checksum file. Not all runtimes come with one, so it's not a required check.
         Dictionary<string, string> checksums = new();
 
-        var lines = File.ReadLines(Path.Combine(Ubuntu12_32Dir, "steam-runtime.checksum"));
-        foreach (var line in lines)
-        {
-            var split = line.Split("  ");
-            checksums.Add(split[1].Trim(), split[0].Trim());
-        }
-
-        // Verify files defined in steam-runtime.checksum
-        foreach (var item in checksums)
-        {
-            var file = Path.Combine(Ubuntu12_32Dir, item.Key);
-            string runtime_md5_calculated = "";
-            string runtime_md5_expected = item.Value.ToUpper();
-
-            // This file is never saved on disk, so do it specially
-            if (file.EndsWith("steam-runtime.tar.xz")) {
-                runtime_md5_calculated = Convert.ToHexString(MD5.HashData(fullFile));
-            } else {
-                runtime_md5_calculated = Convert.ToHexString(MD5.HashData(File.ReadAllBytes(file)));
+        var ckFile = Path.Combine(rootPath, $"steam-runtime{flavourPrefix}.tar.xz.checksum");
+        if (File.Exists(ckFile)) {
+            var lines = File.ReadLines(ckFile);
+            foreach (var line in lines)
+            {
+                var split = line.Split("  ");
+                checksums.Add(split[1].Trim(), split[0].Trim());
             }
 
-            runtime_md5_calculated = runtime_md5_calculated.ToUpper();
+            // Verify files defined in steam-runtime.checksum
+            foreach (var item in checksums)
+            {
+                var file = Path.Combine(rootPath, item.Key);
+                string runtime_md5_expected = item.Value;
 
-            if (runtime_md5_calculated != runtime_md5_expected) {
-                if (file.EndsWith("steam-runtime.tar.xz")) {
-                    file += " (saved in-memory)";
+                string runtime_md5_calculated = Convert.ToHexString(MD5.HashData(File.ReadAllBytes(file)));
+
+                if (!string.Equals(runtime_md5_calculated, runtime_md5_expected, StringComparison.InvariantCultureIgnoreCase)) {
+                    throw new Exception($"MD5 mismatch. Steam Runtime File {file} is corrupted. {runtime_md5_expected} expected, got {runtime_md5_calculated}");
                 }
-                throw new Exception($"MD5 mismatch. Steam Runtime File {file} is corrupted. {runtime_md5_expected} expected, got {runtime_md5_calculated}");
             }
         }
 
@@ -878,8 +907,8 @@ public class Bootstrapper {
 
             Process proc = new Process();
             proc.StartInfo.FileName = "tar";
-            proc.StartInfo.Arguments = "-xJ";
-            proc.StartInfo.WorkingDirectory = Ubuntu12_32Dir;
+            proc.StartInfo.Arguments = $"-xvJf steam-runtime{flavourPrefix}.tar.xz -C steam-runtime{flavourPrefix} --strip-components=1";
+            proc.StartInfo.WorkingDirectory = rootPath;
             proc.StartInfo.CreateNoWindow = true;
             proc.StartInfo.UseShellExecute = false;
             proc.StartInfo.RedirectStandardInput = true;
@@ -894,36 +923,11 @@ public class Bootstrapper {
                 throw new Exception("Failed to start tar. Is tar installed?");
             }
 
-            // Seek to the beginning again, just in case
-            fullFile.Seek(0, SeekOrigin.Begin);
-
-            var outPiper = StreamPiper<Stream, Stream>.CreateAndStartPiping(proc.StandardOutput.BaseStream, Console.OpenStandardOutput());
-            var errPiper = StreamPiper<Stream, Stream>.CreateAndStartPiping(proc.StandardError.BaseStream, Console.OpenStandardError());
-            var inPiper = StreamPiper<MemoryStream, Stream>.CreateAndStartPiping(fullFile, proc.StandardInput.BaseStream);
-
-            // Convert absolute progress (bytes streamed) into relative progress (0% - 100%)
-            var length = inPiper.Source.Length;
-            var relativeProgress = new Progress<long>(bytesStreamed => progressHandler.Report((int)((float)((float)bytesStreamed / (float)length)*100)));
-
-            inPiper.StreamPositionChanged += (object? sender, EventArgs args) => {
-                (relativeProgress as IProgress<long>).Report(inPiper.Source.Position);
-                if (length == inPiper.Source.Position) {
-                    // No way to send a SIGTERM instead of a SIGKILL
-                    proc.Kill();
-                }
-            };
-
             await proc.WaitForExitAsync();
 
-            // The exitcode is 137 when we explicitly kill above
-            if (proc.ExitCode != 137)  {
-                throw new Exception("tar exited with unknown exitcode: " + proc.ExitCode);
+            if (proc.ExitCode != 0)  {
+                throw new Exception("tar exited with failure exitcode: " + proc.ExitCode);
             }
-
-            // For some reason the streams are still readable after the process terminates, so stop pipers explicitly
-            outPiper.StopPiping();
-            errPiper.StopPiping();
-            inPiper.StopPiping();
         }
 
         progressHandler.SetProgress(progressHandler.MaxProgress);
