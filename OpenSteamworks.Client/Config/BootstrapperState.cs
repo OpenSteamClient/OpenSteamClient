@@ -28,7 +28,7 @@ public class BootstrapperState : IConfigFile
     public Dictionary<string, long> InstalledFiles { get; set; } = new();
 
     [ConfigNeverVisible]
-    public string LinuxRuntimeChecksum { get; set; } = "";
+    public Dictionary<string, string> LinuxRuntimeChecksums { get; set; } = new();
 
     [ConfigNeverVisible]
     public bool LinuxPermissionsSet { get; set; } = false;
