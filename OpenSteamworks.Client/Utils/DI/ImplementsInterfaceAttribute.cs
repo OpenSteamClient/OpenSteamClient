@@ -1,9 +1,9 @@
 namespace OpenSteamworks.Client.Utils.DI;
 
 [System.AttributeUsage(System.AttributeTargets.Class, Inherited = false, AllowMultiple = true)]
-public sealed class ImplementsInterfaceAttribute<T> : System.Attribute
+public sealed class DIRegisterInterfaceAttribute<T> : System.Attribute
 {
-    public ImplementsInterfaceAttribute()
+    public DIRegisterInterfaceAttribute()
     {
 
     }

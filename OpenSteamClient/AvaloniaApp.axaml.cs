@@ -76,7 +76,7 @@ public class AvaloniaApp : Application
         var bootstrapper = Container.ConstructAndRegisterImmediate<Bootstrapper>();
 
         bootstrapper.SetProgressObject(bootstrapperProgress);
-        await bootstrapper.RunBootstrap();
+        await bootstrapper.RunBootstrap((title, msg) => RunOnUIThread(DispatcherPriority.Normal, () => MessageBox.Show(title, msg)));
 
         progVm.Title = "Login progress";
 
@@ -271,11 +271,7 @@ public class AvaloniaApp : Application
     /// </summary>
     /// <param name="dialog"></param>
     public void TryShowDialog(Window dialog) {
-        if (ApplicationLifetime.MainWindow != null) {
-            dialog.ShowDialog(ApplicationLifetime.MainWindow);
-        } else {
-            dialog.Show();
-        }
+        dialog.Show();
     }
 
     /// <summary>
@@ -292,11 +288,7 @@ public class AvaloniaApp : Application
                 return;
             }
 
-            if (ApplicationLifetime.MainWindow != null) {
-                dialogFactory().ShowDialog(ApplicationLifetime.MainWindow);
-            } else {
-                dialogFactory().Show();
-            }
+            dialogFactory().Show();
         });
     }
 

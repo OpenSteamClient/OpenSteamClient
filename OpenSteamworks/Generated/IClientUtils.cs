@@ -29,11 +29,9 @@ public unsafe interface IClientUtils
     public ESteamRealm GetSteamRealm();  // argc: 0, index: 9, ipc args: [], ipc returns: [bytes4]
     public RTime32 GetServerRealTime();  // argc: 0, index: 10, ipc args: [], ipc returns: [bytes4]
     public string GetIPCountry();  // argc: 0, index: 11, ipc args: [], ipc returns: [string]
-    // WARNING: Arguments are unknown!
-    public unknown_ret GetImageSize();  // argc: 3, index: 12, ipc args: [bytes4], ipc returns: [bytes1, bytes4, bytes4]
-    // WARNING: Arguments are unknown!
-    public unknown_ret GetImageRGBA();  // argc: 3, index: 13, ipc args: [bytes4, bytes4], ipc returns: [bytes1, bytes_length_from_mem]
-    public unknown_ret GetNumRunningApps();  // argc: 0, index: 14, ipc args: [], ipc returns: [bytes4]
+    public bool GetImageSize(HImage handle, out uint width, out uint height);  // argc: 3, index: 12, ipc args: [bytes4], ipc returns: [bytes1, bytes4, bytes4]
+    public bool GetImageRGBA(HImage handle, byte *rgbaData, int bufSize);  // argc: 3, index: 13, ipc args: [bytes4, bytes4], ipc returns: [bytes1, bytes_length_from_mem]
+    public int GetNumRunningApps();  // argc: 0, index: 14, ipc args: [], ipc returns: [bytes4]
     public byte GetCurrentBatteryPower();  // argc: 0, index: 15, ipc args: [], ipc returns: [bytes1]
     // WARNING: Arguments are unknown!
     public byte GetBatteryInformation(out uint unk, out byte unk2);  // argc: 2, index: 16, ipc args: [], ipc returns: [bytes1, bytes4, bytes1]
@@ -41,7 +39,7 @@ public unsafe interface IClientUtils
     public void SetOfflineMode(bool offline);  // argc: 1, index: 17, ipc args: [bytes1], ipc returns: []
     public bool GetOfflineMode();  // argc: 0, index: 18, ipc args: [], ipc returns: [bytes1]
     // WARNING: Arguments are unknown!
-    public unknown_ret SetAppIDForCurrentPipe(AppId_t appid, bool unk);  // argc: 2, index: 19, ipc args: [bytes4, bytes1], ipc returns: [bytes4]
+    public AppId_t SetAppIDForCurrentPipe(AppId_t appid, bool unk);  // argc: 2, index: 19, ipc args: [bytes4, bytes1], ipc returns: [bytes4]
     public AppId_t GetAppID();  // argc: 0, index: 20, ipc args: [], ipc returns: [bytes4]
     public void SetAPIDebuggingActive(bool active, bool verbose);  // argc: 2, index: 21, ipc args: [bytes1, bytes1], ipc returns: []
     public SteamAPICall_t AllocPendingAPICallHandle();  // argc: 0, index: 22, ipc args: [], ipc returns: [bytes8]

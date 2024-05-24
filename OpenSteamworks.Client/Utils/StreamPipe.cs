@@ -1,11 +1,9 @@
 namespace OpenSteamworks.Client.Utils;
 
-public class StreamPiper<TSource, TDest> 
-where TSource : Stream
-where TDest : Stream
+public class StreamPiper
 {
-    public TSource Source { get; private set; }
-    public TDest Destination { get; private set; }
+    public Stream Source { get; private set; }
+    public Stream Destination { get; private set; }
     private readonly Thread worker;
 
     bool shouldRun = true;
@@ -14,7 +12,7 @@ where TDest : Stream
 
     public event EventHandler? StreamPositionChanged;
 
-    public StreamPiper(TSource source, TDest destination)
+    public StreamPiper(Stream source, Stream destination)
     {
         Source = source;
         Destination = destination;
@@ -24,11 +22,12 @@ where TDest : Stream
         };
     }
 
-    public static StreamPiper<TSource, TDest> CreateAndStartPiping(TSource source, TDest destination) {
-        StreamPiper<TSource, TDest> piper = new(source, destination);
+    public static StreamPiper CreateAndStartPiping(Stream source, Stream destination) {
+        StreamPiper piper = new(source, destination);
         piper.StartPiping();
         return piper;
     }
+    
     public void StartPiping()
     {
         worker.Start();

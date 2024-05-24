@@ -12,8 +12,9 @@ namespace AvaloniaCommon.Utils;
 [DebuggerDisplay("Count = {Count}")]
 public class ObservableCollectionEx<T> : ICollection<T>, IEnumerable<T>, IEnumerable, IList<T>, IReadOnlyCollection<T>, IReadOnlyList<T>, ICollection, IList, INotifyCollectionChanged, INotifyPropertyChanged
 {
-    private readonly List<T> underlyingCollection = new();
+    private readonly List<T> underlyingCollection;
     private List<T>? filteredCollection;
+    private Predicate<T>? filter;
 
     public event NotifyCollectionChangedEventHandler? CollectionChanged;
     public event PropertyChangedEventHandler? PropertyChanged;
@@ -29,28 +30,58 @@ public class ObservableCollectionEx<T> : ICollection<T>, IEnumerable<T>, IEnumer
             return filteredCollection;
         }
     }
+    
+    public ObservableCollectionEx(IEnumerable<T> collection) {
+        underlyingCollection = new(collection);
+    }
 
-    public ObservableCollectionEx() { }
+    public ObservableCollectionEx() {
+        underlyingCollection = new();
+    }
     
     /// <summary>
     /// Filters the current collection with the current data (which may be filtered as well), not affecting the underlying data source.
     /// </summary>
-    public void FilterCurrent(Func<T, bool> del) {
-        this.filteredCollection = actualCollection.Where(del).ToList();
+    public void FilterCurrent(Predicate<T> del) {
+        this.filteredCollection = actualCollection.Where(x => del(x)).ToList();
         OnCollectionChanged(new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Reset));
     }
 
     /// <summary>
     /// Filters the current collection with the original data (which will never be filtered), not affecting the underlying data source.
     /// </summary>
-    public void FilterOriginal(Func<T, bool> del) {
-        this.filteredCollection = underlyingCollection.Where(del).ToList();
+    public void FilterOriginal(Predicate<T> del) {
+        this.filteredCollection = underlyingCollection.Where(x => del(x)).ToList();
         OnCollectionChanged(new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Reset));
+    }
+
+    /// <summary>
+    /// Save and use the selected predicate for filtering now, and every time the collection is updated. Uses FilterOriginal.
+    /// This may be inefficient, since it fires Reset events for every action.
+    /// </summary>
+    /// <param name="match"></param>
+    public void FilterOriginalOnChange(Predicate<T> match) {
+        this.filter = match;
+        FilterOnChange();
+    }
+
+    private bool FilterOnChange() {
+        if (this.filter != null) {
+            this.filteredCollection = underlyingCollection.Where(x => filter(x)).ToList();
+            return true;
+        }
+
+        return false;
     }
 
     private int prevCount = -1;
     private void OnCollectionChanged(NotifyCollectionChangedEventArgs e) {
-        CollectionChanged?.Invoke(this, e);
+        if (FilterOnChange()) {
+            CollectionChanged?.Invoke(this, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Reset));
+        } else {
+            CollectionChanged?.Invoke(this, e);
+        }
+
         if (prevCount != Count) {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Count)));
         }
@@ -63,6 +94,7 @@ public class ObservableCollectionEx<T> : ICollection<T>, IEnumerable<T>, IEnumer
     /// Removes filtering.
     /// </summary>
     public void ClearFilter() {
+        this.filter = null;
         if (filteredCollection != null) {
             filteredCollection = null;
             OnCollectionChanged(new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Reset));
@@ -79,7 +111,8 @@ public class ObservableCollectionEx<T> : ICollection<T>, IEnumerable<T>, IEnumer
         }
 
         var ret = underlyingCollection.RemoveAll(match);
-        //TODO: This should calculate the indexes correctly, but for now let's do this
+
+        //TODO: This should calculate the indexes correctly, but for now let's do this (performance)
         foreach (var item in items)
         {
             OnCollectionChanged(new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Remove, new List<T>() { item.Value }, item.Key - 1));
@@ -103,7 +136,7 @@ public class ObservableCollectionEx<T> : ICollection<T>, IEnumerable<T>, IEnumer
             return false;
         }
 
-        underlyingCollection.Add(item);
+        Add(item);
         return true;
     }
 

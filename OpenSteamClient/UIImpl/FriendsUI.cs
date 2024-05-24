@@ -1,9 +1,13 @@
+using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using OpenSteamClient.ViewModels.Friends;
 using OpenSteamClient.Views;
 using OpenSteamClient.Views.Friends;
+using OpenSteamworks.Client;
 using OpenSteamworks.Client.Friends;
+using OpenSteamworks.Client.Managers;
 using OpenSteamworks.Client.Utils.DI;
 using OpenSteamworks.Enums;
 using OpenSteamworks.Generated;
@@ -11,16 +15,41 @@ using OpenSteamworks.Structs;
 
 namespace OpenSteamClient.UIImpl;
 
-[ImplementsInterfaceAttribute<IFriendsUI>]
+[DIRegisterInterfaceAttribute<IFriendsUI>]
 public partial class FriendsUI : IFriendsUI
 {
-    private readonly IClientFriends friends;
     private readonly FriendsListViewModel friendsListViewModel;
+    private readonly FriendsManager friendsManager;
+    public Logger Logger { get; init; }
 
-    public FriendsUI(IClientFriends friends)
+    public FriendsUI(FriendsManager friendsManager, InstallManager im)
     {
-        this.friends = friends;
-        this.friendsListViewModel = new();
+        this.Logger = Logger.GetLogger("FriendsUI", im.GetLogPath("FriendsUI"));
+        this.friendsManager = friendsManager;
+        friendsManager.EntityChanged += OnEntityChanged;
+        this.friendsListViewModel = new(this, friendsManager);
+    }
+
+    private void OnEntityChanged(object? sender, Tuple<FriendsManager.Entity, EPersonaChange> e)
+    {
+        if (e.Item1.SteamID == friendsManager.CurrentUser.SteamID) {
+            foreach (var item in friendsListViewModel.Friends)
+            {
+                item.UpdateSelfCanInvite(friendsManager.CurrentUser.InGame);
+            }   
+        }
+
+        var match = friendsListViewModel.Friends.Where(f => f.ID == e.Item1.SteamID).FirstOrDefault();
+        if (match != null) {
+            match.UpdateState(e.Item2);
+        } else {
+            if (!friendsManager.IsFriendsWith(e.Item1.SteamID)) {
+                return;
+            }
+
+            this.Logger.Info("Failed to find friend " + e.Item1.SteamID + "; creating");
+            friendsListViewModel.Friends.Add(new FriendEntityViewModel(this, friendsManager, e.Item1));
+        }
     }
 
     public void ShowFriendsList()
@@ -30,15 +59,6 @@ public partial class FriendsUI : IFriendsUI
 
     public void ShowChatUI(CSteamID steamid)
     {
-    }
-
-    public void UpdateFriendState(CSteamID friendID, EPersonaChange change)
-    {
-        var match = friendsListViewModel.Friends.Where(f => f.ID == friendID).FirstOrDefault();
-        if (match != null) {
-            match.UpdateState(change);
-        } else {
-            friendsListViewModel.Friends.Add(new FriendViewModel(friends, friendID));
-        }
+        this.Logger.Error("Chat UI unimplemented");
     }
 }

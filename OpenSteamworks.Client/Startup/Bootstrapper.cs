@@ -152,13 +152,25 @@ public class Bootstrapper {
         }
     }
 
-    public async Task RunBootstrap() {
+    public async Task RunBootstrap(Action<string, string> msgBoxProvider) {
         using var scope = CProfiler.CurrentProfiler?.EnterScope("Bootstrapper.RunBootstrap");
         if (progressHandler == null) {
             progressHandler = new ExtendedProgress<int>(0, 100);
         }
 
         progressHandler.SetOperation("Bootstrapping");
+
+        if (OperatingSystem.IsWindows()) {
+            if (OSCheck.IsWindows11()) {
+                msgBoxProvider("Unsupported OS", "Windows 11 is unsupported.");
+            }
+        } else if (OperatingSystem.IsLinux()) {
+            if (!OSCheck.IsArchLinux()) {
+                msgBoxProvider("Unsupported distro", "Distros other than Arch Linux are unsupported.");
+            }
+        } else {
+            msgBoxProvider("Unsupported OS", "Only Windows and Linux are supported.");
+        }
         
         try
         {
@@ -251,7 +263,7 @@ public class Bootstrapper {
         if (!bootstrapperState.SkipVerification) {
             if (!VerifyFiles(progressHandler, out IEnumerable<string> failureReason)) {
                 logger.Error("Failed verification: " + string.Join(", ", failureReason));
-                await EnsurePackages(progressHandler);
+                await EnsurePackages(msgBoxProvider, progressHandler);
                 await ExtractPackages(progressHandler);
             }
         }
@@ -618,7 +630,7 @@ public class Bootstrapper {
         return false;
     }
 
-    private async Task EnsurePackages(IExtendedProgress<int> progressHandler) {
+    private async Task EnsurePackages(Action<string, string> msgBoxProvider, IExtendedProgress<int> progressHandler) {
         using var scope = CProfiler.CurrentProfiler?.EnterScope("Bootstrapper.EnsurePackages");
 
         downloadedPackages.Clear();
@@ -739,7 +751,7 @@ public class Bootstrapper {
                 throw new Exception($"Some files ({failed.TrimEnd()}) were still corrupted after attempting to redownload {RetryCount} times. Check your disk and internet. ");
             }
             RetryCount++;
-            await RunBootstrap();
+            await RunBootstrap(msgBoxProvider);
             return;
         }
     }

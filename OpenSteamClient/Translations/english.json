@@ -74,6 +74,7 @@
         "#FriendsUI_PersonaState_Away": "Away",
         "#FriendsUI_PersonaState_Invisible": "Invisible",
         "#FriendsUI_PersonaState_Offline": "Offline",
+        "#FriendsList_Title": "Friends list",
         "#Library_SearchBarWatermark": "Search by name",
         "#LaunchOptionDialog_Title": "Launch Options - {0}",
         "#LaunchOptionDialog_ChooseHowToLaunch": "Choose how {0} should be started:",

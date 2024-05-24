@@ -31,6 +31,12 @@ Stuff marked future can be done eventually or just completely ignored
   - [ ] Persona name change
   - [ ] Download speed cap
 - [x] Fix CPU fan speeding due to IPCClient
+- [x] Friends list
+  - [ ] localizations
+  - [ ] Online, InGame, Offline sorting
+  - [ ] Chats
+  - [ ] Join friend's game
+  - [ ] Different colours for different statuses
 - [ ] Library UI
   - [ ] Game news and patch notes
   - [x] Search bar
@@ -143,6 +149,11 @@ Stuff marked future can be done eventually or just completely ignored
 - [ ] MacOS
 - [ ] Reverse ZipVZ (ValveZip?) format
 
+# Support
+We support:
+- Arch Linux
+- Windows 10
+Anything else is not officially supported, and your issue may get closed.
 
 # Features
 NOTE: The features mentioned here are the criteria for replacing the old Qt/C++ based OSC. These may not be implemented yet! And these also aren't final

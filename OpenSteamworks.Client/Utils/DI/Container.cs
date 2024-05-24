@@ -53,7 +53,7 @@ public class Container
         this.factories.Add(type, factoryMethod);
         this.registeredObjects.Add(type, factoryPlaceholderObject);
         logger.Debug("Registered factory for type '" + type.Name + "'");
-        var implementedInterfacesAttrs = type.GetCustomAttributes(typeof(ImplementsInterfaceAttribute<>));
+        var implementedInterfacesAttrs = type.GetCustomAttributes(typeof(DIRegisterInterfaceAttribute<>));
         foreach (var ifaceAttr in implementedInterfacesAttrs)
         {
             Type interfaceType = ifaceAttr.GetType().GetGenericArguments().First();

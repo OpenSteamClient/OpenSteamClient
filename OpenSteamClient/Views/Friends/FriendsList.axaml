@@ -5,10 +5,13 @@
         xmlns:c="using:OpenSteamClient.Controls"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        mc:Ignorable="d" d:DesignWidth="250" d:DesignHeight="600"
+        Width="250"
+        Height="600"
         x:Class="OpenSteamClient.Views.Friends.FriendsList"
         x:DataType="vmf:FriendsListViewModel"
         Icon="/Assets/opensteam-logo.ico"
+        c:Translatable.TranslationKey="#FriendsList_Title"
         Title="OpenSteamClient">
 
     <Design.DataContext>
@@ -18,7 +21,31 @@
     </Design.DataContext>
     
     <StackPanel>
-        
+        <ScrollViewer>
+            <StackPanel>
+                <ItemsControl ItemsSource="{Binding Friends}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="32" />
+                                    <ColumnDefinition Width="2*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+
+                                <Image Grid.Column="0" Width="32" Height="32" Source="{Binding SmallAvatar}"/>
+                                <StackPanel HorizontalAlignment="Stretch" Grid.Column="1">
+                                    <TextBlock Text="{Binding DisplayName}"/>
+                                    <TextBlock Text="{Binding PersonaStatus}" />
+                                </StackPanel>
+
+                                <Button HorizontalAlignment="Right" Grid.Column="2" Content="Invite to Game" Command="{Binding InviteToGame}" IsVisible="{Binding SelfCanInvite}"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </StackPanel>
+        </ScrollViewer>
     </StackPanel>
     
 </Window>

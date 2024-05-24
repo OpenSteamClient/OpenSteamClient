@@ -74,6 +74,7 @@
         "#FriendsUI_PersonaState_Away": "Poissa",
         "#FriendsUI_PersonaState_Invisible": "Näkymätön",
         "#FriendsUI_PersonaState_Offline": "Kirjautunut ulos",
+        "#FriendsList_Title": "Kaveriluettelo",
         "#Library_SearchBarWatermark": "Hae nimellä",
         "#LaunchOptionDialog_Title": "Käynnistysasetukset - {0}",
         "#LaunchOptionDialog_ChooseHowToLaunch": "Valitse, miten {0} käynnistetään:",

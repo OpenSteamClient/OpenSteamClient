@@ -115,6 +115,10 @@ public struct CGameID : IEquatable<CGameID>, IComparable<CGameID> {
 	}
 
 	public bool IsValid() {
+		if (GameID == 0) {
+            return false;
+        }
+
 		// Each type has it's own invalid fixed point:
 		switch (Type) {
 			case EGameIDType.App:
