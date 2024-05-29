@@ -882,7 +882,7 @@ public class Bootstrapper {
     }
 
     [SupportedOSPlatform("linux")]
-    private static async Task ExtractSteamRuntime(IExtendedProgress<int> progressHandler, string rootPath, string flavourPrefix) {
+    private async Task ExtractSteamRuntime(IExtendedProgress<int> progressHandler, string rootPath, string flavourPrefix) {
         using var scope = CProfiler.CurrentProfiler?.EnterScope("Bootstrapper.ExtractSteamRuntime");
         string runtimeDir = Path.Combine(rootPath, $"steam-runtime{flavourPrefix}");
 
@@ -909,33 +909,33 @@ public class Bootstrapper {
                 string runtime_md5_calculated = Convert.ToHexString(MD5.HashData(File.ReadAllBytes(file)));
 
                 if (!string.Equals(runtime_md5_calculated, runtime_md5_expected, StringComparison.InvariantCultureIgnoreCase)) {
+                    logger.Error($"SteamRT file {item.Key} hash verification failure, got: {runtime_md5_calculated}, expected: {runtime_md5_expected}");
                     throw new Exception($"MD5 mismatch. Steam Runtime File {file} is corrupted. {runtime_md5_expected} expected, got {runtime_md5_calculated}");
+                } else {
+                    logger.Info("SteamRT file " + item.Key + " hash verification success");
                 }
             }
         }
-
+        
         {
             using var subScope = CProfiler.CurrentProfiler?.EnterScope("Bootstrapper.ExtractSteamRuntime - Unzip");
 
-            Process proc = new Process();
+            Process proc = new();
             proc.StartInfo.FileName = "tar";
             proc.StartInfo.Arguments = $"-xvJf steam-runtime{flavourPrefix}.tar.xz -C steam-runtime{flavourPrefix} --strip-components=1";
             proc.StartInfo.WorkingDirectory = rootPath;
             proc.StartInfo.CreateNoWindow = true;
             proc.StartInfo.UseShellExecute = false;
-            proc.StartInfo.RedirectStandardInput = true;
-            proc.StartInfo.RedirectStandardOutput = true;
-            proc.StartInfo.RedirectStandardError = true;
 
+            progressHandler.SetThrobber();
             progressHandler.SetSubOperation($"Unzipping Steam Runtime");
 
-            bool result = proc.Start();
+            logger.Info($"Starting tar");
+            proc.Start();
 
-            if (!result) {
-                throw new Exception("Failed to start tar. Is tar installed?");
-            }
-
+            logger.Info($"Waiting for tar to exit...");
             await proc.WaitForExitAsync();
+            logger.Info($"tar exited with code {proc.ExitCode}");
 
             if (proc.ExitCode != 0)  {
                 throw new Exception("tar exited with failure exitcode: " + proc.ExitCode);
