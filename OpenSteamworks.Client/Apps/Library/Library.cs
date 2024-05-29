@@ -30,6 +30,7 @@ public class Library
     public event EventHandler? LibraryUpdated;
     internal Library(ISteamClient steamClient, CloudConfigStore cloudConfigStore, LoginManager loginManager, AppsManager appsManager, InstallManager installManager)
     {
+        this.Collections.Add(new Collection("Uncategorized", "uncategorized", true));
         this.installManager = installManager;
         this.logger = Logger.GetLogger("Library", installManager.GetLogPath("Library"));
         this.steamClient = steamClient;
@@ -37,7 +38,6 @@ public class Library
         cloudConfigStore.NamespaceUpdated += OnNamespaceUpdated;
         this.loginManager = loginManager;
         this.appsManager = appsManager;
-        this.Collections.Add(new Collection("Uncategorized", "uncategorized", true));
     }
 
     private void OnNamespaceUpdated(object? sender, EUserConfigStoreNamespace e)
@@ -82,8 +82,8 @@ public class Library
                 }
             }
 
-            // Remove collections that no longer exist
-            this.Collections.RemoveAll(c => !collections.Contains(c.ID));
+            // Remove collections that no longer exist (if they're not a system collection)
+            this.Collections.RemoveAll(c => !(c.IsSystem || !collections.Contains(c.ID)));
         }
         catch (Exception e)
         {
