@@ -74,11 +74,53 @@
         "#FriendsUI_PersonaState_Away": "Poissa",
         "#FriendsUI_PersonaState_Invisible": "Näkymätön",
         "#FriendsUI_PersonaState_Offline": "Kirjautunut ulos",
+        "#FriendsUI_LastOnline": "Viimeksi paikalla {0} sitten",
+
+        "#FriendsUI_Call": "Soita",
+        "#FriendsUI_ViewProfile": "Katso profiili",
+
+        "#FriendsUI_Trading_SubMenu": "Vaihtokauppa",
+        "#FriendsUI_ViewInventory": "Katso tavaraluettelo",
+        "#FriendsUI_SendTradeOffer": "Lähetä kaupankäyntipyytö",
+
+        "#FriendsUI_Manage_SubMenu": "Hallitse",
+        "#FriendsUI_ChangeNickName": "Vaihda lempinimeä",
+        "#FriendsUI_AddToFavourites": "Lisää suosikkeihin",
+        "#FriendsUI_RemoveFromFavourites": "Poista suosikeista",
+        "#FriendsUI_Categorize": "Luokittele",
+        "#FriendsUI_Notifications": "Ilmoitukset",
+        "#FriendsUI_RemoveFromFriends": "Poista kavereista",
+        "#FriendsUI_RecentNames": "Vanhat nimet",
+        "#FriendsUI_Block": "Estä",
+        
+        "#FriendsUI_InviteToGame": "Kutsu pelaamaan",
+        "#FriendsUI_InviteToWatch": "Kutsu katsomaan",
+        "#FriendsUI_JoinGame": "Liity peliin",
+        "#FriendsUI_WatchGame": "Katso peliä",
+        "#FriendsUI_StorePage": "Kauppasivu",
+        "#FriendsUI_CommunityHub": "Yhteisökeskus",
+
+
         "#FriendsList_Title": "Kaveriluettelo",
         "#Library_SearchBarWatermark": "Hae nimellä",
         "#LaunchOptionDialog_Title": "Käynnistysasetukset - {0}",
         "#LaunchOptionDialog_ChooseHowToLaunch": "Valitse, miten {0} käynnistetään:",
         "#LaunchOptionDialog_GenericOptionGame": "Pelaa {0}",
-        "#LaunchOptionDialog_GenericOptionApp": "Käynnistä {0}"
+        "#LaunchOptionDialog_GenericOptionApp": "Käynnistä {0}",
+        "#TimeDate_Year": "vuosi",
+        "#TimeDate_Years": "vuotta",
+        "#TimeDate_Month": "kuukausi",
+        "#TimeDate_Months": "kuukautta",
+        "#TimeDate_Week": "viikko",
+        "#TimeDate_Weeks": "viikkoa",
+        "#TimeDate_Day": "päivä",
+        "#TimeDate_Days": "päivää",
+        "#TimeDate_Hour": "tunti",
+        "#TimeDate_Hours": "tuntia",
+        "#TimeDate_Minute": "minuutti",
+        "#TimeDate_Minutes": "minuuttia",
+        "#TimeDate_Second": "sekuntti",
+        "#TimeDate_Seconds": "sekunttia",
+        "#TimeDate_And": "ja"
     }
 }

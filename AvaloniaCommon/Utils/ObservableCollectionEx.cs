@@ -55,6 +55,11 @@ public class ObservableCollectionEx<T> : ICollection<T>, IEnumerable<T>, IEnumer
         OnCollectionChanged(new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Reset));
     }
 
+    public void SetFilter(Predicate<T> del) {
+        this.filter = del;
+        FilterOriginal(del);
+    }
+
     /// <summary>
     /// Save and use the selected predicate for filtering now, and every time the collection is updated. Uses FilterOriginal.
     /// This may be inefficient, since it fires Reset events for every action.
@@ -76,12 +81,17 @@ public class ObservableCollectionEx<T> : ICollection<T>, IEnumerable<T>, IEnumer
 
     private int prevCount = -1;
     private void OnCollectionChanged(NotifyCollectionChangedEventArgs e) {
-        if (FilterOnChange()) {
-            CollectionChanged?.Invoke(this, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Reset));
-        } else {
-            CollectionChanged?.Invoke(this, e);
-        }
+        // if (FilterOnChange()) {
+        //     Console.WriteLine("Firing reset");
+        //     CollectionChanged?.Invoke(this, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Reset));
+        // } else {
+        //     CollectionChanged?.Invoke(this, e);
+        // }
 
+        // Always reset to avoid bugs.
+        Console.WriteLine("Firing reset");
+        CollectionChanged?.Invoke(this, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Reset));
+        
         if (prevCount != Count) {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Count)));
         }
@@ -148,6 +158,7 @@ public class ObservableCollectionEx<T> : ICollection<T>, IEnumerable<T>, IEnumer
 
     public void Sort() {
         underlyingCollection.Sort();
+        filteredCollection?.Sort();
         OnCollectionChanged(new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Reset));
     }
 
@@ -173,9 +184,9 @@ public class ObservableCollectionEx<T> : ICollection<T>, IEnumerable<T>, IEnumer
     public bool IsFixedSize => ((IList)underlyingCollection).IsFixedSize;
 
     // I don't know if this is best practice.
-    object? IList.this[int index] { get => ((IList)underlyingCollection)[index]; set => underlyingCollection.Insert(index, (T)value!); }
-
-    public T this[int index] { get => ((IList<T>)underlyingCollection)[index]; set => underlyingCollection.Insert(index, value); }
+    object? IList.this[int index] { get => ((IList)actualCollection)[index]; set => underlyingCollection.Insert(index, (T)value!); }
+    
+    public T this[int index] { get => ((IList<T>)actualCollection)[index]; set => underlyingCollection.Insert(index, value); }
 
     public void Add(T item)
     {

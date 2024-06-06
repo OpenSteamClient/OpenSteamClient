@@ -2,22 +2,23 @@
 
   <PropertyGroup>
     <!-- AvaloniaAccessUnstablePrivateApis is Enabled -->
-    <NoWarn>AVA3001</NoWarn>
+    <!-- <NoWarn>AVA3001</NoWarn> -->
 
     <TargetFramework>$(CommonNetVersion)</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
 
-    <AvaloniaNugetVersion>11.1.999-cibuild0044819-beta</AvaloniaNugetVersion>
+    <!-- When changing this, also update GameOverlayUI, OpenSteamClient and Installer csproj files -->
+    <AvaloniaVersion>11.1.0-beta2</AvaloniaVersion>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Avalonia" Version="$(AvaloniaNugetVersion)"/>
-    <PackageReference Include="Avalonia.Desktop" Version="$(AvaloniaNugetVersion)"/>
-    <PackageReference Include="Avalonia.Themes.Fluent" Version="$(AvaloniaNugetVersion)"/>
-    <PackageReference Include="Avalonia.Fonts.Inter" Version="$(AvaloniaNugetVersion)"/>
-    <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="$(AvaloniaNugetVersion)"/>
+    <PackageReference Include="Avalonia" Version="$(AvaloniaVersion)"/>
+    <PackageReference Include="Avalonia.Desktop" Version="$(AvaloniaVersion)"/>
+    <PackageReference Include="Avalonia.Themes.Fluent" Version="$(AvaloniaVersion)"/>
+    <PackageReference Include="Avalonia.Fonts.Inter" Version="$(AvaloniaVersion)"/>
+    <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="$(AvaloniaVersion)"/>
 
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.1" />
   </ItemGroup>

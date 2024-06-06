@@ -948,8 +948,7 @@ public class Bootstrapper {
     private void CopyOpensteamFiles(IExtendedProgress<int> progressHandler) {
         using var subScope = CProfiler.CurrentProfiler?.EnterScope("Bootstrapper.CopyOpensteamFiles");
 
-        // By default we copy all files to the root install dir.
-        // Specify path mappings here to tell the files to go into another
+        // Specify path mappings here to copy certain natives
         Dictionary<string, string> pathMappings = new() {
             {"reaper", "linux64/reaper"},
             {"steam-launch-wrapper", "linux64/steam-launch-wrapper"},
@@ -970,6 +969,7 @@ public class Bootstrapper {
         if (assemblyFolder == null) {
             throw new Exception("assemblyFolder is null.");
         }
+        
         string platformStr;
         if (OperatingSystem.IsWindows()) {
             platformStr = "win-x64";
@@ -983,9 +983,12 @@ public class Bootstrapper {
 
         string baseNativesFolder = Path.Combine(assemblyFolder, "runtimes");
         string nativesFolder = Path.Combine(baseNativesFolder, platformStr, "native");
-        if (!Directory.Exists(nativesFolder)) {
-            throw new NotSupportedException($"This build has not been compiled with support for {platformStr}. Please rebuild or try another OS. \nAlternatively, if you're running on 64-bit Windows, 64-bit Linux or 64-bit MacOS file an issue if this is a release build.");
+        bool hasMultiRID = Directory.Exists(nativesFolder);
+        if (!hasMultiRID) {
+            nativesFolder = assemblyFolder;
         }
+
+        bool copiedAnyFiles = false;
 
         progressHandler.SetSubOperation("Copying OpenSteam files");
         var di = new DirectoryInfo(nativesFolder);
@@ -998,10 +1001,17 @@ public class Bootstrapper {
             string name = file.Name;
             if (pathMappings.ContainsKey(name)) {
                 name = pathMappings[name];
+            } else {
+                continue;
             }
 
+            copiedAnyFiles = true;
             logger.Info("Copying " + file.FullName + " to " + Path.Combine(installManager.InstallDir, name));
             File.Copy(file.FullName, Path.Combine(installManager.InstallDir, name), true);
+        }
+
+        if (!copiedAnyFiles) {
+            throw new NotSupportedException($"This build has not been compiled with support for {platformStr}. Please rebuild or try another OS. \nAlternatively, if you're running on 64-bit Windows or 64-bit Linux file an issue if this is a release build.");
         }
     }
 }

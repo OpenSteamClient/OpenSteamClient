@@ -40,7 +40,7 @@ public partial class LibraryPageViewModel : AvaloniaCommon.ViewModelBase
             if (searchText == string.Empty) {
                 coll.Children.ClearFilter();
             } else {
-                coll.Children.FilterOriginal(f => f.GetSortableName().Contains(searchText, StringComparison.InvariantCultureIgnoreCase));
+                coll.Children.SetFilter(f => f.GetSortableName().Contains(searchText, StringComparison.InvariantCultureIgnoreCase));
                 coll.Children.Sort();
             }
         }
@@ -104,7 +104,7 @@ public partial class LibraryPageViewModel : AvaloniaCommon.ViewModelBase
 
     private void SelectionChanged(object? sender, NotifyCollectionChangedEventArgs e)
     {
-        if (!SelectedNodes.Any())
+        if (SelectedNodes.Count == 0)
         {
             return;
         }

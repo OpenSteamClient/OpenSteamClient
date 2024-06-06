@@ -18,10 +18,13 @@ public class Container
     private readonly Logger logger;
 
     //TODO: constructor argument shenanigans are bad. How to make this less terrible while keeping logging immediate?
-    public Container(InstallManager installManager)
+    public Container(InstallManager? installManager = null)
     {
-        this.logger = Logger.GetLogger("Container", installManager.GetLogPath("Container"));
-        this.RegisterInstance(installManager);
+        this.logger = Logger.GetLogger("Container", installManager?.GetLogPath("Container"));
+        if (installManager != null) {
+            this.RegisterInstance(installManager);
+        }
+        
         this.RegisterInstance(this);
     }
 

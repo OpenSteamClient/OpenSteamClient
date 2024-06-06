@@ -62,6 +62,8 @@ public class TranslationManager : ILogonLifetime
         this.configManager = configManager;
     }
 
+    public event EventHandler? TranslationChanged;
+
     public void SetLanguage(ELanguage language, bool save = true)
     {
         using var scope = CProfiler.CurrentProfiler?.EnterScope("SetLanguage");
@@ -99,6 +101,8 @@ public class TranslationManager : ILogonLifetime
             userSettings.Language = language;
             configManager.Save(userSettings);
         }
+
+        TranslationChanged?.Invoke(this, EventArgs.Empty);
     }
 
     public string GetTranslationForKey(string key)

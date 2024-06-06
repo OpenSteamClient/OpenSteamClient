@@ -83,7 +83,7 @@ public class Library
             }
 
             // Remove collections that no longer exist (if they're not a system collection)
-            this.Collections.RemoveAll(c => !(c.IsSystem || !collections.Contains(c.ID)));
+            this.Collections.RemoveAll(c => !c.IsSystem && !collections.Contains(c.ID));
         }
         catch (Exception e)
         {

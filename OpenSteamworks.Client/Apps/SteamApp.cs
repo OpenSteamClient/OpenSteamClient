@@ -184,6 +184,7 @@ public class SteamApp : AppBase
         }
     }
 
+    //TODO: Progress indication
     public override async Task<EAppError> Launch(string userLaunchOptions, int launchOptionID)
     {
         if (this.Config.CheckForUpdatesBeforeLaunch) {
@@ -195,6 +196,11 @@ public class SteamApp : AppBase
                 return EAppError.UpdateRequired;
             }
         }
+
+        //TODO:
+        // CheckShaderDepotManifest
+        // DownloadingWorkshop
+        
 
         logger.Info("Running install scripts");
         await AppsManager.RunInstallScriptAsync(AppID);

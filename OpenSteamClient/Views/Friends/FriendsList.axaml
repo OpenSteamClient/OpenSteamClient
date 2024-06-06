@@ -11,8 +11,7 @@
         x:Class="OpenSteamClient.Views.Friends.FriendsList"
         x:DataType="vmf:FriendsListViewModel"
         Icon="/Assets/opensteam-logo.ico"
-        c:Translatable.TranslationKey="#FriendsList_Title"
-        Title="OpenSteamClient">
+        c:Translatable.TranslationKey="#FriendsList_Title">
 
     <Design.DataContext>
         <!-- This only sets the DataContext for the previewer in an IDE,
@@ -20,32 +19,66 @@
         <vmf:FriendsListViewModel/>
     </Design.DataContext>
     
-    <StackPanel>
-        <ScrollViewer>
-            <StackPanel>
-                <ItemsControl ItemsSource="{Binding Friends}">
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="32" />
-                                    <ColumnDefinition Width="2*" />
-                                    <ColumnDefinition Width="Auto" />
-                                </Grid.ColumnDefinitions>
+    <DockPanel>
+        <!-- Current User -->
+        <DockPanel DockPanel.Dock="Top" Margin="2">
+            <!-- TODO: This should be a button to the profile -->
+            <Image DockPanel.Dock="Left" Width="48" Height="48" Source="{Binding CurrentUser.MediumAvatar}"/>
 
-                                <Image Grid.Column="0" Width="32" Height="32" Source="{Binding SmallAvatar}"/>
-                                <StackPanel HorizontalAlignment="Stretch" Grid.Column="1">
-                                    <TextBlock Text="{Binding DisplayName}"/>
-                                    <TextBlock Text="{Binding PersonaStatus}" />
-                                </StackPanel>
-
-                                <Button HorizontalAlignment="Right" Grid.Column="2" Content="Invite to Game" Command="{Binding InviteToGame}" IsVisible="{Binding SelfCanInvite}"/>
-                            </Grid>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
+            <StackPanel Margin="2, 0, 0, 0" HorizontalAlignment="Stretch">
+                <TextBlock Text="{Binding CurrentUser.DisplayName}"/>
+                <TextBlock Text="{Binding CurrentUser.PersonaStatus}" />
             </StackPanel>
+
+            <DockPanel.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Online" c:Translatable.TranslationKey="#FriendsUI_PersonaState_Online" Command="{Binding SetOnline}"/>
+                    <MenuItem Header="Away" c:Translatable.TranslationKey="#FriendsUI_PersonaState_Away" Command="{Binding SetAway}"/>
+                    <MenuItem Header="Invisible" c:Translatable.TranslationKey="#FriendsUI_PersonaState_Invisible" Command="{Binding SetInvisible}"/>
+                    <MenuItem Header="Offline" c:Translatable.TranslationKey="#FriendsUI_PersonaState_Offline" Command="{Binding SetOffline}"/>
+                </ContextMenu>
+            </DockPanel.ContextMenu>    
+        </DockPanel>
+
+        <!-- Favourites -->
+
+        <!-- Main friends list -->
+        <ScrollViewer>
+            <ItemsControl ItemsSource="{Binding Friends}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Margin="4, 2, 2, 2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="32" />
+                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <Image Grid.Column="0" Width="32" Height="32" Source="{Binding SmallAvatar}"/>
+                            <StackPanel Margin="2, 0, 0, 0" HorizontalAlignment="Stretch" Grid.Column="1">
+                                <TextBlock Text="{Binding DisplayName}"/>
+                                <TextBlock Text="{Binding PersonaStatus}" />
+                            </StackPanel>
+
+                            <Grid.ContextMenu>
+                                <ContextMenu ItemsSource="{Binding ContextMenuItems}">
+                                    <ContextMenu.Styles>
+                                        <Style Selector="MenuItem">
+                                            <Setter Property="Header" Value="{Binding Header, DataType={x:Type vm:MenuItemViewModel}}}" />
+                                            <Setter Property="c:Translatable.TranslationKey" Value="{Binding TranslationKey, DataType={x:Type vm:MenuItemViewModel}}}" />
+                                            <Setter Property="ItemsSource" Value="{Binding SubItems, DataType={x:Type vm:MenuItemViewModel}}}}" />
+                                            <Setter Property="Command" Value="{Binding Command, DataType={x:Type vm:MenuItemViewModel}}}}" />
+                                        </Style>
+                                    </ContextMenu.Styles>
+                                </ContextMenu>
+                            </Grid.ContextMenu>    
+                        </Grid>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
         </ScrollViewer>
-    </StackPanel>
+
+        <!-- Group chats -->
+    </DockPanel>
     
 </Window>

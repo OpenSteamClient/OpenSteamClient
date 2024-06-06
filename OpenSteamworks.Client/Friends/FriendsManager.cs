@@ -104,6 +104,23 @@ public class FriendsManager : ILogonLifetime
 
         public unsafe byte[]? GetLargeAvatar(out uint width, out uint height)
             => mgr.GetImageBytes(LargeAvatar, out width, out height);
+
+        public bool JoinGame(CGameID gameid)
+        {
+            if (!gameid.IsSteamApp()) {
+                return false;
+            }
+
+            var rp = RichPresence;
+            if (rp.TryGetChild("connect", out KVObject? connectDataRP)) {
+                if (mgr.friends.NotifyRichPresenceJoinRequested(gameid.AppID, SteamID, connectDataRP.GetValueAsString()))
+                {
+                    return true;
+                }
+            }
+
+            return mgr.friends.NotifyLobbyJoinRequested(gameid.AppID, SteamID, LobbyID);
+        }
     }
 
 

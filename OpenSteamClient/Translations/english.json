@@ -74,11 +74,53 @@
         "#FriendsUI_PersonaState_Away": "Away",
         "#FriendsUI_PersonaState_Invisible": "Invisible",
         "#FriendsUI_PersonaState_Offline": "Offline",
+        "#FriendsUI_LastOnline": "Last online {0} ago",
+
+        "#FriendsUI_Call": "Call",
+        "#FriendsUI_ViewProfile": "View profile",
+
+        "#FriendsUI_Trading_SubMenu": "Trading",
+        "#FriendsUI_ViewInventory": "View inventory",
+        "#FriendsUI_SendTradeOffer": "Send trade offer",
+
+        "#FriendsUI_Manage_SubMenu": "Manage",
+        "#FriendsUI_ChangeNickName": "Change nickname",
+        "#FriendsUI_AddToFavourites": "Add to favourites",
+        "#FriendsUI_RemoveFromFavourites": "Remove from favourites",
+        "#FriendsUI_Categorize": "Categorize",
+        "#FriendsUI_Notifications": "Notifications",
+        "#FriendsUI_RemoveFromFriends": "Remove from friends",
+        "#FriendsUI_RecentNames": "Recent names",
+        "#FriendsUI_Block": "Block",
+        
+        "#FriendsUI_InviteToGame": "Invite to game",
+        "#FriendsUI_InviteToWatch": "Invite to watch",
+        "#FriendsUI_JoinGame": "Join game",
+        "#FriendsUI_WatchGame": "Watch game",
+        "#FriendsUI_StorePage": "Store page",
+        "#FriendsUI_CommunityHub": "Community hub",
+
+
         "#FriendsList_Title": "Friends list",
         "#Library_SearchBarWatermark": "Search by name",
         "#LaunchOptionDialog_Title": "Launch Options - {0}",
         "#LaunchOptionDialog_ChooseHowToLaunch": "Choose how {0} should be started:",
         "#LaunchOptionDialog_GenericOptionGame": "Play {0}",
-        "#LaunchOptionDialog_GenericOptionApp": "Launch {0}"
+        "#LaunchOptionDialog_GenericOptionApp": "Launch {0}",
+        "#TimeDate_Year": "year",
+        "#TimeDate_Years": "years",
+        "#TimeDate_Month": "month",
+        "#TimeDate_Months": "months",
+        "#TimeDate_Week": "week",
+        "#TimeDate_Weeks": "weeks",
+        "#TimeDate_Day": "day",
+        "#TimeDate_Days": "days",
+        "#TimeDate_Hour": "hour",
+        "#TimeDate_Hours": "hours",
+        "#TimeDate_Minute": "minute",
+        "#TimeDate_Minutes": "minutes",
+        "#TimeDate_Second": "second",
+        "#TimeDate_Seconds": "seconds",
+        "#TimeDate_And": "and"
     }
 }

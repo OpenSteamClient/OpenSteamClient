@@ -1,9 +1,10 @@
 using System;
 using System.Diagnostics.CodeAnalysis;
+using Avalonia;
 using Avalonia.Media;
 using Avalonia.Styling;
 
-namespace OpenSteamClient;
+namespace AvaloniaCommon;
 
 public class Theme
 {
@@ -54,8 +55,8 @@ public class Theme
         }
     }
 
-    private AvaloniaApp app;
-    internal Theme(AvaloniaApp app)
+    private Application app;
+    public Theme(Application app)
     {
         this.app = app;
     }

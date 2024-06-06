@@ -506,21 +506,20 @@ public unsafe interface IClientUser
     public ulong GetFamilyGroupID();  // argc: 0, index: 266, ipc args: [], ipc returns: [bytes8]
     public string GetFamilyGroupName();  // argc: 0, index: 267, ipc args: [], ipc returns: [string]
     public uint GetFamilyGroupRole();  // argc: 0, index: 268, ipc args: [], ipc returns: [bytes4]
+    public int GetFamilyGroupMembers(uint[] memberAccountIDs, int maxLen);  // argc: 2, index: 269, ipc args: [bytes4], ipc returns: [bytes4, bytes_length_from_reg]
     // WARNING: Arguments are unknown!
-    public unknown_ret GetFamilyGroupMembers();  // argc: 2, index: 269, ipc args: [bytes4], ipc returns: [bytes4, bytes_length_from_reg]
-    // WARNING: Arguments are unknown!
-    public unknown_ret GetSharedAppLockInfo();  // argc: 5, index: 270, ipc args: [bytes4], ipc returns: [bytes1, bytes4, bytes4, bytes4, bytes1]
+    public bool GetSharedAppLockInfo(AppId_t appid, out bool isLocked, out uint unk, out uint unk2, out uint unk3, out bool unk4);  // argc: 5, index: 270, ipc args: [bytes4], ipc returns: [bytes1, bytes4, bytes4, bytes4, bytes1]
     // WARNING: Arguments are unknown!
     [BlacklistedInCrossProcessIPC]
-    public unknown_ret GetFamilyDLCForApp();  // argc: 2, index: 271, ipc args: [bytes4, bytes4], ipc returns: [bytes1]
+    public bool GetFamilyDLCForApp(AppId_t appid, CUtlVector<uint>* dlcIDs);  // argc: 2, index: 271, ipc args: [bytes4, bytes4], ipc returns: [bytes1]
     // WARNING: Arguments are unknown!
-    public unknown_ret SetPreferredLender();  // argc: 2, index: 272, ipc args: [bytes4, bytes4], ipc returns: [bytes8]
+    public SteamAPICall_t SetPreferredLender(AppId_t appid, uint accountID);  // argc: 2, index: 272, ipc args: [bytes4, bytes4], ipc returns: [bytes8]
     // WARNING: Arguments are unknown!
     public unknown_ret NotifyPendingGameLaunch_FetchSteamStreamingEncoderConfig();  // argc: 1, index: 273, ipc args: [bytes4], ipc returns: []
     // WARNING: Arguments are unknown!
     public bool BShouldWaitForSteamStreamingEncoderConfig();  // argc: 1, index: 274, ipc args: [bytes4], ipc returns: [boolean]
     // WARNING: Arguments are unknown!
     [BlacklistedInCrossProcessIPC]
-    public unknown_ret BGetProcessIDsForGame();  // argc: 2, index: 275, ipc args: [bytes8, bytes4], ipc returns: [boolean]
+    public bool BGetProcessIDsForGame(CGameID gameid, CUtlVector<uint>* gameIDs);  // argc: 2, index: 275, ipc args: [bytes8, bytes4], ipc returns: [boolean]
     public SteamAPICall_t CancelLicenseForApp(AppId_t appid);  // argc: 1, index: 276, ipc args: [bytes4], ipc returns: [bytes8]
 }

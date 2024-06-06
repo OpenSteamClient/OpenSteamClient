@@ -1,7 +1,7 @@
 <img src="Assets/opensteam-logo.svg" alt="OpenSteamClient logo" title="OpenSteamClient" align="left" height="65" />
 
 # OpenSteamClient (C# version, still in heavy development)
-A partially open-source Steam client for Windows and Linux
+A partially open-source Steam frontend for Windows and Linux
 
 # Current development status
 Everything below is blockers. Lots of stuff that's only documented in my head is also blockers. Lots of code cleanups are due. 
@@ -32,11 +32,16 @@ Stuff marked future can be done eventually or just completely ignored
   - [ ] Download speed cap
 - [x] Fix CPU fan speeding due to IPCClient
 - [x] Friends list
-  - [ ] localizations
+  - [x] localizations
+  - [x] Auto-updating "offline since" timer
   - [ ] Online, InGame, Offline sorting
   - [ ] Chats
-  - [ ] Join friend's game
+  - [x] Join friend's game
   - [ ] Different colours for different statuses
+  - [ ] Rich presence
+  - [ ] Animated avatars
+  - [ ] Avatar frames
+  - [ ] Miniprofiles
 - [ ] Library UI
   - [ ] Game news and patch notes
   - [x] Search bar
