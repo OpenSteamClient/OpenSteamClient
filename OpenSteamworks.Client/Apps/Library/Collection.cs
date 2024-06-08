@@ -48,8 +48,11 @@ public class Collection
 
     internal HashSet<AppId_t> dynamicCollectionAppsCached = new();
 
-    internal Collection(string name, string id, bool system = false)
+    private readonly LibraryManager libraryManager;
+
+    internal Collection(LibraryManager libraryManager, string name, string id, bool system = false)
     {
+        this.libraryManager = libraryManager;
         this.Name = name;
         this.ID = id;
         this.IsSystem = system;
@@ -57,9 +60,9 @@ public class Collection
         this.IsDynamic = false;
     }
 
-    public static Collection FromJSONCollection(JSONCollection json)
+    public static Collection FromJSONCollection(LibraryManager libraryManager, JSONCollection json)
     {
-        Collection collection = new(json.name, json.id);
+        Collection collection = new(libraryManager, json.name, json.id);
         // Determine if this is a dynamic collection
         collection.IsDynamic = json.filterSpec != null;
 
@@ -67,21 +70,40 @@ public class Collection
         {
             // No need to do any special processing here, just save the filter specs
             UtilityFunctions.AssertNotNull(json.filterSpec);
-
+            
             if (json.filterSpec.filterGroups.Length < 7)
             {
-                throw new InvalidOperationException("There are less filter groups than 7. Have the filters changed? New length is: " + json.filterSpec.filterGroups.Length);
+                libraryManager.Logger.Warning("There are less filter groups than 7. Possibly missing or misinterpreting some filters. New length is: " + json.filterSpec.filterGroups.Length);
             }
 
             if (json.filterSpec.filterGroups.Length > 7)
             {
-                throw new InvalidOperationException("The amount of filterGroups is greater than 7. New filters? New length: " + json.filterSpec.filterGroups.Length);
+                libraryManager.Logger.Warning("There are more filter groups than 7. The filters have changed. New length is: " + json.filterSpec.filterGroups.Length);
             }
 
-            collection.StateFilter = FilterGroup<ELibraryAppStateFilter>.FromJSONFilterGroup(json.filterSpec.filterGroups[1]);
-            collection.FeatureAndSupportFilter = FilterGroup<ELibraryAppFeaturesFilter>.FromJSONFilterGroup(json.filterSpec.filterGroups[2]);
-            collection.StoreTagsFilter = FilterGroup<int>.FromJSONFilterGroup(json.filterSpec.filterGroups[4]);
-            collection.FriendsInCommonFilter = FilterGroup<uint>.FromJSONFilterGroup(json.filterSpec.filterGroups[6]);
+            if (json.filterSpec.filterGroups.Length > 1) {
+                collection.StateFilter = FilterGroup<ELibraryAppStateFilter>.FromJSONFilterGroup(json.filterSpec.filterGroups[1]);
+            } else {
+                collection.StateFilter = new();
+            }
+
+            if (json.filterSpec.filterGroups.Length > 2) {
+                collection.FeatureAndSupportFilter = FilterGroup<ELibraryAppFeaturesFilter>.FromJSONFilterGroup(json.filterSpec.filterGroups[2]);
+            } else {
+                collection.FeatureAndSupportFilter = new();
+            }
+
+            if (json.filterSpec.filterGroups.Length > 4) {
+                collection.StoreTagsFilter = FilterGroup<int>.FromJSONFilterGroup(json.filterSpec.filterGroups[4]);
+            } else {
+                collection.StoreTagsFilter = new();
+            }
+
+            if (json.filterSpec.filterGroups.Length > 6) {
+                collection.FriendsInCommonFilter = FilterGroup<uint>.FromJSONFilterGroup(json.filterSpec.filterGroups[6]);
+            } else {
+                collection.FriendsInCommonFilter = new();
+            }
         }
         
         if (json.added == null)

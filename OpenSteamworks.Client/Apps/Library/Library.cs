@@ -26,11 +26,13 @@ public class Library
     private readonly LoginManager loginManager;
     private readonly InstallManager installManager;
     private readonly Logger logger;
+    private readonly LibraryManager libraryManager;
 
     public event EventHandler? LibraryUpdated;
-    internal Library(ISteamClient steamClient, CloudConfigStore cloudConfigStore, LoginManager loginManager, AppsManager appsManager, InstallManager installManager)
+    internal Library(LibraryManager libraryManager, ISteamClient steamClient, CloudConfigStore cloudConfigStore, LoginManager loginManager, AppsManager appsManager, InstallManager installManager)
     {
-        this.Collections.Add(new Collection("Uncategorized", "uncategorized", true));
+        this.libraryManager = libraryManager;
+        this.Collections.Add(new Collection(libraryManager, "Uncategorized", "uncategorized", true));
         this.installManager = installManager;
         this.logger = Logger.GetLogger("Library", installManager.GetLogPath("Library"));
         this.steamClient = steamClient;
@@ -75,7 +77,7 @@ public class Library
                 }
 
                 collections.Add(json.id);
-                var collection = UpdateOrCreateCollection(Collection.FromJSONCollection(json));
+                var collection = UpdateOrCreateCollection(Collection.FromJSONCollection(libraryManager, json));
                 foreach (var item in this.GetAppsInCollection(collection))
                 {
                     AppIDsInCollections.Add(item);
@@ -263,7 +265,7 @@ public class Library
     /// </summary>
     public Collection CreateDynamicCollection(string name)
     {
-        var coll = Collection.FromJSONCollection(new JSONCollection()
+        var coll = Collection.FromJSONCollection(libraryManager, new JSONCollection()
         {
             id = "uc-" + UtilityFunctions.GenerateRandomString(12),
             filterSpec = new JSONFilterSpec(),
@@ -281,7 +283,7 @@ public class Library
     /// </summary>
     public Collection CreateCollection(string name)
     {
-        var coll = Collection.FromJSONCollection(new JSONCollection()
+        var coll = Collection.FromJSONCollection(libraryManager, new JSONCollection()
         {
             id = "uc-" + UtilityFunctions.GenerateRandomString(12),
             filterSpec = null,
@@ -307,7 +309,7 @@ public class Library
         Collection originalCollection = GetCollectionByID(id);
 
         this.Collections.Remove(originalCollection);
-        Collection newCollection = new(originalCollection.ID, originalCollection.ID);
+        Collection newCollection = new(libraryManager, originalCollection.ID, originalCollection.ID);
         this.Collections.Add(newCollection);
         newCollection.AddApps(GetAppsInCollection(originalCollection));
     }

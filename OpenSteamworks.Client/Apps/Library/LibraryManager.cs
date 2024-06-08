@@ -30,7 +30,7 @@ public class LibraryManager : ILogonLifetime
     private readonly CloudConfigStore cloudConfigStore;
     private readonly ISteamClient steamClient;
     private readonly ClientMessaging clientMessaging;
-    private readonly Logger logger;
+    internal Logger Logger { get; }
     private readonly InstallManager installManager;
     private readonly LoginManager loginManager;
     private readonly AppsManager appsManager;
@@ -48,7 +48,7 @@ public class LibraryManager : ILogonLifetime
     
 
     public LibraryManager(ISteamClient steamClient, CloudConfigStore cloudConfigStore, ClientMessaging clientMessaging, LoginManager loginManager, InstallManager installManager, AppsManager appsManager) {
-        this.logger = Logger.GetLogger("LibraryManager", installManager.GetLogPath("LibraryManager"));
+        this.Logger = Logger.GetLogger("LibraryManager", installManager.GetLogPath("LibraryManager"));
         this.installManager = installManager;
         this.steamClient = steamClient;
         this.loginManager = loginManager;
@@ -61,7 +61,7 @@ public class LibraryManager : ILogonLifetime
     }
 
     public async Task OnLoggedOn(IExtendedProgress<int> progress, LoggedOnEventArgs e) {
-        Library library = new(steamClient, cloudConfigStore, loginManager, appsManager, installManager);
+        Library library = new(this, steamClient, cloudConfigStore, loginManager, appsManager, installManager);
         HashSet<CGameID> allUserAppIDs = await library.InitializeLibrary();
         await appsManager.ClientApps.UpdateAppInfo(allUserAppIDs.Where(a => a.IsSteamApp()).Select(a => a.AppID).ToArray());
 
@@ -81,8 +81,8 @@ public class LibraryManager : ILogonLifetime
                 }
                 catch (System.Exception e)
                 {
-                    logger.Error("Got error while loading library assets from cache for " + item.AppID + ": ");
-                    logger.Error(e);
+                    Logger.Error("Got error while loading library assets from cache for " + item.AppID + ": ");
+                    Logger.Error(e);
                 }
             }
 
@@ -112,7 +112,7 @@ public class LibraryManager : ILogonLifetime
                 foreach (var item in expectedApps)
                 {
                     if (!generatedApps.Contains(item)) {
-                        logger.Error($"Failed to generate library assets for {item}");
+                        Logger.Error($"Failed to generate library assets for {item}");
                     }
                 }
 
@@ -147,12 +147,12 @@ public class LibraryManager : ILogonLifetime
         lock (libraryAssetsFileLock)
         {
             if (libraryAssetsFile == null) {
-                logger.Info("WriteConcurrentAssetDict: libraryAssetsFile is null. Loading");
+                Logger.Info("WriteConcurrentAssetDict: libraryAssetsFile is null. Loading");
                 LoadLibraryAssetsFile();
             }
 
             if (assetsConcurrent == null) {
-                logger.Info("WriteConcurrentAssetDict: assetsConcurrent is null. Creating new");
+                Logger.Info("WriteConcurrentAssetDict: assetsConcurrent is null. Creating new");
                 assetsConcurrent = new(libraryAssetsFile.Assets);
             }
 
@@ -178,14 +178,14 @@ public class LibraryManager : ILogonLifetime
             }
             catch (System.Exception e2)
             {
-                logger.Error("Failed to load cached asset metadata. Starting from scratch.");
-                logger.Error(e2);
+                Logger.Error("Failed to load cached asset metadata. Starting from scratch.");
+                Logger.Error(e2);
                 libraryAssetsFile = new(new KVObject("", new List<KVObject>()));
             }
         } 
         else
         {
-            logger.Info("No cached asset metadata. Starting from scratch.");
+            Logger.Info("No cached asset metadata. Starting from scratch.");
             libraryAssetsFile = new(new KVObject("", new List<KVObject>()));
         }
 
@@ -193,7 +193,7 @@ public class LibraryManager : ILogonLifetime
     }
 
     private void SaveLibraryAssetsFile() {
-        logger.Info("Saving library assets.vdf");
+        Logger.Info("Saving library assets.vdf");
         string libraryAssetsFilePath = Path.Combine(LibraryAssetsPath, "assets.vdf");
         string libraryAssetsTextFilePath = Path.Combine(LibraryAssetsPath, "assets_text.vdf");
         lock (libraryAssetsFileLock)
@@ -261,7 +261,7 @@ public class LibraryManager : ILogonLifetime
                 localPathOut = targetPath;
                 return;
             } else {
-                logger.Info($"Library asset {assetType} for {app.AppID} not up to date: {notUpToDateReason} ");
+                Logger.Info($"Library asset {assetType} for {app.AppID} not up to date: {notUpToDateReason} ");
             }
 
             localPathOut = null;
@@ -332,12 +332,12 @@ public class LibraryManager : ILogonLifetime
                 shouldDownload = false;
             } else {
                 if (asset.StoreAssetsLastModified < app.StoreAssetsLastModified) {
-                    logger.Info($"Downloading {assetType} for {app.AppID} due to StoreAssetsLastModified ({asset.StoreAssetsLastModified} < {app.StoreAssetsLastModified})");
+                    Logger.Info($"Downloading {assetType} for {app.AppID} due to StoreAssetsLastModified ({asset.StoreAssetsLastModified} < {app.StoreAssetsLastModified})");
                     shouldDownload = true;
                 }
 
                 if (assetType != ELibraryAssetType.Icon && asset.GetExpires(assetType) == 0) {
-                    logger.Info($"Downloading {assetType} for {app.AppID} due to GetExpires");
+                    Logger.Info($"Downloading {assetType} for {app.AppID} due to GetExpires");
                     shouldDownload = true;
                 }
             }
@@ -350,32 +350,32 @@ public class LibraryManager : ILogonLifetime
             }
 
             if (shouldDownload) {
-                logger.Info($"Downloading library asset {assetType} for {app.AppID} with url {uri}");
+                Logger.Info($"Downloading library asset {assetType} for {app.AppID} with url {uri}");
                 using (var response = await Client.HttpClient.GetAsync(uri))
                 {
                     success = response.IsSuccessStatusCode;
                     statusCode = response.StatusCode;
 
                     if (response.IsSuccessStatusCode) {
-                        logger.Info($"Downloaded library asset {assetType} for {app.AppID} successfully, saving");
+                        Logger.Info($"Downloaded library asset {assetType} for {app.AppID} successfully, saving");
                         using var file = File.OpenWrite(targetPath);
                         response.Content.ReadAsStream().CopyTo(file);
-                        logger.Info($"Saved library asset {assetType} for {app.AppID} to disk successfully");
+                        Logger.Info($"Saved library asset {assetType} for {app.AppID} to disk successfully");
                         if (assetType == ELibraryAssetType.Icon) {
-                            logger.Info("Setting icon hash to '" + app.Common.Icon + "'");
+                            Logger.Info("Setting icon hash to '" + app.Common.Icon + "'");
                             asset.IconHash = app.Common.Icon;
                         } else {
                             if (response.Content.Headers.LastModified.HasValue) {
                                 string headerContent = response.Content.Headers.LastModified.Value.ToString(DateTimeFormatInfo.InvariantInfo.RFC1123Pattern);
                                 asset.SetLastModified(headerContent, assetType);
                             } else {
-                                logger.Warning("Failed to get Last-Modified header.");
+                                Logger.Warning("Failed to get Last-Modified header.");
                             }
                             
                             if (response.Content.Headers.Expires.HasValue) {
                                 asset.SetExpires(response.Content.Headers.Expires.Value.ToUnixTimeSeconds(), assetType);
                             } else {
-                                logger.Warning("Failed to get Expires header.");
+                                Logger.Warning("Failed to get Expires header.");
                             }
                         }
                     }
@@ -404,9 +404,9 @@ public class LibraryManager : ILogonLifetime
                         willGenerate = true;
 
                         if (willGenerate) {
-                            logger.Debug($"Fabricating fake expire and last-modified date for asset generation of {assetType} for {app.AppID}");
+                            Logger.Debug($"Fabricating fake expire and last-modified date for asset generation of {assetType} for {app.AppID}");
                         } else {
-                            logger.Debug($"Fabricating fake expire and last-modified date for failed download of {assetType} for {app.AppID}");
+                            Logger.Debug($"Fabricating fake expire and last-modified date for failed download of {assetType} for {app.AppID}");
                         }
 
                         asset.SetLastModified(DateTimeOffset.UtcNow.ToUnixTimeSeconds().ToString(DateTimeFormatInfo.InvariantInfo.RFC1123Pattern), assetType);
@@ -452,7 +452,7 @@ public class LibraryManager : ILogonLifetime
 
         if (!success && shouldDownload) {
             UtilityFunctions.Assert(statusCode != HttpStatusCode.Unused);
-            logger.Error($"Failed downloading library asset {assetType} for {app.AppID} (url: {uri}) (err: {statusCode})");
+            Logger.Error($"Failed downloading library asset {assetType} for {app.AppID} (url: {uri}) (err: {statusCode})");
             return null;
         }
 
