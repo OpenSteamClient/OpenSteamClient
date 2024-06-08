@@ -188,6 +188,9 @@ public class Logger : ILogger {
             lock (logger.logStreamLock)
             {
                 logger.logStream.Write(Encoding.Default.GetBytes(formatted + Environment.NewLine));
+
+                //TODO: Implement a more robust system with debouncing and/or per lines since last flush
+                logger.logStream.Flush();
             }
         }
 
