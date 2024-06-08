@@ -952,17 +952,16 @@ public class Bootstrapper {
         Dictionary<string, string> pathMappings = new() {
             {"reaper", "linux64/reaper"},
             {"steam-launch-wrapper", "linux64/steam-launch-wrapper"},
-            {"libSDL3.so", "linux64/libSDL3.so"},
-            {"libSDL3.so.0", "linux64/libSDL3.so.0"},
-            {"libSDL3.so.0.0.0", "linux64/libSDL3.so.0.0.0"},
-            {"libSDL3_ttf.so", "linux64/libSDL3_ttf.so"},
-            {"libSDL3_ttf.so.0", "linux64/libSDL3_ttf.so.0"},
-            {"libSDL3_ttf.so.0.0.0", "linux64/libSDL3_ttf.so.0.0.0"},
             {"steamserviced.exe", "bin/steamserviced.exe"},
             {"steamserviced.pdb", "bin/steamserviced.pdb"},
             {"htmlhost", "ubuntu12_32/htmlhost"},
             {"steamservice.so", "linux64/steamservice.so"},
             {"libaudio.so", "libaudio.so"},
+            {"steamserviced", "steamserviced"},
+            {"libprotobufhack.so", "libprotobufhack.so"},
+            {"libbootstrappershim32.so", "libbootstrappershim32.so"},
+            {"libbootstrappershim64.so", "libbootstrappershim64.so"},
+            {"libhtmlhost_fakepid.so", "libhtmlhost_fakepid.so"},
         };
 
         var assemblyFolder = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
