@@ -80,6 +80,10 @@ public class LibraryAssetsGenerator {
             
             foreach (var item in resp.body.StoreItems)
             {
+                if (item == null) {
+                    continue;
+                }
+
                 var assetRequest = assetRequests.Find(r => r.AppID == item.Appid);
                 if (!Convert.ToBoolean(item.Success) || assetRequest.NeedsHero == false && assetRequest.NeedsPortrait == false || !item.HasAppid) {
                     continue;
@@ -124,6 +128,10 @@ public class LibraryAssetsGenerator {
 
     private async Task<bool> CreateHero(StoreItem details, string targetPath) {
         // The hero art is created from the first store page screenshot, sorted alphabetically by filename (wtf steam), then resized to 1024x550
+        if (details.Screenshots == null || details.Screenshots.AllAgesScreenshots == null) {
+            return false;
+        }
+
         List<string> filenames = new();
         foreach (var item in details.Screenshots.AllAgesScreenshots)
         {
@@ -152,6 +160,10 @@ public class LibraryAssetsGenerator {
 
     private async Task<bool> CreatePortrait(StoreItem details, string targetPath) {
         // The portrait art is created by taking the header, stretching and blurring it for half of the background and mirroring it, then slapping the header 132 pixels below the top of the canvas
+        if (details.Assets == null) {
+            return false;
+        }
+
         if (!details.Assets.HasHeader || string.IsNullOrEmpty(details.Assets.Header)) {
             return false;
         }

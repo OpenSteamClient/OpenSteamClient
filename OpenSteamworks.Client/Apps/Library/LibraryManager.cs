@@ -62,7 +62,9 @@ public class LibraryManager : ILogonLifetime
 
     public async Task OnLoggedOn(IExtendedProgress<int> progress, LoggedOnEventArgs e) {
         Library library = new(steamClient, cloudConfigStore, loginManager, appsManager, installManager);
-        HashSet<CGameID> appIDsToLoadAssetsFor = await library.InitializeLibrary();
+        HashSet<CGameID> allUserAppIDs = await library.InitializeLibrary();
+        await appsManager.ClientApps.UpdateAppInfo(allUserAppIDs.Where(a => a.IsSteamApp()).Select(a => a.AppID).ToArray());
+
         currentUserLibrary = library;
 
         LoadLibraryAssetsFile();
@@ -70,7 +72,7 @@ public class LibraryManager : ILogonLifetime
         //NOTE: It doesn't really matter if you use async or sync code here.
         assetUpdateThread = new Thread(async () =>
         {
-            var appsToLoadAssetsFor = appIDsToLoadAssetsFor.Select(appid => appsManager.GetApp(appid));
+            var appsToLoadAssetsFor = allUserAppIDs.Select(appid => appsManager.GetApp(appid));
             foreach (var item in appsToLoadAssetsFor)
             {
                 try

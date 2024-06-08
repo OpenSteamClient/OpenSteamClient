@@ -493,6 +493,8 @@ public class LoginManager : IClientLifetime
                 {
                     loginUsers.SetUserAsAutologin(user);
                 }
+
+                await configManager.SaveAsync(loginUsers);
                 await OnLoggedOn(new LoggedOnEventArgs(user));
             } else {
                 OnLogonFailed(new LogOnFailedEventArgs(user, result));

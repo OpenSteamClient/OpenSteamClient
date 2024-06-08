@@ -180,6 +180,14 @@ public abstract class AppBase
             return null;
         }
 
-        return AppsManager.GetApp(gameid);
+        try
+        {
+            return AppsManager.GetApp(gameid);
+        }
+        catch (System.Exception)
+        {
+            // Sometimes the parent apps also aren't valid, like 1837900 having a parent of 421113 (which doesn't exist), or 227050,227040,223540 having a parent of 223530 (which is a beta)
+            return null;
+        }
     }
 }
