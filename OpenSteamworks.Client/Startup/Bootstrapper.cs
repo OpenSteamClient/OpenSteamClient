@@ -477,7 +477,7 @@ public class Bootstrapper {
     }
 
     private async Task FinishBootstrap(IExtendedProgress<int> progressHandler) {
-        // Currently only linux needs a restart (for LD_PRELOAD and LD_LIBRARY_PATH)
+        // Currently only linux needs a restart (for LD_PRELOAD and LD_LIBRARY_PATH from the runtime and our libs)
         var hasReran = UtilityFunctions.GetEnvironmentVariable("OPENSTEAM_RAN_EXECVP") == "1";
         restartRequired = OperatingSystem.IsLinux() && !hasReran;
         
@@ -538,7 +538,22 @@ public class Bootstrapper {
             UtilityFunctions.SetEnvironmentVariable("OPENSTEAM_REATTACH_DEBUGGER", "1");
         }
         UtilityFunctions.SetEnvironmentVariable("OPENSTEAM_RAN_EXECVP", "1");
-        UtilityFunctions.SetEnvironmentVariable("LD_LIBRARY_PATH", $"{Path.Combine(installManager.InstallDir, "ubuntu12_64")}:{Path.Combine(installManager.InstallDir, "ubuntu12_32")}:{Path.Combine(installManager.InstallDir)}:{UtilityFunctions.GetEnvironmentVariable("LD_LIBRARY_PATH")}");
+
+        // export STEAM_RUNTIME_LIBRARY_PATH="$("/home/onni/.local/share/OpenSteam/ubuntu12_32/steam-runtime/run.sh" --print-steam-runtime-library-paths)"
+        // export LD_LIBRARY_PATH="$STEAM_RUNTIME_LIBRARY_PATH"
+
+        var runtimeProcess = new Process();
+        runtimeProcess.StartInfo.FileName = $"{Ubuntu12_32Dir}/steam-runtime/run.sh";
+        runtimeProcess.StartInfo.Arguments = "--print-steam-runtime-library-paths";
+        runtimeProcess.StartInfo.CreateNoWindow = true;
+        runtimeProcess.StartInfo.UseShellExecute = false;
+        runtimeProcess.StartInfo.RedirectStandardOutput = true;
+        runtimeProcess.Start();
+
+        runtimeProcess.WaitForExit();
+        string runtimeLibraryPath = runtimeProcess.StandardOutput.ReadToEnd();
+        UtilityFunctions.SetEnvironmentVariable("STEAM_RUNTIME_LIBRARY_PATH", runtimeLibraryPath);
+        UtilityFunctions.SetEnvironmentVariable("LD_LIBRARY_PATH", $"{Path.Combine(installManager.InstallDir, "ubuntu12_64")}:{Path.Combine(installManager.InstallDir, "ubuntu12_32")}:{Path.Combine(installManager.InstallDir)}:{runtimeLibraryPath}");
 
         string?[] fullArgs = Environment.GetCommandLineArgs();
 
