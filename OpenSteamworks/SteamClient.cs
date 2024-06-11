@@ -243,14 +243,15 @@ public class SteamClient : ISteamClient
         }
     }
 
-    public void Shutdown()
+    public void Shutdown(IProgress<string> progress)
     {
         // Shutdown ClientInterfaces first
-        this.ClientMessaging.Shutdown();
-        this.ClientConfigStore.Shutdown();
-        this.ClientRemoteStorage.Shutdown();
-        this.DownloadManager.Shutdown();
+        this.ClientMessaging.Shutdown(progress);
+        this.ClientConfigStore.Shutdown(progress);
+        this.ClientRemoteStorage.Shutdown(progress);
+        this.DownloadManager.Shutdown(progress);
 
+        progress.Report("Shutting down native client");
         this.CallbackManager.RequestStopAndWaitForExit();
         this.NativeClient.native_Steam_ReleaseUser(this.NativeClient.Pipe, this.NativeClient.User);
         this.NativeClient.native_Steam_BReleaseSteamPipe(this.NativeClient.Pipe);

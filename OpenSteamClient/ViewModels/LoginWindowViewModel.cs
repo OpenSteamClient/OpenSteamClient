@@ -121,6 +121,10 @@ public partial class LoginWindowViewModel : AvaloniaCommon.ViewModelBase
 
     public async void LoginPressed()
     {
+        if (string.IsNullOrEmpty(this.Username) || string.IsNullOrEmpty(this.Password)) {
+            return;
+        }
+
         CanLogin = false;
         EResult result = await this.loginManager.StartAuthSessionWithCredentials(this.Username, this.Password, this.RememberPassword);
         if (result != EResult.OK)

@@ -11,7 +11,7 @@ using OpenSteamworks.Client;
 using OpenSteamworks.Client.Apps;
 using OpenSteamworks.Client.Apps.Library;
 using OpenSteamworks.Client.Managers;
-using AvaloniaCommon.Utils;
+using OpenSteamworks.Utils;
 
 namespace OpenSteamClient.ViewModels;
 

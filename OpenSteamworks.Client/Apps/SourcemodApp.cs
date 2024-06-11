@@ -64,7 +64,7 @@ public class SourcemodApp : AppBase {
         this.SourcemodGameInfo = new(kv);
     }
 
-    public override async Task<EAppError> Launch(string userLaunchOptions, int launchOptionID)
+    public override async Task<EAppError> Launch(string userLaunchOptions, int launchOptionID, ELaunchSource launchSource)
     {
         //TODO: implement (or possibly scrap) this
         await Task.CompletedTask;

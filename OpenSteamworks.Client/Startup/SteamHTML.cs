@@ -200,7 +200,7 @@ public class SteamHTML : IClientLifetime {
         return;
     }
 
-    public async Task RunShutdown() {
+    public async Task RunShutdown(IProgress<string> operation) {
         ShouldStop = true;
         await Task.CompletedTask;
     }

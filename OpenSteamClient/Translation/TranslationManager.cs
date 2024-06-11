@@ -292,7 +292,7 @@ public class TranslationManager : ILogonLifetime
         }
     }
 
-    async Task ILogonLifetime.OnLoggingOff(IExtendedProgress<int> progress)
+    async Task ILogonLifetime.OnLoggingOff(IProgress<string> progress)
     {
         await Task.CompletedTask;
     }

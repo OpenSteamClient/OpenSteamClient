@@ -44,10 +44,10 @@ public class Client : IClientLifetime
         });
     }
 
-    public async Task RunShutdown()
+    public async Task RunShutdown(IProgress<string> operation)
     {
         await Task.Run(() => {
-            Container.Get<ISteamClient>().Shutdown();
+            Container.Get<ISteamClient>().Shutdown(operation);
         });
     }
 

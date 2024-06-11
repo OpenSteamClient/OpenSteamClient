@@ -236,7 +236,7 @@ public partial class FocusedAppPaneViewModel : AvaloniaCommon.ViewModelBase
 
     public void OnLibraryAssetsUpdated(object? sender, EventArgs e)
     {
-        SetLibraryAssets();
+        AvaloniaApp.Current?.RunOnUIThread(DispatcherPriority.Send, () => SetLibraryAssets());
     }
 
     public void OnHeroBoundsChanged(Rect newBounds)

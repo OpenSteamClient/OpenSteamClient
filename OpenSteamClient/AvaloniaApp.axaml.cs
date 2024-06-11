@@ -375,7 +375,11 @@ public class AvaloniaApp : Application
     public async Task Exit(int exitCode = 0)
     {
         using var scope = CProfiler.CurrentProfiler?.EnterScope("AvaloniaApp.Exit");
-        await Container.RunClientShutdown();
+        Progress<string> operation = new();
+        Progress<string> subOperation = new();
+        var progVm = new ProgressWindowViewModel(operation, subOperation);
+        ForceProgressWindow(progVm);
+        await Container.RunClientShutdown(operation, subOperation);
         Console.WriteLine("Shutting down Avalonia");
         // At this point, all the other shutdown tasks should have finished so let's just kill
         Process.GetCurrentProcess().Kill();

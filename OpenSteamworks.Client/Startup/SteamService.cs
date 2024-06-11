@@ -84,7 +84,7 @@ public class SteamService : IClientLifetime {
         ShouldStop = true;
     }
 
-    public async Task RunShutdown() {
+    public async Task RunShutdown(IProgress<string> operation) {
         this.StopService();
         await Task.CompletedTask;
     }

@@ -41,8 +41,9 @@ public class LoginUser {
     public bool AllowAutoLogin { get; set; } = true;
     public LoginUser() {}
 
-    public LoginUser(string username, string password, bool rememberPassword) {
+    public LoginUser(CSteamID steamid, string username, string password, bool rememberPassword) {
         this.LoginMethod = ELoginMethod.UsernamePassword;
+        this.SteamID = steamid;
         this.AccountName = username;
         this.Password = password;
         this.Remembered = rememberPassword;

@@ -167,7 +167,7 @@ public class CompatManager : ILogonLifetime {
         await Task.Run(() => RefreshCompatTools());
     }
 
-    public async Task OnLoggingOff(IExtendedProgress<int> progress)
+    public async Task OnLoggingOff(IProgress<string> progress)
     {
         this.compatToolPlatforms.Clear();
         this.compatToolFriendlyNames.Clear();

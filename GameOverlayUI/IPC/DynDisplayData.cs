@@ -34,6 +34,7 @@ public unsafe struct DynDisplayData {
             //TODO: This code needs additional sanity checks (such as resolution check)
             //TODO: Resize support (currently game window resizing won't work, need to re-mmap)
             Span<byte> target = new(&ptr->DynamicData, (int)ptr->CalculateDataLength());
+            Console.WriteLine("W: " + ptr->Width + ", H: " + ptr->Height);
             data.CopyTo(target);
         }
         finally

@@ -85,7 +85,7 @@ public class ShortcutApp : AppBase {
 // #endif
     }
 
-    public override async Task<EAppError> Launch(string userLaunchOptions, int launchOption)
+    public override async Task<EAppError> Launch(string userLaunchOptions, int launchOption, ELaunchSource launchSource)
     {
         await Task.CompletedTask;
         return SteamClient.GetIClientShortcuts().LaunchShortcut(this.ShortcutAppID, launchOption);

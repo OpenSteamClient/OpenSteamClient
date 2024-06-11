@@ -159,8 +159,10 @@ public class ConfigManager : IClientLifetime, ILogonLifetime {
         await Task.CompletedTask;
     }
 
-    async Task IClientLifetime.RunShutdown()
+    async Task IClientLifetime.RunShutdown(IProgress<string> operation)
     {
+        operation.Report("Saving configs");
+
         foreach (var item in loadedConfigs)
         {
             // TODO: This is icky
@@ -176,8 +178,10 @@ public class ConfigManager : IClientLifetime, ILogonLifetime {
         await Task.CompletedTask;
     }
 
-    async Task ILogonLifetime.OnLoggingOff(IExtendedProgress<int> progress)
+    async Task ILogonLifetime.OnLoggingOff(IProgress<string> progress)
     {
+        progress.Report("Saving user configs");
+        
         foreach (var item in loadedUserConfigs)
         {
             // TODO: This is icky

@@ -32,8 +32,10 @@ public class ClientMessaging
         this.clientUser = client.IClientUser;
     }
     
-    internal void Shutdown()
+    internal void Shutdown(IProgress<string> progress)
     {
+        progress.Report("Clearing shared connections");
+
         foreach (var item in connections)
         {
             item.Dispose();

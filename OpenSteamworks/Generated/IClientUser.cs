@@ -118,15 +118,15 @@ public unsafe interface IClientUser
     public UInt64 GetLoginTokenID();  // argc: 0, index: 58, ipc args: [], ipc returns: [bytes8]
     public void ClearAllLoginInformation();  // argc: 0, index: 59, ipc args: [], ipc returns: []
     // WARNING: Arguments are unknown!
-    public bool BEnableEmbeddedClient();  // argc: 1, index: 60, ipc args: [bytes4], ipc returns: [boolean]
+    public bool BEnableEmbeddedClient(uint unk);  // argc: 1, index: 60, ipc args: [bytes4], ipc returns: [boolean]
     // WARNING: Arguments are unknown!
-    public void ResetEmbeddedClient();  // argc: 1, index: 61, ipc args: [bytes4], ipc returns: []
+    public void ResetEmbeddedClient(uint unk);  // argc: 1, index: 61, ipc args: [bytes4], ipc returns: []
     // WARNING: Arguments are unknown!
-    public unknown_ret BHasEmbeddedClientToken();  // argc: 1, index: 62, ipc args: [bytes4], ipc returns: [boolean]
+    public bool BHasEmbeddedClientToken(uint unk);  // argc: 1, index: 62, ipc args: [bytes4], ipc returns: [boolean]
     // WARNING: Arguments are unknown!
-    public void RequestEmbeddedClientToken();  // argc: 1, index: 63, ipc args: [bytes4], ipc returns: []
+    public void RequestEmbeddedClientToken(uint unk);  // argc: 1, index: 63, ipc args: [bytes4], ipc returns: []
     // WARNING: Arguments are unknown!
-    public void AuthorizeNewDevice();  // argc: 3, index: 64, ipc args: [bytes4, bytes4, string], ipc returns: []
+    public void AuthorizeNewDevice(uint unk, uint unk1, string unk2);  // argc: 3, index: 64, ipc args: [bytes4, bytes4, string], ipc returns: []
     public bool GetLanguage(StringBuilder langOut, int maxOut);  // argc: 2, index: 65, ipc args: [bytes4], ipc returns: [bytes1, bytes_length_from_mem]
     // WARNING: Arguments are unknown!
     public void TrackSteamUsageEvent();  // argc: 3, index: 66, ipc args: [bytes4, bytes4, bytes_length_from_mem], ipc returns: []

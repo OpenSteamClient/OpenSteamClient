@@ -187,7 +187,7 @@ public class CloudConfigStore : ILogonLifetime {
         return directory;
     }
 
-    public async Task OnLoggingOff(IExtendedProgress<int> progress) {
+    public async Task OnLoggingOff(IProgress<string> progress) {
         await HandleConfigStoreShutdown();
     }
 

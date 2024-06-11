@@ -124,8 +124,9 @@ public class ClientConfigStore {
         this.nativeClientConfigStore.FlushToDisk(bIsShuttingDown);
     }
 
-    internal void Shutdown()
+    internal void Shutdown(IProgress<string> progress)
     {
+        progress.Report("Flushing ConfigStore");
         this.FlushToDisk(true);
     }
 }

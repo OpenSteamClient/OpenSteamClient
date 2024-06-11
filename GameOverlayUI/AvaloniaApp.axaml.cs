@@ -66,16 +66,15 @@ public class AvaloniaApp : Application
         var sharedMemory = Program.Container.Get<SharedMemory>();
         var mainView = Program.Container.Get<MainView>();
 
+        byte[] renderTarget = new byte[(int)(mainView.Bounds.Size.Height * mainView.Bounds.Size.Width * 4)];
         // void* buf = NativeMemory.Alloc(sharedMemory.DisplayData->Width * sharedMemory.DisplayData->Height * 4);
         // Bitmap frame = new(PixelFormat.Bgra8888, AlphaFormat.Premul, (nint)buf, new PixelSize((int)sharedMemory.DisplayData->Width, (int)sharedMemory.DisplayData->Height), new Vector(96, 96), (int)(sharedMemory.DisplayData->Width * 4));
-        
+
         while (!threadMainMre.IsSet) {
             // TODO: while (overlayIsReady)
             sharedMemory.RunInputFrame();
             AvaloniaHeadlessPlatform.ForceRenderTimerTick();
-            //NOTE: We tried to use GetLastRenderedFrame, but it used an unsupported format and has no way to convert between formats...
-            RenderControl(frame, mainView);
-
+            var frame = mainView.GetLastRenderedFrame();
             if (frame != null) {
                 sharedMemory.SetPixels(frame);
             }
@@ -84,27 +83,6 @@ public class AvaloniaApp : Application
         }
 
         serverThread = null;
-    }
-
-    private static void RenderControl(Bitmap target, Control control)
-    {
-        double width = control.Bounds.Width;
-        double height = control.Bounds.Height;
-
-        int renderWidth = (int)Math.Max(width, 200);
-        int renderHeight = (int)Math.Max(height, 200);
-
-        var pixelSize = new PixelSize(renderWidth, renderHeight);
-
-        target.CreateScaledBitmap();
-        RenderTargetBitmap bm = new();
-        target.Render(control);
-
-        MemoryStream stream = new MemoryStream();
-        bitmap.Save(stream);
-
-        var img = SKImage.FromEncodedData(stream.ToArray());
-        return SKBitmap.FromImage(img);
     }
 
     public void ActivateMainWindow() {
@@ -190,7 +168,9 @@ public class AvaloniaApp : Application
     public async Task Exit(int exitCode = 0)
     {
         using var scope = CProfiler.CurrentProfiler?.EnterScope("AvaloniaApp.Exit");
-        await Program.Container.RunClientShutdown();
+        Progress<string> operation = new();
+        Progress<string> subOperation = new();
+        await Program.Container.RunClientShutdown(operation, subOperation);
         Console.WriteLine("Shutting down Avalonia");
     }
 

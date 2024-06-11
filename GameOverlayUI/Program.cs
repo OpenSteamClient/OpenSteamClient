@@ -3,6 +3,7 @@ using OpenSteamworks.Structs;
 using Avalonia.Headless;
 using OpenSteamworks.Client.Utils.DI;
 using GameOverlayUI.IPC;
+using Avalonia.Platform;
 
 namespace GameOverlayUI;
 
@@ -88,7 +89,8 @@ public static class Program
                 .UseSkia()
                 .UseHeadless(new AvaloniaHeadlessPlatformOptions
                 {
-                    UseHeadlessDrawing = false
+                    UseHeadlessDrawing = false,
+                    FrameBufferFormat = PixelFormat.Bgra8888
                 })
                 .WithInterFont()
                 .LogToTrace();

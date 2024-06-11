@@ -1,6 +1,7 @@
 using OpenSteamworks.Client.Utils;
 using CommunityToolkit.Mvvm.ComponentModel;
 using System.Collections.Generic;
+using System;
 
 namespace OpenSteamClient.ViewModels;
 
@@ -8,51 +9,54 @@ public partial class ProgressWindowViewModel : AvaloniaCommon.ViewModelBase
 {
     [ObservableProperty]
     private string title = "Progress (Generic)";
-    public bool Throbber => _progress.Throbber;
-    public int InitialProgress => _progress.InitialProgress;
-    public int Progress => _progress.Progress;
-    public int MaxProgress => _progress.MaxProgress;
+    public bool Throbber => _exprogress.Throbber;
+    public int InitialProgress => _exprogress.InitialProgress;
+    public int Progress => _exprogress.Progress;
+    public int MaxProgress => _exprogress.MaxProgress;
     public string Operation
     {
         get
         {
-            if (Translations.ContainsKey(_progress.Operation))
+            if (Translations.ContainsKey(_exprogress.Operation))
             {
-                return Translations[_progress.Operation];
+                return Translations[_exprogress.Operation];
             }
-            return _progress.Operation;
+            return _exprogress.Operation;
         }
     }
     public string SubOperation
     {
         get
         {
-            if (Translations.ContainsKey(_progress.SubOperation))
+            if (Translations.ContainsKey(_exprogress.SubOperation))
             {
-                return Translations[_progress.SubOperation];
+                return Translations[_exprogress.SubOperation];
             }
-            return _progress.SubOperation;
+            return _exprogress.SubOperation;
         }
     }
     public Dictionary<string, string> Translations = new();
-    private ExtendedProgress<int> _progress;
-    public ProgressWindowViewModel(ExtendedProgress<int> prog, string title = "")
+    private readonly IExtendedProgress<int> _exprogress;
+
+    public ProgressWindowViewModel(IExtendedProgress<int> prog, string title = "")
     {
         if (!string.IsNullOrEmpty(title))
         {
             this.Title = title;
         }
 
-        _progress = prog;
+        _exprogress = prog;
 
-        _progress.ProgressChanged += (object? sender, int newProgress) =>
+        prog.ProgressChanged += (object? sender, int newProgress) =>
         {
-            this.OnPropertyChanged("Throbber");
-            this.OnPropertyChanged("Progress");
-            this.OnPropertyChanged("MaxProgress");
-            this.OnPropertyChanged("Operation");
-            this.OnPropertyChanged("SubOperation");
+            this.OnPropertyChanged(nameof(Throbber));
+            this.OnPropertyChanged(nameof(Progress));
+            this.OnPropertyChanged(nameof(MaxProgress));
+            this.OnPropertyChanged(nameof(Operation));
+            this.OnPropertyChanged(nameof(SubOperation));
         };
-
     }
+
+    public ProgressWindowViewModel(Progress<string> operation, Progress<string> subOperation, int initialProgress = 0, Progress<int>? progress = null, Progress<int>? maxProgress = null, string title = ""): 
+        this(new ExtendedProgressWrap<int>(operation, subOperation, initialProgress, progress, maxProgress), title) { }
 }

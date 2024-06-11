@@ -3,7 +3,9 @@ namespace OpenSteamworks.Client.Utils;
 //TODO: remove this entire thing in favor of multiple IProgress instances, as part of the bootstrapper rewrite
 public interface IExtendedProgress<T> : IProgress<T>
 {
+    /// <inheritdoc/>
     public bool Throbber { get; }
+    public T InitialProgress { get; }
     public T Progress { get; }
     public T MaxProgress { get; }
     public string Operation { get; }
@@ -13,6 +15,7 @@ public interface IExtendedProgress<T> : IProgress<T>
     public void SetMaxProgress(T value);
     public void SetOperation(string value);
     public void SetSubOperation(string value);
+    public event EventHandler<T>? ProgressChanged;
 }
 public class ExtendedProgress<T> : IExtendedProgress<T>
 {

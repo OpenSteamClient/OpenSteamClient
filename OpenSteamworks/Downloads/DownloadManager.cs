@@ -13,43 +13,106 @@ public class DownloadManager
 {
     private readonly object scheduledDownloadsLock = new();
     private readonly object downloadQueueLock = new();
-    private Queue<DownloadItem> downloadQueue = new();
-    private List<DownloadItem> scheduledDownloads = new();
-    public IEnumerable<DownloadItem> DownloadQueue => downloadQueue.AsEnumerable();
+    private List<AppId_t> downloadQueue = new();
+    private List<AppId_t> scheduledDownloads = new();
+    private List<AppId_t> unscheduledDownloads = new();
+    public IEnumerable<AppId_t> DownloadQueue {
+        get {
+            lock (downloadQueueLock) {
+                return downloadQueue.AsEnumerable();
+            }
+        }
+    }
+
+
+    public IEnumerable<AppId_t> ScheduledDownloads {
+        get {
+            lock (scheduledDownloadsLock) {
+                return scheduledDownloads.AsEnumerable();
+            }
+        }
+    }
+
+    public IEnumerable<AppId_t> UnscheduledDownloads {
+        get {
+            lock (scheduledDownloadsLock) {
+                return unscheduledDownloads.AsEnumerable();
+            }
+        }
+    }
+
+    public event EventHandler? DownloadsChanged;
+    public event EventHandler<DownloadStats>? DownloadStatsChanged;
 
     private readonly ISteamClient steamClient;
-    public ulong TotalBytesDownloaded { get; private set; }
-    public DownloadItem? CurrentDownload { get; private set; }
-
-    public event EventHandler? DownloadQueueChanged;
-    public event EventHandler? CurrentDownloadChanged;
-
-    // Forwarded from DownloadItem
-    public event EventHandler? DownloadRateChanged;
-    public event EventHandler? DownloadStateChanged;
-    public event EventHandler? DownloadProgressChanged;
-    public event EventHandler? DownloadPaused;
-    public event EventHandler? DownloadFinished;
+    public AppId_t CurrentDownload { get; private set; }
 
     internal bool stopPoll = false;
     internal bool pollStopped = false;
     private Thread? downloadInfoUpdateThread;
+    private readonly Dictionary<AppId_t, DateTime> downloadFinishTimes = new();
     public DownloadManager(ISteamClient steamClient)
     {
         this.steamClient = steamClient;
         steamClient.CallbackManager.RegisterHandler<DownloadScheduleChanged_t>(OnDownloadScheduleChanged);
+        steamClient.CallbackManager.RegisterHandler<DownloadingAppChanged_t>(OnDownloadingAppChanged);
+        steamClient.CallbackManager.RegisterHandler<AppEventStateChange_t>(OnAppEventStateChange);
+        steamClient.CallbackManager.RegisterHandler<PostLogonState_t>(OnPostLogonState);
         downloadInfoUpdateThread = new Thread(DownloadInfoUpdate);
         downloadInfoUpdateThread.Start();
     }
 
+    private bool isListeningForAppEventStateChanges = false;
+    private void OnPostLogonState(CallbackManager.CallbackHandler<PostLogonState_t> handler, PostLogonState_t t)
+    {
+        if (t.connectedToCMs == 1 && t.unk9 == 1) {
+            isListeningForAppEventStateChanges = true;
+            UpdateDownloadQueue();
+        }   
+    }
+
+    private void OnAppEventStateChange(CallbackManager.CallbackHandler<AppEventStateChange_t> handler, AppEventStateChange_t t)
+    {
+        if (!isListeningForAppEventStateChanges) {
+            return;
+        }
+
+        //TODO: This is inefficient, should update the app into the middle of the array
+        UpdateDownloadQueue([t.m_nAppID]);
+    }
+
+    private void OnDownloadingAppChanged(CallbackManager.CallbackHandler<DownloadingAppChanged_t> handler, DownloadingAppChanged_t t)
+    {
+        UpdateDownloadQueue();
+    }
+
+    private IEnumerable<AppId_t> GetAppsWithUpdates() {
+        // There's no function in the API to get apps that have updates, so do this instead (and assume only installed apps can be updated)
+        List<AppId_t> installedApps = steamClient.ClientApps.GetInstalledApps().ToList();
+        return installedApps.Where(a => !steamClient.ClientApps.BIsAppUpToDate(a));
+    }
+
+    private ulong BytesDownloadedLast;
+    private ulong BytesProcessedLast;
+
     private void DownloadInfoUpdate() {
         while (!stopPoll)
         {
-            if (this.CurrentDownload != null && (this.CurrentDownload.DownloadState == DownloadState.ExtendedRunning || this.CurrentDownload.DownloadState == DownloadState.Running))
-            {
-                this.CurrentDownload.UpdateRates();
-            }
+            DownloadStats downloadStats = new();
+            
+            if (steamClient.IClientAppManager.GetUpdateInfo(CurrentDownload, out AppUpdateInfo_s updateInfo)) {
+                // This allows us to calculate the download rate very easily
+                downloadStats.DownloadRateBytes = (updateInfo.m_unBytesDownloaded - this.BytesDownloadedLast);
+                downloadStats.DiskRateBytes = (updateInfo.m_unBytesProcessed - this.BytesProcessedLast);
 
+                this.BytesDownloadedLast = updateInfo.m_unBytesDownloaded;
+                this.BytesProcessedLast = updateInfo.m_unBytesProcessed;
+            } else {
+                this.BytesDownloadedLast = 0;
+                this.BytesProcessedLast = 0;
+            }
+            
+            this.DownloadStatsChanged?.Invoke(this, downloadStats);
             System.Threading.Thread.Sleep(1000);
         }
 
@@ -58,225 +121,60 @@ public class DownloadManager
     }
 
     private void UpdateDownloadQueue(IEnumerable<AppId_t>? extraApps = null) {
-        List<AppId_t> appsToCheck = new(SteamClient.GetClientApps().GetInstalledApps());
+        HashSet<AppId_t> appsWithUpdates = GetAppsWithUpdates().ToHashSet();
         if (extraApps != null) {
-            appsToCheck.AddRange(extraApps);
+            appsWithUpdates.UnionWith(extraApps);
         }
-        
-        // Update the download queue
+
+        appsWithUpdates.Remove(0);
+
         lock (downloadQueueLock)
         {
-            AbstractOrderedList<DownloadItem> queue = new();
-            foreach (var appid in appsToCheck)
+            lock (scheduledDownloadsLock)
             {
-                var idx = SteamClient.GetIClientAppManager().GetAppDownloadQueueIndex(appid);
-                queue.Insert(idx, new DownloadItem(appid));
-            }
+                scheduledDownloads.Clear();
+                unscheduledDownloads.Clear();
 
-            downloadQueue = new(queue);
+                AbstractOrderedList<AppId_t> queue = new();
+                foreach (var appid in appsWithUpdates)
+                {
+                    var idx = steamClient.IClientAppManager.GetAppDownloadQueueIndex(appid);
+                    var scheduledTime = steamClient.IClientAppManager.GetAppAutoUpdateDelayedUntilTime(appid);
+                    if (idx > -1) {
+                        queue.Insert(idx, appid);
+                    } else if (scheduledTime > 0) {
+                        scheduledDownloads.Add(appid);
+                    } else {
+                        unscheduledDownloads.Add(appid);
+                    }
+                }
+
+                var newDownloadQueue = queue.ConvertToList();
+                foreach (var item in downloadQueue)
+                {
+                    if (!newDownloadQueue.Contains(item)) {
+                        downloadFinishTimes[item] = DateTime.Now;
+                    }
+                }
+
+                downloadQueue = newDownloadQueue;
+            }
         }
 
-        // Update the scheduled downloads
-        lock (scheduledDownloadsLock)
-        {
-            scheduledDownloads.Clear();
-            foreach (var item in appsToCheck)
-            {
-                scheduledDownloads.Add(new DownloadItem(item));
-            }
-        }
+        CurrentDownload = steamClient.IClientAppManager.GetDownloadingAppID();
+        DownloadsChanged?.Invoke(this, EventArgs.Empty);
     }
 
     private void OnDownloadScheduleChanged(CallbackManager.CallbackHandler<DownloadScheduleChanged_t> handler, DownloadScheduleChanged_t data)
     {
-        lock (downloadQueueLock)
-        {
-            UpdateDownloadQueue(data.m_rgunAppSchedule[0..data.m_nTotalAppsScheduled]);
-        }
+        UpdateDownloadQueue(data.m_rgunAppSchedule[0..data.m_nTotalAppsScheduled]);
     }
 
-    public void DequeueDownload(DownloadItem download) {
-        if (download.DownloadState == DownloadState.Running) {
-            // Stop the download first
-            PauseDownload();
-        }
-
-        lock (downloadQueueLock)
-        {
-            var asList = downloadQueue.ToList();
-            asList.Remove(download);
-            downloadQueue = new(asList);
-            UpdateQueueToSteamClient();
-            DownloadQueueChanged?.Invoke(this, EventArgs.Empty);
-        }
+    public void DequeueDownload(AppId_t appid) {
+        steamClient.IClientAppManager.ChangeAppDownloadQueuePlacement(appid, EAppDownloadQueuePlacement.PriorityNone);
     }
 
-
-    private DownloadItem? TryGetItemByAppID(AppId_t appid) {
-        lock (downloadQueueLock)
-        {
-            var asList = downloadQueue.ToList();
-            foreach (var item in asList)
-            {
-                if (item is DownloadItem aitem) {
-                    if (aitem.AppID == appid) {
-                        return aitem;
-                    }
-                }
-            }
-        }
-
-        return null;
-    }
-    
-    private DownloadItem GetItemByAppID(AppId_t appid) {
-        var item = TryGetItemByAppID(appid);
-        if (item == null) {
-            throw new InvalidOperationException($"AppID {appid} is not queued");
-        }
-
-        return item;
-    }
-
-
-    public void DequeueDownload(AppId_t appid) => DequeueDownload(GetItemByAppID(appid));
-    public void ChangeDownloadIndex(AppId_t appid, EAppDownloadQueuePlacement newPlacement, int manualPlacement = -1) => ChangeDownloadIndex(GetItemByAppID(appid), newPlacement, manualPlacement);
-
-    public void ChangeDownloadIndex(DownloadItem download, EAppDownloadQueuePlacement newPlacement, int manualPlacement = -1) {
-        if (newPlacement == EAppDownloadQueuePlacement.PriorityManual && manualPlacement == -1) {
-            throw new InvalidOperationException("PriorityManual specified but no manualPlacement was given.");
-        }
-
-        lock (downloadQueueLock)
-        {
-            var asList = downloadQueue.ToList();
-            int currentIndexOfDownload = asList.IndexOf(download);
-            if (currentIndexOfDownload == -1) {
-                throw new InvalidOperationException("Cannot change download index of item that is not in the queue");
-            }
-
-            int newIndex = -1;
-
-            switch (newPlacement)
-            {
-                case EAppDownloadQueuePlacement.PriorityPaused:
-                case EAppDownloadQueuePlacement.PriorityAutoUpdate:
-                case EAppDownloadQueuePlacement.PriorityNone:
-                    newIndex = currentIndexOfDownload;
-                    break;
-                
-                case EAppDownloadQueuePlacement.PriorityUserInitiated:
-                case EAppDownloadQueuePlacement.PriorityFirst:
-                    newIndex = 0;
-                    break;
-                
-                case EAppDownloadQueuePlacement.PriorityUp:
-                    if (currentIndexOfDownload > 0) {
-                        newIndex = currentIndexOfDownload--;
-                    } else {
-                        newIndex = 0;
-                    }
-
-                    break;
-                
-                case EAppDownloadQueuePlacement.PriorityDown:
-                    if (currentIndexOfDownload == asList.Count) {
-                        newIndex = currentIndexOfDownload;
-                    } else {
-                        newIndex = currentIndexOfDownload--;
-                    }
-
-                    break;
-                
-                case EAppDownloadQueuePlacement.PriorityManual:
-                    newIndex = manualPlacement;
-                    break;
-            }
-
-            if (newIndex == -1) {
-                throw new InvalidOperationException("Tried to queue download at invalid index");
-            }
-
-            asList.Insert(newIndex, download);
-            asList.RemoveAt(currentIndexOfDownload);
-
-            downloadQueue = new(asList);
-            UpdateQueueToSteamClient();
-            DownloadQueueChanged?.Invoke(this, EventArgs.Empty);
-
-            if (newPlacement == EAppDownloadQueuePlacement.PriorityPaused) {
-                if (CurrentDownload == download) {
-                    download.PauseDownload();
-                }
-            }
-        }
-    }
-
-    public void StartDownload() {
-        lock (downloadQueueLock)
-        {
-            if (!downloadQueue.Any()) {
-                return;
-            }
-
-            // Re-queue current download
-            if (CurrentDownload != null) {
-                PauseDownload();
-                ChangeDownloadIndex(CurrentDownload, EAppDownloadQueuePlacement.PriorityDown);
-            }
-
-            var item = downloadQueue.Peek();
-            CurrentDownload = item;
-
-            CurrentDownloadChanged?.Invoke(this, EventArgs.Empty);
-            
-            // Setup handlers
-            item.DownloadProgressChanged += this.DownloadProgressChanged;
-            item.DownloadStateChanged += (object? sender, EventArgs e) => {
-                this.DownloadStateChanged?.Invoke(sender, e);
-
-                if (item.DownloadState == DownloadState.Finished) {
-                    lock (downloadQueueLock)
-                    {
-                        downloadQueue.Dequeue();
-                        UpdateQueueToSteamClient();
-                    }
-
-                    this.DownloadFinished?.Invoke(this, EventArgs.Empty);
-                } else if (item.DownloadState == DownloadState.Paused) {
-                    this.DownloadPaused?.Invoke(this, EventArgs.Empty);
-                }
-            };
-            
-            item.DownloadRateChanged += this.DownloadRateChanged;
-
-            // Start the download
-            item.StartDownload();
-        }
-    }
-
-    public void PauseDownload() {
-        CurrentDownload?.PauseDownload();
-    }
-
-    private void UpdateQueueToSteamClient() {
-        int actualIndex = 0;
-        for (int i = 0; i < downloadQueue.Count; i++)
-        {
-            var item = downloadQueue.ElementAt(i);
-
-            // Only update app downloads to the client
-            if (item is DownloadItem aitem) {
-                if (!SteamClient.GetIClientAppManager().SetAppDownloadQueueIndex(aitem.AppID, actualIndex)) {
-                    Logging.GeneralLogger.Warning("Failed to set download queue index " + actualIndex + " for " + aitem.AppID);
-                }
-
-                actualIndex++;
-            }
-        }
-    }
-
-    internal void Shutdown()
+    internal void Shutdown(IProgress<string> progress)
     {
         stopPoll = true;
         while (!this.pollStopped)
@@ -287,11 +185,40 @@ public class DownloadManager
         downloadInfoUpdateThread = null;
 
         //TODO: wait for the download to finish more appropriately here. How to do?
+        progress.Report("Stopping downloads");
         Logging.GeneralLogger.Info("Waiting for downloads to finish");
-        SteamClient.GetIClientAppManager().SetDownloadingEnabled(false);
-        while (SteamClient.GetIClientAppManager().GetDownloadingAppID() != AppId_t.Invalid)
+        steamClient.IClientAppManager.SetDownloadingEnabled(false);
+        while (steamClient.IClientAppManager.GetDownloadingAppID() != AppId_t.Invalid)
         {
+            if (steamClient.IClientAppManager.BIsDownloadingEnabled()) {
+                steamClient.IClientAppManager.SetDownloadingEnabled(false);
+            }
+
             System.Threading.Thread.Sleep(20);
+        }
+
+        downloadFinishTimes.Clear();
+    }
+
+    public DateTime? GetDownloadStartTime(AppId_t appID)
+    {
+        var startTime = steamClient.IClientAppManager.GetAppAutoUpdateDelayedUntilTime(appID);
+        if (startTime == 0) {
+            return null;
+        }
+
+        return (DateTime)startTime;
+    }
+
+    public DateTime? GetDownloadFinishTime(AppId_t appID)
+    {
+        lock (downloadQueueLock)
+        {
+            if (!downloadFinishTimes.TryGetValue(appID, out DateTime val)) {
+                return null;
+            }
+    
+            return val;
         }
     }
 }

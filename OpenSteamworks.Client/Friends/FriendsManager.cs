@@ -214,7 +214,7 @@ public class FriendsManager : ILogonLifetime
         await Task.CompletedTask;
     }
 
-    public async Task OnLoggingOff(IExtendedProgress<int> progress)
+    public async Task OnLoggingOff(IProgress<string> progress)
     {
         await Task.CompletedTask;
     }

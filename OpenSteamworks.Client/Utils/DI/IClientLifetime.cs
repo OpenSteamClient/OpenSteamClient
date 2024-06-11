@@ -2,6 +2,6 @@ namespace OpenSteamworks.Client.Utils.DI;
 
 public interface IClientLifetime {
     public Task RunStartup();
-    public Task RunShutdown();
+    public Task RunShutdown(IProgress<string> operation);
 }
 

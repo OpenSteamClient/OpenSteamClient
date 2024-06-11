@@ -12,7 +12,7 @@ using System.Text;
 namespace OpenSteamworks.Generated;
 
 /// <summary>
-/// The main interface for family sharing.
+/// The main interface for the old family sharing system.
 /// </summary>
 public unsafe interface IClientDeviceAuth
 {

@@ -54,7 +54,7 @@ public class ClientRemoteStorage {
         });
 
         if (!remoteStorage.SynchronizeApp(appid, type, flags)) {
-            Console.WriteLine("Got failure. Why?");
+            Logging.GeneralLogger.Info("SynchronizeApp failed for " + appid + " with type " + type + " and flags " + flags);
             return EResult.Failure;
         }
 
@@ -69,8 +69,13 @@ public class ClientRemoteStorage {
         return await SyncApp(appid, ERemoteStorageSyncType.Up, ERemoteStorageSyncFlags.AutoCloud_Exit);
     }
 
-    internal void Shutdown()
+    internal void Shutdown(IProgress<string> progress)
     {
         //TODO: Wait for apps to finish syncing
+    }
+
+    public bool IsCloudEnabledForAppOrAccount(AppId_t appid)
+    {
+        return this.remoteStorage.IsCloudEnabledForAccount() && this.remoteStorage.IsCloudEnabledForApp(appid);
     }
 }

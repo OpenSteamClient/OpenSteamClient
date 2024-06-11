@@ -85,6 +85,8 @@ public class LoginManager : IClientLifetime
     public CSteamID InProgressLogonSteamID { get; private set; } = 0;
     public LoginUser? CurrentUser { get; private set; }
 
+    public bool IsAnonUser => this.CurrentUser?.SteamID.AccountType == EAccountType.AnonUser;
+
     public LoginManager(ISteamClient steamClient, LoginUsers loginUsers, ConfigManager configManager, Container container, ClientMessaging clientMessaging, InstallManager installManager)
     {
         this.configManager = configManager;
@@ -170,6 +172,14 @@ public class LoginManager : IClientLifetime
         if (CredentialsPoller != null && CredentialsPoller.IsPolling) {
             logger.Error("Credential logon already in progress");
             throw new InvalidOperationException("Credential logon already in progress");
+        }
+
+        if (username == "anonymous") {
+            // There's probably a better way to create the SteamID, but let's just do this for now
+            BeginLogonToUser(new LoginUser(new CSteamID(1, EUniverse.Public, EAccountType.AnonUser), "anonymous", "g", false));
+            // steamClient.IClientUser.SetLoginInformation("anonymous", "g", false);
+            // steamClient.IClientUser.LogOn(new CSteamID(1, EUniverse.Public, EAccountType.AnonUser));
+            return EResult.OK;
         }
 
         using (Connection conn = clientMessaging.AllocateConnection())
@@ -481,7 +491,7 @@ public class LoginManager : IClientLifetime
             logger.Info("Waiting for logon to finish");
             EResult result = await WaitForLogonToFinish();
             logger.Info("Logon finished with " + result);
-            //TODO: determine if an appinfo update is needed here, and update appinfo if it is
+            //TODO: determine if an appinfo update is needed here, and wait for the appinfo update to finish if it's needed
 
             if (result == EResult.OK)
             {
@@ -507,15 +517,15 @@ public class LoginManager : IClientLifetime
         });
     }
 
-    public async Task LogoutAsync(IExtendedProgress<int>? logoutProgress = null, bool forget = false) {
+    public async Task LogoutAsync(IProgress<string>? operation = null, bool forget = false) {
         UtilityFunctions.AssertNotNull(this.CurrentUser);
         await Task.Run(() => this.LoggingOff?.Invoke(this, EventArgs.Empty));
 
-        if (logoutProgress == null) {
-            logoutProgress = new ExtendedProgress<int>(0, 100);
+        if (operation == null) {
+            operation = new Progress<string>();
         }
 
-        await container.RunLogoff(logoutProgress);
+        await container.RunLogoff(operation);
 
         var oldUser = CurrentUser;
 
@@ -553,12 +563,15 @@ public class LoginManager : IClientLifetime
     }
 
     public async Task OnLoggedOn(LoggedOnEventArgs e) {
+        AddAccount(e.User);
+        this.loginUsers.SetUserAsMostRecent(e.User);
+
+        await RunLogon(e);
+    }
+
+    private async Task RunLogon(LoggedOnEventArgs e) {
         CurrentUser = e.User;
         InProgressLogonSteamID = 0;
-        await Task.Run(() => {
-            AddAccount(e.User);
-            this.loginUsers.SetUserAsMostRecent(e.User);
-        });
         this.loginFinishResult = null;
         await container.RunLogon(loginProgress ?? new ExtendedProgress<int>(0, 100, ""), e);
         this.isLoggingOn = false;
@@ -587,13 +600,15 @@ public class LoginManager : IClientLifetime
         await Task.CompletedTask;
     }
 
-    public async Task RunShutdown()
+    public async Task RunShutdown(IProgress<string> operation)
     {
         if (this.IsLoggedOn() && this.steamClient.ConnectedWith == ConnectionType.NewClient) {
+            operation.Report("Logging out");
+
             logger.Info("Shutting down and logged in, logging out");
             try
             {
-                await LogoutAsync();
+                await LogoutAsync(operation);
             }
             catch (System.Exception e)
             {

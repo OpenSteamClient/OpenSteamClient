@@ -232,9 +232,11 @@ public partial class MainWindowViewModel : AvaloniaCommon.ViewModelBase
 
     public async void SignOut()
     {
-        ExtendedProgress<int> progress = new(0, 100, "Logging off");
-        AvaloniaApp.Current?.ForceProgressWindow(new ProgressWindowViewModel(progress, "Logging off"));
-        await this.loginManager.LogoutAsync(progress, true);
+        Progress<string> operation = new();
+        Progress<string> subOperation = new();
+        
+        AvaloniaApp.Current?.ForceProgressWindow(new ProgressWindowViewModel(operation, subOperation, 0, null, null, "Logging off"));
+        await this.loginManager.LogoutAsync(operation, true);
     }
 
     public async void ChangeAccount()

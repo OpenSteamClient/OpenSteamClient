@@ -15,6 +15,7 @@ using OpenSteamworks.KeyValue.Serializers;
 using OpenSteamworks.Structs;
 using OpenSteamworks.Utils;
 using Profiler;
+using OpenSteamworks.Client.Managers;
 
 namespace OpenSteamworks.Client.Apps;
 
@@ -185,7 +186,7 @@ public class SteamApp : AppBase
     }
 
     //TODO: Progress indication
-    public override async Task<EAppError> Launch(string userLaunchOptions, int launchOptionID)
+    public override async Task<EAppError> Launch(string userLaunchOptions, int launchOptionID, ELaunchSource launchSource)
     {
         if (this.Config.CheckForUpdatesBeforeLaunch) {
             logger.Info("Checking for updates (due to CheckForUpdatesBeforeLaunch)");
@@ -205,11 +206,21 @@ public class SteamApp : AppBase
         logger.Info("Running install scripts");
         await AppsManager.RunInstallScriptAsync(AppID);
 
-        logger.Info("Synchronizing cloud");
-        await ClientRemoteStorage.SyncAppPreLaunch(AppID);
+        bool isAnonUser = Client.Instance!.Container.Get<LoginManager>().IsAnonUser;
+        if (!isAnonUser) {
+            if (ClientRemoteStorage.IsCloudEnabledForAppOrAccount(AppID)) {
+                logger.Info("Synchronizing cloud");
+                EResult syncResult = await ClientRemoteStorage.SyncAppPreLaunch(AppID);
+                if (syncResult != EResult.OK && syncResult != EResult.NoResult)
+                {
+                    logger.Error("Cloud sync failed: " + syncResult);
+                    throw new Exception("Cloud sync failed: " + syncResult);
+                }
+            }
 
-        logger.Info("Site license seat checkout");
-        AppsManager.ClientApps.NativeClientUser.CheckoutSiteLicenseSeat(this.AppID);
+            logger.Info("Site license seat checkout");
+            AppsManager.ClientApps.NativeClientUser.CheckoutSiteLicenseSeat(this.AppID);
+        }
 
         if (this.IsCompatEnabled) {
             logger.Info("Starting compat session (due to IsCompatEnabled == true)");
@@ -217,7 +228,7 @@ public class SteamApp : AppBase
         }
 
         logger.Info("Creating process");
-        return AppsManager.ClientApps.NativeClientAppManager.LaunchApp(this.GameID, (uint)launchOptionID, ELaunchSource.None, "");
+        return AppsManager.ClientApps.NativeClientAppManager.LaunchApp(this.GameID, (uint)launchOptionID, launchSource, "");
     }
 
     public override void PauseUpdate()

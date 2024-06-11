@@ -91,5 +91,5 @@ public interface ISteamClient {
 
     public bool BGetCallback(out CallbackMsg_t callbackMsg);
     public void FreeLastCallback();
-    public void Shutdown();
+    public void Shutdown(IProgress<string> operation);
 }

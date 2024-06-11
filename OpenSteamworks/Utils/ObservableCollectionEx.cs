@@ -3,9 +3,13 @@ using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Diagnostics;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
-namespace AvaloniaCommon.Utils;
-
+namespace OpenSteamworks.Utils;
+    
+//TODO: Move the bulk of these utility classes into OpenSteamworks.Utils
 //TODO: This needs to be looked at.
 // For some reason it sometimes crashes avalonia, even though we do everything properly
 [Serializable]

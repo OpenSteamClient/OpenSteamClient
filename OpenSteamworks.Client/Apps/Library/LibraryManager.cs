@@ -499,8 +499,9 @@ public class LibraryManager : ILogonLifetime
         return currentUserLibrary;
     }
 
-    public async Task OnLoggingOff(IExtendedProgress<int> progress) {
+    public async Task OnLoggingOff(IProgress<string> progress) {
         if (currentUserLibrary != null) {
+            progress.Report("Syncing library changes");
             await currentUserLibrary.SaveLibrary();
             currentUserLibrary = null;
         }

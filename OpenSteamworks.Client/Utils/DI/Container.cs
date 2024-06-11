@@ -387,7 +387,7 @@ public class Container
         hasRanStartup = true;
     }
 
-    public async Task RunClientShutdown()
+    public async Task RunClientShutdown(IProgress<string> operation, IProgress<string> subOperation)
     {
         using var scope = CProfiler.CurrentProfiler?.EnterScope("RunClientShutdown");
 
@@ -400,10 +400,11 @@ public class Container
         foreach (var component in clientLifetimeOrder)
         {
             using var subScope = CProfiler.CurrentProfiler?.EnterScope("RunClientShutdown - " + component.Name);
+            operation.Report("Shutting down " + component.Name);
             logger.Info("Shutting down " + component.Name);
             if (this.HasNonFactory(component))
             {
-                await ((IClientLifetime)Get(component)).RunShutdown();
+                await ((IClientLifetime)Get(component)).RunShutdown(subOperation);
                 logger.Info("Shutdown for " + component.Name + " finished");
             }
             else
@@ -425,22 +426,17 @@ public class Container
         }
     }
 
-    public async Task RunLogoff(IExtendedProgress<int> progress)
+    public async Task RunLogoff(IProgress<string> progress)
     {
         using var scope = CProfiler.CurrentProfiler?.EnterScope("RunLogoff");
 
-        int shutdownComponents = 0;
-        progress.SetMaxProgress(logonLifetimeOrder.Count);
         foreach (var component in logonLifetimeOrder)
         {
             using var subScope = CProfiler.CurrentProfiler?.EnterScope("RunLogoff - " + component.Name);
-
+            
             logger.Info("Running logoff for component " + component.Name);
             await ((ILogonLifetime)Get(component)).OnLoggingOff(progress);
             logger.Info("Logoff for component " + component.Name + " finished");
-
-            shutdownComponents++;
-            progress.SetProgress(shutdownComponents);
         }
     }
 }

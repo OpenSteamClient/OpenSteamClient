@@ -82,7 +82,10 @@ Stuff marked future can be done eventually or just completely ignored
       - [ ] Disabling workshop mods without unsubbing (later)
       - [ ] Load order (later)
       - [ ] Support 3rd party mod platforms (future)
-  - [ ] Downloads page
+  - [x] Downloads page
+    - [ ] Reorder items
+    - [ ] Cancel items
+    - [ ] Stylize and explain the UI
     - [ ] Support showing 3rd party launcher's download statuses (future)
 - [ ] Steamwebhelper support (later)
   - Seems to break with every other update. We need another way to display store pages.

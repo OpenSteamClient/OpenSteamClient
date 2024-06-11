@@ -60,37 +60,40 @@ public class Library
         using var scope = CProfiler.CurrentProfiler?.EnterScope("Library.InitializeLibrary");
         HashSet<CGameID> AppIDsInCollections = new();
 
-        // Get all collections
-        try
-        {
-            namespaceData = await cloudConfigStore.GetNamespaceData(Enums.EUserConfigStoreNamespace.Library);
-            var keyValues = namespaceData.GetEntriesStartingWithKeyName("user-collections.");
-
-            List<string> collections = new();
-            foreach (var entry in keyValues)
+        // If we're an anonymous user, we don't have any namespace data, so don't even try
+        if (!loginManager.IsAnonUser) {
+            // Get all collections
+            try
             {
-                logger.Trace("Attempting to deserialize: " + entry.Value);
-                JSONCollection? json = System.Text.Json.JsonSerializer.Deserialize<JSONCollection>(entry.Value);
-                if (json == null)
+                namespaceData = await cloudConfigStore.GetNamespaceData(Enums.EUserConfigStoreNamespace.Library);
+                var keyValues = namespaceData.GetEntriesStartingWithKeyName("user-collections.");
+
+                List<string> collections = new();
+                foreach (var entry in keyValues)
                 {
-                    throw new NullReferenceException("Deserializing collection " + entry.Key + " failed");
+                    logger.Trace("Attempting to deserialize: " + entry.Value);
+                    JSONCollection? json = System.Text.Json.JsonSerializer.Deserialize<JSONCollection>(entry.Value);
+                    if (json == null)
+                    {
+                        throw new NullReferenceException("Deserializing collection " + entry.Key + " failed");
+                    }
+
+                    collections.Add(json.id);
+                    var collection = UpdateOrCreateCollection(Collection.FromJSONCollection(libraryManager, json));
+                    foreach (var item in this.GetAppsInCollection(collection))
+                    {
+                        AppIDsInCollections.Add(item);
+                    }
                 }
 
-                collections.Add(json.id);
-                var collection = UpdateOrCreateCollection(Collection.FromJSONCollection(libraryManager, json));
-                foreach (var item in this.GetAppsInCollection(collection))
-                {
-                    AppIDsInCollections.Add(item);
-                }
+                // Remove collections that no longer exist (if they're not a system collection)
+                this.Collections.RemoveAll(c => !c.IsSystem && !collections.Contains(c.ID));
             }
-
-            // Remove collections that no longer exist (if they're not a system collection)
-            this.Collections.RemoveAll(c => !c.IsSystem && !collections.Contains(c.ID));
-        }
-        catch (Exception e)
-        {
-            logger.Error("Collections failed to deserialize: " + e.ToString());
-            throw;
+            catch (Exception e)
+            {
+                logger.Error("Collections failed to deserialize: " + e.ToString());
+                throw;
+            }
         }
 
         // Add all apps not in any categories to Uncategorized

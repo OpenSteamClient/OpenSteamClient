@@ -16,7 +16,7 @@ public class ShaderManager : IClientLifetime
         this.shader = shader;
     }
 
-    public async Task RunShutdown()
+    public async Task RunShutdown(IProgress<string> operation)
     {
         shader.EnableShaderManagement(false);
         shader.EnableShaderBackgroundProcessing(false);
