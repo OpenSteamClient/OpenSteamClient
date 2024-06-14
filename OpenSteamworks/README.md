@@ -1,4 +1,3 @@
 # OpenSteamworks
-OpenSteamworks is a C# library to interact with the currently running Steam Client. 
-If you want to implement your own Steam Client, you should use OpenSteamworks.Client, although it is technically possible to make your own client with only OpenSteamworks as well. 
-The best documentation for OpenSteamworks is looking at how OpenSteamworks.Client works.
+OpenSteamworks is a C# library to interact with Steam's IClient interfaces. You'll need to provide your own binaries, versioned exactly the same as `Generated/VersionInfo.cs`
+Note that this library cannot check the version, instead various issues will manifest at runtime like segfaults, wrong functions being called, issues connecting to existing clients, etc.

@@ -1,11 +1,11 @@
 [Desktop Entry]
 Categories=Network;Game;
-Comment=Partially open-source alternative to the Steam Client application
-Comment[fi]=Vaihtoehtoinen osittain avoimen lähdekoodin Steam-asiakassovellus
-Exec=/usr/bin/opensteamclient-gui %U
+Comment=Community-made Steam frontend
+Comment[fi]=Yhteisön tekemä Steam-sovellus
+Exec=/usr/bin/opensteamclient %U
 GenericName=Game Launcher
 Icon=opensteamclient
-MimeType=
+MimeType=x-scheme-handler/steam;x-scheme-handler/steamlink;
 Name=OpenSteamClient
 StartupNotify=true
 Type=Application
