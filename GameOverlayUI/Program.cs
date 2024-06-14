@@ -41,7 +41,7 @@ public static class Program
 
         if (args.Length > 1) {
             Console.WriteLine("UI test mode enabled");
-            IsUITestMode = args[1] == "true" || args[1] == "1";
+            IsUITestMode = args[1] == "testmode";
         }
 
         try

@@ -43,8 +43,12 @@ public class AvaloniaApp : Application
         using var scope = CProfiler.CurrentProfiler?.EnterScope("OnFrameworkInitializationCompleted");
         Theme = new Theme(this);
 
-        var mainView = new MainView() { DataContext = new MainViewViewModel() };
+        var mainViewViewModel = new MainViewViewModel();
+        Program.Container.RegisterInstance(mainViewViewModel);
+        
+        var mainView = new MainView() { DataContext = mainViewViewModel };
         Program.Container.RegisterInstance(mainView);
+        
         ForceWindow(mainView);
         
         {
@@ -56,8 +60,6 @@ public class AvaloniaApp : Application
             serverThread = new(ServerThreadMain);
             serverThread.Start();
         }
-
-        
     }
 
     private Thread? serverThread;
@@ -65,10 +67,6 @@ public class AvaloniaApp : Application
     private unsafe void ServerThreadMain() {
         var sharedMemory = Program.Container.Get<SharedMemory>();
         var mainView = Program.Container.Get<MainView>();
-
-        byte[] renderTarget = new byte[(int)(mainView.Bounds.Size.Height * mainView.Bounds.Size.Width * 4)];
-        // void* buf = NativeMemory.Alloc(sharedMemory.DisplayData->Width * sharedMemory.DisplayData->Height * 4);
-        // Bitmap frame = new(PixelFormat.Bgra8888, AlphaFormat.Premul, (nint)buf, new PixelSize((int)sharedMemory.DisplayData->Width, (int)sharedMemory.DisplayData->Height), new Vector(96, 96), (int)(sharedMemory.DisplayData->Width * 4));
 
         while (!threadMainMre.IsSet) {
             // TODO: while (overlayIsReady)

@@ -1,9 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <!-- AvaloniaAccessUnstablePrivateApis is Enabled -->
-    <!-- <NoWarn>AVA3001</NoWarn> -->
-
     <TargetFramework>$(CommonNetVersion)</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>

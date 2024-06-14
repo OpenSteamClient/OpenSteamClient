@@ -1,0 +1,75 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:GameOverlayUI.ViewModels"
+        xmlns:c="using:GameOverlayUI.Controls"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        Canvas.Left="{Binding X}" Canvas.Top="{Binding Y}" Canvas.ZIndex="{Binding Z}"
+        x:Class="GameOverlayUI.Views.CustomWindowView">
+    
+    <UserControl.Styles>
+        <Style Selector="Button.decoration">
+            <Setter Property="Margin" Value="0"/>
+            <Setter Property="Width" Value="32"/>
+            <Setter Property="Height" Value="32"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Padding" Value="2"/>
+            <Setter Property="Foreground" Value="{DynamicResource SystemControlForegroundBaseHighBrush}"/>
+            <Setter Property="CornerRadius" Value="0"/>
+        </Style>
+        <Style Selector="Button.decoration /template/ ContentPresenter">
+            <Setter Property="CornerRadius" Value="0"/>
+        </Style>
+        <Style Selector="Button:pointerover.decoration /template/ ContentPresenter">
+            <Setter Property="Background" Value="Red"/>
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
+
+        <Style Selector="Button:pointerover.closebutton /template/ ContentPresenter">
+            <Setter Property="Background" Value="Red"/>
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
+
+        <Style Selector="Button:pressed.closebutton /template/ ContentPresenter">
+            <Setter Property="Background" Value="DarkRed"/>
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
+
+        <Style Selector="Button:pointerover.maximizebutton /template/ ContentPresenter">
+            <Setter Property="Background" Value="Blue"/>
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
+
+        <Style Selector="Button:pressed.maximizebutton /template/ ContentPresenter">
+            <Setter Property="Background" Value="DarkBlue"/>
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
+
+        <Style Selector="Button:pointerover.minimizebutton /template/ ContentPresenter">
+            <Setter Property="Background" Value="Blue"/>
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
+
+        <Style Selector="Button:pressed.minimizebutton /template/ ContentPresenter">
+            <Setter Property="Background" Value="DarkBlue"/>
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
+
+
+    </UserControl.Styles>
+
+    <StackPanel Background="{DynamicResource SystemRegionBrush}">
+        <!-- Decorations -->
+        <DockPanel Classes="draggable" Background="{DynamicResource SystemControlBackgroundAltHighBrush}" LastChildFill="False">
+            <Image Classes="draggable" IsVisible="{Binding IconVisible}" Height="32" Width="32" Source="{Binding Icon}"/>
+            <TextBlock Classes="draggable" Text="{Binding Title}" Foreground="White" DockPanel.Dock="Left">Example text</TextBlock>
+            <Button Classes="decoration closebutton" DockPanel.Dock="Right" Command="{Binding Close}">x</Button>
+            <Button Classes="decoration maximizebutton" DockPanel.Dock="Right" Command="{Binding Close}">[]</Button>
+            <Button Classes="decoration minimizebutton" DockPanel.Dock="Right" Command="{Binding Close}">_</Button>
+        </DockPanel>
+
+        <ContentControl Content="{Binding Content}"/>
+    </StackPanel>
+</UserControl>

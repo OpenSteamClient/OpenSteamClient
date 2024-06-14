@@ -1,6 +1,7 @@
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:vm="using:GameOverlayUI.ViewModels"
+        xmlns:v="using:GameOverlayUI.Views"
         xmlns:c="using:GameOverlayUI.Controls"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -15,26 +16,15 @@
         <vm:MainViewViewModel/>
     </Design.DataContext>
     
-    <StackPanel>
-        <TextBlock>OSC Overlay Test</TextBlock>
-        <!-- <ItemsControl ItemsSource="{Binding TileList}">
+    <DockPanel>
+        <TextBlock DockPanel.Dock="Top">OSC Overlay Test</TextBlock>
+        <ItemsControl x:Name="Desktop" ItemsSource="{Binding Windows}">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <Canvas Width="50" Height="50" Background="Yellow" Margin="3"/>
+                    <Canvas PointerPressed="OnPointerPressed" PointerReleased="OnPointerReleased" PointerMoved="OnPointerMoved" Background="LightBlue"/>
                 </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>
-            <ItemsControl.ItemTemplate>
-                <DataTemplate>
-                    <Rectangle Fill="Green" Height="{Binding Size}" Width="{Binding Size}"/>
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-            <ItemsControl.Styles>
-                <Style Selector="ContentPresenter"  x:DataType="vm:Tile">
-                    <Setter Property="Canvas.Left" Value="{Binding TopX}"/>
-                    <Setter Property="Canvas.Top" Value="{Binding TopY}"/>
-                </Style>
-            </ItemsControl.Styles>
-        </ItemsControl> -->
-    </StackPanel>
+        </ItemsControl>
+    </DockPanel>
     
 </Window>
