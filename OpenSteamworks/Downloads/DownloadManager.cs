@@ -86,10 +86,15 @@ public class DownloadManager
         UpdateDownloadQueue();
     }
 
+    public bool BIsAppUpToDate(AppId_t appid) {
+        var state = steamClient.IClientAppManager.GetAppInstallState(appid);
+        return !(state.HasFlag(EAppState.UpdateRequired) || state.HasFlag(EAppState.UpdateOptional));
+    }
+
     private IEnumerable<AppId_t> GetAppsWithUpdates() {
         // There's no function in the API to get apps that have updates, so do this instead (and assume only installed apps can be updated)
         List<AppId_t> installedApps = steamClient.ClientApps.GetInstalledApps().ToList();
-        return installedApps.Where(a => !steamClient.ClientApps.BIsAppUpToDate(a));
+        return installedApps.Where(a => !BIsAppUpToDate(a));
     }
 
     private ulong BytesDownloadedLast;

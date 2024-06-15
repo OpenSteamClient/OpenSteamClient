@@ -47,17 +47,29 @@ public partial class DownloadItemViewModel : AvaloniaCommon.ViewModelBase {
 
     private void UpdateDownloadInfo() {
         var appManager = SteamClient.GetIClientAppManager();
+
+        if (downloadManager.BIsAppUpToDate(AppID)) {
+            // If there's no update, deregister to allow for this object to be GCd
+            this.downloadManager.DownloadStatsChanged -= OnDownloadStatsChanged;
+            return;
+        }
+
         if (appManager.GetUpdateInfo(this.AppID, out AppUpdateInfo_s updateInfo)) {
-            if (updateInfo.m_unBytesToProcess != 0) {
-                this.CurrentDownloadProgress = updateInfo.m_unBytesProcessed / updateInfo.m_unBytesToProcess;
-                Console.WriteLine("prog: " + this.CurrentDownloadProgress);
-            } else if (updateInfo.m_unBytesToDownload != 0) {
-                this.CurrentDownloadProgress = updateInfo.m_unBytesDownloaded / updateInfo.m_unBytesToDownload;
-                Console.WriteLine("progd: " + this.CurrentDownloadProgress);
+            //Console.WriteLine($"{AppID}: " + updateInfo.ToString());
+            if (updateInfo.m_unBytesToProcess != 0 && updateInfo.m_unBytesToProcess != updateInfo.m_unBytesProcessed) {
+                this.CurrentDownloadProgress = (double)updateInfo.m_unBytesProcessed / (double)updateInfo.m_unBytesToProcess;
+                Console.WriteLine($"{AppID} prog: " + this.CurrentDownloadProgress + $"({updateInfo.m_unBytesProcessed} / {updateInfo.m_unBytesToProcess})");
+            } else if (updateInfo.m_unBytesToDownload != 0 && updateInfo.m_unBytesToDownload != updateInfo.m_unBytesDownloaded) {
+                this.CurrentDownloadProgress = (double)updateInfo.m_unBytesDownloaded / (double)updateInfo.m_unBytesToDownload;
+                Console.WriteLine($"{AppID} progd: " + this.CurrentDownloadProgress);
             }
             
             this.DownloadSize = DataUnitStrings.GetStringForSize(updateInfo.m_unBytesToDownload, DataSizeUnit.Auto_GB_MB_KB_B);
             this.DiskSize = DataUnitStrings.GetStringForSize(updateInfo.m_unBytesToProcess, DataSizeUnit.Auto_GB_MB_KB_B);
+        } else {
+            // If there's no update info, deregister to allow for this object to be GCd
+            this.downloadManager.DownloadStatsChanged -= OnDownloadStatsChanged;
+            return;
         }
 
         this.DownloadStarted = downloadManager.GetDownloadStartTime(AppID);
