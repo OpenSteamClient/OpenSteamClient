@@ -2,6 +2,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:vm="using:OpenSteamClient.ViewModels"
         xmlns:c="using:OpenSteamClient.Controls"
+        xmlns:pages="using:OpenSteamClient.Views.Settings"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
@@ -16,8 +17,41 @@
         <vm:SettingsWindowViewModel/>
     </Design.DataContext>
     
-    <StackPanel>
-        <TextBlock Text="TODO: implement settings panel" />
-    </StackPanel>
+    <!-- This file is a mess. But in order to split this into multiple pages we'd need to do the whole MainWindow setup all over again. Maybe one day. -->
+    <TabControl Margin="5">
+        <TabItem Header="Library Folders">
+            <StackPanel>
+                <TextBlock>Select library folder to view further info:</TextBlock>
+                <ComboBox SelectedIndex="0">
+                    <ComboBoxItem>Text Item 1</ComboBoxItem>
+                    <ComboBoxItem>Text Item 2</ComboBoxItem>
+                    <ComboBoxItem>Add library folder</ComboBoxItem>
+                </ComboBox>
+
+                <Button>Remove folder</Button>
+            </StackPanel>
+        </TabItem>
+        <TabItem Header="Compatibility">
+            <StackPanel>
+                <TextBlock>Select default compat tool for Windows games:</TextBlock>
+                <ComboBox SelectedIndex="0">
+                    <ComboBoxItem>Text Item 1</ComboBoxItem>
+                    <ComboBoxItem>Text Item 2</ComboBoxItem>
+                    <ComboBoxItem>Text Item 3</ComboBoxItem>
+                    <ComboBoxItem>Text Item 4</ComboBoxItem>
+                    <ComboBoxItem>Text Item 5</ComboBoxItem>
+                    <ComboBoxItem>Text Item 6</ComboBoxItem>
+                    <ComboBoxItem>Text Item 7</ComboBoxItem>
+                    <ComboBoxItem>Text Item 8</ComboBoxItem>
+                    <ComboBoxItem>Text Item 9</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+        </TabItem>
+        <TabItem Header="Friends">
+            <StackPanel>
+                <CheckBox>Auto-login to friends network when logging in to OpenSteam</CheckBox>
+            </StackPanel>
+        </TabItem>
+    </TabControl>
     
 </Window>

@@ -522,4 +522,9 @@ public class CallbackManager
         this.RegisterHandler(tcs);
         return tcs.Task;
     }
+
+    public async Task WaitForAPICall(SteamAPICall_t apicall)
+    {
+        await WaitForCallback((SteamAPICallCompleted_t cb) => cb.m_hAsyncCall == apicall);
+    }
 }

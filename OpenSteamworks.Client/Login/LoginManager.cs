@@ -384,7 +384,7 @@ public class LoginManager : IClientLifetime
 
     public void OnPostLogonState(CallbackHandler<PostLogonState_t> handler, PostLogonState_t stateUpdate) {
         if (isLoggingOn) {
-            if (stateUpdate.unk9 == 1 && stateUpdate.connectedToCMs == 1) {
+            if (stateUpdate.hasAppInfo == 1 && stateUpdate.connectedToCMs == 1) {
                 loginProgress?.SetProgress(loginProgress.MaxProgress);
                 loginFinishResult = EResult.OK;
             }
@@ -491,13 +491,10 @@ public class LoginManager : IClientLifetime
             logger.Info("Waiting for logon to finish");
             EResult result = await WaitForLogonToFinish();
             logger.Info("Logon finished with " + result);
-            //TODO: determine if an appinfo update is needed here, and wait for the appinfo update to finish if it's needed
 
+            // The steam client will automatically update appinfo and wait for it if necessary
             if (result == EResult.OK)
-            {
-                logger.Info("Waiting for appinfo update completion");
-                loginProgress?.SetSubOperation("Waiting for appinfo update...");
-                await appInfoUpdateComplete;
+            {   
                 loginUsers.SetUserAsMostRecent(user);
                 if (user.AllowAutoLogin == true)
                 {

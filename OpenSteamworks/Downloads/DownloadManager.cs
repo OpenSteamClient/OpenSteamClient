@@ -65,7 +65,7 @@ public class DownloadManager
     private bool isListeningForAppEventStateChanges = false;
     private void OnPostLogonState(CallbackManager.CallbackHandler<PostLogonState_t> handler, PostLogonState_t t)
     {
-        if (t.connectedToCMs == 1 && t.unk9 == 1) {
+        if (t.connectedToCMs == 1 && t.hasAppInfo == 1) {
             isListeningForAppEventStateChanges = true;
             UpdateDownloadQueue();
         }   

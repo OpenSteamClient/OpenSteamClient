@@ -135,7 +135,7 @@ public unsafe interface IClientUser
     // WARNING: Arguments are unknown!
     public bool BIsGameWindowReady(CGameID gameid);  // argc: 1, index: 69, ipc args: [bytes8], ipc returns: [boolean]
     // WARNING: Arguments are unknown!
-    public bool BUpdateAppOwnershipTicket(uint unk1, int pTicket);  // argc: 2, index: 70, ipc args: [bytes4, bytes1], ipc returns: [boolean]
+    public bool BUpdateAppOwnershipTicket(uint unk1, bool unk);  // argc: 2, index: 70, ipc args: [bytes4, bytes1], ipc returns: [boolean]
     // WARNING: Arguments are unknown!
     public UInt32 GetCustomBinariesState(AppId_t unAppID, ref UInt32 punProgress);  // argc: 3, index: 71, ipc args: [bytes4], ipc returns: [bytes4, bytes8, bytes8]
     // WARNING: Arguments are unknown!

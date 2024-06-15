@@ -9,6 +9,7 @@ import { VirtualHeader } from './csharp/virtualheader';
 import { VersionInfo } from './csharp/versioninfo';
 import { ProcessProtobuf } from './protobuf/processprotobuf';
 import { InterfaceConsts } from './csharp/interfaceconsts';
+import { ShimVersionInfo } from './cpp/shimversion';
     
 export async function Main(protobufonly: boolean = false): Promise<number> {
     console.info("Starting OSWUpdater");
@@ -208,20 +209,25 @@ export async function Main(protobufonly: boolean = false): Promise<number> {
         
         console.info("Generating new VersionInfo.cs")
         var versionFilePath = `${projectDir}/OpenSteamworks/Generated/VersionInfo.cs`;
-
-        console.info("Generating new InterfaceConsts.cs")
-        var interfaceConstsFilePath = `${projectDir}/OpenSteamworks/IPCClient/Interfaces/InterfaceConsts.cs`;
-        
         if (fs.existsSync(versionFilePath)) {
             fs.rmSync(versionFilePath);
         }
+        VersionInfo.CreateVersionFileFromManifest(versionFilePath, newManifest);
 
+        console.info("Generating new InterfaceConsts.cs")
+        var interfaceConstsFilePath = `${projectDir}/OpenSteamworks/IPCClient/Interfaces/InterfaceConsts.cs`;
         if (fs.existsSync(interfaceConstsFilePath)) {
             fs.rmSync(interfaceConstsFilePath);
         }
-
-        VersionInfo.CreateVersionFileFromManifest(versionFilePath, newManifest);
         InterfaceConsts.CreateInterfaceConstsFileFromManifest(interfaceConstsFilePath, newDump.interfaces);
+
+
+        console.info("Generating new version.h")
+        var versionHeader = `${projectDir}/OpenSteamworks.Native/bootstrappershim/version.h`;
+        if (fs.existsSync(versionHeader)) {
+            fs.rmSync(versionHeader);
+        }
+        ShimVersionInfo.CreateVersionFileFromManifest(versionHeader, newManifest);
     } else {
         console.info("Skipping most operations due to protobufonly")
     }

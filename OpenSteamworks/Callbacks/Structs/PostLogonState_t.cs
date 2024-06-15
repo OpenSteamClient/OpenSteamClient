@@ -27,6 +27,6 @@ public struct PostLogonState_t
 	public byte unk6;         // 1 byte
     public byte connectedToCMs; // 1 byte
     public byte unk8; // 1 byte
-	public byte unk9;         // 1 byte
+	public byte hasAppInfo;         // 1 byte
 	public byte unk10;
 }; // 10 bytes

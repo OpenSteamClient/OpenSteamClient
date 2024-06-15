@@ -23,7 +23,7 @@ public unsafe struct CUtlString {
     public override string ToString() {
         string? str = this.ToManaged();
         if (str == null) {
-            return "";
+            return string.Empty;
         }
         
         return str;

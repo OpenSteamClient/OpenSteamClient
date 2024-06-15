@@ -1,0 +1,47 @@
+# Maintainer: Onni Kukkonen <onni.kukkonen@proton.me>
+pkgname=opensteamclient-git
+pkgver=r303.977657b
+pkgrel=1
+pkgdesc="Community-made Steam frontend"
+arch=('x86_64')
+url="https://github.com/OpenSteamClient/OpenSteamClient/"
+license=('MIT')
+conflicts=('opensteamclient-bin' 'opensteam-git')
+makedepends=('dotnet-sdk')
+optdepends=('lib32-glibc: steamservice support')
+source=("git+https://github.com/OpenSteamClient/OpenSteamClient.git#branch=c#-remake")
+sha256sums=('SKIP')
+depends=(
+  dotnet-runtime
+  bash
+  hicolor-icon-theme
+  vulkan-driver
+  vulkan-icd-loader
+  glibc
+)
+
+
+pkgver() {
+  cd "$srcdir/OpenSteamClient"
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short=7 HEAD)"
+}
+
+build() {
+  cd "$srcdir/OpenSteamClient"
+  DOTNET_CLI_TELEMETRY_OPTOUT="1" dotnet publish OpenSteamClient \
+    --framework net8.0 \
+    --configuration Release \
+    --use-current-runtime \
+    --no-self-contained \
+    --output output
+}
+
+package() {
+  cd "$srcdir/OpenSteamClient"
+  install -d "$pkgdir/usr/lib/opensteamclient"
+  cp -r output/* "$pkgdir/usr/lib/opensteamclient"
+  install -Dm755 "$srcdir/OpenSteamClient/package/opensteamclient.sh" "$pkgdir/usr/bin/opensteamclient"
+  install -Dm644 "$srcdir/OpenSteamClient/package/opensteamclient.desktop" "$pkgdir/usr/share/applications/opensteamclient.desktop"
+  install -Dm644 "$srcdir/OpenSteamClient/package/opensteamclient.svg" "$pkgdir/usr/share/icons/hicolor/scalable/apps/opensteamclient.svg"
+  install -Dm644 "$srcdir/OpenSteamClient/LICENSE" "$pkgdir/usr/share/licenses/$pkgname/LICENCE"
+}

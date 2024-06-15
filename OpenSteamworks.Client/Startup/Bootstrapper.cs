@@ -554,7 +554,19 @@ public class Bootstrapper {
         string runtimeLibraryPath = runtimeProcess.StandardOutput.ReadToEnd();
         UtilityFunctions.SetEnvironmentVariable("STEAM_RUNTIME_LIBRARY_PATH", runtimeLibraryPath);
         UtilityFunctions.SetEnvironmentVariable("LD_LIBRARY_PATH", $"{Path.Combine(installManager.InstallDir, "ubuntu12_64")}:{Path.Combine(installManager.InstallDir, "ubuntu12_32")}:{Path.Combine(installManager.InstallDir)}:{runtimeLibraryPath}");
+        try
+        {
+            File.Copy(Path.Combine(installManager.InstallDir, "libbootstrappershim64.so"), "/tmp/libbootstrappershim64.so", true);
 
+            // Only set the variable if the copy actually succeeded
+            UtilityFunctions.SetEnvironmentVariable("LD_PRELOAD", "/tmp/libbootstrappershim64.so");
+        }
+        catch (Exception e)
+        {
+            logger.Warning("Failed to copy " + Path.Combine(installManager.InstallDir, "libbootstrappershim64.so") + " to /tmp/libbootstrappershim64.so: " + e.ToString());
+            logger.Warning("Family sharing (among other unknown things) will be unavailable.");
+        }
+        
         string?[] fullArgs = Environment.GetCommandLineArgs();
 
         string executable = Directory.ResolveLinkTarget("/proc/self/exe", false)!.FullName;

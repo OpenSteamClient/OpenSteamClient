@@ -6,6 +6,7 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Controls.Primitives;
 using Avalonia.LogicalTree;
 using Avalonia.Threading;
 using Avalonia.VisualTree;
@@ -243,10 +244,13 @@ public class TranslationManager : ILogonLifetime
             if (obj is Window)
             {
                 TranslateTextInternal(Window.TitleProperty);
-            }
-            else if (obj is MenuItem)
+            } else if (obj is HeaderedContentControl) 
             {
-                TranslateTextInternal(MenuItem.HeaderProperty);
+                TranslateTextInternal(HeaderedContentControl.HeaderProperty);
+            } 
+            else if (obj is HeaderedSelectingItemsControl)
+            {
+                TranslateTextInternal(HeaderedSelectingItemsControl.HeaderProperty);
             }
             else if (obj is TextBox)
             {

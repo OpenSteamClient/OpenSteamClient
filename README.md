@@ -4,10 +4,10 @@
 A partially open-source Steam frontend for Windows and Linux
 
 # Current development status
-Everything below is blockers. Lots of stuff that's only documented in my head is also blockers. Lots of code cleanups are due. 
-Stuff marked later can wait for after we make an MVP.
+Everything below is blockers for release. Lots of stuff that's only documented in my head is also blockers. Lots of code cleanups are due. 
+Stuff marked later can wait for after we fix the rest of these things.
 Stuff marked future can be done eventually or just completely ignored
-
+Stuff marked rebranch-blocker is required to be solved before replacing the main branch. 
 - [ ] Startup wizard
   - [ ] initial settings
   - [ ] steamapps linking 
@@ -26,8 +26,8 @@ Stuff marked future can be done eventually or just completely ignored
   - [x] 2FA 
     - [ ] 2FA window improvements (the layout is VERY crude)
 - [ ] Client settings UI
-  - [ ] Library folder management
-  - [ ] Compat settings
+  - [ ] Library folder management (rebranch-blocker)
+  - [ ] Compat settings (rebranch-blocker)
   - [ ] Persona name change
   - [ ] Download speed cap
 - [x] Fix CPU fan speeding due to IPCClient
@@ -73,7 +73,8 @@ Stuff marked future can be done eventually or just completely ignored
         - [ ] Visualize the full launch option in the command line box (later)
       - [ ] Add custom launch options (later)
     - [ ] Lang settings
-    - [ ] Compat settings
+    - [ ] Beta branch selection (rebranch-blocker)
+    - [ ] Compat settings (rebranch-blocker)
       - The API seemingly has a way to set compat strings like forcelgadd, explore adding this functionality (later)
     - [ ] Workshop/Mod settings
       - [ ] See installed workshop size
@@ -164,7 +165,7 @@ We support:
 Anything else is not officially supported, and your issue may get closed.
 
 # Features
-NOTE: The features mentioned here are the criteria for replacing the old Qt/C++ based OSC. These may not be implemented yet! And these also aren't final
+NOTE: The features mentioned here are the criteria for release. These may not be implemented yet! And these also aren't final
 - The basics you'd expect:
   - Achievements
   - Steam Cloud
@@ -206,6 +207,10 @@ See [CONTRIBUTING.md](https://github.com/OpenSteamClient/OpenSteamClient/blob/c%
 Clone by running `git clone -b c#-remake --single-branch https://github.com/OpenSteamClient/opensteamclient.git --recursive`
 Compile and run by going into OpenSteamClient and running `dotnet run -v:m`.
 Occasionally updates break existing repos, just delete the whole repo and reclone if that happens.
+
+## Testing
+If you decide to test OSC, you should report issues in GitHub issues.
+There's also a [Discord server](https://discord.gg/Vrk6sZfh9u), where you can discuss OpenSteamClient and related projects. 
 
 # Screenshots
 Nothing for now.

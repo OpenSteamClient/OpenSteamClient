@@ -5,12 +5,15 @@ using OpenSteamworks.Client.Utils;
 using OpenSteamworks.Client.Utils.DI;
 using OpenSteamworks.Enums;
 using OpenSteamworks.Generated;
+using OpenSteamworks.KeyValue.ObjectGraph;
 using OpenSteamworks.Structs;
 using OpenSteamworks.Utils;
 
 namespace OpenSteamworks.Client.Apps.Compat;
 
 public class CompatManager : ILogonLifetime {
+    public const int STEAMPLAY_MANIFESTS = 891390;
+
     private readonly ISteamClient steamClient;
     private readonly IClientCompat clientCompat;
     private readonly Dictionary<string, ERemoteStoragePlatform> compatToolPlatforms = new();
@@ -34,6 +37,77 @@ public class CompatManager : ILogonLifetime {
         RefreshCompatTools();
     }
 
+    private unsafe void LoadAppCompatToolPreferences()
+    {
+        if (steamClient.ConnectedWith == ConnectionType.ExistingClient) {
+            return;
+        }
+        
+        logger.Info("Loading compat tool preferences for apps");
+        CUtlVector<AppWhitelistSetting_t> whitelistN = new();
+        clientCompat.GetWhitelistedGameList(&whitelistN);
+
+        var whitelist = whitelistN.ToManagedAndFree();
+        var steamPlayManifests = (appsManager.GetApp(STEAMPLAY_MANIFESTS) as SteamApp)?.Extended.UnderlyingObject;
+        foreach (var item in whitelist)
+        {
+            var gameid = new CGameID(item.AppID);
+            if (IsCompatEnabledForApp(item.AppID)) {
+                continue;
+            }
+
+            string toolToUse;
+            string config = string.Empty;
+            if (item.unk == 0) {
+                // Use the default app for that platform (proton for windows, slr for linux)
+                // TODO: better way to determine current platform of the game
+                if (GetCompatToolsForApp(gameid).Contains("steamlinuxruntime")) {
+                    toolToUse = "steamlinuxruntime";
+                } else {
+                    // Windows app, use default
+                    toolToUse = GetDefaultWindowsCompatTool();
+                }
+            } else if (item.unk == 8) {
+                if (steamPlayManifests == null) {
+                    logger.Error("No SteamPlay manifests but we need them!");
+                    continue;
+                }
+
+                if (!steamPlayManifests.TryGetChild("app_mappings", out KVObject? app_mappings)) {
+                    logger.Error("No SteamPlay app_mappings but we need them!");
+                    continue;
+                }
+
+                if (!app_mappings.TryGetChild(item.AppID.ToString(), out KVObject? mapping)) {
+                    logger.Error("No SteamPlay app_mappings entry for app " + item.AppID);
+                    continue;
+                }
+
+                // Use the tool as specified in SteamPlay 2.0 Manifests
+                toolToUse = mapping["tool"].GetValueAsString();
+
+                // And also load the config
+                if (steamPlayManifests.TryGetChild("app_compat_configs", out KVObject? app_compat_configs)) {
+                    if (app_compat_configs.TryGetChild(item.AppID.ToString(), out KVObject? compat_config)) {
+                        //TODO: There's also an environment field. Unsure if that is automatically used
+                        if (compat_config.TryGetChild("config", out KVObject? configKV)) {
+                            config = configKV.GetValueAsString();
+                        }
+                    } else {
+                        logger.Error("No SteamPlay app_compat_configs entry for app " + item.AppID);
+                    }
+                } else {
+                    logger.Warning("No SteamPlay app_compat_configs!");
+                }  
+            } else {
+                logger.Error("Unknown compat whitelist mode " + item.unk + " for app " + item.AppID);
+                continue;
+            }
+
+            clientCompat.SpecifyCompatTool(item.AppID, toolToUse, config, 250);
+        }
+    }
+
     public unsafe void RefreshCompatTools() {
         //TODO: refresh compat tools in steamclient.so as well
         logger.Info("Refreshing all compat tools");
@@ -54,6 +128,8 @@ public class CompatManager : ILogonLifetime {
         {
             logger.Info($"Refresh: Got compat tool {item.Key} with target platform {item.Value}");
         }
+
+        logger.Info($"Refresh: Default compat tool is '{clientCompat.GetCompatToolName(0)}'");
     }
 
     private unsafe void RefreshCompatToolsForPlatform(ERemoteStoragePlatform platform) {
@@ -85,6 +161,7 @@ public class CompatManager : ILogonLifetime {
     }
 
     public bool IsCompatEnabledForApp(AppId_t appid) => clientCompat.BIsCompatibilityToolEnabled(appid);
+    public bool IsCompatEnabledForNonWhitelisted() => clientCompat.BIsCompatibilityToolEnabled(0);
 
     public string GetCompatToolForApp(AppId_t appid) {
         return clientCompat.GetCompatToolName(appid);
@@ -165,6 +242,7 @@ public class CompatManager : ILogonLifetime {
     public async Task OnLoggedOn(IExtendedProgress<int> progress, LoggedOnEventArgs e)
     {
         await Task.Run(() => RefreshCompatTools());
+        await Task.Run(() => LoadAppCompatToolPreferences());
     }
 
     public async Task OnLoggingOff(IProgress<string> progress)

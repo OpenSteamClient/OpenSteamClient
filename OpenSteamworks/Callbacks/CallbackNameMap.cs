@@ -364,7 +364,7 @@ internal static partial class CallbackConstants {
         {1150003, "GameNotification_t"},
         {1170001, "30SharedConnectionMessageReady_t"},
         {1180001, "ProcessShaderCacheResult_t"},
-        {1200001, "CompatManagerUnknown"},
+        {1200001, "CompatManagerGameListChanged"},
         {1200002, "29CompatManagerToolRegistered_t"},
         {1210002, "39ClientNetworking_RequestSDRPingLocation"},
         {1250014, "31RequestFriendsLobbiesResponse_t"},
