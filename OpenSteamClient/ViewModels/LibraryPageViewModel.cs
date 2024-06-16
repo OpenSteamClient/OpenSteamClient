@@ -81,7 +81,7 @@ public partial class LibraryPageViewModel : AvaloniaCommon.ViewModelBase
                     continue;
                 }
 
-                collectionviewmodel.Children.AddUnique(new LibraryAppViewModel(this, app));
+                collectionviewmodel.Children.AddUnique(new LibraryAppViewModel(app));
                 addCount++;
             }
 

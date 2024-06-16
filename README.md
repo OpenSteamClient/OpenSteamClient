@@ -25,9 +25,9 @@ Stuff marked rebranch-blocker is required to be solved before replacing the main
   - [ ] QR code in the loginwindow doesn't have bottom margin
   - [x] 2FA 
     - [ ] 2FA window improvements (the layout is VERY crude)
-- [ ] Client settings UI
-  - [ ] Library folder management (rebranch-blocker)
-  - [ ] Compat settings (rebranch-blocker)
+- [x] Client settings UI
+  - [x] Library folder management (rebranch-blocker)
+  - [x] Compat settings (rebranch-blocker)
   - [ ] Persona name change
   - [ ] Download speed cap
 - [x] Fix CPU fan speeding due to IPCClient

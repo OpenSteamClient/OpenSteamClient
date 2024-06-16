@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -65,6 +66,13 @@ public class TranslationManager : ILogonLifetime
 
     public event EventHandler? TranslationChanged;
 
+    public bool HasUITranslation(ELanguage language, out string? translationName)
+    {
+        var translation = GetForLanguage(language, out bool failed);
+        translationName = translation?.LanguageFriendlyName;
+        return !failed;
+    }
+
     public void SetLanguage(ELanguage language, bool save = true)
     {
         using var scope = CProfiler.CurrentProfiler?.EnterScope("SetLanguage");
@@ -86,7 +94,7 @@ public class TranslationManager : ILogonLifetime
         }
         else
         {
-            CurrentTranslation = newTranslation;
+            CurrentTranslation = newTranslation!;
 
             Dispatcher.UIThread.Invoke(() =>
             {
@@ -117,7 +125,7 @@ public class TranslationManager : ILogonLifetime
         return val;
     }
 
-    private Translation GetForLanguage(ELanguage language, out bool failed)
+    private Translation? GetForLanguage(ELanguage language, out bool failed)
     {
         failed = false;
         string? filename = ELanguageToString(language);
@@ -129,13 +137,8 @@ public class TranslationManager : ILogonLifetime
         string fullPath = Path.Combine(installManager.AssemblyDirectory, "Translations", filename + ".json");
         if (!File.Exists(fullPath))
         {
-            if (language == ELanguage.English)
-            {
-                throw new Exception("Base language not found!");
-            }
-
             failed = true;
-            return CurrentTranslation;
+            return null;
         }
 
         return UtilityFunctions.AssertNotNull(JsonSerializer.Deserialize<Translation>(File.ReadAllText(fullPath)));

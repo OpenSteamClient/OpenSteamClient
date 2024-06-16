@@ -244,16 +244,17 @@ public class ClientApps {
     }
 
     public int GetNumLibraryFolders() => this.NativeClientAppManager.GetNumLibraryFolders();
-    public uint GetNumAppsInFolder(LibraryFolder_t libraryFolder) {
+    public int GetNumAppsInFolder(LibraryFolder_t libraryFolder) {
         ThrowIfLibraryFolderOutOfBounds(libraryFolder);
         return this.NativeClientAppManager.GetNumAppsInFolder(libraryFolder);
     }
 
     public unsafe IEnumerable<AppId_t> GetAppsInFolder(LibraryFolder_t libraryFolder) {
         ThrowIfLibraryFolderOutOfBounds(libraryFolder);
-        IncrementingUIntArray arr = new();
-        arr.RunUntilFits(() => this.NativeClientAppManager.GetAppsInFolder(libraryFolder, arr.Data, arr.Length));
-        return arr.Data.Select(u => (AppId_t)u).ToList();
+        var num = NativeClientAppManager.GetNumAppsInFolder(libraryFolder);
+        var arr = new uint[num];
+        this.NativeClientAppManager.GetAppsInFolder(libraryFolder, arr, num);
+        return arr.Select(u => (AppId_t)u);
     }
 
     public LibraryFolder_t GetAppLibraryFolder(AppId_t appid) {
@@ -268,5 +269,15 @@ public class ClientApps {
 
     public void SetAppBeta(AppId_t appid, string betaname) {
         this.NativeClientAppManager.SetActiveBeta(appid, betaname);
+    }
+
+    public LibraryFolder_t AddLibraryFolder(string path)
+    {
+        return this.NativeClientAppManager.AddLibraryFolder(path);
+    }
+
+    public bool RemoveLibraryFolder(LibraryFolder_t folder, out uint inUseByApp) {
+        inUseByApp = this.NativeClientAppManager.RemoveLibraryFolder(folder);
+        return inUseByApp == 0;
     }
 }

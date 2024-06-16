@@ -19,7 +19,7 @@ public partial class LibraryAppViewModel : Node
     public AppBase App { get; init; }
     protected override string ActualName => App.Name;
 
-    public LibraryAppViewModel(LibraryPageViewModel page, CGameID gameid)
+    public LibraryAppViewModel(CGameID gameid)
     {
         this.HasIcon = true;
         this.IsApp = true;

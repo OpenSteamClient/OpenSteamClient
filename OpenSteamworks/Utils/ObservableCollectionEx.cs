@@ -83,8 +83,16 @@ public class ObservableCollectionEx<T> : ICollection<T>, IEnumerable<T>, IEnumer
         return false;
     }
 
+    /// <summary>
+    /// Blocks CollectionChanged updates from being sent.
+    /// </summary>
+    public bool BlockUpdates { get; set; } = false;
     private int prevCount = -1;
     private void OnCollectionChanged(NotifyCollectionChangedEventArgs e) {
+        if (BlockUpdates) {
+            return;
+        }
+
         // if (FilterOnChange()) {
         //     Console.WriteLine("Firing reset");
         //     CollectionChanged?.Invoke(this, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Reset));
@@ -111,7 +119,7 @@ public class ObservableCollectionEx<T> : ICollection<T>, IEnumerable<T>, IEnumer
         this.filter = null;
         if (filteredCollection != null) {
             filteredCollection = null;
-            OnCollectionChanged(new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Reset));
+            FireReset();
         }
     }
 
@@ -133,6 +141,13 @@ public class ObservableCollectionEx<T> : ICollection<T>, IEnumerable<T>, IEnumer
         }
 
         return ret;
+    }
+
+    /// <summary>
+    /// Call this function after you've done changes while BlockUpdates was active.
+    /// </summary>
+    public void FireReset() {
+        OnCollectionChanged(new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Reset));
     }
 
     public T? Find(Predicate<T> match) 
@@ -202,7 +217,7 @@ public class ObservableCollectionEx<T> : ICollection<T>, IEnumerable<T>, IEnumer
     public void Clear()
     {
         ((ICollection<T>)underlyingCollection).Clear();
-        OnCollectionChanged(new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Reset));
+        FireReset();
     }
 
     public bool Contains(T item)

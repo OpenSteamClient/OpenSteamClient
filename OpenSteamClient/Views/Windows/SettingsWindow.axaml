@@ -17,39 +17,60 @@
         <vm:SettingsWindowViewModel/>
     </Design.DataContext>
     
-    <!-- This file is a mess. But in order to split this into multiple pages we'd need to do the whole MainWindow setup all over again. Maybe one day. -->
+    <!-- TODO: This file is a mess. But in order to split this into multiple pages we'd need to do the whole MainWindow setup all over again. Maybe one day. -->
     <TabControl Margin="5">
-        <TabItem Header="Library Folders">
-            <StackPanel>
-                <TextBlock>Select library folder to view further info:</TextBlock>
-                <ComboBox SelectedIndex="0">
-                    <ComboBoxItem>Text Item 1</ComboBoxItem>
-                    <ComboBoxItem>Text Item 2</ComboBoxItem>
-                    <ComboBoxItem>Add library folder</ComboBoxItem>
+        <TabItem c:Translatable.TranslationKey="#SettingsWindow_LibraryFolders_TabHeader">
+            <DockPanel>
+                <ComboBox DockPanel.Dock="Top" SelectedIndex="{Binding SelectedLibraryFolderIdx}" ItemsSource="{Binding LibraryFolders}" SelectedItem="{Binding SelectedLibraryFolder}">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <TextBlock Text="{Binding Name}"/>
+                                <TextBlock Text="{Binding Path}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
                 </ComboBox>
+                <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
+                    <Button c:Translatable.TranslationKey="#SettingsWindow_LibraryFolders_RemoveFolderBtn" Command="{Binding LibraryFolders_OnRemoveClicked}" />
+                    <Button c:Translatable.TranslationKey="#SettingsWindow_LibraryFolders_AddFolderBtn" Command="{Binding LibraryFolders_OnAddClicked}" />
+                </StackPanel>
 
-                <Button>Remove folder</Button>
-            </StackPanel>
+                <TextBlock DockPanel.Dock="Top" c:Translatable.TranslationKey="#SettingsWindow_LibraryFolders_AppsHeader"/>
+                <ListBox ItemsSource="{Binding AppsInCurrentLibraryFolder}">
+                </ListBox>
+            </DockPanel>
         </TabItem>
-        <TabItem Header="Compatibility">
+        <TabItem c:Translatable.TranslationKey="#SettingsWindow_Compatibility_TabHeader">
             <StackPanel>
-                <TextBlock>Select default compat tool for Windows games:</TextBlock>
-                <ComboBox SelectedIndex="0">
-                    <ComboBoxItem>Text Item 1</ComboBoxItem>
-                    <ComboBoxItem>Text Item 2</ComboBoxItem>
-                    <ComboBoxItem>Text Item 3</ComboBoxItem>
-                    <ComboBoxItem>Text Item 4</ComboBoxItem>
-                    <ComboBoxItem>Text Item 5</ComboBoxItem>
-                    <ComboBoxItem>Text Item 6</ComboBoxItem>
-                    <ComboBoxItem>Text Item 7</ComboBoxItem>
-                    <ComboBoxItem>Text Item 8</ComboBoxItem>
-                    <ComboBoxItem>Text Item 9</ComboBoxItem>
+                <TextBlock c:Translatable.TranslationKey="#SettingsWindow_Compat_DefaultToolHeader"/>
+                <ComboBox ItemsSource="{Binding CompatTools}" SelectedItem="{Binding SelectedCompatTool}">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <TextBlock Text="{Binding Name}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
                 </ComboBox>
             </StackPanel>
         </TabItem>
-        <TabItem Header="Friends">
+        <TabItem c:Translatable.TranslationKey="#SettingsWindow_Friends_TabHeader">
             <StackPanel>
-                <CheckBox>Auto-login to friends network when logging in to OpenSteam</CheckBox>
+                <CheckBox IsChecked="{Binding AutologinToFriendsNetwork}" c:Translatable.TranslationKey="#UserSettings_AutologinFriendsNetworkDesc"/>
+            </StackPanel>
+        </TabItem>
+        <TabItem c:Translatable.TranslationKey="#SettingsWindow_Language_TabHeader">
+            <StackPanel>
+                <ComboBox ItemsSource="{Binding Languages}" SelectedItem="{Binding SelectedLanguage}">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <TextBlock Text="{Binding Name}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
             </StackPanel>
         </TabItem>
     </TabControl>

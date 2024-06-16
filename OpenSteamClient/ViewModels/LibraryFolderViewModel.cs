@@ -11,7 +11,7 @@ public partial class LibraryFolderViewModel : AvaloniaCommon.ViewModelBase {
     public string Path { get; init; }
 
     [ObservableProperty]
-    private uint installedApps;
+    private int installedApps;
 
     public LibraryFolderViewModel(ClientApps clientApps, LibraryFolder_t folderID) {
         ID = folderID;
@@ -24,6 +24,14 @@ public partial class LibraryFolderViewModel : AvaloniaCommon.ViewModelBase {
         var list = new List<LibraryFolderViewModel>();
         for (int i = 0; i < clientApps.GetNumLibraryFolders(); i++)
         {
+            if (!clientApps.NativeClientAppManager.BGetLibraryFolderInfo(i, out bool mounted, out _, out _)) {
+                continue;
+            }
+
+            if (!mounted) {
+                continue;
+            }
+
             list.Add(new LibraryFolderViewModel(clientApps, i));
         }
 

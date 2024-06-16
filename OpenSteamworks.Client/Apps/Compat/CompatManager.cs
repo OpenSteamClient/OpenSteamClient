@@ -179,6 +179,9 @@ public class CompatManager : ILogonLifetime {
         return GetCompatToolForApp(0);
     }
 
+    public void SpecifyCompatTool(AppId_t appid, string compatToolID, string config, int priority)
+        => clientCompat.SpecifyCompatTool(appid, compatToolID, config, priority);
+
     public unsafe IEnumerable<string> GetCompatToolsForApp(CGameID gameid) {
         if (steamClient.ConnectedWith == ConnectionType.ExistingClient) {
             logger.Warning("Connected to existing client, returning self calculated GetCompatToolsForApp");

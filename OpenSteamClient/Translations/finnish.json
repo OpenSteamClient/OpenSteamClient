@@ -121,6 +121,14 @@
         "#TimeDate_Minutes": "minuuttia",
         "#TimeDate_Second": "sekuntti",
         "#TimeDate_Seconds": "sekunttia",
-        "#TimeDate_And": "ja"
+        "#TimeDate_And": "ja",
+        "#SettingsWindow_LibraryFolders_RemoveFolderBtn": "Poista kansio",
+        "#SettingsWindow_LibraryFolders_AddFolderBtn": "Lisää uusi kansio",
+        "#SettingsWindow_LibraryFolders_AppsHeader": "Sovellukset tässä kirjastokansiossa:",
+        "#SettingsWindow_Compat_DefaultToolHeader": "Oletusyhteensopivuussovellus Windows-peleille:",
+        "#SettingsWindow_LibraryFolders_TabHeader": "Kirjastokansiot",
+        "#SettingsWindow_Compatibility_TabHeader": "Yhteensopivuus",
+        "#SettingsWindow_Friends_TabHeader": "Kaveriverkko",
+        "#SettingsWindow_Language_TabHeader": "Kieli"
     }
 }

@@ -210,10 +210,8 @@ public class AvaloniaApp : Application
             }
         }
 
-        CurrentSettingsWindow = new()
-        {
-            DataContext = AvaloniaApp.Container.ConstructOnly<SettingsWindowViewModel>()
-        };
+        CurrentSettingsWindow = new();
+        CurrentSettingsWindow.DataContext = AvaloniaApp.Container.ConstructOnly<SettingsWindowViewModel>(CurrentSettingsWindow);
 
         CurrentSettingsWindow.Show();
         CurrentSettingsWindow.Closed += (object? sender, EventArgs e) =>

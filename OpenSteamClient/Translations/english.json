@@ -121,6 +121,19 @@
         "#TimeDate_Minutes": "minutes",
         "#TimeDate_Second": "second",
         "#TimeDate_Seconds": "seconds",
-        "#TimeDate_And": "and"
+        "#TimeDate_And": "and",
+        "#SettingsWindow_LibraryFolders_RemoveFolderBtn": "Remove folder",
+        "#SettingsWindow_LibraryFolders_AddFolderBtn": "Add new folder",
+        "#SettingsWindow_LibraryFolders_AppsHeader": "Apps in this library folder:",
+        "#SettingsWindow_Compat_DefaultToolHeader": "Default compat tool for Windows games:",
+        "#SettingsWindow_LibraryFolders_TabHeader": "Library Folders",
+        "#SettingsWindow_Compatibility_TabHeader": "Compatibility",
+        "#SettingsWindow_Friends_TabHeader": "Friends",
+        "#SettingsWindow_Language_TabHeader": "Language",
+        "#LibraryFolders_PathToNewLibraryFolder": "Path to new library folder",
+        "#LibraryFolders_FailedToAddNewFolderTitle": "Failed to add new library folder",
+        "#LibraryFolders_FailedToAddNewFolder": "Check that the path is valid and has read-write-execute permissions.",
+        "#LibraryFolders_FailedToRemoveFolderTitle": "Failed to remove library folder",
+        "#LibraryFolders_FailedToRemoveFolder": "Folder in use by app {0}"
     }
 }

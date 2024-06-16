@@ -143,22 +143,21 @@ public unsafe interface IClientAppManager
     public void SetLibraryFolderLabel(LibraryFolder_t folder, string label);  // argc: 2, index: 75, ipc args: [bytes4, string], ipc returns: []
     public int GetLibraryFolderLabel(LibraryFolder_t folder, StringBuilder outLabel, int outLabelMaxLength);  // argc: 3, index: 76, ipc args: [bytes4, bytes4], ipc returns: [bytes4, bytes_length_from_reg]
     // WARNING: Arguments are unknown!
-    // Can return 7 on failure. Maybe some sort of enum?
     /// <summary>
     /// Removes a library folder.
     /// </summary>
     /// <param name="libraryFolder"></param>
     /// <param name="unk1">Use false.</param>
     /// <param name="unk2">Use false.</param>
-    /// <returns></returns>
-    public unknown_ret RemoveLibraryFolder(LibraryFolder_t libraryFolder, bool unk1 = false, bool unk2 = false);  // argc: 3, index: 77, ipc args: [bytes4, bytes1, bytes1], ipc returns: [bytes4]
+    /// <returns>An appid that is blocking the library folder from being removed</returns>
+    public uint RemoveLibraryFolder(LibraryFolder_t libraryFolder, bool unk1 = false, bool unk2 = false);  // argc: 3, index: 77, ipc args: [bytes4, bytes1, bytes1], ipc returns: [bytes4]
     // WARNING: Arguments are unknown!
     [BlacklistedInCrossProcessIPC]
-    public bool BGetLibraryFolderInfo(LibraryFolder_t libraryFolder, out bool unk, out UInt64 usedDiskSpace, out UInt64 freeDiskSpace);  // argc: 4, index: 78, ipc args: [bytes4, bytes4, bytes4, bytes4], ipc returns: [boolean]
+    public bool BGetLibraryFolderInfo(LibraryFolder_t libraryFolder, out bool mounted, out UInt64 usedDiskSpace, out UInt64 freeDiskSpace);  // argc: 4, index: 78, ipc args: [bytes4, bytes4, bytes4, bytes4], ipc returns: [boolean]
     public LibraryFolder_t GetAppLibraryFolder(AppId_t appid);  // argc: 1, index: 79, ipc args: [bytes4], ipc returns: [bytes4]
     public void RefreshLibraryFolders();  // argc: 0, index: 80, ipc args: [], ipc returns: []
-    public UInt32 GetNumAppsInFolder(LibraryFolder_t folder);  // argc: 1, index: 81, ipc args: [bytes4], ipc returns: [bytes4]
-    public UInt32 GetAppsInFolder(LibraryFolder_t folder, uint[] apps, int appsLen);  // argc: 3, index: 82, ipc args: [bytes4, bytes4], ipc returns: [bytes4, bytes_length_from_reg]
+    public int GetNumAppsInFolder(LibraryFolder_t folder);  // argc: 1, index: 81, ipc args: [bytes4], ipc returns: [bytes4]
+    public int GetAppsInFolder(LibraryFolder_t folder, uint[] apps, int appsLen);  // argc: 3, index: 82, ipc args: [bytes4, bytes4], ipc returns: [bytes4, bytes_length_from_reg]
     /// <summary>
     /// Forces all apps installed in the current session to be installed to a specific non-library folder directory.
     /// </summary>
