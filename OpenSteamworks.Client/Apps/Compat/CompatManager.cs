@@ -60,11 +60,10 @@ public class CompatManager : ILogonLifetime {
             string config = string.Empty;
             if (item.unk == 0) {
                 // Use the default app for that platform (proton for windows, slr for linux)
-                // TODO: better way to determine current platform of the game
-                if (GetCompatToolsForApp(gameid).Contains("steamlinuxruntime")) {
+                string os = appsManager.GetCurrentEffectiveOSForApp(gameid.AppID);
+                if (os == "linux") {
                     toolToUse = "steamlinuxruntime";
                 } else {
-                    // Windows app, use default
                     toolToUse = GetDefaultWindowsCompatTool();
                 }
             } else if (item.unk == 8) {

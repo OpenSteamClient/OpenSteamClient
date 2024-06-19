@@ -58,10 +58,8 @@ public partial class DownloadItemViewModel : AvaloniaCommon.ViewModelBase {
             //Console.WriteLine($"{AppID}: " + updateInfo.ToString());
             if (updateInfo.m_unBytesToProcess != 0 && updateInfo.m_unBytesToProcess != updateInfo.m_unBytesProcessed) {
                 this.CurrentDownloadProgress = (double)updateInfo.m_unBytesProcessed / (double)updateInfo.m_unBytesToProcess;
-                Console.WriteLine($"{AppID} prog: " + this.CurrentDownloadProgress + $"({updateInfo.m_unBytesProcessed} / {updateInfo.m_unBytesToProcess})");
             } else if (updateInfo.m_unBytesToDownload != 0 && updateInfo.m_unBytesToDownload != updateInfo.m_unBytesDownloaded) {
                 this.CurrentDownloadProgress = (double)updateInfo.m_unBytesDownloaded / (double)updateInfo.m_unBytesToDownload;
-                Console.WriteLine($"{AppID} progd: " + this.CurrentDownloadProgress);
             }
             
             this.DownloadSize = DataUnitStrings.GetStringForSize(updateInfo.m_unBytesToDownload, DataSizeUnit.Auto_GB_MB_KB_B);

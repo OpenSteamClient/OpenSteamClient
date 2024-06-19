@@ -61,19 +61,10 @@ public class AppsManager : ILogonLifetime
     public EventHandler<AppPlaytimeChangedEventArgs>? AppPlaytimeChanged;
     public EventHandler<AppLastPlayedChangedEventArgs>? AppLastPlayedChanged;
 
-    // These apps cause issues. They have no appinfo sections, so they're blacklisted. Apps that fail to initialize during startup are also automatically added to this list.
-    private static readonly HashSet<AppId_t> appsFilter = new() { 5, 7, 753, 3482, 346790, 375350, 470950, 472500, 483470, 503590, 561370, 957691, 957692, 972340, 977941, 1275680, 1331320, 2130210, 2596140 };
-
     /// <summary>
     /// Gets ALL owned AppIDs of the current user. Includes all configs. Will probably show 1000+ apps.
     /// </summary>
-    public HashSet<AppId_t> OwnedAppIDs {
-        get {
-            IncrementingUIntArray iua = new(256);
-            iua.RunToFit(() => this.steamClient.IClientUser.GetSubscribedApps(iua.Data, iua.UIntLength, false));
-            return iua.Data.Select(a => (AppId_t)a).Except(appsFilter).ToHashSet();
-        }
-    }
+    public HashSet<AppId_t> OwnedAppIDs => ClientApps.OwnedAppIDs;
 
     /// <summary>
     /// Gets all the user's Games, Tools, etc. Does not include DLC, Configs and other backend types
@@ -177,7 +168,7 @@ public class AppsManager : ILogonLifetime
                     }
                     catch (System.Exception e2)
                     {
-                        appsFilter.Add(item);
+                        ClientApps.AppsFilter.Add(item);
                         logger.Warning("Failed to initialize owned app " + item + " at logon time");
                         logger.Warning(e2);
                     }

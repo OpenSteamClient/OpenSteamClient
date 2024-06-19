@@ -27,6 +27,7 @@ public class ClientApps {
     public IClientUser NativeClientUser { get; init; }
     public IClientRemoteStorage NativeClientRemoteStorage { get; init; }
     
+    
     private readonly CallbackManager callbackManager;
     public ClientApps(ISteamClient client) {
         this.NativeClientApps = client.IClientApps;
@@ -34,6 +35,20 @@ public class ClientApps {
         this.NativeClientUser = client.IClientUser;
         this.NativeClientRemoteStorage = client.IClientRemoteStorage;
         this.callbackManager = client.CallbackManager;
+    }
+
+    // These apps cause issues. They have no appinfo sections, so they're blacklisted. Apps that fail to initialize during startup are also automatically added to this list.
+    public static readonly HashSet<AppId_t> AppsFilter = new() { 5, 3482, 346790, 375350, 470950, 472500, 483470, 503590, 561370, 957691, 957692, 972340, 977941, 1275680, 1331320, 2130210, 2596140 };
+
+    /// <summary>
+    /// Gets ALL owned AppIDs of the current user. Includes all configs. Will probably show 1000+ apps.
+    /// </summary>
+    public HashSet<AppId_t> OwnedAppIDs {
+        get {
+            IncrementingUIntArray iua = new(256);
+            iua.RunToFit(() => NativeClientUser.GetSubscribedApps(iua.Data, iua.UIntLength, false));
+            return iua.Data.Select(a => (AppId_t)a).Except(AppsFilter).ToHashSet();
+        }
     }
 
     public IEnumerable<AppId_t> GetInstalledApps() {
@@ -166,11 +181,25 @@ public class ClientApps {
         return objects.AsReadOnly();
     }
 
-    public async Task UpdateAppInfo(AppId_t[] apps) {
+    public async Task UpdateAppInfo(IEnumerable<AppId_t> apps) {
+        if (!apps.Any()) {
+            return;
+        } 
+
         var task = this.callbackManager.AsTask<AppInfoUpdateComplete_t>();
-        if (this.NativeClientApps.RequestAppInfoUpdate(apps.Select(a => (uint)a).ToArray(), apps.Length)) {
+        var arr = apps.Select(a => (uint)a).ToArray();
+        if (this.NativeClientApps.RequestAppInfoUpdate(arr, arr.Length)) {
             await task;
         }
+    }
+
+    public async Task UpdateAppInfoForMissingApps(IEnumerable<AppId_t> appids)
+        => await UpdateAppInfo(appids.Where(a => !HasAppInfo(a)));
+    
+
+    private readonly byte[] appInfoTestBuffer = new byte[1024];
+    public bool HasAppInfo(AppId_t appid) {
+        return this.NativeClientApps.GetAppDataSection(appid, EAppInfoSection.Common, appInfoTestBuffer, appInfoTestBuffer.Length, false) > 0;
     }
 
     public async Task UpdateAppInfo(AppId_t app) {

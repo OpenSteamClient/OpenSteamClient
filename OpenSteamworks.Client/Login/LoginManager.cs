@@ -76,6 +76,7 @@ public class LoginManager : IClientLifetime
     private readonly Container container;
     private readonly Logger logger;
     private readonly ConfigManager configManager;
+    private readonly ClientApps clientApps;
 
     private LoginPoll? QRPoller;
     private LoginPoll? CredentialsPoller;
@@ -87,8 +88,9 @@ public class LoginManager : IClientLifetime
 
     public bool IsAnonUser => this.CurrentUser?.SteamID.AccountType == EAccountType.AnonUser;
 
-    public LoginManager(ISteamClient steamClient, LoginUsers loginUsers, ConfigManager configManager, Container container, ClientMessaging clientMessaging, InstallManager installManager)
+    public LoginManager(ISteamClient steamClient, ClientApps clientApps, LoginUsers loginUsers, ConfigManager configManager, Container container, ClientMessaging clientMessaging, InstallManager installManager)
     {
+        this.clientApps = clientApps;
         this.configManager = configManager;
         this.logger = Logger.GetLogger("LoginManager", installManager.GetLogPath("LoginManager"));
         this.container = container;
@@ -492,7 +494,7 @@ public class LoginManager : IClientLifetime
             EResult result = await WaitForLogonToFinish();
             logger.Info("Logon finished with " + result);
 
-            // The steam client will automatically update appinfo and wait for it if necessary
+            // The steam client will sometimes automatically update appinfo and wait for it if necessary
             if (result == EResult.OK)
             {   
                 loginUsers.SetUserAsMostRecent(user);
@@ -502,6 +504,12 @@ public class LoginManager : IClientLifetime
                 }
 
                 await configManager.SaveAsync(loginUsers);
+                
+                logger.Info("Waiting for appinfo update");
+                loginProgress?.SetSubOperation("Waiting for appinfo update");
+                await clientApps.UpdateAppInfoForMissingApps(clientApps.OwnedAppIDs);
+
+                logger.Info("Finishing up");
                 await OnLoggedOn(new LoggedOnEventArgs(user));
             } else {
                 OnLogonFailed(new LogOnFailedEventArgs(user, result));
