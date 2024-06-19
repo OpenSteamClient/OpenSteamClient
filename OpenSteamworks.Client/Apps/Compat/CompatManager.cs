@@ -39,6 +39,8 @@ public class CompatManager : ILogonLifetime {
 
     private unsafe void LoadAppCompatToolPreferences()
     {
+        // I'm not sure why we have to do this ourselves. steamclient.so seems to already have code for doing this, but I'm not sure how it gets activated.
+        
         if (steamClient.ConnectedWith == ConnectionType.ExistingClient) {
             return;
         }
@@ -58,6 +60,7 @@ public class CompatManager : ILogonLifetime {
 
             string toolToUse;
             string config = string.Empty;
+            int priority = 85;
             if (item.unk == 0) {
                 // Use the default app for that platform (proton for windows, slr for linux)
                 string os = appsManager.GetCurrentEffectiveOSForApp(gameid.AppID);
@@ -67,6 +70,8 @@ public class CompatManager : ILogonLifetime {
                     toolToUse = GetDefaultWindowsCompatTool();
                 }
             } else if (item.unk == 8) {
+                priority = 100;
+
                 if (steamPlayManifests == null) {
                     logger.Error("No SteamPlay manifests but we need them!");
                     continue;
@@ -103,7 +108,7 @@ public class CompatManager : ILogonLifetime {
                 continue;
             }
 
-            clientCompat.SpecifyCompatTool(item.AppID, toolToUse, config, 250);
+            clientCompat.SpecifyCompatTool(item.AppID, toolToUse, config, priority);
         }
     }
 

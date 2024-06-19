@@ -408,7 +408,7 @@ public class AppsManager : ILogonLifetime
     }
 
     public void DisableCompatToolForApp(CGameID gameid) {
-        this.steamClient.IClientCompat.SpecifyCompatTool(gameid.AppID, "", "", 0);
+        this.steamClient.IClientCompat.SpecifyCompatTool(gameid.AppID, "", "", 250);
     }
 
     public string GetCurrentCompatToolForApp(CGameID gameid) {
@@ -424,7 +424,7 @@ public class AppsManager : ILogonLifetime
     }
 
     public void SetDefaultCompatTool(string compatToolName) {
-        this.steamClient.IClientCompat.SpecifyCompatTool(0, compatToolName, "", 75);
+        this.steamClient.IClientCompat.SpecifyCompatTool(0, compatToolName, "", 250);
     }
 
     public bool IsAppInstalled(AppId_t appid) {
