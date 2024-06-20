@@ -6,4 +6,8 @@ public enum EInputType : uint {
     MouseDown,
     MouseUp,
     MouseMove,
+
+    //TODO: Cannot support smooth scrolling
+    MouseScrollDown,
+    MouseScrollUp,
 }

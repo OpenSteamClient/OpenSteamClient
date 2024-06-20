@@ -5,9 +5,6 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
-
-    <!-- When changing this, also update GameOverlayUI, OpenSteamClient and Installer csproj files -->
-    <AvaloniaVersion>11.1.0-beta2</AvaloniaVersion>
   </PropertyGroup>
 
   <ItemGroup>

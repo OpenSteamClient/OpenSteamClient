@@ -40,7 +40,7 @@ public class CompatManager : ILogonLifetime {
     private unsafe void LoadAppCompatToolPreferences()
     {
         // I'm not sure why we have to do this ourselves. steamclient.so seems to already have code for doing this, but I'm not sure how it gets activated.
-        
+
         if (steamClient.ConnectedWith == ConnectionType.ExistingClient) {
             return;
         }
@@ -57,6 +57,8 @@ public class CompatManager : ILogonLifetime {
             if (IsCompatEnabledForApp(item.AppID)) {
                 continue;
             }
+
+            //TODO: Check if the app is a shortcut and never overwrite those. (need to figure out the dumb thisptr thing...)
 
             string toolToUse;
             string config = string.Empty;

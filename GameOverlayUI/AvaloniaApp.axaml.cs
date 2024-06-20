@@ -15,6 +15,7 @@ using Avalonia.Headless;
 using Avalonia.Media.Imaging;
 using Avalonia.Platform;
 using System.Runtime.InteropServices;
+using Avalonia.Input;
 
 namespace GameOverlayUI;
 
@@ -45,8 +46,13 @@ public class AvaloniaApp : Application
 
         var mainViewViewModel = new MainViewViewModel();
         Program.Container.RegisterInstance(mainViewViewModel);
+
+        var mainView = new MainView
+        {
+            DataContext = mainViewViewModel,
+            TransparencyLevelHint = new List<WindowTransparencyLevel>() { WindowTransparencyLevel.Transparent }
+        };
         
-        var mainView = new MainView() { DataContext = mainViewViewModel };
         Program.Container.RegisterInstance(mainView);
         
         ForceWindow(mainView);
@@ -56,29 +62,141 @@ public class AvaloniaApp : Application
             base.OnFrameworkInitializationCompleted();
         }
 
-        if (!Program.IsUITestMode) {
-            serverThread = new(ServerThreadMain);
-            serverThread.Start();
-        }
+        serverThread = new(ServerThreadMain);
+        serverThread.Start();
     }
 
+    // #define LOGSPAM
     private Thread? serverThread;
     private readonly ManualResetEventSlim threadMainMre = new();
     private unsafe void ServerThreadMain() {
-        var sharedMemory = Program.Container.Get<SharedMemory>();
+        var sharedMemoryManager = Program.Container.Get<SharedMemoryManager>();
         var mainView = Program.Container.Get<MainView>();
+        RenderTargetBitmap? renderTarget = null;
 
         while (!threadMainMre.IsSet) {
-            // TODO: while (overlayIsReady)
-            sharedMemory.RunInputFrame();
-            AvaloniaHeadlessPlatform.ForceRenderTimerTick();
-            var frame = mainView.GetLastRenderedFrame();
-            if (frame != null) {
-                sharedMemory.SetPixels(frame);
+            OverlayControlData.WaitForLoopStart(sharedMemoryManager.ControlData.Data);
+            #if LOGSPAM
+            Console.WriteLine("Client started loop");
+            #endif
+
+            sharedMemoryManager.ControlData.Data->State = EOverlayState.ResponseAvailable;
+
+            // First resize the display and then run the inputs
+            #if LOGSPAM
+            Console.WriteLine("Input data requested");
+            #endif
+            
+            OverlayControlData.RequestInputData(sharedMemoryManager.ControlData.Data, out uint newAllocation);
+            if (newAllocation != 0) {
+                sharedMemoryManager.InputData.Resize(newAllocation + sizeof(DynInputData));
+            }
+            
+            #if LOGSPAM
+            Console.WriteLine("Input data received");
+            #endif
+            
+
+            var inputData = sharedMemoryManager.GetInputData();
+            Dispatcher.UIThread.Invoke(() => {
+                foreach (var input in inputData)
+                {
+                    Console.WriteLine("Processing input type " + input.Type);
+                    switch (input.Type)
+                    {
+                        case EInputType.MouseMove:
+                            var movePos = new Point(input.X, input.Y);
+                            Console.WriteLine("pos: " + movePos);
+                            mainView.MouseMove(movePos, input.Modifiers);
+                            break;
+
+                        case EInputType.MouseDown:
+                            mainView.MouseDown(new Point(input.X, input.Y), input.MouseButton, input.Modifiers);
+                            break;
+
+                        case EInputType.MouseUp:
+                            mainView.MouseUp(new Point(input.X, input.Y), input.MouseButton, input.Modifiers);
+                            break;
+
+                        case EInputType.KeyDown:
+                            mainView.KeyPress(input.Key, input.Modifiers, input.PhysicalKey, null);
+                            break;
+
+                        case EInputType.KeyUp:
+                            mainView.KeyRelease(input.Key, input.Modifiers, input.PhysicalKey, null);
+                            break;
+
+                        case EInputType.MouseScrollDown:
+                            mainView.MouseWheel(new Point(input.X, input.Y), new Vector(0, -1.0), input.Modifiers);
+                            break;
+
+                        case EInputType.MouseScrollUp:
+                            mainView.MouseWheel(new Point(input.X, input.Y), new Vector(0, 1.0), input.Modifiers);
+                            break;
+                    }
+                }
+            }, DispatcherPriority.Input);
+
+            #if LOGSPAM
+            Console.WriteLine("Display allocation requested");
+            #endif
+            
+            OverlayControlData.RequestDisplayAllocation(sharedMemoryManager.ControlData.Data, out newAllocation);
+            if (newAllocation != 0) {
+                sharedMemoryManager.DisplayData.Resize(newAllocation + sizeof(DynDisplayData));
             }
 
-            System.Threading.Thread.Sleep(8);
+            #if LOGSPAM
+            Console.WriteLine("Display allocated");
+            #endif
+
+            if (renderTarget == null || sharedMemoryManager.DisplayData.Data->Width != renderTarget.PixelSize.Width || sharedMemoryManager.DisplayData.Data->Height != renderTarget.PixelSize.Height) {
+                Dispatcher.UIThread.Invoke(() =>
+                {
+                    // Update the resolution of the window itself
+                    Trace.Assert(mainView.PlatformImpl != null);
+
+                    #if LOGSPAM
+                    Console.WriteLine("Target W: " + sharedMemoryManager.DisplayData.Data->Width + ", H: " + sharedMemoryManager.DisplayData.Data->Height);
+                    #endif
+
+                    mainView.PlatformImpl.Resize(new Size(sharedMemoryManager.DisplayData.Data->Width, sharedMemoryManager.DisplayData.Data->Height), WindowResizeReason.User);
+                }, DispatcherPriority.Render);
+
+                Dispatcher.UIThread.RunJobs();
+                while (mainView.ClientSize.Width != sharedMemoryManager.DisplayData.Data->Width)
+                {
+                    Thread.Sleep(1);
+                }
+
+                renderTarget?.Dispose();
+                
+                renderTarget = new RenderTargetBitmap(PixelSize.FromSize(new Size(sharedMemoryManager.DisplayData.Data->Width, sharedMemoryManager.DisplayData.Data->Height), 1));
+            }
+
+            Dispatcher.UIThread.Invoke(() =>
+            {
+               renderTarget.Render(mainView);
+            }, DispatcherPriority.Render);
+
+            
+            // Console.WriteLine("ClientSize is now " + mainView.ClientSize);
+            // Console.WriteLine("PixelSize is now " + );
+
+            // AvaloniaHeadlessPlatform.ForceRenderTimerTick(1);
+            // var frame = mainView.GetLastRenderedFrame();
+
+            // if (frame != null) {
+                sharedMemoryManager.SetPixels(renderTarget);
+            // }
+
+            #if LOGSPAM
+            Console.WriteLine("rendered");
+            #endif
+            sharedMemoryManager.ControlData.Data->State = EOverlayState.RenderDataAvailable;
         }
+
+        renderTarget?.Dispose();
 
         serverThread = null;
     }

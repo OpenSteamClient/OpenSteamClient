@@ -37,7 +37,7 @@ public static class Program
         }
 
         Console.WriteLine("GameID: " + gameid);
-        Container.RegisterInstance(new SharedMemory(gamepid));
+        Container.RegisterInstance(new SharedMemoryManager(gamepid));
 
         if (args.Length > 1) {
             Console.WriteLine("UI test mode enabled");
@@ -70,7 +70,7 @@ public static class Program
         }
 
         canDispose = false;
-        Container?.Get<SharedMemory>().Dispose();
+        Container?.Get<SharedMemoryManager>().Dispose();
     }
 
     // Avalonia configuration, don't remove; also used by visual designer.

@@ -4,10 +4,14 @@
         <ProjectRootDir>$(MSBuildThisFileDirectory)</ProjectRootDir>
         <PublishTrimmed>false</PublishTrimmed>
 
-         <!-- AvaloniaAccessUnstablePrivateApis is Enabled -->
-        <!-- <NoWarn>AVA3001</NoWarn>
+        <!-- Custom build required by: GameOverlayUI headless transparency -->
+        <AvaloniaVersion>11.2.999-cibuild0049126-alpha</AvaloniaVersion>
+
+        <!-- AvaloniaAccessUnstablePrivateApis is Enabled -->
+        <!-- Required by: GameOverlayUI resolution change, avalonia issue #16057 -->
+        <NoWarn>AVA3001</NoWarn>
         <AvaloniaAccessUnstablePrivateApis>true</AvaloniaAccessUnstablePrivateApis>
-        <Avalonia_I_Want_To_Use_Private_Apis_In_Nuget_Package_And_Promise_To_Pin_The_Exact_Avalonia_Version_In_Package_Dependency>true</Avalonia_I_Want_To_Use_Private_Apis_In_Nuget_Package_And_Promise_To_Pin_The_Exact_Avalonia_Version_In_Package_Dependency> -->
+        <Avalonia_I_Want_To_Use_Private_Apis_In_Nuget_Package_And_Promise_To_Pin_The_Exact_Avalonia_Version_In_Package_Dependency>true</Avalonia_I_Want_To_Use_Private_Apis_In_Nuget_Package_And_Promise_To_Pin_The_Exact_Avalonia_Version_In_Package_Dependency>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)' == 'Release'">

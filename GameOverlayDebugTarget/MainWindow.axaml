@@ -1,0 +1,24 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="GameOverlayDebugTarget.MainWindow"
+        KeyDown="OnKeyDown" KeyUp="OnKeyUp"
+        Title="GameOverlayDebugTarget">
+    <Canvas>
+        <Image ZIndex="1" PointerPressed="OnPointerPressed" PointerReleased="OnPointerReleased" PointerMoved="OnPointerMoved" x:Name="RenderedImage" />
+        <StackPanel ZIndex="2" Orientation="Horizontal">
+            <CheckBox x:Name="ShouldRender">Render</CheckBox>
+            <CheckBox x:Name="FPSLimitCheck">FPS limit</CheckBox>
+            <TextBox x:Name="FPSLimitBox">60</TextBox>
+        </StackPanel>
+        <StackPanel ZIndex="2" Canvas.Top="0" Canvas.Right="0">
+            <TextBlock x:Name="FramerateDebugText">FPS: 60</TextBlock>
+            <TextBlock x:Name="FrametimeAvgDebugText">Avg ft: 16.7ms</TextBlock>
+            <TextBlock x:Name="FrametimeLastDebugText">Last ft: 8,7ms</TextBlock>
+            <TextBlock x:Name="ProcessServerDebugText">Server process: 16.7ms</TextBlock>
+            <TextBlock x:Name="ProcessClientDebugText">Client process: 8,7ms</TextBlock>
+        </StackPanel>
+    </Canvas>
+</Window>

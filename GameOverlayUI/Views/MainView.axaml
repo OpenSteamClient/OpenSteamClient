@@ -7,6 +7,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="GameOverlayUI.Views.MainView"
+        Background="Transparent"
         x:DataType="vm:MainViewViewModel"
         Title="Overlay Main View">
 
@@ -21,7 +22,7 @@
         <ItemsControl x:Name="Desktop" ItemsSource="{Binding Windows}">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <Canvas PointerPressed="OnPointerPressed" PointerReleased="OnPointerReleased" PointerMoved="OnPointerMoved" Background="LightBlue"/>
+                    <Canvas PointerPressed="OnPointerPressed" PointerReleased="OnPointerReleased" PointerMoved="OnPointerMoved"/>
                 </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>
         </ItemsControl>

@@ -1,14 +1,8 @@
-
-using GameOverlayUI.Platform;
+using System.Runtime.InteropServices;
 
 namespace GameOverlayUI.IPC;
 
 public unsafe struct DynInputData {
-    /// <summary>
-    /// Input mutex for reading and writing keyboard and mouse events.
-    /// </summary>
-    public OverlayMutex Mutex;
-
     public uint NumQueued;
     public byte DynamicStart;
 
@@ -19,28 +13,39 @@ public unsafe struct DynInputData {
             return false;
         }
 
-        var err = LinuxFutex.OverlayMutexLock(&ptr->Mutex, 5);
-        if (err != 0) {
-            throw new Exception("Getting lock failed, errno: " + err);
-        }
-
-        try
+        Span<byte> span = new(&ptr->DynamicStart, (int)CalculateDataLength(ptr));
+        for (int i = 0; i < ptr->NumQueued; i++)
         {
-            Span<byte> span = new(&ptr->DynamicStart, (int)(ptr->NumQueued * sizeof(InputData)));
-            for (int i = 0; i < ptr->NumQueued; i++)
-            {
-                InputData* data = &((InputData*)&ptr->DynamicStart)[i];
-                inputData.Add(*data);
-                *data = new();
-            }
-
-            ptr->NumQueued = 0;
-        }
-        finally
-        {
-            LinuxFutex.OverlayMutexUnlock(&ptr->Mutex);
+            var data = Marshal.PtrToStructure<InputData>((nint)(&ptr->DynamicStart + (i * Marshal.SizeOf<InputData>())));
+            inputData.Add(data);
         }
 
+        ptr->NumQueued = 0;
         return true;
+    }
+
+    public static void EnqueueAll(DynInputData* ptr, List<InputData> inputData)
+    {
+        long max = CalculateDataLength(ptr);
+        long queued = CalculateDataLength((uint)inputData.Count);
+        if (queued > max) {
+            Console.WriteLine("Enqueuing greater number of input events than buffer can fit");
+        }
+
+        for (int i = 0; i < inputData.Count; i++)
+        {
+            nint bufPtr = (nint)(&ptr->DynamicStart) + (i * Marshal.SizeOf<InputData>());
+            Marshal.StructureToPtr(inputData[i], bufPtr, false);
+        }
+
+        ptr->NumQueued = (uint)inputData.Count;
+    }
+
+    public static long CalculateDataLength(DynInputData* ptr) {
+        return CalculateDataLength(ptr->NumQueued);
+    }
+
+    public static long CalculateDataLength(uint numInputs) {
+        return numInputs * Marshal.SizeOf<InputData>();
     }
 }

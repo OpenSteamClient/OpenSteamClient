@@ -1,13 +1,8 @@
-
-using GameOverlayUI.Platform;
+using System.Diagnostics;
 
 namespace GameOverlayUI.IPC;
 
 public unsafe struct DynDisplayData {
-    /// <summary>
-    /// Display mutex for reading and writing display pixel data.
-    /// </summary>
-    public OverlayMutex Mutex;
     public uint Width;
     public uint Height;
 
@@ -16,31 +11,23 @@ public unsafe struct DynDisplayData {
     /// </summary>
     public byte DynamicData;
 
-    public long CalculateDataLength() {
-        return this.Width * this.Height * 4;
+    public static long CalculateDataLength(DynDisplayData* ptr) {
+        return ptr->Width * ptr->Height * 4;
     }
 
     public static void SetPixels(DynDisplayData* ptr, byte[] data)
     {
-        // Always lock here so the overlay client doesn't render stale frames
+        //TODO: This code needs additional sanity checks (such as resolution check)
+        //TODO: Resize support (currently game window resizing won't work, need to re-mmap)
 
-        var err = LinuxFutex.OverlayMutexLock(&ptr->Mutex, 0);
-        if (err != 0) {
-            throw new Exception("Getting lock failed, errno: " + err);
-        }
-
-        try
-        {
-            //TODO: This code needs additional sanity checks (such as resolution check)
-            //TODO: Resize support (currently game window resizing won't work, need to re-mmap)
-            Span<byte> target = new(&ptr->DynamicData, (int)ptr->CalculateDataLength());
+        #if LOGSPAM
+            Console.WriteLine("c: " + CalculateDataLength(ptr) + ", a: " + data.Length);
             Console.WriteLine("W: " + ptr->Width + ", H: " + ptr->Height);
-            data.CopyTo(target);
-        }
-        finally
-        {
-            LinuxFutex.OverlayMutexUnlock(&ptr->Mutex);
-        }
+        #endif
+        
+        Trace.Assert(CalculateDataLength(ptr) == data.Length);
+        Span<byte> target = new(&ptr->DynamicData, (int)CalculateDataLength(ptr));
+        data.CopyTo(target);
     }
 
     public DynDisplayData()

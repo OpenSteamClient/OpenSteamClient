@@ -13,13 +13,6 @@
 
     <!-- Supported runtimes (https://learn.microsoft.com/en-us/dotnet/core/rid-catalog) -->
     <RuntimeIdentifiers>win-x64;linux-x64;osx-x64</RuntimeIdentifiers>
-
-    <!-- enable avalonia private APIs -->
-    <AvaloniaAccessUnstablePrivateApis>true</AvaloniaAccessUnstablePrivateApis>
-    <Avalonia_I_Want_To_Use_Private_Apis_In_Nuget_Package_And_Promise_To_Pin_The_Exact_Avalonia_Version_In_Package_Dependency>true</Avalonia_I_Want_To_Use_Private_Apis_In_Nuget_Package_And_Promise_To_Pin_The_Exact_Avalonia_Version_In_Package_Dependency>
-  
-    <!-- AvaloniaAccessUnstablePrivateApis is Enabled -->
-    <NoWarn>AVA3001</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>
