@@ -151,13 +151,9 @@ public partial class MainWindow : Window
                 isChecked = ShouldRender.IsChecked != null && ShouldRender.IsChecked.Value;
                 if (FPSLimitCheck.IsChecked != null && FPSLimitCheck.IsChecked.Value) {
                     if (int.TryParse(FPSLimitBox.Text, out int fpsLimit2)) {
-                        Console.WriteLine("Parsed limit of " + fpsLimit2);
                         fpsLimit = fpsLimit2;
-                    } else {
-                        throw new Exception("Failed to parse '" + FPSLimitBox.Text + "'");
                     }
                 } else {
-                    Console.WriteLine("Fps limiter not checked");
                     fpsLimit = 0;
                 }
             });
@@ -180,8 +176,6 @@ public partial class MainWindow : Window
                 }
             }
 
-            Console.WriteLine("Server started, waiting for input request");
-
             while (State != EOverlayState.ServerRequestInputData)
             {
                 
@@ -199,17 +193,19 @@ inputDataAnswer:
             }
 
             uint newLength = (uint)(DynInputData.CalculateDataLength((uint)inputsCopy.Count) + sizeof(DynInputData));
-            sharedMemoryManager.InputData.Resize(newLength);
-            sharedMemoryManager.ControlData.Data->MemoryResized = newLength;
+            if (sharedMemoryManager.InputData.Length < newLength) {
+                sharedMemoryManager.InputData.Resize(newLength);
+                sharedMemoryManager.ControlData.Data->MemoryResized = newLength;
+            } else {
+                sharedMemoryManager.ControlData.Data->MemoryResized = 0;
+            }
+            
 
             DynInputData.EnqueueAll(sharedMemoryManager.InputData.Data, inputsCopy);
 
             serverStopwatch.Start();
             clientStopwatch.Stop();
             State = EOverlayState.ResponseAvailable;
-
-            Console.WriteLine("Answered input request, waiting for display allocation");
-
             while (State != EOverlayState.ServerRequestDisplayAllocation)
             {
                 
@@ -217,8 +213,6 @@ inputDataAnswer:
 
             serverStopwatch.Stop();
             clientStopwatch.Start();
-
-            Console.WriteLine("Display needs allocation");
 
             newLength = (uint)(DynDisplayData.CalculateDataLength(sharedMemoryManager.DisplayData.Data) + sizeof(DynDisplayData));
             sharedMemoryManager.DisplayData.Resize(newLength);
@@ -235,8 +229,6 @@ inputDataAnswer:
 
             serverStopwatch.Stop();
             clientStopwatch.Start();
-
-            Console.WriteLine("Render available");
 
             Dispatcher.UIThread.Invoke(() =>
             {
@@ -260,7 +252,7 @@ inputDataAnswer:
                 }
 
                 using (var frameBuffer = bitmap.Lock()) 
-                {             
+                {
                     NativeMemory.Copy(&sharedMemoryManager.DisplayData.Data->DynamicData, (void*)frameBuffer.Address, (nuint)DynDisplayData.CalculateDataLength(sharedMemoryManager.DisplayData.Data)); 
                 }
 

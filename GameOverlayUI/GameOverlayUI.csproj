@@ -5,15 +5,14 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <RequireAvaloniaHeadless>true</RequireAvaloniaHeadless>
   </PropertyGroup>
+
+  <Import Project="$(ProjectRootDir)/Avalonia.props"/>
 
   <ItemGroup>
     <ProjectReference Include="..\AvaloniaCommon\AvaloniaCommon.csproj" />
     <ProjectReference Include="..\OpenSteamworks\OpenSteamworks.csproj" />
     <ProjectReference Include="..\OpenSteamworks.Client\OpenSteamworks.Client.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Avalonia.Headless" Version="$(AvaloniaVersion)" />
   </ItemGroup>
 </Project>

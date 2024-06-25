@@ -17,7 +17,7 @@ public struct OverlayControlData {
         data->State = EOverlayState.ServerRequestInputData;
         while (data->State != EOverlayState.ResponseAvailable)
         {
-            Thread.Sleep(1);
+            //Thread.Sleep(1);
         }
 
         newAllocation = data->MemoryResized;
@@ -28,7 +28,7 @@ public struct OverlayControlData {
         data->State = EOverlayState.ServerRequestDisplayAllocation;
         while (data->State != EOverlayState.ResponseAvailable)
         {
-            Thread.Sleep(1);
+            //Thread.Sleep(1);
         }
 
         newAllocation = data->MemoryResized;

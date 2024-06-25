@@ -1,0 +1,53 @@
+<Project>
+    <PropertyGroup>
+        <!-- Local avalonia, for testing things we need upstreamed -->
+        <UseLocalAvalonia>false</UseLocalAvalonia>
+        <LocalAvaloniaPath>/home/onni/Downloads/Avalonia/</LocalAvaloniaPath>
+
+        <DefineConstants>$(DefineConstants);AVALONIA_ILAUNCHER_API</DefineConstants>
+
+        <!-- Custom build required by: GameOverlayUI headless transparency -->
+        <AvaloniaVersion>11.2.999-cibuild0049203-alpha</AvaloniaVersion>
+        <!-- Old version: 11.2.999-cibuild0049126-alpha -->
+
+        <!-- AvaloniaAccessUnstablePrivateApis is Enabled -->
+        <!-- Required by: GameOverlayUI resolution change, avalonia issue #16057 -->
+        <NoWarn>AVA3001</NoWarn>
+        <AvaloniaAccessUnstablePrivateApis>true</AvaloniaAccessUnstablePrivateApis>
+        <Avalonia_I_Want_To_Use_Private_Apis_In_Nuget_Package_And_Promise_To_Pin_The_Exact_Avalonia_Version_In_Package_Dependency>true</Avalonia_I_Want_To_Use_Private_Apis_In_Nuget_Package_And_Promise_To_Pin_The_Exact_Avalonia_Version_In_Package_Dependency>
+    </PropertyGroup>
+
+    <Choose>
+        <When Condition=" '$(UseLocalAvalonia)' != 'true' ">
+            <ItemGroup>
+                <PackageReference Include="Avalonia" Version="$(AvaloniaVersion)" />
+                <PackageReference Include="Avalonia.Desktop" Version="$(AvaloniaVersion)" />
+                <PackageReference Include="Avalonia.Themes.Fluent" Version="$(AvaloniaVersion)" />
+                <PackageReference Include="Avalonia.Fonts.Inter" Version="$(AvaloniaVersion)" />
+                <PackageReference Condition="'$(RequireAvaloniaHeadless)' == 'true'" Include="Avalonia.Headless" Version="$(AvaloniaVersion)" />
+
+                <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
+                <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="$(AvaloniaVersion)" />
+            </ItemGroup>
+        </When>
+        <When Condition=" '$(UseLocalAvalonia)' == 'true' ">
+            <ItemGroup>
+                <ProjectReference Include="$(LocalAvaloniaPath)\packages\Avalonia\Avalonia.csproj" />
+                <ProjectReference Include="$(LocalAvaloniaPath)\src\Avalonia.Desktop\Avalonia.Desktop.csproj" />
+                <ProjectReference Include="$(LocalAvaloniaPath)\src\Avalonia.Themes.Fluent\Avalonia.Themes.Fluent.csproj" />
+                <ProjectReference Include="$(LocalAvaloniaPath)\src\Avalonia.Fonts.Inter\Avalonia.Fonts.Inter.csproj" />
+                <ProjectReference Include="$(LocalAvaloniaPath)\src\Skia\Avalonia.Skia\Avalonia.Skia.csproj" />
+                <ProjectReference Condition="'$(RequireAvaloniaHeadless)' == 'true'" Include="$(LocalAvaloniaPath)\src\Headless\Avalonia.Headless\Avalonia.Headless.csproj" />
+
+                <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
+                <ProjectReference Condition="'$(Configuration)' == 'Debug'" Include="$(LocalAvaloniaPath)\src\Avalonia.Diagnostics\Avalonia.Diagnostics.csproj" />
+            </ItemGroup>
+            <PropertyGroup>
+                <IncludeAvaloniaGenerators>true</IncludeAvaloniaGenerators>
+            </PropertyGroup>
+        </When>
+    </Choose>
+
+    <Import Condition="'$(UseLocalAvalonia)' == 'true'" Project="$(LocalAvaloniaPath)\build\BuildTargets.targets"/>
+    <Import Condition="'$(UseLocalAvalonia)' == 'true'" Project="$(LocalAvaloniaPath)\build\SourceGenerators.props"/>
+</Project>

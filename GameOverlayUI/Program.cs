@@ -4,6 +4,9 @@ using Avalonia.Headless;
 using OpenSteamworks.Client.Utils.DI;
 using GameOverlayUI.IPC;
 using Avalonia.Platform;
+using Avalonia.Platform.Storage;
+using Avalonia.Controls.Platform;
+using GameOverlayUI.Impl;
 
 namespace GameOverlayUI;
 
@@ -80,6 +83,9 @@ public static class Program
         if (IsUITestMode) {
             return builder
                 .UseSkia()
+#if AVALONIA_ILAUNCHER_API
+                .With<ILauncherFactory>(new OverlayLauncherFactory())
+#endif
                 .UsePlatformDetect()
                 .WithInterFont()
                 .LogToTrace();
@@ -87,6 +93,9 @@ public static class Program
         } else {
             return builder
                 .UseSkia()
+#if AVALONIA_ILAUNCHER_API
+                .With<ILauncherFactory>(new OverlayLauncherFactory())
+#endif
                 .UseHeadless(new AvaloniaHeadlessPlatformOptions
                 {
                     UseHeadlessDrawing = false,

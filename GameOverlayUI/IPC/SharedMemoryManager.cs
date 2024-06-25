@@ -141,15 +141,8 @@ public unsafe class SharedMemoryManager : IDisposable {
         if (frame.Format != PixelFormat.Bgra8888) {
             throw new Exception("Invalid format for image");
         }
-
-        const int BPP = 4;
-
-        byte[] data = new byte[frame.PixelSize.Width * frame.PixelSize.Height * BPP];
-        fixed (byte* ptr = data) {
-            frame.CopyPixels(new Avalonia.PixelRect(0, 0, frame.PixelSize.Width, frame.PixelSize.Height), (nint)ptr, data.Length, frame.PixelSize.Width * BPP);
-        }
         
-        DynDisplayData.SetPixels(DisplayData.Data, data);
+        DynDisplayData.SetPixels(DisplayData.Data, frame);
     }
 
     public void Dispose()

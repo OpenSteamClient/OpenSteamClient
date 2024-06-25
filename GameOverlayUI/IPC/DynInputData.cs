@@ -26,12 +26,6 @@ public unsafe struct DynInputData {
 
     public static void EnqueueAll(DynInputData* ptr, List<InputData> inputData)
     {
-        long max = CalculateDataLength(ptr);
-        long queued = CalculateDataLength((uint)inputData.Count);
-        if (queued > max) {
-            Console.WriteLine("Enqueuing greater number of input events than buffer can fit");
-        }
-
         for (int i = 0; i < inputData.Count; i++)
         {
             nint bufPtr = (nint)(&ptr->DynamicStart) + (i * Marshal.SizeOf<InputData>());

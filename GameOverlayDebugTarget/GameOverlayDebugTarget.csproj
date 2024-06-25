@@ -17,4 +17,6 @@
     <ProjectReference Include="..\AvaloniaCommon\AvaloniaCommon.csproj" />
     <ProjectReference Include="../GameOverlayUI/GameOverlayUI.csproj" />
   </ItemGroup>
+
+  <Import Project="$(ProjectRootDir)/Avalonia.props"/>
 </Project>

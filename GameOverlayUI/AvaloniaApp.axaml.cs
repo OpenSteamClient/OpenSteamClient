@@ -16,6 +16,8 @@ using Avalonia.Media.Imaging;
 using Avalonia.Platform;
 using System.Runtime.InteropServices;
 using Avalonia.Input;
+using GameOverlayUI.Impl;
+using Avalonia.Platform.Storage;
 
 namespace GameOverlayUI;
 
@@ -52,7 +54,7 @@ public class AvaloniaApp : Application
             DataContext = mainViewViewModel,
             TransparencyLevelHint = new List<WindowTransparencyLevel>() { WindowTransparencyLevel.Transparent }
         };
-        
+
         Program.Container.RegisterInstance(mainView);
         
         ForceWindow(mainView);
@@ -97,25 +99,46 @@ public class AvaloniaApp : Application
             #endif
             
 
-            var inputData = sharedMemoryManager.GetInputData();
+            var inputDataIn = sharedMemoryManager.GetInputData();
+            List<InputData> inputData = new();
+            int numMouseMoves = inputDataIn.Count(e => e.Type == EInputType.MouseMove);
+            foreach (var item in inputDataIn)
+            {
+                if (item.Type == EInputType.MouseMove) {
+                    numMouseMoves--;
+
+                    // Allow 5 or so mouse moves per frame, anything extra will slow down everything to a halt
+                    if (numMouseMoves > 5) {
+                        continue;
+                    }
+                }
+
+                inputData.Add(item);
+            }
+
             Dispatcher.UIThread.Invoke(() => {
-                foreach (var input in inputData)
+                for (int i = 0; i < inputData.Count; i++)
                 {
+                    var input = inputData[i];
+                    // Avalonia headless input system is seriously slow (it wasn't intended to be used like this)
                     Console.WriteLine("Processing input type " + input.Type);
+                    Console.WriteLine("Mod: " + input.Modifiers);
+                    var pos = new Point(input.X, input.Y);
+                    input.Modifiers = RawInputModifiers.None;
+
                     switch (input.Type)
                     {
                         case EInputType.MouseMove:
-                            var movePos = new Point(input.X, input.Y);
-                            Console.WriteLine("pos: " + movePos);
-                            mainView.MouseMove(movePos, input.Modifiers);
+                            mainView.MouseMove(pos, input.Modifiers);
                             break;
 
                         case EInputType.MouseDown:
-                            mainView.MouseDown(new Point(input.X, input.Y), input.MouseButton, input.Modifiers);
+                            mainView.MouseDown(pos, input.MouseButton, input.Modifiers);
+                            //mainView.MouseUp(clickPos, input.MouseButton, input.Modifiers);
                             break;
 
                         case EInputType.MouseUp:
-                            mainView.MouseUp(new Point(input.X, input.Y), input.MouseButton, input.Modifiers);
+                            mainView.MouseUp(pos, input.MouseButton, input.Modifiers);
                             break;
 
                         case EInputType.KeyDown:
@@ -127,15 +150,16 @@ public class AvaloniaApp : Application
                             break;
 
                         case EInputType.MouseScrollDown:
-                            mainView.MouseWheel(new Point(input.X, input.Y), new Vector(0, -1.0), input.Modifiers);
+                            mainView.MouseWheel(pos, new Vector(0, -1.0), input.Modifiers);
                             break;
 
                         case EInputType.MouseScrollUp:
-                            mainView.MouseWheel(new Point(input.X, input.Y), new Vector(0, 1.0), input.Modifiers);
+                            mainView.MouseWheel(pos, new Vector(0, 1.0), input.Modifiers);
                             break;
                     }
                 }
-            }, DispatcherPriority.Input);
+
+            }, DispatcherPriority.MaxValue);
 
             #if LOGSPAM
             Console.WriteLine("Display allocation requested");
@@ -162,13 +186,7 @@ public class AvaloniaApp : Application
 
                     mainView.PlatformImpl.Resize(new Size(sharedMemoryManager.DisplayData.Data->Width, sharedMemoryManager.DisplayData.Data->Height), WindowResizeReason.User);
                 }, DispatcherPriority.Render);
-
-                Dispatcher.UIThread.RunJobs();
-                while (mainView.ClientSize.Width != sharedMemoryManager.DisplayData.Data->Width)
-                {
-                    Thread.Sleep(1);
-                }
-
+                
                 renderTarget?.Dispose();
                 
                 renderTarget = new RenderTargetBitmap(PixelSize.FromSize(new Size(sharedMemoryManager.DisplayData.Data->Width, sharedMemoryManager.DisplayData.Data->Height), 1));
@@ -177,7 +195,7 @@ public class AvaloniaApp : Application
             Dispatcher.UIThread.Invoke(() =>
             {
                renderTarget.Render(mainView);
-            }, DispatcherPriority.Render);
+            }, DispatcherPriority.MaxValue);
 
             
             // Console.WriteLine("ClientSize is now " + mainView.ClientSize);

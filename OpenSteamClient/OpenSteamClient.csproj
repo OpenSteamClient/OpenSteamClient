@@ -39,4 +39,6 @@
   <PropertyGroup Condition="'$(Configuration)' == 'Release'">
     <SelfContained>true</SelfContained>
   </PropertyGroup>
+
+  <Import Project="$(ProjectRootDir)/Avalonia.props"/>
 </Project>

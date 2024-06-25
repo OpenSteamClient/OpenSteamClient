@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using Avalonia.Media.Imaging;
 
 namespace GameOverlayUI.IPC;
 
@@ -15,7 +16,7 @@ public unsafe struct DynDisplayData {
         return ptr->Width * ptr->Height * 4;
     }
 
-    public static void SetPixels(DynDisplayData* ptr, byte[] data)
+    public static void SetPixels(DynDisplayData* ptr, Bitmap frame)
     {
         //TODO: This code needs additional sanity checks (such as resolution check)
         //TODO: Resize support (currently game window resizing won't work, need to re-mmap)
@@ -25,9 +26,8 @@ public unsafe struct DynDisplayData {
             Console.WriteLine("W: " + ptr->Width + ", H: " + ptr->Height);
         #endif
         
-        Trace.Assert(CalculateDataLength(ptr) == data.Length);
-        Span<byte> target = new(&ptr->DynamicData, (int)CalculateDataLength(ptr));
-        data.CopyTo(target);
+        const int BPP = 4;
+        frame.CopyPixels(new Avalonia.PixelRect(0, 0, frame.PixelSize.Width, frame.PixelSize.Height), (nint)(&ptr->DynamicData), (int)CalculateDataLength(ptr), frame.PixelSize.Width * BPP);
     }
 
     public DynDisplayData()
