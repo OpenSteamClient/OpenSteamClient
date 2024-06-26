@@ -29,7 +29,7 @@ public unsafe interface IClientConfigStore
     // WARNING: Arguments are unknown!
     public uint GetBinary(EConfigStore eConfigStore, string pszKeyName, IntPtr pubBuf, UInt32 cubBuf);  // argc: 4, index: 7, ipc args: [bytes4, string, bytes4], ipc returns: [bytes4, bytes_length_from_reg]
     // WARNING: Arguments are unknown!
-    public uint GetBinary(EConfigStore eConfigStore, string pszKeyName, CUtlBuffer* pUtlBuf);  // argc: 3, index: 8, ipc args: [bytes4, string], ipc returns: [bytes4, unknown]
+    public uint GetBinary(EConfigStore eConfigStore, string pszKeyName, CUtlBuffer* pUtlBuf);  // argc: 3, index: 8, ipc args: [bytes4, string], ipc returns: [bytes4, utlbuffer]
     // WARNING: Arguments are unknown!
     public uint GetBinaryWatermarked(EConfigStore eConfigStore, string pszKeyName, IntPtr pubBuf, UInt32 cubBuf);  // argc: 4, index: 9, ipc args: [bytes4, string, bytes4], ipc returns: [bytes4, bytes_length_from_reg]
     // WARNING: Arguments are unknown!
@@ -52,4 +52,6 @@ public unsafe interface IClientConfigStore
     public uint GetKeySerialized(EConfigStore eConfigStore, string pszKeyNameIn, IntPtr pchBuffer, Int32 cbBufferMax);  // argc: 4, index: 18, ipc args: [bytes4, string, bytes4], ipc returns: [bytes4, bytes_length_from_reg]
     // WARNING: Arguments are unknown!
     public bool FlushToDisk(bool bIsShuttingDown);  // argc: 1, index: 19, ipc args: [bytes1], ipc returns: [bytes1]
+    public unknown_ret GetSubKeyCount();  // argc: 2, index: 20, ipc args: [bytes4, string], ipc returns: [bytes4]
+    public unknown_ret GetSubKeyName();  // argc: 3, index: 21, ipc args: [bytes4, string, bytes4], ipc returns: [string]
 }

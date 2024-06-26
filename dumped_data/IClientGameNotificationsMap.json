@@ -5,8 +5,8 @@
             "name": "EnumerateNotifications",
             "argc": "2",
             "interfaceid": "37",
-            "functionid": "1374609447",
-            "fencepost": "1463194614",
+            "functionid": "1374609441",
+            "fencepost": "1463162350",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4"
@@ -19,8 +19,8 @@
             "name": "GetNotificationCount",
             "argc": "2",
             "interfaceid": "37",
-            "functionid": "2971933168",
-            "fencepost": "3060534464",
+            "functionid": "2971933174",
+            "fencepost": "3060502212",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4"
@@ -33,8 +33,8 @@
             "name": "GetNotification",
             "argc": "4",
             "interfaceid": "37",
-            "functionid": "2154781732",
-            "fencepost": "2243463673",
+            "functionid": "2154781734",
+            "fencepost": "2243431417",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -49,8 +49,8 @@
             "name": "RemoveSession",
             "argc": "4",
             "interfaceid": "37",
-            "functionid": "1416988429",
-            "fencepost": "1505718757",
+            "functionid": "1416988427",
+            "fencepost": "1505686497",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -63,8 +63,8 @@
             "name": "UpdateSession",
             "argc": "4",
             "interfaceid": "37",
-            "functionid": "138145681",
-            "fencepost": "226892138",
+            "functionid": "138145683",
+            "fencepost": "226859882",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",

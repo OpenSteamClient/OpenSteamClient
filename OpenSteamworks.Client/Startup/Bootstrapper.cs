@@ -813,11 +813,10 @@ public class Bootstrapper {
         try
         {
             await CheckSteamRuntimeSingle(progressHandler, Ubuntu12_64Dir, "sniper");
-            await CheckSteamRuntimeSingle(progressHandler, Ubuntu12_64Dir, "heavy");
         }
         catch (System.Exception e)
         {
-            logger.Warning("Failed to process optional runtimes (sniper/heavy):");
+            logger.Warning("Failed to process optional runtimes (sniper):");
             logger.Warning(e);
         }
     }

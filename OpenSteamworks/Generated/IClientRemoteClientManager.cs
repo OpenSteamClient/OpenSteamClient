@@ -36,7 +36,7 @@ public unsafe interface IClientRemoteClientManager
     // WARNING: Arguments are unknown!
     public unknown_ret ProcessStreamClientDisconnected();  // argc: 1, index: 11, ipc args: [bytes4], ipc returns: []
     // WARNING: Arguments are unknown!
-    public bool BGetStreamTransportSignal(uint unk, CUtlBuffer* data);  // argc: 2, index: 12, ipc args: [bytes4], ipc returns: [boolean, unknown]
+    public bool BGetStreamTransportSignal(uint unk, CUtlBuffer* data);  // argc: 2, index: 12, ipc args: [bytes4], ipc returns: [boolean, utlbuffer]
     // WARNING: Arguments are unknown!
     [BlacklistedInCrossProcessIPC]
     public unknown_ret SendStreamTransportSignal();  // argc: 2, index: 13, ipc args: [bytes4, bytes4], ipc returns: []
@@ -129,13 +129,13 @@ public unsafe interface IClientRemoteClientManager
     public unknown_ret BIsStreamClientRemotePlayTogether();  // argc: 0, index: 64, ipc args: [], ipc returns: [boolean]
     public unknown_ret GetStreamClientRemoteSteamVersion();  // argc: 0, index: 65, ipc args: [], ipc returns: [bytes8]
     // WARNING: Arguments are unknown!
-    public bool BGetStreamingClientConfig(CUtlBuffer* data);  // argc: 1, index: 66, ipc args: [], ipc returns: [boolean, unknown]
+    public bool BGetStreamingClientConfig(CUtlBuffer* data);  // argc: 1, index: 66, ipc args: [], ipc returns: [boolean, utlbuffer]
     // WARNING: Arguments are unknown!
-    public unknown_ret BSetStreamingClientConfig();  // argc: 1, index: 67, ipc args: [unknown], ipc returns: [boolean]
+    public unknown_ret BSetStreamingClientConfig();  // argc: 1, index: 67, ipc args: [utlbuffer], ipc returns: [boolean]
     // WARNING: Arguments are unknown!
     public unknown_ret BQueueControllerConfigMessageForRemote();  // argc: 1, index: 68, ipc args: [protobuf], ipc returns: [bytes8]
     // WARNING: Arguments are unknown!
-    public unknown_ret BGetControllerConfigMessageForLocal();  // argc: 1, index: 69, ipc args: [], ipc returns: [boolean, unknown]
+    public unknown_ret BGetControllerConfigMessageForLocal();  // argc: 1, index: 69, ipc args: [], ipc returns: [boolean, protobuf]
     // WARNING: Arguments are unknown!
     public unknown_ret RequestControllerConfig();  // argc: 4, index: 70, ipc args: [bytes8, bytes4, bytes4], ipc returns: [bytes8]
     // WARNING: Arguments are unknown!
@@ -151,54 +151,57 @@ public unsafe interface IClientRemoteClientManager
     // WARNING: Arguments are unknown!
     [BlacklistedInCrossProcessIPC]
     public unknown_ret GetStreamingPINSize();  // argc: 1, index: 76, ipc args: [bytes4], ipc returns: []
-    public unknown_ret UsedVideoX264();  // argc: 0, index: 77, ipc args: [], ipc returns: []
-    public unknown_ret UsedVideoH264();  // argc: 0, index: 78, ipc args: [], ipc returns: []
-    public unknown_ret UsedVideoHEVC();  // argc: 0, index: 79, ipc args: [], ipc returns: []
+    public unknown_ret CancelRemoteClientPairing();  // argc: 2, index: 77, ipc args: [bytes8], ipc returns: []
+    public unknown_ret UsedVideoX264();  // argc: 0, index: 78, ipc args: [], ipc returns: []
+    public unknown_ret UsedVideoH264();  // argc: 0, index: 79, ipc args: [], ipc returns: []
+    public unknown_ret UsedVideoHEVC();  // argc: 0, index: 80, ipc args: [], ipc returns: []
     // WARNING: Arguments are unknown!
-    public unknown_ret SetRemotePlayTogetherQualityOverride();  // argc: 1, index: 80, ipc args: [bytes4], ipc returns: []
+    public unknown_ret SetRemotePlayTogetherQualityOverride();  // argc: 1, index: 81, ipc args: [bytes4], ipc returns: []
     // WARNING: Arguments are unknown!
-    public unknown_ret SetRemotePlayTogetherBitrateOverride();  // argc: 1, index: 81, ipc args: [bytes4], ipc returns: []
+    public unknown_ret SetRemotePlayTogetherBitrateOverride();  // argc: 1, index: 82, ipc args: [bytes4], ipc returns: []
     // WARNING: Arguments are unknown!
-    public unknown_ret BHasRemotePlayInviteAndSession(in RemotePlayPlayer_t player);  // argc: 9, index: 82, ipc args: [bytes_length_from_reg], ipc returns: [boolean]
+    public unknown_ret BHasRemotePlayInviteAndSession(in RemotePlayPlayer_t player);  // argc: 9, index: 83, ipc args: [bytes_length_from_reg], ipc returns: [boolean]
     // WARNING: Arguments are unknown!
-    public unknown_ret BCreateRemotePlayGroup();  // argc: 1, index: 83, ipc args: [bytes4], ipc returns: [boolean]
+    public unknown_ret BCreateRemotePlayGroup();  // argc: 1, index: 84, ipc args: [bytes4], ipc returns: [boolean]
     // WARNING: Arguments are unknown!
-    public bool BCreateRemotePlayInviteAndSession(in RemotePlayPlayer_t player, AppId_t appid);  // argc: 10, index: 84, ipc args: [bytes_length_from_reg, bytes4], ipc returns: [boolean]
+    public bool BCreateRemotePlayInviteAndSession(in RemotePlayPlayer_t player, AppId_t appid);  // argc: 10, index: 85, ipc args: [bytes_length_from_reg, bytes4], ipc returns: [boolean]
     // WARNING: Arguments are unknown!
-    public unknown_ret CancelRemotePlayInviteAndSession(in RemotePlayPlayer_t player);  // argc: 9, index: 85, ipc args: [bytes_length_from_reg], ipc returns: []
+    public unknown_ret CancelRemotePlayInviteAndSession(in RemotePlayPlayer_t player);  // argc: 9, index: 86, ipc args: [bytes_length_from_reg], ipc returns: []
     // WARNING: Arguments are unknown!
-    public unknown_ret JoinRemotePlaySession();  // argc: 3, index: 86, ipc args: [uint64, string], ipc returns: []
-    public bool BStreamingDesktopToRemotePlayTogetherEnabled();  // argc: 0, index: 87, ipc args: [], ipc returns: [boolean]
+    public unknown_ret JoinRemotePlaySession();  // argc: 3, index: 87, ipc args: [uint64, string], ipc returns: []
+    public bool BStreamingDesktopToRemotePlayTogetherEnabled();  // argc: 0, index: 88, ipc args: [], ipc returns: [boolean]
     // WARNING: Arguments are unknown!
-    public unknown_ret SetStreamingDesktopToRemotePlayTogetherEnabled(bool enabled);  // argc: 1, index: 88, ipc args: [bytes1], ipc returns: []
+    public unknown_ret SetStreamingDesktopToRemotePlayTogetherEnabled(bool enabled);  // argc: 1, index: 89, ipc args: [bytes1], ipc returns: []
     // WARNING: Arguments are unknown!
-    public unknown_ret GetStreamingSessionForRemotePlayer(in RemotePlayPlayer_t player);  // argc: 9, index: 89, ipc args: [bytes_length_from_reg], ipc returns: [bytes4]
+    public unknown_ret GetStreamingSessionForRemotePlayer(in RemotePlayPlayer_t player);  // argc: 9, index: 90, ipc args: [bytes_length_from_reg], ipc returns: [bytes4]
     // WARNING: Arguments are unknown!
-    public unknown_ret SetPerUserKeyboardInputEnabled(in RemotePlayPlayer_t player, bool enabled);  // argc: 10, index: 90, ipc args: [bytes_length_from_reg, bytes1], ipc returns: []
+    public unknown_ret SetPerUserKeyboardInputEnabled(in RemotePlayPlayer_t player, bool enabled);  // argc: 10, index: 91, ipc args: [bytes_length_from_reg, bytes1], ipc returns: []
     // WARNING: Arguments are unknown!
-    public unknown_ret SetPerUserMouseInputEnabled(in RemotePlayPlayer_t player, bool enabled);  // argc: 10, index: 91, ipc args: [bytes_length_from_reg, bytes1], ipc returns: []
+    public unknown_ret SetPerUserMouseInputEnabled(in RemotePlayPlayer_t player, bool enabled);  // argc: 10, index: 92, ipc args: [bytes_length_from_reg, bytes1], ipc returns: []
     // WARNING: Arguments are unknown!
-    public unknown_ret SetPerUserControllerInputEnabled(in RemotePlayPlayer_t player, bool enabled);  // argc: 10, index: 92, ipc args: [bytes_length_from_reg, bytes1], ipc returns: []
-    // WARNING: Arguments are unknown!
-    [BlacklistedInCrossProcessIPC]
-    public unknown_ret GetPerUserInputSettings();  // argc: 10, index: 93, ipc args: [bytes_length_from_reg, bytes4], ipc returns: [bytes1]
+    public unknown_ret SetPerUserControllerInputEnabled(in RemotePlayPlayer_t player, bool enabled);  // argc: 10, index: 93, ipc args: [bytes_length_from_reg, bytes1], ipc returns: []
     // WARNING: Arguments are unknown!
     [BlacklistedInCrossProcessIPC]
-    public unknown_ret GetClientInputSettings();  // argc: 10, index: 94, ipc args: [bytes_length_from_reg, bytes4], ipc returns: [bytes1]
+    public unknown_ret GetPerUserInputSettings();  // argc: 10, index: 94, ipc args: [bytes_length_from_reg, bytes4], ipc returns: [bytes1]
     // WARNING: Arguments are unknown!
-    public unknown_ret OnClientUsedInput();  // argc: 10, index: 95, ipc args: [bytes_length_from_reg, bytes4], ipc returns: []
+    [BlacklistedInCrossProcessIPC]
+    public unknown_ret GetClientInputSettings();  // argc: 10, index: 95, ipc args: [bytes_length_from_reg, bytes4], ipc returns: [bytes1]
     // WARNING: Arguments are unknown!
-    public unknown_ret OnPlaceholderStateChanged();  // argc: 1, index: 96, ipc args: [bytes1], ipc returns: []
-    public unknown_ret OnRemoteClientRemotePlayClearControllers();  // argc: 0, index: 97, ipc args: [], ipc returns: []
+    public unknown_ret OnClientUsedInput();  // argc: 10, index: 96, ipc args: [bytes_length_from_reg, bytes4], ipc returns: []
     // WARNING: Arguments are unknown!
-    public unknown_ret OnRemoteClientRemotePlayControllerIndexSet();  // argc: 11, index: 98, ipc args: [bytes_length_from_reg, bytes4, bytes4], ipc returns: []
-    public unknown_ret UpdateRemotePlayTogetherGroup();  // argc: 0, index: 99, ipc args: [], ipc returns: []
-    public unknown_ret DisbandRemotePlayTogetherGroup();  // argc: 0, index: 100, ipc args: [], ipc returns: []
-    public unknown_ret OnRemotePlayUIMovedController();  // argc: 0, index: 101, ipc args: [], ipc returns: []
+    public unknown_ret OnPlaceholderStateChanged();  // argc: 1, index: 97, ipc args: [bytes1], ipc returns: []
+    public unknown_ret OnRemoteClientRemotePlayClearControllers();  // argc: 0, index: 98, ipc args: [], ipc returns: []
     // WARNING: Arguments are unknown!
-    public unknown_ret OnSendRemotePlayTogetherInvite();  // argc: 3, index: 102, ipc args: [uint64, bytes4], ipc returns: [bytes1]
+    public unknown_ret OnRemoteClientRemotePlayControllerIndexSet();  // argc: 11, index: 99, ipc args: [bytes_length_from_reg, bytes4, bytes4], ipc returns: []
+    public unknown_ret UpdateRemotePlayTogetherGroup();  // argc: 0, index: 100, ipc args: [], ipc returns: []
+    public unknown_ret DisbandRemotePlayTogetherGroup();  // argc: 0, index: 101, ipc args: [], ipc returns: []
+    public unknown_ret OnRemotePlayUIMovedController();  // argc: 0, index: 102, ipc args: [], ipc returns: []
     // WARNING: Arguments are unknown!
-    public unknown_ret GetCloudGameTimeRemaining();  // argc: 3, index: 103, ipc args: [bytes8, bytes8], ipc returns: [bytes4]
+    public unknown_ret OnSendRemotePlayTogetherInvite();  // argc: 3, index: 103, ipc args: [uint64, bytes4], ipc returns: [bytes1]
+    public unknown_ret ShowRemotePlayTogetherUI();  // argc: 1, index: 104, ipc args: [bytes4], ipc returns: []
     // WARNING: Arguments are unknown!
-    public unknown_ret ShutdownStreamClients();  // argc: 1, index: 104, ipc args: [bytes1], ipc returns: []
+    public unknown_ret GetCloudGameTimeRemaining();  // argc: 3, index: 105, ipc args: [bytes8, bytes8], ipc returns: [bytes4]
+    // WARNING: Arguments are unknown!
+    public unknown_ret ShutdownStreamClients();  // argc: 1, index: 106, ipc args: [bytes1], ipc returns: []
+    public unknown_ret MarkTaskComplete();  // argc: 2, index: 107, ipc args: [bytes8], ipc returns: []
 }

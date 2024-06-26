@@ -5,8 +5,8 @@
             "name": "SendP2PRendezvous",
             "argc": "6",
             "interfaceid": "46",
-            "functionid": "2018205741",
-            "fencepost": "2116388806",
+            "functionid": "2018205788",
+            "fencepost": "2116146918",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "uint64",
@@ -21,8 +21,8 @@
             "name": "SendP2PConnectionFailureLegacy",
             "argc": "6",
             "interfaceid": "46",
-            "functionid": "3482683116",
-            "fencepost": "3580898439",
+            "functionid": "3482683039",
+            "fencepost": "3580656427",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "uint64",
@@ -37,8 +37,8 @@
             "name": "GetCertAsync",
             "argc": "1",
             "interfaceid": "46",
-            "functionid": "454130430",
-            "fencepost": "552361882",
+            "functionid": "454130319",
+            "fencepost": "552119836",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
             ],
@@ -50,8 +50,8 @@
             "name": "CacheRelayTicket",
             "argc": "3",
             "interfaceid": "46",
-            "functionid": "3019481539",
-            "fencepost": "3117777507",
+            "functionid": "3019481524",
+            "fencepost": "3117535557",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -64,8 +64,8 @@
             "name": "GetCachedRelayTicketCount",
             "argc": "1",
             "interfaceid": "46",
-            "functionid": "3434652252",
-            "fencepost": "3532980478",
+            "functionid": "3434652237",
+            "fencepost": "3532738528",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
             ],
@@ -77,8 +77,8 @@
             "name": "GetCachedRelayTicket",
             "argc": "4",
             "interfaceid": "46",
-            "functionid": "1457228668",
-            "fencepost": "1555637539",
+            "functionid": "1457228655",
+            "fencepost": "1555395591",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -93,8 +93,8 @@
             "name": "GetSTUNServer",
             "argc": "4",
             "interfaceid": "46",
-            "functionid": "2946442234",
-            "fencepost": "3044964008",
+            "functionid": "2946442219",
+            "fencepost": "3044722058",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -109,8 +109,8 @@
             "name": "AllowDirectConnectToPeerString",
             "argc": "2",
             "interfaceid": "46",
-            "functionid": "1638831674",
-            "fencepost": "1737401835",
+            "functionid": "1638831669",
+            "fencepost": "1737159895",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "string"
@@ -123,8 +123,8 @@
             "name": "BeginAsyncRequestFakeIP",
             "argc": "2",
             "interfaceid": "46",
-            "functionid": "3084409063",
-            "fencepost": "3182995353",
+            "functionid": "3084409046",
+            "fencepost": "3182753401",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4"
@@ -137,8 +137,8 @@
             "name": "AllowDirectConnectToPeerString",
             "argc": "2",
             "interfaceid": "46",
-            "functionid": "1638831674",
-            "fencepost": "1737401835",
+            "functionid": "1638831669",
+            "fencepost": "1737159895",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "string"
@@ -152,8 +152,8 @@
             "name": "SetAllowShareIPUserSetting",
             "argc": "2",
             "interfaceid": "46",
-            "functionid": "919731823",
-            "fencepost": "1018334242",
+            "functionid": "919731804",
+            "fencepost": "1018092288",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4"
@@ -165,8 +165,8 @@
             "name": "GetAllowShareIPUserSetting",
             "argc": "1",
             "interfaceid": "46",
-            "functionid": "893414730",
-            "fencepost": "992033278",
+            "functionid": "893414779",
+            "fencepost": "991791392",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
             ],
@@ -178,8 +178,8 @@
             "name": "TEST_ClearInMemoryCachedCredentials",
             "argc": "1",
             "interfaceid": "46",
-            "functionid": "3336951794",
-            "fencepost": "3435586471",
+            "functionid": "3336951749",
+            "fencepost": "3435344491",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
             ],

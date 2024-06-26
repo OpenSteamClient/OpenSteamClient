@@ -13,7 +13,7 @@ namespace OpenSteamworks.Generated;
 public unsafe interface IClientInstallUtils
 {
     // WARNING: Arguments are unknown!
-    public unknown_ret SetUniverse();  // argc: 1, index: 1, ipc args: [bytes4], ipc returns: [unknown, unknown]
+    public unknown_ret SetUniverse();  // argc: 1, index: 1, ipc args: [bytes4], ipc returns: []
     // WARNING: Arguments are unknown!
     public unknown_ret AddShortcut();  // argc: 5, index: 2, ipc args: [string, string, string, string, string], ipc returns: [bytes1]
     // WARNING: Arguments are unknown!

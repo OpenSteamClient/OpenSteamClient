@@ -13,7 +13,7 @@ namespace OpenSteamworks.Generated;
 public unsafe interface IClientSystemManager
 {
     // WARNING: Arguments are unknown!
-    public unknown_ret GetSettings();  // argc: 1, index: 1, ipc args: [], ipc returns: [bytes1, unknown]
+    public unknown_ret GetSettings();  // argc: 1, index: 1, ipc args: [], ipc returns: [bytes1, protobuf]
     // WARNING: Arguments are unknown!
     public unknown_ret UpdateSettings();  // argc: 1, index: 2, ipc args: [protobuf], ipc returns: [bytes8]
     public unknown_ret ShutdownSystem();  // argc: 0, index: 3, ipc args: [], ipc returns: []
@@ -33,7 +33,7 @@ public unsafe interface IClientSystemManager
     // WARNING: Arguments are unknown!
     public unknown_ret SelectOSBranch();  // argc: 1, index: 13, ipc args: [protobuf], ipc returns: [bytes8]
     // WARNING: Arguments are unknown!
-    public unknown_ret GetUpdateState();  // argc: 1, index: 14, ipc args: [], ipc returns: [bytes1, unknown]
+    public unknown_ret GetUpdateState();  // argc: 1, index: 14, ipc args: [], ipc returns: [bytes1, protobuf]
     public unknown_ret CheckForUpdate();  // argc: 0, index: 15, ipc args: [], ipc returns: [bytes8]
     // WARNING: Arguments are unknown!
     public unknown_ret ApplyUpdate();  // argc: 1, index: 16, ipc args: [protobuf], ipc returns: [bytes8]

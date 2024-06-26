@@ -41,15 +41,14 @@ public unsafe interface IClientVR
     // WARNING: Arguments are unknown!
     public bool LaunchApplication(string unk);  // argc: 1, index: 16, ipc args: [string], ipc returns: [bytes1]
     public AppId_t GetSteamVRAppId();  // argc: 0, index: 17, ipc args: [], ipc returns: [bytes4]
-    public uint GetSteamVRPid();  // argc: 0, index: 18, ipc args: [], ipc returns: [bytes4]
-    public ulong GetWebSecret();  // argc: 0, index: 19, ipc args: [], ipc returns: [bytes8]
+    public ulong GetWebSecret();  // argc: 0, index: 18, ipc args: [], ipc returns: [bytes8]
     // WARNING: Arguments are unknown!
-    public unknown_ret BGetMutualCapabilities();  // argc: 1, index: 20, ipc args: [], ipc returns: [boolean, unknown]
-    public bool BSteamCanMakeVROverlays();  // argc: 0, index: 21, ipc args: [], ipc returns: [boolean]
-    public bool BServeVRGamepadUIOverlay();  // argc: 0, index: 22, ipc args: [], ipc returns: [boolean]
-    public unknown_ret BServeVRGamepadUIViaGamescope();  // argc: 0, index: 23, ipc args: [], ipc returns: [boolean]
+    public unknown_ret BGetMutualCapabilities();  // argc: 1, index: 19, ipc args: [], ipc returns: [boolean, utlbuffer]
+    public bool BSteamCanMakeVROverlays();  // argc: 0, index: 20, ipc args: [], ipc returns: [boolean]
+    public bool BServeVRGamepadUIOverlay();  // argc: 0, index: 21, ipc args: [], ipc returns: [boolean]
+    public unknown_ret BServeVRGamepadUIViaGamescope();  // argc: 0, index: 22, ipc args: [], ipc returns: [boolean]
     // WARNING: Arguments are unknown!
-    public void SetVRConnectionParams(string unk);  // argc: 1, index: 24, ipc args: [string], ipc returns: []
-    public string GetVRConnectionParams();  // argc: 0, index: 25, ipc args: [], ipc returns: [string]
-    public bool BVRDeviceSeenRecently();  // argc: 0, index: 26, ipc args: [], ipc returns: [boolean]
+    public void SetVRConnectionParams(string unk);  // argc: 1, index: 23, ipc args: [string], ipc returns: []
+    public string GetVRConnectionParams();  // argc: 0, index: 24, ipc args: [], ipc returns: [string]
+    public bool BVRDeviceSeenRecently();  // argc: 0, index: 25, ipc args: [], ipc returns: [boolean]
 }

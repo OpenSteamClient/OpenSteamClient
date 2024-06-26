@@ -15,7 +15,6 @@ public interface ISteamClient {
     public IClientApps IClientApps { get; }
     public IClientAudio IClientAudio { get; }
     public IClientBilling IClientBilling { get; }
-    public IClientBluetoothManager IClientBluetoothManager { get; }
     public IClientCompat IClientCompat { get; }
     public IClientConfigStore IClientConfigStore { get; }
     public IClientController IClientController { get; }

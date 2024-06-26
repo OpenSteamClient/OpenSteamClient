@@ -23,9 +23,9 @@ public unsafe interface IClientStreamClient
     // WARNING: Arguments are unknown!
     public void Finished(ulong unk, uint unk2);  // argc: 2, index: 4, ipc args: [bytes8, bytes4], ipc returns: []
     // WARNING: Arguments are unknown!
-    public bool BGetStreamingClientConfig(CUtlBuffer* buf);  // argc: 1, index: 5, ipc args: [], ipc returns: [boolean, unknown]
+    public bool BGetStreamingClientConfig(CUtlBuffer* buf);  // argc: 1, index: 5, ipc args: [], ipc returns: [boolean, utlbuffer]
     // WARNING: Arguments are unknown!
-    public bool BSaveStreamingClientConfig(CUtlBuffer* buf);  // argc: 1, index: 6, ipc args: [unknown], ipc returns: [boolean]
+    public bool BSaveStreamingClientConfig(CUtlBuffer* buf);  // argc: 1, index: 6, ipc args: [utlbuffer], ipc returns: [boolean]
     // WARNING: Arguments are unknown!
     public void SetQualityOverride(uint val);  // argc: 1, index: 7, ipc args: [bytes4], ipc returns: []
     // WARNING: Arguments are unknown!
@@ -34,7 +34,7 @@ public unsafe interface IClientStreamClient
     // WARNING: Arguments are unknown!
     public SteamAPICall_t BQueueControllerConfigMessageForLocal([ProtobufPtrType(typeof(CControllerConfigMsg))] IntPtr protoptr);  // argc: 1, index: 10, ipc args: [protobuf], ipc returns: [bytes8]
     // WARNING: Arguments are unknown!
-    public bool BGetControllerConfigMessageForRemote([ProtobufPtrType(typeof(CControllerConfigMsg))] IntPtr protoptr);  // argc: 1, index: 11, ipc args: [], ipc returns: [boolean, unknown]
+    public bool BGetControllerConfigMessageForRemote([ProtobufPtrType(typeof(CControllerConfigMsg))] IntPtr protoptr);  // argc: 1, index: 11, ipc args: [], ipc returns: [boolean, protobuf]
     public string GetSystemInfo();  // argc: 0, index: 12, ipc args: [], ipc returns: [string]
     // WARNING: Arguments are unknown!
     public void StartStreamingSession(ulong unk);  // argc: 1, index: 13, ipc args: [bytes8], ipc returns: []

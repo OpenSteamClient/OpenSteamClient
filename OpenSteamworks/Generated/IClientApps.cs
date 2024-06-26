@@ -31,24 +31,22 @@ public unsafe interface IClientApps
     public int GetDLCCount(AppId_t app);  // argc: 1, index: 9, ipc args: [bytes4], ipc returns: [bytes4]
     public bool BGetDLCDataByIndex(AppId_t app, int iDLC, out uint dlcID, out bool availableOnStore, StringBuilder name, int nameMax);  // argc: 6, index: 10, ipc args: [bytes4, bytes4, bytes4], ipc returns: [boolean, bytes4, boolean, bytes_length_from_mem]
     public EAppType GetAppType(AppId_t app);  // argc: 1, index: 11, ipc args: [bytes4], ipc returns: [bytes4]
-    // WARNING: Arguments are unknown!
-    public unknown_ret GetStoreTagLocalization(ELanguage language, uint* unk1, int unk2, void* unk3, int unk3Max);  // argc: 5, index: 12, ipc args: [bytes4, bytes4, bytes_length_from_reg, bytes4], ipc returns: [bytes4, bytes_length_from_reg]
     /// <summary>
     /// Locks the app info cache from changes. Required when calling GetAppKVRaw.
     /// </summary>
     /// <returns>True if locked successfully, false if locking failed or a lock is already in use</returns>
-    public bool TakeUpdateLock();  // argc: 0, index: 13, ipc args: [], ipc returns: [bytes1]
+    public bool TakeUpdateLock();  // argc: 0, index: 12, ipc args: [], ipc returns: [bytes1]
     /// <summary>
     /// A "newer" method ValveSteam uses to get app info. Seems to rely on internal KeyValue class structs to work.
     /// </summary>
     [BlacklistedInCrossProcessIPC]
-    public bool GetAppKVRaw(AppId_t app, byte** outPtrToAppInfoData, byte** outPtrToComputedKVData);  // argc: 3, index: 14, ipc args: [bytes4, bytes4, bytes4], ipc returns: [bytes1]
+    public bool GetAppKVRaw(AppId_t app, byte** outPtrToAppInfoData, byte** outPtrToComputedKVData);  // argc: 3, index: 13, ipc args: [bytes4, bytes4, bytes4], ipc returns: [bytes1]
     /// <summary>
     /// Unlocks the app info cache.
     /// </summary>
-    public void ReleaseUpdateLock();  // argc: 0, index: 15, ipc args: [], ipc returns: []
+    public void ReleaseUpdateLock();  // argc: 0, index: 14, ipc args: [], ipc returns: []
     /// <summary>
     /// Gets the current user's AppInfoChangeNumber.
     /// </summary>
-    public int GetLastChangeNumberReceived();  // argc: 0, index: 16, ipc args: [], ipc returns: [bytes4]
+    public int GetLastChangeNumberReceived();  // argc: 0, index: 15, ipc args: [], ipc returns: [bytes4]
 }

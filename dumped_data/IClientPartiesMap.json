@@ -5,8 +5,8 @@
             "name": "GetNumActiveBeacons",
             "argc": "1",
             "interfaceid": "49",
-            "functionid": "1150910760",
-            "fencepost": "1185287882",
+            "functionid": "1150910768",
+            "fencepost": "1185158858",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
             ],
@@ -18,8 +18,8 @@
             "name": "GetBeaconByIndex",
             "argc": "2",
             "interfaceid": "49",
-            "functionid": "3712225555",
-            "fencepost": "3746618806",
+            "functionid": "3712225547",
+            "fencepost": "3746489766",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4"
@@ -32,8 +32,8 @@
             "name": "GetBeaconDetails",
             "argc": "7",
             "interfaceid": "49",
-            "functionid": "1454208101",
-            "fencepost": "1488681997",
+            "functionid": "1454208125",
+            "fencepost": "1488552989",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes8",
@@ -50,8 +50,8 @@
             "name": "JoinParty",
             "argc": "3",
             "interfaceid": "49",
-            "functionid": "684812540",
-            "fencepost": "719367081",
+            "functionid": "684812532",
+            "fencepost": "719238041",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes8"
@@ -64,8 +64,8 @@
             "name": "GetNumAvailableBeaconLocations",
             "argc": "2",
             "interfaceid": "49",
-            "functionid": "1216712014",
-            "fencepost": "1251314942",
+            "functionid": "1216712006",
+            "fencepost": "1251185902",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
             ],
@@ -78,8 +78,8 @@
             "name": "GetAvailableBeaconLocations",
             "argc": "3",
             "interfaceid": "49",
-            "functionid": "999327107",
-            "fencepost": "1034026809",
+            "functionid": "999327163",
+            "fencepost": "1033897833",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4"
@@ -93,8 +93,8 @@
             "name": "CreateBeacon",
             "argc": "6",
             "interfaceid": "49",
-            "functionid": "4155414480",
-            "fencepost": "4190259343",
+            "functionid": "4155414488",
+            "fencepost": "4190130319",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -111,8 +111,8 @@
             "name": "OnReservationCompleted",
             "argc": "5",
             "interfaceid": "49",
-            "functionid": "3388284823",
-            "fencepost": "3423161944",
+            "functionid": "3388284815",
+            "fencepost": "3423032904",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes8",
@@ -125,8 +125,8 @@
             "name": "CancelReservation",
             "argc": "5",
             "interfaceid": "49",
-            "functionid": "3814305222",
-            "fencepost": "3849198472",
+            "functionid": "3814305246",
+            "fencepost": "3849069464",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes8",
@@ -139,8 +139,8 @@
             "name": "ChangeNumOpenSlots",
             "argc": "4",
             "interfaceid": "49",
-            "functionid": "2569790514",
-            "fencepost": "2604699893",
+            "functionid": "2569790506",
+            "fencepost": "2604570853",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes8",
@@ -154,8 +154,8 @@
             "name": "DestroyBeacon",
             "argc": "3",
             "interfaceid": "49",
-            "functionid": "2650816142",
-            "fencepost": "2685741650",
+            "functionid": "2650816150",
+            "fencepost": "2685612626",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes8"
@@ -168,8 +168,8 @@
             "name": "GetBeaconLocationData",
             "argc": "7",
             "interfaceid": "49",
-            "functionid": "3492309435",
-            "fencepost": "3527331717",
+            "functionid": "3492309411",
+            "fencepost": "3527202661",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes12",
@@ -185,8 +185,8 @@
             "name": "ReservePartySlot",
             "argc": "4",
             "interfaceid": "49",
-            "functionid": "3973114431",
-            "fencepost": "4008185100",
+            "functionid": "3973114423",
+            "fencepost": "4008056060",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",

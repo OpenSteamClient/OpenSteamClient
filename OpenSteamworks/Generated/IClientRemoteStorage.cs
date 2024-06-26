@@ -23,7 +23,7 @@ public unsafe interface IClientRemoteStorage
     // WARNING: Arguments are unknown!
     public int GetFileSize(AppId_t nAppId, ERemoteStorageFileRoot eRemoteStorageFileRoot, string file);  // argc: 3, index: 2, ipc args: [bytes4, bytes4, string], ipc returns: [bytes4]
     // WARNING: Arguments are unknown!
-    public SteamAPICall_t FileWriteAsync(AppId_t nAppId, ERemoteStorageFileRoot eRemoteStorageFileRoot, string path, CUtlBuffer* data);  // argc: 4, index: 3, ipc args: [bytes4, bytes4, string, unknown], ipc returns: [bytes8]
+    public SteamAPICall_t FileWriteAsync(AppId_t nAppId, ERemoteStorageFileRoot eRemoteStorageFileRoot, string path, CUtlBuffer* data);  // argc: 4, index: 3, ipc args: [bytes4, bytes4, string, utlbuffer], ipc returns: [bytes8]
     // WARNING: Arguments are unknown!
     public SteamAPICall_t FileReadAsync(AppId_t nAppId, ERemoteStorageFileRoot eRemoteStorageFileRoot, string file, UInt32 nOffset, UInt32 cubToRead);  // argc: 5, index: 4, ipc args: [bytes4, bytes4, string, bytes4, bytes4], ipc returns: [bytes8]
     // WARNING: Arguments are unknown!
@@ -160,7 +160,7 @@ public unsafe interface IClientRemoteStorage
     public ERemoteStorageSyncState GetRemoteStorageSyncState(AppId_t appid);  // argc: 1, index: 74, ipc args: [bytes4], ipc returns: [bytes4]
     public bool HaveLatestFilesLocally(AppId_t appid);  // argc: 1, index: 75, ipc args: [bytes4], ipc returns: [bytes1]
     public bool GetConflictingFileTimestamps(AppId_t nAppId, out RTime32 localTimestamp, out RTime32 remoteTimestamp);  // argc: 3, index: 76, ipc args: [bytes4], ipc returns: [bytes1, bytes4, bytes4]
-    public bool GetPendingRemoteOperationInfo(AppId_t nAppId, [Out] [ProtobufPtrType(typeof(CCloud_PendingRemoteOperation))] IntPtr protoptr);  // argc: 2, index: 77, ipc args: [bytes4], ipc returns: [bytes1, unknown]
+    public bool GetPendingRemoteOperationInfo(AppId_t nAppId, [Out] [ProtobufPtrType(typeof(CCloud_PendingRemoteOperation))] IntPtr protoptr);  // argc: 2, index: 77, ipc args: [bytes4], ipc returns: [bytes1, protobuf]
     public bool ResolveSyncConflict(AppId_t nAppId, bool bAcceptLocalFiles);  // argc: 2, index: 78, ipc args: [bytes4, bytes1], ipc returns: [bytes1]
     // WARNING: Arguments are unknown!
     public bool SynchronizeApp(AppId_t nAppId, ERemoteStorageSyncType syncType, ERemoteStorageSyncFlags flags);  // argc: 4, index: 79, ipc args: [bytes4, bytes4, bytes8], ipc returns: [bytes1]

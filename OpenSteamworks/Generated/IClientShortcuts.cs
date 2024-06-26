@@ -26,9 +26,9 @@ public unsafe interface IClientShortcuts
     public CGameID GetGameIDForAppID(AppId_t shortcutAppID);  // argc: 2, index: 2, ipc args: [bytes4], ipc returns: [bytes8]
     public AppId_t GetAppIDForGameID(in CGameID gameid);  // argc: 1, index: 3, ipc args: [bytes8], ipc returns: [bytes4]
     public AppId_t GetDevkitAppIDByDevkitGameID(string devkitGameID);  // argc: 1, index: 4, ipc args: [string], ipc returns: [bytes4]
-    public bool GetShortcutAppIds([ProtobufPtrType(typeof(CMsgShortcutAppIds))] IntPtr nativeptr);  // argc: 1, index: 5, ipc args: [], ipc returns: [bytes1, unknown]
-    public bool GetShortcutInfoByIndex(int index, [ProtobufPtrType(typeof(CMsgShortcutInfo))] IntPtr nativeptr);  // argc: 2, index: 6, ipc args: [bytes4], ipc returns: [bytes1, unknown]
-    public bool GetShortcutInfoByAppID(AppId_t appid, [ProtobufPtrType(typeof(CMsgShortcutInfo))] IntPtr nativeptr);  // argc: 2, index: 7, ipc args: [bytes4], ipc returns: [bytes1, unknown]
+    public bool GetShortcutAppIds([ProtobufPtrType(typeof(CMsgShortcutAppIds))] IntPtr nativeptr);  // argc: 1, index: 5, ipc args: [], ipc returns: [bytes1, protobuf]
+    public bool GetShortcutInfoByIndex(int index, [ProtobufPtrType(typeof(CMsgShortcutInfo))] IntPtr nativeptr);  // argc: 2, index: 6, ipc args: [bytes4], ipc returns: [bytes1, protobuf]
+    public bool GetShortcutInfoByAppID(AppId_t appid, [ProtobufPtrType(typeof(CMsgShortcutInfo))] IntPtr nativeptr);  // argc: 2, index: 7, ipc args: [bytes4], ipc returns: [bytes1, protobuf]
     // WARNING: Arguments are unknown!
     public AppId_t AddShortcut(string name, string executable, string icon, string shortcutPath, string launchOptions);  // argc: 5, index: 8, ipc args: [string, string, string, string, string], ipc returns: [bytes4]
     // WARNING: Arguments are unknown!

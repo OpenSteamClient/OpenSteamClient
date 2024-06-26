@@ -111,7 +111,7 @@
     },
     {
         "id": 336,
-        "name": "26FriendRichPresenceUpdate_t",
+        "name": "Unknown",
         "size": 12
     },
     {
@@ -596,7 +596,7 @@
     },
     {
         "id": 1010004,
-        "name": "Unknown",
+        "name": "26UserRequestingFriendship_t",
         "size": 8
     },
     {
@@ -835,6 +835,11 @@
         "size": 532
     },
     {
+        "id": 1010060,
+        "name": "35MultiplayerSessionShareURLChanged_t",
+        "size": 4
+    },
+    {
         "id": 1020001,
         "name": "10SystemIM_t",
         "size": 4108
@@ -926,7 +931,7 @@
     },
     {
         "id": 1020046,
-        "name": "28AppMinutesPlayedDataNotice_t",
+        "name": "Unknown",
         "size": 4
     },
     {
@@ -1120,6 +1125,11 @@
         "size": 8
     },
     {
+        "id": 1020111,
+        "name": "ExecuteSteamURL_t",
+        "size": 4
+    },
+    {
         "id": 1040003,
         "name": "Unknown",
         "size": 4
@@ -1150,11 +1160,6 @@
         "size": 1
     },
     {
-        "id": 1040022,
-        "name": "Unknown",
-        "size": 1
-    },
-    {
         "id": 1040023,
         "name": "Unknown",
         "size": 24584
@@ -1170,44 +1175,9 @@
         "size": 264
     },
     {
-        "id": 1040026,
-        "name": "Unknown",
-        "size": 8
-    },
-    {
         "id": 1040027,
         "name": "SetPersonaStateInternal_t",
         "size": 4
-    },
-    {
-        "id": 1040028,
-        "name": "Unknown",
-        "size": 1032
-    },
-    {
-        "id": 1040031,
-        "name": "Unknown",
-        "size": 1
-    },
-    {
-        "id": 1040032,
-        "name": "Unknown",
-        "size": 1
-    },
-    {
-        "id": 1040033,
-        "name": "Unknown",
-        "size": 4288
-    },
-    {
-        "id": 1040034,
-        "name": "Unknown",
-        "size": 1
-    },
-    {
-        "id": 1040035,
-        "name": "Unknown",
-        "size": 1
     },
     {
         "id": 1040037,
@@ -1235,11 +1205,6 @@
         "size": 8
     },
     {
-        "id": 1040043,
-        "name": "Unknown",
-        "size": 16
-    },
-    {
         "id": 1040044,
         "name": "Unknown",
         "size": 784
@@ -1258,6 +1223,11 @@
         "id": 1040047,
         "name": "Unknown",
         "size": 12
+    },
+    {
+        "id": 1040048,
+        "name": "LaunchGameMsgReceived_t",
+        "size": 2068
     },
     {
         "id": 1050001,
@@ -1310,11 +1280,6 @@
         "size": 4
     },
     {
-        "id": 1070005,
-        "name": "21ParentalSetComplete_t",
-        "size": 8
-    },
-    {
         "id": 1070006,
         "name": "25ParentalPlaytimeWarning_t",
         "size": 8
@@ -1358,11 +1323,6 @@
         "id": 1080009,
         "name": "FamilyGroupChanged_t",
         "size": 204
-    },
-    {
-        "id": 1090007,
-        "name": "Unknown",
-        "size": 1
     },
     {
         "id": 1100000,
@@ -1510,7 +1470,17 @@
         "size": 4
     },
     {
+        "id": 1110001,
+        "name": "Unknown",
+        "size": 8
+    },
+    {
         "id": 1110002,
+        "name": "Unknown",
+        "size": 8
+    },
+    {
+        "id": 1110003,
         "name": "Unknown",
         "size": 8
     },
@@ -1595,11 +1565,6 @@
         "size": 4
     },
     {
-        "id": 1110024,
-        "name": "Unknown",
-        "size": 1
-    },
-    {
         "id": 1110025,
         "name": "Unknown",
         "size": 1
@@ -1653,6 +1618,11 @@
         "id": 1110039,
         "name": "RemoteClientLaunchFailed_t",
         "size": 4
+    },
+    {
+        "id": 1110048,
+        "name": "RemoteDevicePairingPINChanged_t",
+        "size": 144
     },
     {
         "id": 1130002,
@@ -1785,16 +1755,6 @@
         "size": 4
     },
     {
-        "id": 1270008,
-        "name": "BroadcastViewerState_t",
-        "size": 16
-    },
-    {
-        "id": 1270009,
-        "name": "ViewerNeedsApproval_t",
-        "size": 8
-    },
-    {
         "id": 1270010,
         "name": "ViewerApprovalResult_t",
         "size": 16
@@ -1808,11 +1768,6 @@
         "id": 1270013,
         "name": "BroadcastSettingsLoaded_t",
         "size": 1
-    },
-    {
-        "id": 1270014,
-        "name": "BroadcastShowFirstTimeDlg_t",
-        "size": 8
     },
     {
         "id": 1270015,
@@ -1843,11 +1798,6 @@
         "id": 1270022,
         "name": "Unknown",
         "size": 2
-    },
-    {
-        "id": 1270023,
-        "name": "BroadcastCantStart_t",
-        "size": 12
     },
     {
         "id": 1270025,
@@ -1955,11 +1905,6 @@
         "size": 524
     },
     {
-        "id": 1280028,
-        "name": "Unknown",
-        "size": 1
-    },
-    {
         "id": 1280029,
         "name": "Unknown",
         "size": 24
@@ -1968,11 +1913,6 @@
         "id": 1280031,
         "name": "Unknown",
         "size": 4
-    },
-    {
-        "id": 1280032,
-        "name": "Unknown",
-        "size": 16
     },
     {
         "id": 1280033,
@@ -2026,7 +1966,7 @@
     },
     {
         "id": 1350001,
-        "name": "32UserAchievementProgressChanged_t",
+        "name": "Unknown",
         "size": 8
     },
     {

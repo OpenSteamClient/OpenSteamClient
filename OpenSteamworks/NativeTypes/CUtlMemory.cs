@@ -6,14 +6,15 @@ using OpenSteamworks;
 
 [StructLayout(LayoutKind.Sequential)]
 public unsafe struct CUtlMemory<T> where T : unmanaged {
-    public UInt32 m_unSizeOfElements = 0;
 	public void* m_pMemory = null;
 	public int m_nAllocationCount = 0;
 	public int m_nGrowSize = 0;
 
+    // NOT REQUIRED BY ABI
+    private int m_unSizeOfElements => sizeof(T);
+
     public CUtlMemory(int growSize = 0, int nInitSize = 0) {
         this.m_nAllocationCount = nInitSize;
-        this.m_unSizeOfElements = (uint)sizeof(T);
         nuint size = (nuint)(this.m_unSizeOfElements * this.m_nAllocationCount);
         Logging.CUtlLogger.Debug("Allocating CUtlMemory of size " + size);
         this.m_pMemory = NativeMemory.AllocZeroed(size);
@@ -21,7 +22,6 @@ public unsafe struct CUtlMemory<T> where T : unmanaged {
     }
 
     public CUtlMemory(IntPtr pBuffer, int nSize) {
-        this.m_unSizeOfElements = (uint)sizeof(T);
         this.m_pMemory = (void*)pBuffer;
         this.m_nAllocationCount = nSize;
     }

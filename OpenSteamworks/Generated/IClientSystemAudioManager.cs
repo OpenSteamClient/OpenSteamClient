@@ -16,7 +16,7 @@ public unsafe interface IClientSystemAudioManager
 {
     public bool IsInterfaceValid();  // argc: 0, index: 1, ipc args: [], ipc returns: [boolean]
     // WARNING: Arguments are unknown!
-    public bool GetState(uint unk, [ProtobufPtrType(typeof(CMsgSystemAudioManagerState))] IntPtr protoptr);  // argc: 2, index: 2, ipc args: [bytes4], ipc returns: [bytes1, unknown]
+    public bool GetState(uint unk, [ProtobufPtrType(typeof(CMsgSystemAudioManagerState))] IntPtr protoptr);  // argc: 2, index: 2, ipc args: [bytes4], ipc returns: [bytes1, protobuf]
     // WARNING: Arguments are unknown!
     public ulong UpdateSomething([ProtobufPtrType(typeof(CMsgSystemAudioManagerUpdateSomething))] IntPtr protoptr);  // argc: 1, index: 3, ipc args: [protobuf], ipc returns: [bytes8]
 }

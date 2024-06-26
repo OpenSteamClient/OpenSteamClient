@@ -117,7 +117,6 @@ public unsafe interface IClientEngine {
     /// You should use ClientAPI_PostAPIResultInProcess_t and store it somewhere to prevent it being GC'd.
     /// </summary>
 	public unknown_ret Set_ClientAPI_CPostAPIResultInProcess( ClientAPI_PostAPIResultInProcess_t callback );
-	public IClientBluetoothManager GetIClientBluetoothManager( HSteamPipe hSteamPipe);
 	public IClientSharedConnection GetIClientSharedConnection( HSteamUser hSteamUser, HSteamPipe hSteamPipe );
 	public IClientShader GetIClientShader( HSteamUser hSteamUser, HSteamPipe hSteamPipe );
 	public IClientNetworkingSocketsSerialized GetIClientNetworkingSocketsSerialized( HSteamUser hSteamUser, HSteamPipe hSteamPipe );

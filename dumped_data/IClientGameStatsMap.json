@@ -5,8 +5,8 @@
             "name": "GetNewSession",
             "argc": "6",
             "interfaceid": "21",
-            "functionid": "2976233950",
-            "fencepost": "3038381654",
+            "functionid": "2976233940",
+            "fencepost": "3038284870",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes1",
@@ -22,8 +22,8 @@
             "name": "EndSession",
             "argc": "5",
             "interfaceid": "21",
-            "functionid": "1994798951",
-            "fencepost": "2056962784",
+            "functionid": "1994798945",
+            "fencepost": "2056866004",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes8",
@@ -38,8 +38,8 @@
             "name": "AddSessionAttributeInt",
             "argc": "5",
             "interfaceid": "21",
-            "functionid": "2358451803",
-            "fencepost": "2420631765",
+            "functionid": "2358451805",
+            "fencepost": "2420534993",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes8",
@@ -54,8 +54,8 @@
             "name": "AddSessionAttributeString",
             "argc": "5",
             "interfaceid": "21",
-            "functionid": "2118974409",
-            "fencepost": "2181170500",
+            "functionid": "2118974419",
+            "fencepost": "2181073736",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes8",
@@ -70,8 +70,8 @@
             "name": "AddSessionAttributeFloat",
             "argc": "5",
             "interfaceid": "21",
-            "functionid": "3310814766",
-            "fencepost": "3373026986",
+            "functionid": "3310814772",
+            "fencepost": "3372930218",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes8",
@@ -86,8 +86,8 @@
             "name": "AddNewRow",
             "argc": "5",
             "interfaceid": "21",
-            "functionid": "2766611318",
-            "fencepost": "2828952570",
+            "functionid": "2766611308",
+            "fencepost": "2828855786",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes8",
@@ -102,8 +102,8 @@
             "name": "CommitRow",
             "argc": "3",
             "interfaceid": "21",
-            "functionid": "2450363364",
-            "fencepost": "2512753003",
+            "functionid": "2450363374",
+            "fencepost": "2512656239",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes8"
@@ -116,8 +116,8 @@
             "name": "CommitOutstandingRows",
             "argc": "3",
             "interfaceid": "21",
-            "functionid": "191135304",
-            "fencepost": "253541072",
+            "functionid": "191135298",
+            "fencepost": "253444292",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes8"
@@ -130,8 +130,8 @@
             "name": "AddRowAttributeInt",
             "argc": "5",
             "interfaceid": "21",
-            "functionid": "274344614",
-            "fencepost": "336572963",
+            "functionid": "274344632",
+            "fencepost": "336476207",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes8",
@@ -146,8 +146,8 @@
             "name": "AddRowAttributeString",
             "argc": "5",
             "interfaceid": "21",
-            "functionid": "4184974890",
-            "fencepost": "4247219368",
+            "functionid": "4184974900",
+            "fencepost": "4247122604",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes8",
@@ -162,8 +162,8 @@
             "name": "AddRowAttributeFloat",
             "argc": "5",
             "interfaceid": "21",
-            "functionid": "2397086987",
-            "fencepost": "2459347594",
+            "functionid": "2397086993",
+            "fencepost": "2459250826",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes8",
@@ -178,8 +178,8 @@
             "name": "AddSessionAttributeInt64",
             "argc": "6",
             "interfaceid": "21",
-            "functionid": "3358827052",
-            "fencepost": "3421265078",
+            "functionid": "3358827050",
+            "fencepost": "3421168302",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes8",
@@ -194,8 +194,8 @@
             "name": "AddRowAttributeInt64",
             "argc": "6",
             "interfaceid": "21",
-            "functionid": "2554807437",
-            "fencepost": "2617229334",
+            "functionid": "2554807435",
+            "fencepost": "2617132558",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes8",

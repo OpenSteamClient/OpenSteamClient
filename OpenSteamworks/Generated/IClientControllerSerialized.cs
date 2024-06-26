@@ -121,27 +121,27 @@ public unsafe interface IClientControllerSerialized
     // WARNING: Arguments are unknown!
     public unknown_ret FreeBindingInstance();  // argc: 1, index: 52, ipc args: [bytes4], ipc returns: [bytes1]
     // WARNING: Arguments are unknown!
-    public unknown_ret GetControllerConfiguration();  // argc: 2, index: 53, ipc args: [bytes4], ipc returns: [bytes4, unknown]
+    public unknown_ret GetControllerConfiguration();  // argc: 2, index: 53, ipc args: [bytes4], ipc returns: [bytes4, protobuf]
     // WARNING: Arguments are unknown!
-    public unknown_ret SetControllerActionSet();  // argc: 3, index: 54, ipc args: [bytes4, protobuf], ipc returns: [bytes4, unknown]
+    public unknown_ret SetControllerActionSet();  // argc: 3, index: 54, ipc args: [bytes4, protobuf], ipc returns: [bytes4, protobuf]
     // WARNING: Arguments are unknown!
-    public unknown_ret SetControllerSourceMode();  // argc: 3, index: 55, ipc args: [bytes4, protobuf], ipc returns: [bytes4, unknown]
+    public unknown_ret SetControllerSourceMode();  // argc: 3, index: 55, ipc args: [bytes4, protobuf], ipc returns: [bytes4, protobuf]
     // WARNING: Arguments are unknown!
-    public unknown_ret DuplicateControllerSourceMode();  // argc: 3, index: 56, ipc args: [bytes4, protobuf], ipc returns: [bytes4, unknown]
+    public unknown_ret DuplicateControllerSourceMode();  // argc: 3, index: 56, ipc args: [bytes4, protobuf], ipc returns: [bytes4, protobuf]
     // WARNING: Arguments are unknown!
-    public unknown_ret SwapControllerConfigurationSourceModes();  // argc: 3, index: 57, ipc args: [bytes4, protobuf], ipc returns: [bytes4, unknown]
+    public unknown_ret SwapControllerConfigurationSourceModes();  // argc: 3, index: 57, ipc args: [bytes4, protobuf], ipc returns: [bytes4, protobuf]
     // WARNING: Arguments are unknown!
-    public unknown_ret SetControllerInputActivator();  // argc: 3, index: 58, ipc args: [bytes4, protobuf], ipc returns: [bytes4, unknown]
+    public unknown_ret SetControllerInputActivator();  // argc: 3, index: 58, ipc args: [bytes4, protobuf], ipc returns: [bytes4, protobuf]
     // WARNING: Arguments are unknown!
-    public unknown_ret SetControllerInputBinding();  // argc: 3, index: 59, ipc args: [bytes4, protobuf], ipc returns: [bytes4, unknown]
+    public unknown_ret SetControllerInputBinding();  // argc: 3, index: 59, ipc args: [bytes4, protobuf], ipc returns: [bytes4, protobuf]
     // WARNING: Arguments are unknown!
-    public unknown_ret SetControllerInputActivatorEnabled();  // argc: 3, index: 60, ipc args: [bytes4, protobuf], ipc returns: [bytes4, unknown]
+    public unknown_ret SetControllerInputActivatorEnabled();  // argc: 3, index: 60, ipc args: [bytes4, protobuf], ipc returns: [bytes4, protobuf]
     // WARNING: Arguments are unknown!
-    public unknown_ret SetControllerMiscMappingSettings();  // argc: 3, index: 61, ipc args: [bytes4, protobuf], ipc returns: [bytes4, unknown]
+    public unknown_ret SetControllerMiscMappingSettings();  // argc: 3, index: 61, ipc args: [bytes4, protobuf], ipc returns: [bytes4, protobuf]
     // WARNING: Arguments are unknown!
-    public unknown_ret SwapControllerModeInputBindings();  // argc: 3, index: 62, ipc args: [bytes4, protobuf], ipc returns: [bytes4, unknown]
+    public unknown_ret SwapControllerModeInputBindings();  // argc: 3, index: 62, ipc args: [bytes4, protobuf], ipc returns: [bytes4, protobuf]
     // WARNING: Arguments are unknown!
-    public unknown_ret SetControllerModeShiftBinding();  // argc: 3, index: 63, ipc args: [bytes4, protobuf], ipc returns: [bytes4, unknown]
+    public unknown_ret SetControllerModeShiftBinding();  // argc: 3, index: 63, ipc args: [bytes4, protobuf], ipc returns: [bytes4, protobuf]
     // WARNING: Arguments are unknown!
     public unknown_ret IsModified();  // argc: 1, index: 64, ipc args: [bytes4], ipc returns: [boolean]
     // WARNING: Arguments are unknown!
@@ -232,14 +232,14 @@ public unsafe interface IClientControllerSerialized
     // WARNING: Arguments are unknown!
     public unknown_ret InitiateBootloaderFirmwareUpdate();  // argc: 1, index: 107, ipc args: [bytes4], ipc returns: [bytes8]
     // WARNING: Arguments are unknown!
-    public unknown_ret FlashControllerFirmware();  // argc: 4, index: 108, ipc args: [bytes4, unknown, bytes4, string], ipc returns: [bytes8]
+    public unknown_ret FlashControllerFirmware();  // argc: 4, index: 108, ipc args: [bytes4, utlbuffer, bytes4, string], ipc returns: [bytes8]
     // WARNING: Arguments are unknown!
     public unknown_ret TurnOffController();  // argc: 1, index: 109, ipc args: [bytes4], ipc returns: []
     public unknown_ret EnumerateControllers();  // argc: 0, index: 110, ipc args: [], ipc returns: []
     // WARNING: Arguments are unknown!
     public unknown_ret GetControllerStatusEvent();  // argc: 2, index: 111, ipc args: [bytes4], ipc returns: [bytes1, bytes12]
     // WARNING: Arguments are unknown!
-    public unknown_ret GetActualControllerDetails();  // argc: 2, index: 112, ipc args: [bytes4], ipc returns: [bytes1, bytes92]
+    public unknown_ret GetActualControllerDetails();  // argc: 2, index: 112, ipc args: [bytes4], ipc returns: [bytes1, bytes80]
     // WARNING: Arguments are unknown!
     [BlacklistedInCrossProcessIPC]
     public unknown_ret GetControllerIdentity();  // argc: 2, index: 113, ipc args: [bytes4, bytes4], ipc returns: [bytes1]
@@ -347,15 +347,17 @@ public unsafe interface IClientControllerSerialized
     public unknown_ret SetControllerRumbleSetting();  // argc: 2, index: 161, ipc args: [bytes4, bytes4], ipc returns: [bytes1]
     // WARNING: Arguments are unknown!
     public unknown_ret SetControllerNintendoLayoutSetting();  // argc: 2, index: 162, ipc args: [bytes4, bytes1], ipc returns: [bytes1]
+    public unknown_ret SetControllerUseUniversalFaceButtonGlyphs();  // argc: 2, index: 163, ipc args: [bytes4, bytes1], ipc returns: [bytes1]
     // WARNING: Arguments are unknown!
-    public bool BGetTouchConfigData(uint unk, uint unk1, out UInt64 unk2, out uint unk3, CUtlBuffer* unk4, CUtlBuffer* unk5);  // argc: 6, index: 163, ipc args: [bytes4, bytes4], ipc returns: [boolean, bytes8, bytes4, unknown, unknown]
+    public bool BGetTouchConfigData(uint unk, uint unk1, out UInt64 unk2, out uint unk3, CUtlBuffer* unk4, CUtlBuffer* unk5);  // argc: 6, index: 164, ipc args: [bytes4, bytes4], ipc returns: [boolean, bytes8, bytes4, utlbuffer, utlbuffer]
     // WARNING: Arguments are unknown!
     [BlacklistedInCrossProcessIPC]
-    public unknown_ret BSaveTouchConfigLayout();  // argc: 3, index: 164, ipc args: [bytes4, bytes4, bytes4], ipc returns: [boolean]
+    public unknown_ret BSaveTouchConfigLayout();  // argc: 3, index: 165, ipc args: [bytes4, bytes4, bytes4], ipc returns: [boolean]
     // WARNING: Arguments are unknown!
-    public unknown_ret SetGyroOn();  // argc: 3, index: 165, ipc args: [bytes4, bytes8], ipc returns: []
+    public unknown_ret SetGyroOn();  // argc: 3, index: 166, ipc args: [bytes4, bytes8], ipc returns: []
     // WARNING: Arguments are unknown!
-    public unknown_ret CursorVisibilityChanged();  // argc: 1, index: 166, ipc args: [bytes1], ipc returns: []
+    public unknown_ret CursorVisibilityChanged();  // argc: 1, index: 167, ipc args: [bytes1], ipc returns: []
     // WARNING: Arguments are unknown!
-    public unknown_ret ForceSimpleHapticEvent();  // argc: 5, index: 167, ipc args: [bytes4, bytes1, bytes1, bytes1, bytes1], ipc returns: []
+    public unknown_ret ForceSimpleHapticEvent();  // argc: 5, index: 168, ipc args: [bytes4, bytes1, bytes1, bytes1, bytes1], ipc returns: []
+    public unknown_ret GetControllerMacAddr();  // argc: 3, index: 169, ipc args: [bytes4, string, string], ipc returns: [bytes1, bytes13, bytes13]
 }

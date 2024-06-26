@@ -65,7 +65,6 @@ public class SteamClient : ISteamClient
     public IClientApps IClientApps => NativeClient.IClientApps;
     public IClientAudio IClientAudio => NativeClient.IClientAudio;
     public IClientBilling IClientBilling => NativeClient.IClientBilling;
-    public IClientBluetoothManager IClientBluetoothManager => NativeClient.IClientBluetoothManager;
     public IClientCompat IClientCompat => NativeClient.IClientCompat;
     public IClientConfigStore IClientConfigStore => NativeClient.IClientConfigStore;
     public IClientController IClientController => NativeClient.IClientController;
@@ -301,7 +300,6 @@ public class SteamClient : ISteamClient
     public static IClientApps GetIClientApps() => GetInstance().IClientApps;
     public static IClientAudio GetIClientAudio() => GetInstance().IClientAudio;
     public static IClientBilling GetIClientBilling() => GetInstance().IClientBilling;
-    public static IClientBluetoothManager GetIClientBluetoothManager() => GetInstance().IClientBluetoothManager;
     public static IClientCompat GetIClientCompat() => GetInstance().IClientCompat;
     public static IClientConfigStore GetIClientConfigStore() => GetInstance().IClientConfigStore;
     public static IClientController GetIClientController() => GetInstance().IClientController;

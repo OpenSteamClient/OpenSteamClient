@@ -97,7 +97,6 @@ public partial class ClientNative {
     public IClientApps IClientApps { get; private set; }
     public IClientAudio IClientAudio { get; private set; }
     public IClientBilling IClientBilling { get; private set; }
-    public IClientBluetoothManager IClientBluetoothManager { get; private set; }
     public IClientCompat IClientCompat { get; private set; }
     public IClientConfigStore IClientConfigStore { get; private set; }
     public IClientController IClientController { get; private set; }
@@ -201,7 +200,6 @@ public partial class ClientNative {
     [MemberNotNull(nameof(IClientApps))]
     [MemberNotNull(nameof(IClientAudio))]
     [MemberNotNull(nameof(IClientBilling))]
-    [MemberNotNull(nameof(IClientBluetoothManager))]
     [MemberNotNull(nameof(IClientCompat))]
     [MemberNotNull(nameof(IClientConfigStore))]
     [MemberNotNull(nameof(IClientController))]
@@ -264,7 +262,6 @@ public partial class ClientNative {
         this.IClientApps = this.IClientEngine.GetIClientApps(this.User, this.Pipe);
         this.IClientAudio = this.IClientEngine.GetIClientAudio(this.User, this.Pipe);
         this.IClientBilling = this.IClientEngine.GetIClientBilling(this.User, this.Pipe);
-        this.IClientBluetoothManager = this.IClientEngine.GetIClientBluetoothManager(this.Pipe);
         this.IClientCompat = this.IClientEngine.GetIClientCompat(this.User, this.Pipe);
         this.IClientConfigStore = this.IClientEngine.GetIClientConfigStore(this.User, this.Pipe);
         this.IClientController = this.IClientEngine.GetIClientController(this.Pipe);
