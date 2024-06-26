@@ -79,4 +79,5 @@ public unsafe interface IClientInventory
     public unknown_ret SubmitUpdateProperties();  // argc: 3, index: 35, ipc args: [bytes8], ipc returns: [bytes1, bytes4]
     // WARNING: Arguments are unknown!
     public unknown_ret InspectItem();  // argc: 2, index: 36, ipc args: [string], ipc returns: [bytes1, bytes4]
+    public unknown_ret TEST_ClearMsgCache();  // argc: 0, index: 37, ipc args: [], ipc returns: []
 }

@@ -43,7 +43,7 @@ public unsafe interface IClientVR
     public AppId_t GetSteamVRAppId();  // argc: 0, index: 17, ipc args: [], ipc returns: [bytes4]
     public ulong GetWebSecret();  // argc: 0, index: 18, ipc args: [], ipc returns: [bytes8]
     // WARNING: Arguments are unknown!
-    public unknown_ret BGetMutualCapabilities();  // argc: 1, index: 19, ipc args: [], ipc returns: [boolean, utlbuffer]
+    public unknown_ret BGetMutualCapabilities();  // argc: 1, index: 19, ipc args: [], ipc returns: [boolean, unknown]
     public bool BSteamCanMakeVROverlays();  // argc: 0, index: 20, ipc args: [], ipc returns: [boolean]
     public bool BServeVRGamepadUIOverlay();  // argc: 0, index: 21, ipc args: [], ipc returns: [boolean]
     public unknown_ret BServeVRGamepadUIViaGamescope();  // argc: 0, index: 22, ipc args: [], ipc returns: [boolean]

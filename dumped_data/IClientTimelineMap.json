@@ -5,8 +5,8 @@
             "name": "SetTimelineStateDescription",
             "argc": "3",
             "interfaceid": "61",
-            "functionid": "1774208104",
-            "fencepost": "1863086641",
+            "functionid": "1774208125",
+            "fencepost": "1863296339",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "string",
@@ -19,8 +19,8 @@
             "name": "ClearTimelineStateDescription",
             "argc": "2",
             "interfaceid": "61",
-            "functionid": "2873399195",
-            "fencepost": "2962293861",
+            "functionid": "2873399176",
+            "fencepost": "2962503519",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4"
@@ -32,8 +32,8 @@
             "name": "AddTimelineEvent",
             "argc": "8",
             "interfaceid": "61",
-            "functionid": "2878662333",
-            "fencepost": "2967573128",
+            "functionid": "2878662304",
+            "fencepost": "2967782776",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "string",
@@ -51,8 +51,8 @@
             "name": "SetTimelineGameMode",
             "argc": "2",
             "interfaceid": "61",
-            "functionid": "3071603133",
-            "fencepost": "3160530057",
+            "functionid": "3071603106",
+            "fencepost": "3160739707",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4"
@@ -64,8 +64,8 @@
             "name": "AddUserMarkerForGame",
             "argc": "2",
             "interfaceid": "61",
-            "functionid": "1329387139",
-            "fencepost": "1418249547",
+            "functionid": "1329387156",
+            "fencepost": "1418459241",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes8"
@@ -77,8 +77,8 @@
             "name": "ToggleVideoRecordingForGame",
             "argc": "2",
             "interfaceid": "61",
-            "functionid": "3567465934",
-            "fencepost": "3656408987",
+            "functionid": "3567465939",
+            "fencepost": "3656618669",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes8"

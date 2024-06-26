@@ -36,7 +36,7 @@ public unsafe interface IClientRemoteClientManager
     // WARNING: Arguments are unknown!
     public unknown_ret ProcessStreamClientDisconnected();  // argc: 1, index: 11, ipc args: [bytes4], ipc returns: []
     // WARNING: Arguments are unknown!
-    public bool BGetStreamTransportSignal(uint unk, CUtlBuffer* data);  // argc: 2, index: 12, ipc args: [bytes4], ipc returns: [boolean, utlbuffer]
+    public bool BGetStreamTransportSignal(uint unk, CUtlBuffer* data);  // argc: 2, index: 12, ipc args: [bytes4], ipc returns: [boolean, unknown]
     // WARNING: Arguments are unknown!
     [BlacklistedInCrossProcessIPC]
     public unknown_ret SendStreamTransportSignal();  // argc: 2, index: 13, ipc args: [bytes4, bytes4], ipc returns: []
@@ -129,13 +129,13 @@ public unsafe interface IClientRemoteClientManager
     public unknown_ret BIsStreamClientRemotePlayTogether();  // argc: 0, index: 64, ipc args: [], ipc returns: [boolean]
     public unknown_ret GetStreamClientRemoteSteamVersion();  // argc: 0, index: 65, ipc args: [], ipc returns: [bytes8]
     // WARNING: Arguments are unknown!
-    public bool BGetStreamingClientConfig(CUtlBuffer* data);  // argc: 1, index: 66, ipc args: [], ipc returns: [boolean, utlbuffer]
+    public bool BGetStreamingClientConfig(CUtlBuffer* data);  // argc: 1, index: 66, ipc args: [], ipc returns: [boolean, unknown]
     // WARNING: Arguments are unknown!
-    public unknown_ret BSetStreamingClientConfig();  // argc: 1, index: 67, ipc args: [utlbuffer], ipc returns: [boolean]
+    public unknown_ret BSetStreamingClientConfig();  // argc: 1, index: 67, ipc args: [unknown], ipc returns: [boolean]
     // WARNING: Arguments are unknown!
     public unknown_ret BQueueControllerConfigMessageForRemote();  // argc: 1, index: 68, ipc args: [protobuf], ipc returns: [bytes8]
     // WARNING: Arguments are unknown!
-    public unknown_ret BGetControllerConfigMessageForLocal();  // argc: 1, index: 69, ipc args: [], ipc returns: [boolean, protobuf]
+    public unknown_ret BGetControllerConfigMessageForLocal();  // argc: 1, index: 69, ipc args: [], ipc returns: [boolean, unknown]
     // WARNING: Arguments are unknown!
     public unknown_ret RequestControllerConfig();  // argc: 4, index: 70, ipc args: [bytes8, bytes4, bytes4], ipc returns: [bytes8]
     // WARNING: Arguments are unknown!
@@ -203,5 +203,5 @@ public unsafe interface IClientRemoteClientManager
     public unknown_ret GetCloudGameTimeRemaining();  // argc: 3, index: 105, ipc args: [bytes8, bytes8], ipc returns: [bytes4]
     // WARNING: Arguments are unknown!
     public unknown_ret ShutdownStreamClients();  // argc: 1, index: 106, ipc args: [bytes1], ipc returns: []
-    public unknown_ret MarkTaskComplete();  // argc: 2, index: 107, ipc args: [bytes8], ipc returns: []
+    public unknown_ret MarkTaskComplete();  // argc: 3, index: 107, ipc args: [bytes8, string], ipc returns: []
 }

@@ -37,83 +37,6 @@ public class CompatManager : ILogonLifetime {
         RefreshCompatTools();
     }
 
-    private unsafe void LoadAppCompatToolPreferences()
-    {
-        // I'm not sure why we have to do this ourselves. steamclient.so seems to already have code for doing this, but I'm not sure how it gets activated.
-
-        if (steamClient.ConnectedWith == ConnectionType.ExistingClient) {
-            return;
-        }
-        
-        logger.Info("Loading compat tool preferences for apps");
-        CUtlVector<AppWhitelistSetting_t> whitelistN = new();
-        clientCompat.GetWhitelistedGameList(&whitelistN);
-
-        var whitelist = whitelistN.ToManagedAndFree();
-        var steamPlayManifests = (appsManager.GetApp(STEAMPLAY_MANIFESTS) as SteamApp)?.Extended.UnderlyingObject;
-        foreach (var item in whitelist)
-        {
-            var gameid = new CGameID(item.AppID);
-            if (IsCompatEnabledForApp(item.AppID)) {
-                continue;
-            }
-
-            //TODO: Check if the app is a shortcut and never overwrite those. (need to figure out the dumb thisptr thing...)
-
-            string toolToUse;
-            string config = string.Empty;
-            int priority = 85;
-            if (item.unk == 0) {
-                // Use the default app for that platform (proton for windows, slr for linux)
-                string os = appsManager.GetCurrentEffectiveOSForApp(gameid.AppID);
-                if (os == "linux") {
-                    toolToUse = "steamlinuxruntime";
-                } else {
-                    toolToUse = GetDefaultWindowsCompatTool();
-                }
-            } else if (item.unk == 8) {
-                priority = 100;
-
-                if (steamPlayManifests == null) {
-                    logger.Error("No SteamPlay manifests but we need them!");
-                    continue;
-                }
-
-                if (!steamPlayManifests.TryGetChild("app_mappings", out KVObject? app_mappings)) {
-                    logger.Error("No SteamPlay app_mappings but we need them!");
-                    continue;
-                }
-
-                if (!app_mappings.TryGetChild(item.AppID.ToString(), out KVObject? mapping)) {
-                    logger.Error("No SteamPlay app_mappings entry for app " + item.AppID);
-                    continue;
-                }
-
-                // Use the tool as specified in SteamPlay 2.0 Manifests
-                toolToUse = mapping["tool"].GetValueAsString();
-
-                // And also load the config
-                if (steamPlayManifests.TryGetChild("app_compat_configs", out KVObject? app_compat_configs)) {
-                    if (app_compat_configs.TryGetChild(item.AppID.ToString(), out KVObject? compat_config)) {
-                        //TODO: There's also an environment field. Unsure if that is automatically used
-                        if (compat_config.TryGetChild("config", out KVObject? configKV)) {
-                            config = configKV.GetValueAsString();
-                        }
-                    } else {
-                        logger.Error("No SteamPlay app_compat_configs entry for app " + item.AppID);
-                    }
-                } else {
-                    logger.Warning("No SteamPlay app_compat_configs!");
-                }  
-            } else {
-                logger.Error("Unknown compat whitelist mode " + item.unk + " for app " + item.AppID);
-                continue;
-            }
-
-            clientCompat.SpecifyCompatTool(item.AppID, toolToUse, config, priority);
-        }
-    }
-
     public unsafe void RefreshCompatTools() {
         //TODO: refresh compat tools in steamclient.so as well
         logger.Info("Refreshing all compat tools");
@@ -251,7 +174,6 @@ public class CompatManager : ILogonLifetime {
     public async Task OnLoggedOn(IExtendedProgress<int> progress, LoggedOnEventArgs e)
     {
         await Task.Run(() => RefreshCompatTools());
-        await Task.Run(() => LoadAppCompatToolPreferences());
     }
 
     public async Task OnLoggingOff(IProgress<string> progress)

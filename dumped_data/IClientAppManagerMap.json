@@ -5,8 +5,8 @@
             "name": "InstallApp",
             "argc": "4",
             "interfaceid": "17",
-            "functionid": "3717919039",
-            "fencepost": "3754743705",
+            "functionid": "3717919010",
+            "fencepost": "3754921095",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -21,8 +21,8 @@
             "name": "UninstallApp",
             "argc": "2",
             "interfaceid": "17",
-            "functionid": "1158013722",
-            "fencepost": "1195209355",
+            "functionid": "1158013717",
+            "fencepost": "1195386769",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4"
@@ -35,8 +35,8 @@
             "name": "LaunchApp",
             "argc": "5",
             "interfaceid": "17",
-            "functionid": "4144233161",
-            "fencepost": "4180670731",
+            "functionid": "4144233154",
+            "fencepost": "4180751369",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes8",
@@ -52,8 +52,8 @@
             "name": "ShutdownApp",
             "argc": "3",
             "interfaceid": "17",
-            "functionid": "91016597",
-            "fencepost": "127470296",
+            "functionid": "91016600",
+            "fencepost": "127550944",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -67,8 +67,8 @@
             "name": "GetAppInstallState",
             "argc": "2",
             "interfaceid": "17",
-            "functionid": "3941753284",
-            "fencepost": "3978223112",
+            "functionid": "3941753291",
+            "fencepost": "3978303764",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4"
@@ -81,8 +81,8 @@
             "name": "GetAppInstallDir",
             "argc": "4",
             "interfaceid": "17",
-            "functionid": "916084966",
-            "fencepost": "953232212",
+            "functionid": "916085019",
+            "fencepost": "953409684",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -97,8 +97,8 @@
             "name": "GetAppContentInfo",
             "argc": "7",
             "interfaceid": "17",
-            "functionid": "4089831320",
-            "fencepost": "4126430180",
+            "functionid": "4089831317",
+            "fencepost": "4126510822",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -116,8 +116,8 @@
             "name": "GetAppStagingInfo",
             "argc": "4",
             "interfaceid": "17",
-            "functionid": "651713561",
-            "fencepost": "688473711",
+            "functionid": "651713554",
+            "fencepost": "688554349",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4"
@@ -129,11 +129,26 @@
             ]
         },
         {
+            "name": "BGetContentInfoForApps",
+            "argc": "3",
+            "interfaceid": "17",
+            "functionid": "425940045",
+            "fencepost": "462893743",
+            "cannotcallincrossprocess": "1",
+            "serializedargs": [
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "boolean"
+            ]
+        },
+        {
             "name": "IsAppDlcInstalled",
             "argc": "3",
             "interfaceid": "17",
-            "functionid": "3451751499",
-            "fencepost": "3488818100",
+            "functionid": "3451751860",
+            "fencepost": "3488995880",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -147,8 +162,8 @@
             "name": "GetDlcDownloadProgress",
             "argc": "5",
             "interfaceid": "17",
-            "functionid": "3684262414",
-            "fencepost": "3722296755",
+            "functionid": "3684262403",
+            "fencepost": "3722474163",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -164,8 +179,8 @@
             "name": "BIsDlcEnabled",
             "argc": "4",
             "interfaceid": "17",
-            "functionid": "339559559",
-            "fencepost": "377432610",
+            "functionid": "339559580",
+            "fencepost": "377610050",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -180,8 +195,8 @@
             "name": "SetDlcEnabled",
             "argc": "4",
             "interfaceid": "17",
-            "functionid": "247712112",
-            "fencepost": "285633550",
+            "functionid": "247712101",
+            "fencepost": "285810958",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -195,8 +210,8 @@
             "name": "SetDlcContext",
             "argc": "3",
             "interfaceid": "17",
-            "functionid": "3677868851",
-            "fencepost": "3715806418",
+            "functionid": "3677868856",
+            "fencepost": "3715983842",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -210,8 +225,8 @@
             "name": "GetDlcSizes",
             "argc": "5",
             "interfaceid": "17",
-            "functionid": "2438415408",
-            "fencepost": "2476594910",
+            "functionid": "2438415439",
+            "fencepost": "2476772360",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -227,8 +242,8 @@
             "name": "GetNumInstalledApps",
             "argc": "1",
             "interfaceid": "17",
-            "functionid": "3728766708",
-            "fencepost": "3765978470",
+            "functionid": "3728766713",
+            "fencepost": "3766155894",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
             ],
@@ -240,8 +255,8 @@
             "name": "GetInstalledApps",
             "argc": "3",
             "interfaceid": "17",
-            "functionid": "1236285002",
-            "fencepost": "1273561280",
+            "functionid": "1236284993",
+            "fencepost": "1273738690",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4"
@@ -255,8 +270,8 @@
             "name": "BIsWaitingForInstalledApps",
             "argc": "1",
             "interfaceid": "17",
-            "functionid": "832925063",
-            "fencepost": "870249728",
+            "functionid": "832925080",
+            "fencepost": "870427164",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
             ],
@@ -268,8 +283,8 @@
             "name": "GetAppDependencies",
             "argc": "4",
             "interfaceid": "17",
-            "functionid": "2672409653",
-            "fencepost": "2709314964",
+            "functionid": "2672409646",
+            "fencepost": "2709492376",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -284,8 +299,8 @@
             "name": "GetDependentApps",
             "argc": "4",
             "interfaceid": "17",
-            "functionid": "2086506237",
-            "fencepost": "2123524451",
+            "functionid": "2086506224",
+            "fencepost": "2123701857",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -300,8 +315,8 @@
             "name": "GetUpdateInfo",
             "argc": "3",
             "interfaceid": "17",
-            "functionid": "666346681",
-            "fencepost": "704106829",
+            "functionid": "666346678",
+            "fencepost": "704284245",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4"
@@ -315,8 +330,8 @@
             "name": "BIsAppUpToDate",
             "argc": "2",
             "interfaceid": "17",
-            "functionid": "1343665225",
-            "fencepost": "1381893114",
+            "functionid": "1343665222",
+            "fencepost": "1382070530",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4"
@@ -329,8 +344,8 @@
             "name": "GetAvailableLanguages",
             "argc": "5",
             "interfaceid": "17",
-            "functionid": "1577620747",
-            "fencepost": "1615042186",
+            "functionid": "1577620758",
+            "fencepost": "1615219616",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -346,8 +361,8 @@
             "name": "GetCurrentLanguage",
             "argc": "4",
             "interfaceid": "17",
-            "functionid": "892810831",
-            "fencepost": "933522586",
+            "functionid": "892810868",
+            "fencepost": "933700042",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -362,8 +377,8 @@
             "name": "GetCurrentLanguage",
             "argc": "2",
             "interfaceid": "17",
-            "functionid": "1611311462",
-            "fencepost": "1651926443",
+            "functionid": "1611311441",
+            "fencepost": "1652103841",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4"
@@ -376,8 +391,8 @@
             "name": "GetFallbackLanguage",
             "argc": "3",
             "interfaceid": "17",
-            "functionid": "172063417",
-            "fencepost": "212694527",
+            "functionid": "172063372",
+            "fencepost": "212871901",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -391,8 +406,8 @@
             "name": "SetCurrentLanguage",
             "argc": "3",
             "interfaceid": "17",
-            "functionid": "2152782256",
-            "fencepost": "2193542398",
+            "functionid": "2152782213",
+            "fencepost": "2193719774",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -406,8 +421,8 @@
             "name": "StartValidatingApp",
             "argc": "2",
             "interfaceid": "17",
-            "functionid": "1350042145",
-            "fencepost": "1387511971",
+            "functionid": "1350042156",
+            "fencepost": "1387689401",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4"
@@ -420,8 +435,8 @@
             "name": "CancelValidation",
             "argc": "2",
             "interfaceid": "17",
-            "functionid": "2571750279",
-            "fencepost": "2609236234",
+            "functionid": "2571750284",
+            "fencepost": "2609413658",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4"
@@ -434,8 +449,8 @@
             "name": "MarkContentCorrupt",
             "argc": "3",
             "interfaceid": "17",
-            "functionid": "171813192",
-            "fencepost": "209315276",
+            "functionid": "171813245",
+            "fencepost": "209492748",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -449,8 +464,8 @@
             "name": "GetInstalledDepots",
             "argc": "4",
             "interfaceid": "17",
-            "functionid": "2358133152",
-            "fencepost": "2395796526",
+            "functionid": "2358133149",
+            "fencepost": "2395973942",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -465,8 +480,8 @@
             "name": "GetFileDetails",
             "argc": "3",
             "interfaceid": "17",
-            "functionid": "556257755",
-            "fencepost": "593792097",
+            "functionid": "556257774",
+            "fencepost": "593969535",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -480,8 +495,8 @@
             "name": "VerifySignedFiles",
             "argc": "2",
             "interfaceid": "17",
-            "functionid": "2254356342",
-            "fencepost": "2291922942",
+            "functionid": "2254356299",
+            "fencepost": "2292100318",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4"
@@ -494,8 +509,8 @@
             "name": "GetNumBetas",
             "argc": "4",
             "interfaceid": "17",
-            "functionid": "640701642",
-            "fencepost": "678961789",
+            "functionid": "640701633",
+            "fencepost": "679139199",
             "cannotcallincrossprocess": "1",
             "serializedargs": [
                 "bytes4",
@@ -510,8 +525,8 @@
             "name": "GetBetaInfo",
             "argc": "9",
             "interfaceid": "17",
-            "functionid": "3600861280",
-            "fencepost": "3639282717",
+            "functionid": "3600861301",
+            "fencepost": "3639460157",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -531,8 +546,8 @@
             "name": "CheckBetaPassword",
             "argc": "3",
             "interfaceid": "17",
-            "functionid": "1965128825",
-            "fencepost": "2003372843",
+            "functionid": "1965128820",
+            "fencepost": "2003550257",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -546,8 +561,8 @@
             "name": "SetActiveBeta",
             "argc": "3",
             "interfaceid": "17",
-            "functionid": "1292574906",
-            "fencepost": "1331206020",
+            "functionid": "1292574855",
+            "fencepost": "1331383388",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -561,8 +576,8 @@
             "name": "GetActiveBeta",
             "argc": "4",
             "interfaceid": "17",
-            "functionid": "1348640809",
-            "fencepost": "1387223536",
+            "functionid": "1348640802",
+            "fencepost": "1387400948",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -577,8 +592,8 @@
             "name": "BGetActiveBetaForApps",
             "argc": "3",
             "interfaceid": "17",
-            "functionid": "4045532763",
-            "fencepost": "4086099357",
+            "functionid": "4045532752",
+            "fencepost": "4086276765",
             "cannotcallincrossprocess": "1",
             "serializedargs": [
                 "bytes4",
@@ -592,8 +607,8 @@
             "name": "SetDownloadingEnabled",
             "argc": "2",
             "interfaceid": "17",
-            "functionid": "3317716898",
-            "fencepost": "3356364141",
+            "functionid": "3317716889",
+            "fencepost": "3356541551",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes1"
@@ -606,8 +621,8 @@
             "name": "BIsDownloadingEnabled",
             "argc": "1",
             "interfaceid": "17",
-            "functionid": "691451489",
-            "fencepost": "730114861",
+            "functionid": "691451476",
+            "fencepost": "730292267",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
             ],
@@ -619,8 +634,8 @@
             "name": "GetDownloadStats",
             "argc": "2",
             "interfaceid": "17",
-            "functionid": "1525892935",
-            "fencepost": "1564604694",
+            "functionid": "1525892976",
+            "fencepost": "1564782154",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
             ],
@@ -633,8 +648,8 @@
             "name": "GetDownloadingAppID",
             "argc": "1",
             "interfaceid": "17",
-            "functionid": "2928079537",
-            "fencepost": "2966839683",
+            "functionid": "2928079548",
+            "fencepost": "2967017113",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
             ],
@@ -646,8 +661,8 @@
             "name": "GetAutoUpdateTimeRestrictionEnabled",
             "argc": "1",
             "interfaceid": "17",
-            "functionid": "1262953828",
-            "fencepost": "1301746232",
+            "functionid": "1262953841",
+            "fencepost": "1301923664",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
             ],
@@ -659,8 +674,8 @@
             "name": "SetAutoUpdateTimeRestrictionEnabled",
             "argc": "2",
             "interfaceid": "17",
-            "functionid": "3123034961",
-            "fencepost": "3161843494",
+            "functionid": "3123034950",
+            "fencepost": "3162020902",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes1"
@@ -672,8 +687,8 @@
             "name": "GetAutoUpdateTimeRestrictionHours",
             "argc": "3",
             "interfaceid": "17",
-            "functionid": "3810015738",
-            "fencepost": "3848872658",
+            "functionid": "3810015727",
+            "fencepost": "3849050066",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
             ],
@@ -687,8 +702,8 @@
             "name": "SetAutoUpdateTimeRestrictionStartHour",
             "argc": "2",
             "interfaceid": "17",
-            "functionid": "3861440474",
-            "fencepost": "3900361910",
+            "functionid": "3861440463",
+            "fencepost": "3900539318",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4"
@@ -701,8 +716,8 @@
             "name": "SetAutoUpdateTimeRestrictionEndHour",
             "argc": "2",
             "interfaceid": "17",
-            "functionid": "1750764396",
-            "fencepost": "1789701961",
+            "functionid": "1750764411",
+            "fencepost": "1789879395",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4"
@@ -715,8 +730,8 @@
             "name": "GetAppAutoUpdateBehavior",
             "argc": "2",
             "interfaceid": "17",
-            "functionid": "887710951",
-            "fencepost": "926680774",
+            "functionid": "887710956",
+            "fencepost": "926858198",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4"
@@ -729,8 +744,8 @@
             "name": "SetAppAutoUpdateBehavior",
             "argc": "3",
             "interfaceid": "17",
-            "functionid": "3319195042",
-            "fencepost": "3358245510",
+            "functionid": "3319194967",
+            "fencepost": "3358422854",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -744,8 +759,8 @@
             "name": "SetAppAllowDownloadsWhileRunningBehavior",
             "argc": "3",
             "interfaceid": "17",
-            "functionid": "4268892418",
-            "fencepost": "12911074",
+            "functionid": "4268892431",
+            "fencepost": "13088506",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -759,8 +774,8 @@
             "name": "GetAppAllowDownloadsWhileRunningBehavior",
             "argc": "2",
             "interfaceid": "17",
-            "functionid": "1900398605",
-            "fencepost": "1939400686",
+            "functionid": "1900398594",
+            "fencepost": "1939578094",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4"
@@ -773,8 +788,8 @@
             "name": "SetAllowDownloadsWhileAnyAppRunning",
             "argc": "2",
             "interfaceid": "17",
-            "functionid": "2803266719",
-            "fencepost": "2842284929",
+            "functionid": "2803266706",
+            "fencepost": "2842462335",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes1"
@@ -786,8 +801,8 @@
             "name": "BAllowDownloadsWhileAnyAppRunning",
             "argc": "1",
             "interfaceid": "17",
-            "functionid": "2454019384",
-            "fencepost": "2493053723",
+            "functionid": "2454019379",
+            "fencepost": "2493231137",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
             ],
@@ -799,8 +814,8 @@
             "name": "ChangeAppDownloadQueuePlacement",
             "argc": "3",
             "interfaceid": "17",
-            "functionid": "2614707091",
-            "fencepost": "2653773688",
+            "functionid": "2614707044",
+            "fencepost": "2653951060",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -814,8 +829,8 @@
             "name": "SetAppDownloadQueueIndex",
             "argc": "3",
             "interfaceid": "17",
-            "functionid": "3065632308",
-            "fencepost": "3104715034",
+            "functionid": "3065632449",
+            "fencepost": "3104892594",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -829,8 +844,8 @@
             "name": "GetAppDownloadQueueIndex",
             "argc": "2",
             "interfaceid": "17",
-            "functionid": "2374699643",
-            "fencepost": "2413798498",
+            "functionid": "2374699648",
+            "fencepost": "2413975922",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4"
@@ -843,8 +858,8 @@
             "name": "GetAppAutoUpdateDelayedUntilTime",
             "argc": "2",
             "interfaceid": "17",
-            "functionid": "2486650714",
-            "fencepost": "2525781827",
+            "functionid": "2486650789",
+            "fencepost": "2525959321",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4"
@@ -857,8 +872,8 @@
             "name": "GetNumAppsInDownloadQueue",
             "argc": "1",
             "interfaceid": "17",
-            "functionid": "3692776583",
-            "fencepost": "3731891567",
+            "functionid": "3692776570",
+            "fencepost": "3732068973",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
             ],
@@ -870,8 +885,8 @@
             "name": "BHasLocalContentServer",
             "argc": "1",
             "interfaceid": "17",
-            "functionid": "2798338227",
-            "fencepost": "2837485469",
+            "functionid": "2798338126",
+            "fencepost": "2837662787",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
             ],
@@ -883,8 +898,8 @@
             "name": "BuildBackup",
             "argc": "5",
             "interfaceid": "17",
-            "functionid": "2896422028",
-            "fencepost": "2935585399",
+            "functionid": "2896422007",
+            "fencepost": "2935762797",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -899,8 +914,8 @@
             "name": "BuildInstaller",
             "argc": "5",
             "interfaceid": "17",
-            "functionid": "3209107113",
-            "fencepost": "3248286613",
+            "functionid": "3209107036",
+            "fencepost": "3248463955",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "string",
@@ -916,8 +931,8 @@
             "name": "CancelBackup",
             "argc": "1",
             "interfaceid": "17",
-            "functionid": "3107396949",
-            "fencepost": "3146592578",
+            "functionid": "3107397026",
+            "fencepost": "3146770074",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
             ],
@@ -929,8 +944,8 @@
             "name": "RestoreAppFromBackup",
             "argc": "3",
             "interfaceid": "17",
-            "functionid": "4098321228",
-            "fencepost": "4137532986",
+            "functionid": "4098321337",
+            "fencepost": "4137710514",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -944,8 +959,8 @@
             "name": "RecoverAppFromFolder",
             "argc": "3",
             "interfaceid": "17",
-            "functionid": "3827439813",
-            "fencepost": "3866667700",
+            "functionid": "3827439822",
+            "fencepost": "3866845128",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -959,8 +974,8 @@
             "name": "CanMoveApp",
             "argc": "3",
             "interfaceid": "17",
-            "functionid": "1756559759",
-            "fencepost": "1795852162",
+            "functionid": "1756559746",
+            "fencepost": "1796029568",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4"
@@ -974,8 +989,8 @@
             "name": "MoveApp",
             "argc": "3",
             "interfaceid": "17",
-            "functionid": "1199589967",
-            "fencepost": "1238930757",
+            "functionid": "1199589978",
+            "fencepost": "1239108187",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -989,8 +1004,8 @@
             "name": "GetMoveAppProgress",
             "argc": "5",
             "interfaceid": "17",
-            "functionid": "1428384636",
-            "fencepost": "1467822200",
+            "functionid": "1428384615",
+            "fencepost": "1467999598",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4"
@@ -1006,8 +1021,8 @@
             "name": "CancelMoveApp",
             "argc": "2",
             "interfaceid": "17",
-            "functionid": "1124666640",
-            "fencepost": "1164184849",
+            "functionid": "1124666655",
+            "fencepost": "1164362283",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4"
@@ -1020,8 +1035,8 @@
             "name": "GetAppStateInfo",
             "argc": "3",
             "interfaceid": "17",
-            "functionid": "3614279911",
-            "fencepost": "3653862636",
+            "functionid": "3614279914",
+            "fencepost": "3654040058",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4"
@@ -1035,8 +1050,8 @@
             "name": "BGetAppStateInfoForApps",
             "argc": "3",
             "interfaceid": "17",
-            "functionid": "1220555907",
-            "fencepost": "1260235406",
+            "functionid": "1220555966",
+            "fencepost": "1260412884",
             "cannotcallincrossprocess": "1",
             "serializedargs": [
                 "bytes4",
@@ -1050,8 +1065,8 @@
             "name": "BCanRemotePlayTogether",
             "argc": "2",
             "interfaceid": "17",
-            "functionid": "588483514",
-            "fencepost": "628195271",
+            "functionid": "588483469",
+            "fencepost": "628372645",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4"
@@ -1064,8 +1079,8 @@
             "name": "BIsLocalMultiplayerApp",
             "argc": "2",
             "interfaceid": "17",
-            "functionid": "1708016171",
-            "fencepost": "1747744057",
+            "functionid": "1708016158",
+            "fencepost": "1747921463",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4"
@@ -1078,8 +1093,8 @@
             "name": "GetNumLibraryFolders",
             "argc": "1",
             "interfaceid": "17",
-            "functionid": "2874207226",
-            "fencepost": "2913951241",
+            "functionid": "2874207217",
+            "fencepost": "2914128651",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
             ],
@@ -1091,8 +1106,8 @@
             "name": "GetLibraryFolderPath",
             "argc": "4",
             "interfaceid": "17",
-            "functionid": "4068236703",
-            "fencepost": "4108061363",
+            "functionid": "4068236690",
+            "fencepost": "4108238769",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -1107,8 +1122,8 @@
             "name": "AddLibraryFolder",
             "argc": "2",
             "interfaceid": "17",
-            "functionid": "379669709",
-            "fencepost": "419542756",
+            "functionid": "379669718",
+            "fencepost": "419720184",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "string"
@@ -1121,8 +1136,8 @@
             "name": "SetLibraryFolderLabel",
             "argc": "3",
             "interfaceid": "17",
-            "functionid": "2425075027",
-            "fencepost": "2464996461",
+            "functionid": "2425075022",
+            "fencepost": "2465173875",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -1135,8 +1150,8 @@
             "name": "GetLibraryFolderLabel",
             "argc": "4",
             "interfaceid": "17",
-            "functionid": "1823622979",
-            "fencepost": "1863625058",
+            "functionid": "1823623000",
+            "fencepost": "1863802498",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -1151,8 +1166,8 @@
             "name": "RemoveLibraryFolder",
             "argc": "4",
             "interfaceid": "17",
-            "functionid": "3154856455",
-            "fencepost": "3194745631",
+            "functionid": "3154856474",
+            "fencepost": "3194923069",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -1167,8 +1182,8 @@
             "name": "BGetLibraryFolderInfo",
             "argc": "5",
             "interfaceid": "17",
-            "functionid": "3528324219",
-            "fencepost": "3568229524",
+            "functionid": "3528324196",
+            "fencepost": "3568406920",
             "cannotcallincrossprocess": "1",
             "serializedargs": [
                 "bytes4",
@@ -1184,8 +1199,8 @@
             "name": "GetAppLibraryFolder",
             "argc": "2",
             "interfaceid": "17",
-            "functionid": "376355482",
-            "fencepost": "416405948",
+            "functionid": "376355479",
+            "fencepost": "416583364",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4"
@@ -1198,8 +1213,8 @@
             "name": "RefreshLibraryFolders",
             "argc": "1",
             "interfaceid": "17",
-            "functionid": "1430032562",
-            "fencepost": "1470099157",
+            "functionid": "1430032569",
+            "fencepost": "1470276583",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
             ],
@@ -1210,8 +1225,8 @@
             "name": "GetNumAppsInFolder",
             "argc": "2",
             "interfaceid": "17",
-            "functionid": "2453572220",
-            "fencepost": "2493654944",
+            "functionid": "2453572105",
+            "fencepost": "2493832248",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4"
@@ -1224,8 +1239,8 @@
             "name": "GetAppsInFolder",
             "argc": "4",
             "interfaceid": "17",
-            "functionid": "3357124038",
-            "fencepost": "3397287407",
+            "functionid": "3357124017",
+            "fencepost": "3397464805",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -1240,8 +1255,8 @@
             "name": "ForceInstallDirOverride",
             "argc": "2",
             "interfaceid": "17",
-            "functionid": "1627378620",
-            "fencepost": "1667590376",
+            "functionid": "1627378633",
+            "fencepost": "1667767808",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "string"
@@ -1253,8 +1268,8 @@
             "name": "SetDownloadThrottleRateKbps",
             "argc": "3",
             "interfaceid": "17",
-            "functionid": "2078089348",
-            "fencepost": "2118317233",
+            "functionid": "2078089459",
+            "fencepost": "2118494763",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -1268,8 +1283,8 @@
             "name": "GetDownloadThrottleRateKbps",
             "argc": "2",
             "interfaceid": "17",
-            "functionid": "525885201",
-            "fencepost": "566129215",
+            "functionid": "525885284",
+            "fencepost": "566306717",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes1"
@@ -1282,8 +1297,8 @@
             "name": "SuspendDownloadThrottling",
             "argc": "2",
             "interfaceid": "17",
-            "functionid": "3639519434",
-            "fencepost": "3679779577",
+            "functionid": "3639519425",
+            "fencepost": "3679956987",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes1"
@@ -1295,8 +1310,8 @@
             "name": "SetThrottleDownloadsWhileStreaming",
             "argc": "2",
             "interfaceid": "17",
-            "functionid": "2047509986",
-            "fencepost": "2087786258",
+            "functionid": "2047509999",
+            "fencepost": "2087963690",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes1"
@@ -1308,8 +1323,8 @@
             "name": "BThrottleDownloadsWhileStreaming",
             "argc": "1",
             "interfaceid": "17",
-            "functionid": "180428341",
-            "fencepost": "220720742",
+            "functionid": "180428346",
+            "fencepost": "220898166",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
             ],
@@ -1321,8 +1336,8 @@
             "name": "GetLaunchQueryParam",
             "argc": "3",
             "interfaceid": "17",
-            "functionid": "1910620971",
-            "fencepost": "1950929501",
+            "functionid": "1910620966",
+            "fencepost": "1951106915",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -1336,8 +1351,8 @@
             "name": "BeginLaunchQueryParams",
             "argc": "2",
             "interfaceid": "17",
-            "functionid": "3351370640",
-            "fencepost": "3391695299",
+            "functionid": "3351370651",
+            "fencepost": "3391872729",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4"
@@ -1349,8 +1364,8 @@
             "name": "SetLaunchQueryParam",
             "argc": "4",
             "interfaceid": "17",
-            "functionid": "2132206669",
-            "fencepost": "2172547457",
+            "functionid": "2132206680",
+            "fencepost": "2172724887",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -1364,8 +1379,8 @@
             "name": "CommitLaunchQueryParams",
             "argc": "3",
             "interfaceid": "17",
-            "functionid": "126078899",
-            "fencepost": "166435816",
+            "functionid": "126078884",
+            "fencepost": "166613220",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -1379,8 +1394,8 @@
             "name": "GetLaunchCommandLine",
             "argc": "4",
             "interfaceid": "17",
-            "functionid": "1099766924",
-            "fencepost": "1140220615",
+            "functionid": "1099766935",
+            "fencepost": "1140398045",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -1395,8 +1410,8 @@
             "name": "AddContentLogLine",
             "argc": "2",
             "interfaceid": "17",
-            "functionid": "454543208",
-            "fencepost": "494916254",
+            "functionid": "454543229",
+            "fencepost": "495093694",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "string"
@@ -1408,8 +1423,8 @@
             "name": "SetUseHTTPSForDownloads",
             "argc": "2",
             "interfaceid": "17",
-            "functionid": "1483693458",
-            "fencepost": "1524485858",
+            "functionid": "1483693471",
+            "fencepost": "1524663290",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes1"
@@ -1421,8 +1436,8 @@
             "name": "GetUseHTTPSForDownloads",
             "argc": "1",
             "interfaceid": "17",
-            "functionid": "330856351",
-            "fencepost": "371664880",
+            "functionid": "330856336",
+            "fencepost": "371842284",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
             ],
@@ -1434,8 +1449,8 @@
             "name": "SetPeerContentServerMode",
             "argc": "2",
             "interfaceid": "17",
-            "functionid": "653266494",
-            "fencepost": "694107281",
+            "functionid": "653266485",
+            "fencepost": "694284691",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4"
@@ -1447,8 +1462,8 @@
             "name": "SetPeerContentClientMode",
             "argc": "2",
             "interfaceid": "17",
-            "functionid": "1061113091",
-            "fencepost": "1101970007",
+            "functionid": "1061113110",
+            "fencepost": "1102147445",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4"
@@ -1460,8 +1475,8 @@
             "name": "GetPeerContentServerMode",
             "argc": "1",
             "interfaceid": "17",
-            "functionid": "4115279894",
-            "fencepost": "4156152939",
+            "functionid": "4115279873",
+            "fencepost": "4156330337",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
             ],
@@ -1473,8 +1488,8 @@
             "name": "GetPeerContentClientMode",
             "argc": "1",
             "interfaceid": "17",
-            "functionid": "3961027707",
-            "fencepost": "4001916881",
+            "functionid": "3961027694",
+            "fencepost": "4002094287",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
             ],
@@ -1486,8 +1501,8 @@
             "name": "GetPeerContentServerStats",
             "argc": "2",
             "interfaceid": "17",
-            "functionid": "4200150894",
-            "fencepost": "4241104584",
+            "functionid": "4200150899",
+            "fencepost": "4241282008",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
             ],
@@ -1500,8 +1515,8 @@
             "name": "SuspendPeerContentClient",
             "argc": "2",
             "interfaceid": "17",
-            "functionid": "2117362800",
-            "fencepost": "2158381006",
+            "functionid": "2117362789",
+            "fencepost": "2158558414",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes1"
@@ -1513,8 +1528,8 @@
             "name": "SuspendPeerContentServer",
             "argc": "2",
             "interfaceid": "17",
-            "functionid": "878564347",
-            "fencepost": "919598682",
+            "functionid": "878564336",
+            "fencepost": "919776090",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes1"
@@ -1526,8 +1541,8 @@
             "name": "GetPeerContentServerForApp",
             "argc": "4",
             "interfaceid": "17",
-            "functionid": "1396344352",
-            "fencepost": "1437459332",
+            "functionid": "1396344365",
+            "fencepost": "1437636764",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4"
@@ -1542,8 +1557,8 @@
             "name": "NotifyDriveAdded",
             "argc": "2",
             "interfaceid": "17",
-            "functionid": "2460665819",
-            "fencepost": "2501861444",
+            "functionid": "2460664868",
+            "fencepost": "2502037912",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "string"
@@ -1555,8 +1570,8 @@
             "name": "NotifyDriveRemoved",
             "argc": "2",
             "interfaceid": "17",
-            "functionid": "3352393112",
-            "fencepost": "3393604866",
+            "functionid": "3352393317",
+            "fencepost": "3393782490",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "string"
@@ -1568,8 +1583,8 @@
             "name": "SetAudioDownloadQuality",
             "argc": "2",
             "interfaceid": "17",
-            "functionid": "1073533839",
-            "fencepost": "1114777851",
+            "functionid": "1073533050",
+            "fencepost": "1114954481",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes1"

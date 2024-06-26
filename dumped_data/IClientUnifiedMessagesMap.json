@@ -5,8 +5,8 @@
             "name": "SendMethod",
             "argc": "6",
             "interfaceid": "25",
-            "functionid": "981623548",
-            "fencepost": "1053916901",
+            "functionid": "981623305",
+            "fencepost": "1054094077",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "string",
@@ -22,8 +22,8 @@
             "name": "GetMethodResponseInfo",
             "argc": "5",
             "interfaceid": "25",
-            "functionid": "772621607",
-            "fencepost": "845027863",
+            "functionid": "772621618",
+            "fencepost": "845205293",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes8"
@@ -38,8 +38,8 @@
             "name": "GetMethodResponseData",
             "argc": "6",
             "interfaceid": "25",
-            "functionid": "278951654",
-            "fencepost": "351519200",
+            "functionid": "278951665",
+            "fencepost": "351696630",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes8",
@@ -55,8 +55,8 @@
             "name": "ReleaseMethod",
             "argc": "3",
             "interfaceid": "25",
-            "functionid": "2788112634",
-            "fencepost": "2860744696",
+            "functionid": "2788112591",
+            "fencepost": "2860922072",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes8"
@@ -69,8 +69,8 @@
             "name": "SendNotification",
             "argc": "4",
             "interfaceid": "25",
-            "functionid": "72229836",
-            "fencepost": "144958672",
+            "functionid": "72229873",
+            "fencepost": "145136128",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "string",

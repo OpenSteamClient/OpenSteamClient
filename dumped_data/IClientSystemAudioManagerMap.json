@@ -5,8 +5,8 @@
             "name": "IsInterfaceValid",
             "argc": "1",
             "interfaceid": "59",
-            "functionid": "862246329",
-            "fencepost": "907463409",
+            "functionid": "862246324",
+            "fencepost": "907640823",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
             ],
@@ -18,23 +18,23 @@
             "name": "GetState",
             "argc": "3",
             "interfaceid": "59",
-            "functionid": "3936378770",
-            "fencepost": "3981676495",
+            "functionid": "3936378471",
+            "fencepost": "3981853615",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4"
             ],
             "serializedreturns": [
                 "bytes1",
-                "protobuf"
+                "unknown"
             ]
         },
         {
             "name": "UpdateSomething",
             "argc": "2",
             "interfaceid": "59",
-            "functionid": "3365237371",
-            "fencepost": "3410631870",
+            "functionid": "3365237632",
+            "fencepost": "3410809550",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "protobuf"

@@ -5,8 +5,8 @@
             "name": "GetShortcutDisplayName",
             "argc": "2",
             "interfaceid": "23",
-            "functionid": "2094781154",
-            "fencepost": "2154219440",
+            "functionid": "2094781175",
+            "fencepost": "2154396880",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes8"
@@ -19,8 +19,8 @@
             "name": "SetShortcutDisplayName",
             "argc": "3",
             "interfaceid": "23",
-            "functionid": "2240540173",
-            "fencepost": "2299994588",
+            "functionid": "2240540186",
+            "fencepost": "2300172020",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes8",
@@ -33,8 +33,8 @@
             "name": "SendScreenshotStartedNotification",
             "argc": "2",
             "interfaceid": "23",
-            "functionid": "3917650572",
-            "fencepost": "3977121116",
+            "functionid": "3917650585",
+            "fencepost": "3977298548",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes8"
@@ -46,8 +46,8 @@
             "name": "WriteScreenshot",
             "argc": "7",
             "interfaceid": "23",
-            "functionid": "459096669",
-            "fencepost": "518776890",
+            "functionid": "459096646",
+            "fencepost": "518954286",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes8",
@@ -65,8 +65,8 @@
             "name": "AddScreenshotToLibrary",
             "argc": "8",
             "interfaceid": "23",
-            "functionid": "1823090540",
-            "fencepost": "1882803019",
+            "functionid": "1823090587",
+            "fencepost": "1882980485",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes8",
@@ -85,8 +85,8 @@
             "name": "TriggerScreenshot",
             "argc": "2",
             "interfaceid": "23",
-            "functionid": "2954246948",
-            "fencepost": "3013975556",
+            "functionid": "2954247121",
+            "fencepost": "3014153148",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes8"
@@ -98,8 +98,8 @@
             "name": "RequestScreenshotFromGame",
             "argc": "2",
             "interfaceid": "23",
-            "functionid": "3775109069",
-            "fencepost": "3834853806",
+            "functionid": "3775108918",
+            "fencepost": "3835031074",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4"
@@ -111,8 +111,8 @@
             "name": "SetLocation",
             "argc": "4",
             "interfaceid": "23",
-            "functionid": "599106243",
-            "fencepost": "659012270",
+            "functionid": "599106252",
+            "fencepost": "659189698",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes8",
@@ -127,8 +127,8 @@
             "name": "TagUser",
             "argc": "5",
             "interfaceid": "23",
-            "functionid": "3168743305",
-            "fencepost": "3228665461",
+            "functionid": "3168743300",
+            "fencepost": "3228842875",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes8",
@@ -143,8 +143,8 @@
             "name": "TagPublishedFile",
             "argc": "5",
             "interfaceid": "23",
-            "functionid": "3009192281",
-            "fencepost": "3069130566",
+            "functionid": "3009192274",
+            "fencepost": "3069307978",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes8",
@@ -159,8 +159,8 @@
             "name": "ResolvePath",
             "argc": "6",
             "interfaceid": "23",
-            "functionid": "879595653",
-            "fencepost": "939453293",
+            "functionid": "879595640",
+            "fencepost": "939630699",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes8",
@@ -177,8 +177,8 @@
             "name": "GetSizeOnDisk",
             "argc": "3",
             "interfaceid": "23",
-            "functionid": "1428812286",
-            "fencepost": "1488766700",
+            "functionid": "1428812267",
+            "fencepost": "1488944100",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes8",
@@ -192,8 +192,8 @@
             "name": "GetSizeInCloud",
             "argc": "3",
             "interfaceid": "23",
-            "functionid": "1939222321",
-            "fencepost": "1999192864",
+            "functionid": "1939222310",
+            "fencepost": "1999370272",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes8",
@@ -207,8 +207,8 @@
             "name": "IsPersisted",
             "argc": "3",
             "interfaceid": "23",
-            "functionid": "2982744097",
-            "fencepost": "3042730769",
+            "functionid": "2982744116",
+            "fencepost": "3042908207",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes8",
@@ -222,8 +222,8 @@
             "name": "GetNumGamesWithLocalScreenshots",
             "argc": "1",
             "interfaceid": "23",
-            "functionid": "333991019",
-            "fencepost": "393993820",
+            "functionid": "333991024",
+            "fencepost": "394171244",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
             ],
@@ -235,8 +235,8 @@
             "name": "GetGameWithLocalScreenshots",
             "argc": "3",
             "interfaceid": "23",
-            "functionid": "3184840919",
-            "fencepost": "3244859849",
+            "functionid": "3184840906",
+            "fencepost": "3245037255",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4"
@@ -249,8 +249,8 @@
             "name": "GetLocalScreenshotCount",
             "argc": "2",
             "interfaceid": "23",
-            "functionid": "187845438",
-            "fencepost": "247880497",
+            "functionid": "187845409",
+            "fencepost": "248057887",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes8"
@@ -263,8 +263,8 @@
             "name": "GetLocalScreenshot",
             "argc": "13",
             "interfaceid": "23",
-            "functionid": "195016827",
-            "fencepost": "255277692",
+            "functionid": "195016806",
+            "fencepost": "255455090",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes8",
@@ -288,8 +288,8 @@
             "name": "GetLocalScreenshotByHandle",
             "argc": "12",
             "interfaceid": "23",
-            "functionid": "3092741133",
-            "fencepost": "3153372965",
+            "functionid": "3092741120",
+            "fencepost": "3153550371",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes8",
@@ -312,8 +312,8 @@
             "name": "SetLocalScreenshotCaption",
             "argc": "4",
             "interfaceid": "23",
-            "functionid": "2646597948",
-            "fencepost": "2707391070",
+            "functionid": "2646597953",
+            "fencepost": "2707568494",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes8",
@@ -328,8 +328,8 @@
             "name": "SetLocalScreenshotPrivacy",
             "argc": "4",
             "interfaceid": "23",
-            "functionid": "3253669723",
-            "fencepost": "3314478974",
+            "functionid": "3253669668",
+            "fencepost": "3314656338",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes8",
@@ -344,8 +344,8 @@
             "name": "SetLocalScreenshotSpoiler",
             "argc": "4",
             "interfaceid": "23",
-            "functionid": "3487342095",
-            "fencepost": "3548167475",
+            "functionid": "3487342194",
+            "fencepost": "3548344993",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes8",
@@ -360,8 +360,8 @@
             "name": "GetLocalLastScreenshot",
             "argc": "3",
             "interfaceid": "23",
-            "functionid": "3514520095",
-            "fencepost": "3575426120",
+            "functionid": "3514520170",
+            "fencepost": "3575603614",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
             ],
@@ -375,8 +375,8 @@
             "name": "StartBatch",
             "argc": "2",
             "interfaceid": "23",
-            "functionid": "1644355398",
-            "fencepost": "1705342068",
+            "functionid": "1644355411",
+            "fencepost": "1705519500",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes8"
@@ -389,8 +389,8 @@
             "name": "AddToBatch",
             "argc": "2",
             "interfaceid": "23",
-            "functionid": "2149043713",
-            "fencepost": "2210046512",
+            "functionid": "2149043734",
+            "fencepost": "2210223952",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4"
@@ -403,8 +403,8 @@
             "name": "UploadBatch",
             "argc": "2",
             "interfaceid": "23",
-            "functionid": "3495610081",
-            "fencepost": "3556629009",
+            "functionid": "3495610100",
+            "fencepost": "3556806447",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4"
@@ -417,8 +417,8 @@
             "name": "DeleteBatch",
             "argc": "2",
             "interfaceid": "23",
-            "functionid": "727756351",
-            "fencepost": "788791408",
+            "functionid": "727756324",
+            "fencepost": "788968800",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes1"
@@ -431,8 +431,8 @@
             "name": "CancelBatch",
             "argc": "1",
             "interfaceid": "23",
-            "functionid": "4241007334",
-            "fencepost": "7091224",
+            "functionid": "4241007355",
+            "fencepost": "7268664",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
             ],
@@ -444,8 +444,8 @@
             "name": "RecoverOldScreenshots",
             "argc": "1",
             "interfaceid": "23",
-            "functionid": "3567732467",
-            "fencepost": "3628799782",
+            "functionid": "3567732460",
+            "fencepost": "3628977194",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
             ],
@@ -456,8 +456,8 @@
             "name": "GetTaggedUserCount",
             "argc": "3",
             "interfaceid": "23",
-            "functionid": "2558819515",
-            "fencepost": "2619919088",
+            "functionid": "2558819488",
+            "fencepost": "2620096480",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes8",
@@ -471,8 +471,8 @@
             "name": "GetTaggedUser",
             "argc": "5",
             "interfaceid": "23",
-            "functionid": "660849508",
-            "fencepost": "721965210",
+            "functionid": "660849521",
+            "fencepost": "722142642",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes8",
@@ -487,8 +487,8 @@
             "name": "GetLocation",
             "argc": "5",
             "interfaceid": "23",
-            "functionid": "692548438",
-            "fencepost": "753793172",
+            "functionid": "692548445",
+            "fencepost": "753970598",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes8",
@@ -504,8 +504,8 @@
             "name": "GetTaggedPublishedFileCount",
             "argc": "3",
             "interfaceid": "23",
-            "functionid": "3809294066",
-            "fencepost": "3870425897",
+            "functionid": "3809294053",
+            "fencepost": "3870603303",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes8",
@@ -519,8 +519,8 @@
             "name": "GetTaggedPublishedFile",
             "argc": "4",
             "interfaceid": "23",
-            "functionid": "2326780855",
-            "fencepost": "2387928815",
+            "functionid": "2326780834",
+            "fencepost": "2388106213",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes8",
@@ -535,8 +535,8 @@
             "name": "GetScreenshotVRType",
             "argc": "3",
             "interfaceid": "23",
-            "functionid": "184860717",
-            "fencepost": "246266741",
+            "functionid": "184860696",
+            "fencepost": "246444139",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes8",
@@ -550,8 +550,8 @@
             "name": "BGetUserScreenshotDirectory",
             "argc": "3",
             "interfaceid": "23",
-            "functionid": "887106591",
-            "fencepost": "948464228",
+            "functionid": "887106594",
+            "fencepost": "948641650",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4"

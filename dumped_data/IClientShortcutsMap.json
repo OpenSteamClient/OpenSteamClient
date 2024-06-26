@@ -5,8 +5,8 @@
             "name": "GetUniqueLocalAppId",
             "argc": "1",
             "interfaceid": "35",
-            "functionid": "2065244792",
-            "fencepost": "2152926481",
+            "functionid": "2065244685",
+            "fencepost": "2153136051",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
             ],
@@ -18,8 +18,8 @@
             "name": "GetGameIDForAppID",
             "argc": "3",
             "interfaceid": "35",
-            "functionid": "3693350677",
-            "fencepost": "3781048495",
+            "functionid": "3693350754",
+            "fencepost": "3781258249",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4"
@@ -32,8 +32,8 @@
             "name": "GetAppIDForGameID",
             "argc": "2",
             "interfaceid": "35",
-            "functionid": "3414714570",
-            "fencepost": "3502428517",
+            "functionid": "3414714559",
+            "fencepost": "3502638183",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes8"
@@ -46,8 +46,8 @@
             "name": "GetDevkitAppIDByDevkitGameID",
             "argc": "2",
             "interfaceid": "35",
-            "functionid": "3535268592",
-            "fencepost": "3623676086",
+            "functionid": "3535268591",
+            "fencepost": "3623885762",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "string"
@@ -60,52 +60,52 @@
             "name": "GetShortcutAppIds",
             "argc": "2",
             "interfaceid": "35",
-            "functionid": "1065376182",
-            "fencepost": "1153138516",
+            "functionid": "1065376197",
+            "fencepost": "1153348208",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
             ],
             "serializedreturns": [
                 "bytes1",
-                "protobuf"
+                "unknown"
             ]
         },
         {
             "name": "GetShortcutInfoByIndex",
             "argc": "3",
             "interfaceid": "35",
-            "functionid": "3726801170",
-            "fencepost": "3814660278",
+            "functionid": "3726801159",
+            "fencepost": "3814869944",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4"
             ],
             "serializedreturns": [
                 "bytes1",
-                "protobuf"
+                "unknown"
             ]
         },
         {
             "name": "GetShortcutInfoByAppID",
             "argc": "3",
             "interfaceid": "35",
-            "functionid": "3722361001",
-            "fencepost": "3810316883",
+            "functionid": "3722361012",
+            "fencepost": "3810526571",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4"
             ],
             "serializedreturns": [
                 "bytes1",
-                "protobuf"
+                "unknown"
             ]
         },
         {
             "name": "AddShortcut",
             "argc": "6",
             "interfaceid": "35",
-            "functionid": "3644156528",
-            "fencepost": "3732160797",
+            "functionid": "3644156541",
+            "fencepost": "3732370487",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "string",
@@ -122,8 +122,8 @@
             "name": "AddTemporaryShortcut",
             "argc": "4",
             "interfaceid": "35",
-            "functionid": "3516028750",
-            "fencepost": "3604049148",
+            "functionid": "3516028737",
+            "fencepost": "3604258812",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "string",
@@ -136,15 +136,16 @@
         },
         {
             "name": "AddOpenVRShortcut",
-            "argc": "4",
+            "argc": "5",
             "interfaceid": "35",
-            "functionid": "2255265154",
-            "fencepost": "2343301681",
+            "functionid": "4290196697",
+            "fencepost": "83475605",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "string",
                 "string",
-                "string"
+                "string",
+                "bytes4"
             ],
             "serializedreturns": [
                 "bytes4"
@@ -154,8 +155,8 @@
             "name": "SetShortcutFromFullpath",
             "argc": "3",
             "interfaceid": "35",
-            "functionid": "1774127172",
-            "fencepost": "1862179828",
+            "functionid": "1774127223",
+            "fencepost": "1862389556",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -168,8 +169,8 @@
             "name": "SetShortcutAppName",
             "argc": "3",
             "interfaceid": "35",
-            "functionid": "1547906399",
-            "fencepost": "1635975184",
+            "functionid": "1547906410",
+            "fencepost": "1636184872",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -182,8 +183,8 @@
             "name": "SetShortcutExe",
             "argc": "4",
             "interfaceid": "35",
-            "functionid": "606011354",
-            "fencepost": "694112397",
+            "functionid": "606011375",
+            "fencepost": "694322095",
             "cannotcallincrossprocess": "1",
             "serializedargs": [
                 "bytes4",
@@ -198,8 +199,8 @@
             "name": "SetShortcutStartDir",
             "argc": "3",
             "interfaceid": "35",
-            "functionid": "871637249",
-            "fencepost": "959754421",
+            "functionid": "871637298",
+            "fencepost": "959964147",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -212,8 +213,8 @@
             "name": "SetShortcutIcon",
             "argc": "3",
             "interfaceid": "35",
-            "functionid": "3387174736",
-            "fencepost": "3475308037",
+            "functionid": "3387174765",
+            "fencepost": "3475517743",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -226,8 +227,8 @@
             "name": "SetShortcutCommandLine",
             "argc": "3",
             "interfaceid": "35",
-            "functionid": "3957048597",
-            "fencepost": "4045133511",
+            "functionid": "3957048610",
+            "fencepost": "4045343201",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -240,8 +241,8 @@
             "name": "ClearShortcutUserTags",
             "argc": "2",
             "interfaceid": "35",
-            "functionid": "3638035602",
-            "fencepost": "3726185032",
+            "functionid": "3638035629",
+            "fencepost": "3726394736",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4"
@@ -253,8 +254,8 @@
             "name": "AddShortcutUserTag",
             "argc": "3",
             "interfaceid": "35",
-            "functionid": "117056405",
-            "fencepost": "205221964",
+            "functionid": "117056424",
+            "fencepost": "205431660",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -267,8 +268,8 @@
             "name": "RemoveShortcutUserTag",
             "argc": "3",
             "interfaceid": "35",
-            "functionid": "1309693511",
-            "fencepost": "1397875199",
+            "functionid": "1309693556",
+            "fencepost": "1398084921",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -281,8 +282,8 @@
             "name": "ClearAndSetShortcutUserTags",
             "argc": "3",
             "interfaceid": "35",
-            "functionid": "3401786405",
-            "fencepost": "3490032609",
+            "functionid": "3401786384",
+            "fencepost": "3490242265",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -295,8 +296,8 @@
             "name": "SetShortcutHidden",
             "argc": "3",
             "interfaceid": "35",
-            "functionid": "3159557285",
-            "fencepost": "3247835747",
+            "functionid": "3159557290",
+            "fencepost": "3248045429",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -309,8 +310,8 @@
             "name": "SetAllowDesktopConfig",
             "argc": "3",
             "interfaceid": "35",
-            "functionid": "3398946857",
-            "fencepost": "3487241448",
+            "functionid": "3398946852",
+            "fencepost": "3487451120",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -323,8 +324,8 @@
             "name": "SetAllowOverlay",
             "argc": "3",
             "interfaceid": "35",
-            "functionid": "732951742",
-            "fencepost": "821262462",
+            "functionid": "732951725",
+            "fencepost": "821472122",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -337,8 +338,8 @@
             "name": "SetOpenVRShortcut",
             "argc": "3",
             "interfaceid": "35",
-            "functionid": "2322607892",
-            "fencepost": "2410934741",
+            "functionid": "2322607873",
+            "fencepost": "2411144399",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -351,8 +352,8 @@
             "name": "SetDevkitShortcut",
             "argc": "4",
             "interfaceid": "35",
-            "functionid": "950806581",
-            "fencepost": "1039197946",
+            "functionid": "950806568",
+            "fencepost": "1039407610",
             "cannotcallincrossprocess": "1",
             "serializedargs": [
                 "bytes4",
@@ -367,8 +368,8 @@
             "name": "SetFlatpakAppID",
             "argc": "3",
             "interfaceid": "35",
-            "functionid": "1376806234",
-            "fencepost": "1465229857",
+            "functionid": "1376806215",
+            "fencepost": "1465439515",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -382,8 +383,8 @@
             "name": "RemoveShortcut",
             "argc": "2",
             "interfaceid": "35",
-            "functionid": "584562683",
-            "fencepost": "672905661",
+            "functionid": "584562668",
+            "fencepost": "673115323",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4"
@@ -395,8 +396,8 @@
             "name": "RemoveAllTemporaryShortcuts",
             "argc": "1",
             "interfaceid": "35",
-            "functionid": "2537285030",
-            "fencepost": "2625644137",
+            "functionid": "2537285043",
+            "fencepost": "2625853827",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
             ],
@@ -407,8 +408,8 @@
             "name": "LaunchShortcut",
             "argc": "3",
             "interfaceid": "35",
-            "functionid": "4230941028",
-            "fencepost": "24348968",
+            "functionid": "4230941047",
+            "fencepost": "24558664",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",

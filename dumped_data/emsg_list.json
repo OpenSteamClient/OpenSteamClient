@@ -2478,6 +2478,18 @@
         "name": "k_EMsgClientPICSAccessTokenResponse"
     },
     {
+        "emsg": 8907,
+        "flags": 6,
+        "server_type": 14,
+        "name": "k_EMsgClientPICSPrivateBetaRequest"
+    },
+    {
+        "emsg": 8908,
+        "flags": 6,
+        "server_type": 14,
+        "name": "k_EMsgClientPICSPrivateBetaResponse"
+    },
+    {
         "emsg": 9330,
         "flags": 6,
         "server_type": 63,

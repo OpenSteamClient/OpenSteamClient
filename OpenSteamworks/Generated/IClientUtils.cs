@@ -189,15 +189,16 @@ public unsafe interface IClientUtils
     // ws://127.0.0.1:${e.portClientdll}/transportsocket/
     // - It has some sort of authentication system
     // - What does it do? Could it be useful in OpenSteamClient?
-    public bool GetWebUITransportInfo([ProtobufPtrType(typeof(CMsgWebUITransportInfo))] IntPtr protoptr);  // argc: 1, index: 106, ipc args: [], ipc returns: [bytes1, protobuf]
+    public bool GetWebUITransportInfo([ProtobufPtrType(typeof(CMsgWebUITransportInfo))] IntPtr protoptr);  // argc: 1, index: 106, ipc args: [], ipc returns: [bytes1, unknown]
     // WARNING: Arguments are unknown!
     public void RecordFakeReactRouteMetric(string unk);  // argc: 1, index: 107, ipc args: [string], ipc returns: []
     // WARNING: Arguments are unknown!
-    public ulong SteamRuntimeSystemInfo(CUtlBuffer* data);  // argc: 1, index: 108, ipc args: [], ipc returns: [bytes8, utlbuffer]
+    public ulong SteamRuntimeSystemInfo(CUtlBuffer* data);  // argc: 1, index: 108, ipc args: [], ipc returns: [bytes8, unknown]
     // WARNING: Arguments are unknown!
     public void DumpHTTPClients(uint unk);  // argc: 1, index: 109, ipc args: [bytes4], ipc returns: []
     // WARNING: Arguments are unknown!
-    public bool BGetMachineID(CUtlBuffer* data);  // argc: 1, index: 110, ipc args: [], ipc returns: [boolean, utlbuffer]
+    public bool BGetMachineID(CUtlBuffer* data);  // argc: 1, index: 110, ipc args: [], ipc returns: [boolean, unknown]
     public void NotifyMissingInterface(string interfaceName);  // argc: 1, index: 111, ipc args: [string], ipc returns: []
     public bool IsSteamInTournamentMode();  // argc: 0, index: 112, ipc args: [], ipc returns: [boolean]
+    public unknown_ret DesktopLockedStateChanged();  // argc: 1, index: 113, ipc args: [bytes1], ipc returns: []
 }

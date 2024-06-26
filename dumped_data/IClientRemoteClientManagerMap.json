@@ -5,8 +5,8 @@
             "name": "SetUIReadyForStream",
             "argc": "2",
             "interfaceid": "31",
-            "functionid": "284368371",
-            "fencepost": "359081836",
+            "functionid": "284368328",
+            "fencepost": "359259212",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes1"
@@ -18,8 +18,8 @@
             "name": "StreamingAudioPreparationComplete",
             "argc": "2",
             "interfaceid": "31",
-            "functionid": "1925912186",
-            "fencepost": "2000641780",
+            "functionid": "1925912135",
+            "fencepost": "2000819148",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes1"
@@ -31,8 +31,8 @@
             "name": "StreamingAudioFinished",
             "argc": "1",
             "interfaceid": "31",
-            "functionid": "2965258019",
-            "fencepost": "3040003742",
+            "functionid": "2965258012",
+            "fencepost": "3040181154",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
             ],
@@ -43,8 +43,8 @@
             "name": "ProcessStreamAvailable",
             "argc": "3",
             "interfaceid": "31",
-            "functionid": "3659167858",
-            "fencepost": "3733929710",
+            "functionid": "3659167823",
+            "fencepost": "3734107094",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -57,8 +57,8 @@
             "name": "ProcessStreamShutdown",
             "argc": "2",
             "interfaceid": "31",
-            "functionid": "999124146",
-            "fencepost": "1073902127",
+            "functionid": "999124105",
+            "fencepost": "1074079505",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4"
@@ -70,8 +70,8 @@
             "name": "UpdateStreamClientResolution",
             "argc": "4",
             "interfaceid": "31",
-            "functionid": "1637646106",
-            "fencepost": "1712440216",
+            "functionid": "1637646127",
+            "fencepost": "1712617656",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -85,8 +85,8 @@
             "name": "ProcessStreamClientConnected",
             "argc": "12",
             "interfaceid": "31",
-            "functionid": "3794819696",
-            "fencepost": "3869629935",
+            "functionid": "3794819655",
+            "fencepost": "3869807313",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -100,8 +100,8 @@
             "name": "GetStreamClientPlayer",
             "argc": "3",
             "interfaceid": "31",
-            "functionid": "2023219025",
-            "fencepost": "2098045393",
+            "functionid": "2023219044",
+            "fencepost": "2098222831",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4"
@@ -114,8 +114,8 @@
             "name": "GetStreamClientFormFactor",
             "argc": "2",
             "interfaceid": "31",
-            "functionid": "1162650",
-            "fencepost": "76005147",
+            "functionid": "1162641",
+            "fencepost": "76182557",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4"
@@ -128,8 +128,8 @@
             "name": "UpdateStreamClientNetworkUtilization",
             "argc": "4",
             "interfaceid": "31",
-            "functionid": "3641811991",
-            "fencepost": "3716670617",
+            "functionid": "3641811994",
+            "fencepost": "3716848039",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -143,8 +143,8 @@
             "name": "ProcessStreamClientDisconnected",
             "argc": "2",
             "interfaceid": "31",
-            "functionid": "3741267146",
-            "fencepost": "3816141901",
+            "functionid": "3741267141",
+            "fencepost": "3816319315",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4"
@@ -156,23 +156,23 @@
             "name": "BGetStreamTransportSignal",
             "argc": "3",
             "interfaceid": "31",
-            "functionid": "1635575300",
-            "fencepost": "1710514571",
+            "functionid": "1635575305",
+            "fencepost": "1710691995",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4"
             ],
             "serializedreturns": [
                 "boolean",
-                "utlbuffer"
+                "unknown"
             ]
         },
         {
             "name": "SendStreamTransportSignal",
             "argc": "3",
             "interfaceid": "31",
-            "functionid": "1804426251",
-            "fencepost": "1879413909",
+            "functionid": "1804426262",
+            "fencepost": "1879591339",
             "cannotcallincrossprocess": "1",
             "serializedargs": [
                 "bytes4",
@@ -185,8 +185,8 @@
             "name": "ConnectToRemote",
             "argc": "3",
             "interfaceid": "31",
-            "functionid": "1473147324",
-            "fencepost": "1548151111",
+            "functionid": "1473147299",
+            "fencepost": "1548328505",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes8"
@@ -198,8 +198,8 @@
             "name": "ConnectToRemoteAddress",
             "argc": "2",
             "interfaceid": "31",
-            "functionid": "1416567906",
-            "fencepost": "1491587822",
+            "functionid": "1416567935",
+            "fencepost": "1491765270",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "string"
@@ -211,8 +211,8 @@
             "name": "RefreshRemoteClients",
             "argc": "2",
             "interfaceid": "31",
-            "functionid": "2746921060",
-            "fencepost": "2821957105",
+            "functionid": "2746921087",
+            "fencepost": "2822134551",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes1"
@@ -224,8 +224,8 @@
             "name": "GetClientPlatformTypes",
             "argc": "1",
             "interfaceid": "31",
-            "functionid": "4006363878",
-            "fencepost": "4081416052",
+            "functionid": "4006363891",
+            "fencepost": "4081593484",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
             ],
@@ -237,8 +237,8 @@
             "name": "GetRemoteClientCount",
             "argc": "1",
             "interfaceid": "31",
-            "functionid": "3709923541",
-            "fencepost": "3784991844",
+            "functionid": "3709923522",
+            "fencepost": "3785169244",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
             ],
@@ -250,8 +250,8 @@
             "name": "GetRemoteClientIDByIndex",
             "argc": "2",
             "interfaceid": "31",
-            "functionid": "2918732411",
-            "fencepost": "2993816843",
+            "functionid": "2918732398",
+            "fencepost": "2993994249",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4"
@@ -264,8 +264,8 @@
             "name": "GetRemoteClientNameByIndex",
             "argc": "2",
             "interfaceid": "31",
-            "functionid": "2689402677",
-            "fencepost": "2764567754",
+            "functionid": "2689402686",
+            "fencepost": "2764745182",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4"
@@ -278,8 +278,8 @@
             "name": "GetRemoteClientConnectStateByIndex",
             "argc": "2",
             "interfaceid": "31",
-            "functionid": "3501352747",
-            "fencepost": "3576453308",
+            "functionid": "3501352736",
+            "fencepost": "3576630716",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4"
@@ -292,8 +292,8 @@
             "name": "BRemoteClientHasStreamingSupportedByIndex",
             "argc": "2",
             "interfaceid": "31",
-            "functionid": "3058365630",
-            "fencepost": "3133482320",
+            "functionid": "3058365619",
+            "fencepost": "3133659728",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4"
@@ -306,8 +306,8 @@
             "name": "BRemoteClientHasStreamingEnabledByIndex",
             "argc": "2",
             "interfaceid": "31",
-            "functionid": "1994916666",
-            "fencepost": "2070049485",
+            "functionid": "1994916661",
+            "fencepost": "2070226899",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4"
@@ -320,8 +320,8 @@
             "name": "GetRemoteClientAppStateByIndex",
             "argc": "3",
             "interfaceid": "31",
-            "functionid": "2198321053",
-            "fencepost": "2273470001",
+            "functionid": "2198321040",
+            "fencepost": "2273647407",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -335,8 +335,8 @@
             "name": "GetRemoteClientConnectedCount",
             "argc": "1",
             "interfaceid": "31",
-            "functionid": "2578396338",
-            "fencepost": "2653722705",
+            "functionid": "2578396357",
+            "fencepost": "2653900143",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
             ],
@@ -348,8 +348,8 @@
             "name": "GetRemoteClientStreamingEnabledCount",
             "argc": "1",
             "interfaceid": "31",
-            "functionid": "651172465",
-            "fencepost": "726514961",
+            "functionid": "651172356",
+            "fencepost": "726692271",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
             ],
@@ -361,8 +361,8 @@
             "name": "GetRemoteClientName",
             "argc": "3",
             "interfaceid": "31",
-            "functionid": "3667000653",
-            "fencepost": "3742181859",
+            "functionid": "3667000632",
+            "fencepost": "3742359257",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes8"
@@ -375,8 +375,8 @@
             "name": "BRemoteClientStreaming",
             "argc": "3",
             "interfaceid": "31",
-            "functionid": "574853340",
-            "fencepost": "650050675",
+            "functionid": "574853291",
+            "fencepost": "650228045",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes8"
@@ -389,8 +389,8 @@
             "name": "GetRemoteClientStreamingSession",
             "argc": "3",
             "interfaceid": "31",
-            "functionid": "2180688580",
-            "fencepost": "2255902044",
+            "functionid": "2180688561",
+            "fencepost": "2256079444",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes8"
@@ -403,8 +403,8 @@
             "name": "GetRemoteClientFormFactor",
             "argc": "3",
             "interfaceid": "31",
-            "functionid": "1791213073",
-            "fencepost": "1866442666",
+            "functionid": "1791213162",
+            "fencepost": "1866620174",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes8"
@@ -417,8 +417,8 @@
             "name": "GetRemoteClientConnectState",
             "argc": "3",
             "interfaceid": "31",
-            "functionid": "1670592881",
-            "fencepost": "1745838603",
+            "functionid": "1670592780",
+            "fencepost": "1746015921",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes8"
@@ -431,8 +431,8 @@
             "name": "BRemoteClientHasStreamingSupported",
             "argc": "3",
             "interfaceid": "31",
-            "functionid": "824100914",
-            "fencepost": "899362765",
+            "functionid": "824100941",
+            "fencepost": "899540211",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes8"
@@ -445,8 +445,8 @@
             "name": "BRemoteClientHasStreamingEnabled",
             "argc": "3",
             "interfaceid": "31",
-            "functionid": "1419732610",
-            "fencepost": "1495010590",
+            "functionid": "1419732735",
+            "fencepost": "1495188134",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes8"
@@ -459,8 +459,8 @@
             "name": "GetRemoteClientAppAvailability",
             "argc": "4",
             "interfaceid": "31",
-            "functionid": "597153829",
-            "fencepost": "672447938",
+            "functionid": "597153886",
+            "fencepost": "672625414",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes8",
@@ -474,8 +474,8 @@
             "name": "GetRemoteClientAppState",
             "argc": "4",
             "interfaceid": "31",
-            "functionid": "266431894",
-            "fencepost": "341742132",
+            "functionid": "266431971",
+            "fencepost": "341919628",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes8",
@@ -489,8 +489,8 @@
             "name": "GetRemoteDeviceCount",
             "argc": "1",
             "interfaceid": "31",
-            "functionid": "81372026",
-            "fencepost": "156730651",
+            "functionid": "81372017",
+            "fencepost": "156908061",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
             ],
@@ -502,8 +502,8 @@
             "name": "GetRemoteDeviceIDByIndex",
             "argc": "2",
             "interfaceid": "31",
-            "functionid": "2539482232",
-            "fencepost": "2614856986",
+            "functionid": "2539482229",
+            "fencepost": "2615034402",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4"
@@ -516,8 +516,8 @@
             "name": "GetRemoteDeviceNameByIndex",
             "argc": "2",
             "interfaceid": "31",
-            "functionid": "1119877194",
-            "fencepost": "1195268077",
+            "functionid": "1119877189",
+            "fencepost": "1195445491",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4"
@@ -530,8 +530,8 @@
             "name": "GetRemoteDeviceName",
             "argc": "3",
             "interfaceid": "31",
-            "functionid": "1250438872",
-            "fencepost": "1325845884",
+            "functionid": "1250438869",
+            "fencepost": "1326023300",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes8"
@@ -544,8 +544,8 @@
             "name": "BRemoteDeviceStreaming",
             "argc": "3",
             "interfaceid": "31",
-            "functionid": "1533555239",
-            "fencepost": "1608978380",
+            "functionid": "1533555244",
+            "fencepost": "1609155804",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes8"
@@ -558,8 +558,8 @@
             "name": "GetRemoteDeviceStreamingSession",
             "argc": "3",
             "interfaceid": "31",
-            "functionid": "1590352665",
-            "fencepost": "1665791935",
+            "functionid": "1590352652",
+            "fencepost": "1665969341",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes8"
@@ -572,8 +572,8 @@
             "name": "GetRemoteDeviceFormFactor",
             "argc": "3",
             "interfaceid": "31",
-            "functionid": "2430536380",
-            "fencepost": "2505991779",
+            "functionid": "2430536363",
+            "fencepost": "2506169181",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes8"
@@ -586,8 +586,8 @@
             "name": "UnpairRemoteDevices",
             "argc": "1",
             "interfaceid": "31",
-            "functionid": "3873453848",
-            "fencepost": "3948925376",
+            "functionid": "3873453837",
+            "fencepost": "3949102784",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
             ],
@@ -598,8 +598,8 @@
             "name": "BIsStreamingSupported",
             "argc": "1",
             "interfaceid": "31",
-            "functionid": "2949229713",
-            "fencepost": "3024717370",
+            "functionid": "2949229706",
+            "fencepost": "3024894782",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
             ],
@@ -611,8 +611,8 @@
             "name": "BIsStreamingDisabledBySystemPolicy",
             "argc": "1",
             "interfaceid": "31",
-            "functionid": "3805003682",
-            "fencepost": "3880507468",
+            "functionid": "3805003711",
+            "fencepost": "3880684916",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
             ],
@@ -624,8 +624,8 @@
             "name": "BIsStreamingEnabled",
             "argc": "1",
             "interfaceid": "31",
-            "functionid": "1526363706",
-            "fencepost": "1601883621",
+            "functionid": "1526363685",
+            "fencepost": "1602061019",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
             ],
@@ -637,8 +637,8 @@
             "name": "SetStreamingEnabled",
             "argc": "2",
             "interfaceid": "31",
-            "functionid": "267297987",
-            "fencepost": "342834031",
+            "functionid": "267298014",
+            "fencepost": "343011477",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes1"
@@ -650,8 +650,8 @@
             "name": "StartStream",
             "argc": "8",
             "interfaceid": "31",
-            "functionid": "1011236836",
-            "fencepost": "1086901912",
+            "functionid": "1011236863",
+            "fencepost": "1087079358",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes8",
@@ -669,8 +669,8 @@
             "name": "BIsRemoteLaunch",
             "argc": "2",
             "interfaceid": "31",
-            "functionid": "2605567483",
-            "fencepost": "2681264817",
+            "functionid": "2605567438",
+            "fencepost": "2681442191",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes8"
@@ -683,8 +683,8 @@
             "name": "BIsBigPictureActiveForStreaming",
             "argc": "1",
             "interfaceid": "31",
-            "functionid": "2935873448",
-            "fencepost": "3011586911",
+            "functionid": "2935873439",
+            "fencepost": "3011764321",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
             ],
@@ -696,8 +696,8 @@
             "name": "BIsStreamingSessionActive",
             "argc": "1",
             "interfaceid": "31",
-            "functionid": "3111449750",
-            "fencepost": "3187179342",
+            "functionid": "3111449763",
+            "fencepost": "3187356774",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
             ],
@@ -709,8 +709,8 @@
             "name": "BIsStreamingSessionActiveForGame",
             "argc": "2",
             "interfaceid": "31",
-            "functionid": "82888170",
-            "fencepost": "158633891",
+            "functionid": "82888145",
+            "fencepost": "158811285",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes8"
@@ -723,8 +723,8 @@
             "name": "BIsStreamingClientConnected",
             "argc": "1",
             "interfaceid": "31",
-            "functionid": "930690684",
-            "fencepost": "1006452534",
+            "functionid": "930690625",
+            "fencepost": "1006629894",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
             ],
@@ -736,8 +736,8 @@
             "name": "BStreamingClientWantsRecentGames",
             "argc": "1",
             "interfaceid": "31",
-            "functionid": "4084443303",
-            "fencepost": "4160221282",
+            "functionid": "4084443288",
+            "fencepost": "4160398686",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
             ],
@@ -749,8 +749,8 @@
             "name": "StopStreamingSession",
             "argc": "2",
             "interfaceid": "31",
-            "functionid": "2564415142",
-            "fencepost": "2640209250",
+            "functionid": "2564415131",
+            "fencepost": "2640386658",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4"
@@ -762,8 +762,8 @@
             "name": "LaunchAppProgress",
             "argc": "6",
             "interfaceid": "31",
-            "functionid": "2452120601",
-            "fencepost": "2527930838",
+            "functionid": "2452120610",
+            "fencepost": "2528108266",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -779,8 +779,8 @@
             "name": "LaunchAppResult",
             "argc": "3",
             "interfaceid": "31",
-            "functionid": "4053892934",
-            "fencepost": "4129719300",
+            "functionid": "4053892979",
+            "fencepost": "4129896764",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -793,8 +793,8 @@
             "name": "BIsStreamStartInProgress",
             "argc": "4",
             "interfaceid": "31",
-            "functionid": "2503774732",
-            "fencepost": "2579617227",
+            "functionid": "2503774779",
+            "fencepost": "2579794693",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes8",
@@ -808,8 +808,8 @@
             "name": "LaunchAppResultRequestLaunchOption",
             "argc": "4",
             "interfaceid": "31",
-            "functionid": "1320409655",
-            "fencepost": "1396332795",
+            "functionid": "1320409602",
+            "fencepost": "1396510161",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -823,8 +823,8 @@
             "name": "AcceptEULA",
             "argc": "6",
             "interfaceid": "31",
-            "functionid": "2478375078",
-            "fencepost": "2554330476",
+            "functionid": "2478375091",
+            "fencepost": "2554507908",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes8",
@@ -840,8 +840,8 @@
             "name": "GetRemoteClientPlatformName",
             "argc": "4",
             "interfaceid": "31",
-            "functionid": "1907838569",
-            "fencepost": "1983858483",
+            "functionid": "1907838590",
+            "fencepost": "1984035923",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes8"
@@ -855,8 +855,8 @@
             "name": "BIsStreamClientRunning",
             "argc": "1",
             "interfaceid": "31",
-            "functionid": "3069204099",
-            "fencepost": "3145272400",
+            "functionid": "3069204120",
+            "fencepost": "3145449840",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
             ],
@@ -868,8 +868,8 @@
             "name": "BIsStreamClientRunningConnectedToClient",
             "argc": "4",
             "interfaceid": "31",
-            "functionid": "2727593067",
-            "fencepost": "2803677497",
+            "functionid": "2727593086",
+            "fencepost": "2803854935",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes8",
@@ -883,8 +883,8 @@
             "name": "BIsStreamClientRemotePlayTogether",
             "argc": "1",
             "interfaceid": "31",
-            "functionid": "2786813122",
-            "fencepost": "2862913681",
+            "functionid": "2786813141",
+            "fencepost": "2863091119",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
             ],
@@ -896,8 +896,8 @@
             "name": "GetStreamClientRemoteSteamVersion",
             "argc": "1",
             "interfaceid": "31",
-            "functionid": "904191227",
-            "fencepost": "980307915",
+            "functionid": "904191214",
+            "fencepost": "980485321",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
             ],
@@ -909,25 +909,25 @@
             "name": "BGetStreamingClientConfig",
             "argc": "2",
             "interfaceid": "31",
-            "functionid": "657325356",
-            "fencepost": "733490431",
+            "functionid": "657325351",
+            "fencepost": "733667845",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
             ],
             "serializedreturns": [
                 "boolean",
-                "utlbuffer"
+                "unknown"
             ]
         },
         {
             "name": "BSetStreamingClientConfig",
             "argc": "2",
             "interfaceid": "31",
-            "functionid": "340275173",
-            "fencepost": "416537022",
+            "functionid": "340274960",
+            "fencepost": "416714228",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
-                "utlbuffer"
+                "unknown"
             ],
             "serializedreturns": [
                 "boolean"
@@ -937,8 +937,8 @@
             "name": "BQueueControllerConfigMessageForRemote",
             "argc": "2",
             "interfaceid": "31",
-            "functionid": "1578284363",
-            "fencepost": "1654836534",
+            "functionid": "1578284368",
+            "fencepost": "1655013958",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "protobuf"
@@ -951,22 +951,22 @@
             "name": "BGetControllerConfigMessageForLocal",
             "argc": "2",
             "interfaceid": "31",
-            "functionid": "3100041352",
-            "fencepost": "3176658039",
+            "functionid": "3100041363",
+            "fencepost": "3176835469",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
             ],
             "serializedreturns": [
                 "boolean",
-                "protobuf"
+                "unknown"
             ]
         },
         {
             "name": "RequestControllerConfig",
             "argc": "5",
             "interfaceid": "31",
-            "functionid": "3298650071",
-            "fencepost": "3374944178",
+            "functionid": "3298649896",
+            "fencepost": "3375121422",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes8",
@@ -981,8 +981,8 @@
             "name": "PostControllerConfig",
             "argc": "5",
             "interfaceid": "31",
-            "functionid": "4168497353",
-            "fencepost": "4244872105",
+            "functionid": "4168497204",
+            "fencepost": "4245049375",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes8",
@@ -996,8 +996,8 @@
             "name": "GetControllerConfig",
             "argc": "5",
             "interfaceid": "31",
-            "functionid": "183935572",
-            "fencepost": "260407098",
+            "functionid": "183935577",
+            "fencepost": "260584522",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes8",
@@ -1012,8 +1012,8 @@
             "name": "SetRemoteDeviceAuthorized",
             "argc": "3",
             "interfaceid": "31",
-            "functionid": "2244147612",
-            "fencepost": "2320812686",
+            "functionid": "2244147601",
+            "fencepost": "2320990094",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes1",
@@ -1026,8 +1026,8 @@
             "name": "SetStreamingDriversInstalled",
             "argc": "2",
             "interfaceid": "31",
-            "functionid": "227284442",
-            "fencepost": "303965645",
+            "functionid": "227284437",
+            "fencepost": "304143059",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes1"
@@ -1039,8 +1039,8 @@
             "name": "SetStreamingPIN",
             "argc": "2",
             "interfaceid": "31",
-            "functionid": "1018827908",
-            "fencepost": "1095525240",
+            "functionid": "1018827913",
+            "fencepost": "1095702664",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "string"
@@ -1052,8 +1052,8 @@
             "name": "GetStreamingPINSize",
             "argc": "2",
             "interfaceid": "31",
-            "functionid": "2584317226",
-            "fencepost": "2661030687",
+            "functionid": "2584317217",
+            "fencepost": "2661208097",
             "cannotcallincrossprocess": "1",
             "serializedargs": [
                 "bytes4"
@@ -1065,8 +1065,8 @@
             "name": "CancelRemoteClientPairing",
             "argc": "3",
             "interfaceid": "31",
-            "functionid": "3026134699",
-            "fencepost": "3102864289",
+            "functionid": "3026134686",
+            "fencepost": "3103041695",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes8"
@@ -1078,8 +1078,8 @@
             "name": "UsedVideoX264",
             "argc": "1",
             "interfaceid": "31",
-            "functionid": "3149429385",
-            "fencepost": "3226175104",
+            "functionid": "3149429438",
+            "fencepost": "3226352576",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
             ],
@@ -1090,8 +1090,8 @@
             "name": "UsedVideoH264",
             "argc": "1",
             "interfaceid": "31",
-            "functionid": "2495771672",
-            "fencepost": "2572533520",
+            "functionid": "2495771693",
+            "fencepost": "2572710960",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
             ],
@@ -1102,8 +1102,8 @@
             "name": "UsedVideoHEVC",
             "argc": "1",
             "interfaceid": "31",
-            "functionid": "853272131",
-            "fencepost": "930050108",
+            "functionid": "853272184",
+            "fencepost": "930227580",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
             ],
@@ -1114,8 +1114,8 @@
             "name": "SetRemotePlayTogetherQualityOverride",
             "argc": "2",
             "interfaceid": "31",
-            "functionid": "108644698",
-            "fencepost": "185438804",
+            "functionid": "108644711",
+            "fencepost": "185616236",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4"
@@ -1127,8 +1127,8 @@
             "name": "SetRemotePlayTogetherBitrateOverride",
             "argc": "2",
             "interfaceid": "31",
-            "functionid": "2394061797",
-            "fencepost": "2470872032",
+            "functionid": "2394061786",
+            "fencepost": "2471049440",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4"
@@ -1140,8 +1140,8 @@
             "name": "BHasRemotePlayInviteAndSession",
             "argc": "10",
             "interfaceid": "31",
-            "functionid": "1335133246",
-            "fencepost": "1411959610",
+            "functionid": "1335133187",
+            "fencepost": "1412136970",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes_length_from_reg"
@@ -1154,8 +1154,8 @@
             "name": "BCreateRemotePlayGroup",
             "argc": "2",
             "interfaceid": "31",
-            "functionid": "1655435827",
-            "fencepost": "1732278320",
+            "functionid": "1655435784",
+            "fencepost": "1732455696",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4"
@@ -1168,8 +1168,8 @@
             "name": "BCreateRemotePlayInviteAndSession",
             "argc": "11",
             "interfaceid": "31",
-            "functionid": "3688147707",
-            "fencepost": "3765006329",
+            "functionid": "3688147662",
+            "fencepost": "3765183703",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes_length_from_reg",
@@ -1183,8 +1183,8 @@
             "name": "CancelRemotePlayInviteAndSession",
             "argc": "10",
             "interfaceid": "31",
-            "functionid": "2167844949",
-            "fencepost": "2244719700",
+            "functionid": "2167844962",
+            "fencepost": "2244897132",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes_length_from_reg"
@@ -1196,8 +1196,8 @@
             "name": "JoinRemotePlaySession",
             "argc": "4",
             "interfaceid": "31",
-            "functionid": "1171891359",
-            "fencepost": "1248782239",
+            "functionid": "1171891370",
+            "fencepost": "1248959669",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "uint64",
@@ -1210,8 +1210,8 @@
             "name": "BStreamingDesktopToRemotePlayTogetherEnabled",
             "argc": "1",
             "interfaceid": "31",
-            "functionid": "3049017425",
-            "fencepost": "3125924434",
+            "functionid": "3049017434",
+            "fencepost": "3126101862",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
             ],
@@ -1223,8 +1223,8 @@
             "name": "SetStreamingDesktopToRemotePlayTogetherEnabled",
             "argc": "2",
             "interfaceid": "31",
-            "functionid": "3124753040",
-            "fencepost": "3201676178",
+            "functionid": "3124753053",
+            "fencepost": "3201853610",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes1"
@@ -1236,8 +1236,8 @@
             "name": "GetStreamingSessionForRemotePlayer",
             "argc": "10",
             "interfaceid": "31",
-            "functionid": "3709149480",
-            "fencepost": "3786088747",
+            "functionid": "3709149479",
+            "fencepost": "3786266165",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes_length_from_reg"
@@ -1250,8 +1250,8 @@
             "name": "SetPerUserKeyboardInputEnabled",
             "argc": "11",
             "interfaceid": "31",
-            "functionid": "1878701708",
-            "fencepost": "1955657104",
+            "functionid": "1878701697",
+            "fencepost": "1955834512",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes_length_from_reg",
@@ -1264,8 +1264,8 @@
             "name": "SetPerUserMouseInputEnabled",
             "argc": "11",
             "interfaceid": "31",
-            "functionid": "340578395",
-            "fencepost": "417549920",
+            "functionid": "340578384",
+            "fencepost": "417727328",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes_length_from_reg",
@@ -1278,8 +1278,8 @@
             "name": "SetPerUserControllerInputEnabled",
             "argc": "11",
             "interfaceid": "31",
-            "functionid": "117700137",
-            "fencepost": "194687791",
+            "functionid": "117700156",
+            "fencepost": "194865229",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes_length_from_reg",
@@ -1292,8 +1292,8 @@
             "name": "GetPerUserInputSettings",
             "argc": "11",
             "interfaceid": "31",
-            "functionid": "990800783",
-            "fencepost": "1067804566",
+            "functionid": "990800792",
+            "fencepost": "1067981994",
             "cannotcallincrossprocess": "1",
             "serializedargs": [
                 "bytes_length_from_reg",
@@ -1307,8 +1307,8 @@
             "name": "GetClientInputSettings",
             "argc": "11",
             "interfaceid": "31",
-            "functionid": "1603626021",
-            "fencepost": "1680645933",
+            "functionid": "1603626032",
+            "fencepost": "1680823363",
             "cannotcallincrossprocess": "1",
             "serializedargs": [
                 "bytes_length_from_reg",
@@ -1322,8 +1322,8 @@
             "name": "OnClientUsedInput",
             "argc": "11",
             "interfaceid": "31",
-            "functionid": "4259813783",
-            "fencepost": "41882528",
+            "functionid": "4259813772",
+            "fencepost": "42059936",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes_length_from_reg",
@@ -1336,8 +1336,8 @@
             "name": "OnPlaceholderStateChanged",
             "argc": "2",
             "interfaceid": "31",
-            "functionid": "3351349989",
-            "fencepost": "3428402159",
+            "functionid": "3351350008",
+            "fencepost": "3428579597",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes1"
@@ -1349,8 +1349,8 @@
             "name": "OnRemoteClientRemotePlayClearControllers",
             "argc": "1",
             "interfaceid": "31",
-            "functionid": "2081862241",
-            "fencepost": "2158930540",
+            "functionid": "2081862270",
+            "fencepost": "2159107988",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
             ],
@@ -1361,8 +1361,8 @@
             "name": "OnRemoteClientRemotePlayControllerIndexSet",
             "argc": "12",
             "interfaceid": "31",
-            "functionid": "2788335321",
-            "fencepost": "2865419749",
+            "functionid": "2788335300",
+            "fencepost": "2865597147",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes_length_from_reg",
@@ -1376,8 +1376,8 @@
             "name": "UpdateRemotePlayTogetherGroup",
             "argc": "1",
             "interfaceid": "31",
-            "functionid": "2651166341",
-            "fencepost": "2728266898",
+            "functionid": "2651166366",
+            "fencepost": "2728444342",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
             ],
@@ -1388,8 +1388,8 @@
             "name": "DisbandRemotePlayTogetherGroup",
             "argc": "1",
             "interfaceid": "31",
-            "functionid": "232354864",
-            "fencepost": "309471550",
+            "functionid": "232354853",
+            "fencepost": "309648958",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
             ],
@@ -1400,8 +1400,8 @@
             "name": "OnRemotePlayUIMovedController",
             "argc": "1",
             "interfaceid": "31",
-            "functionid": "174370747",
-            "fencepost": "251503562",
+            "functionid": "174370732",
+            "fencepost": "251680966",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
             ],
@@ -1412,8 +1412,8 @@
             "name": "OnSendRemotePlayTogetherInvite",
             "argc": "4",
             "interfaceid": "31",
-            "functionid": "2078302835",
-            "fencepost": "2155451779",
+            "functionid": "2078302822",
+            "fencepost": "2155629185",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "uint64",
@@ -1427,8 +1427,8 @@
             "name": "ShowRemotePlayTogetherUI",
             "argc": "2",
             "interfaceid": "31",
-            "functionid": "2691375525",
-            "fencepost": "2768540598",
+            "functionid": "2691375534",
+            "fencepost": "2768718026",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4"
@@ -1440,8 +1440,8 @@
             "name": "GetCloudGameTimeRemaining",
             "argc": "4",
             "interfaceid": "31",
-            "functionid": "88120729",
-            "fencepost": "165301931",
+            "functionid": "88120724",
+            "fencepost": "165479345",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes8",
@@ -1455,8 +1455,8 @@
             "name": "ShutdownStreamClients",
             "argc": "2",
             "interfaceid": "31",
-            "functionid": "3047891731",
-            "fencepost": "3125089062",
+            "functionid": "3047891740",
+            "fencepost": "3125266490",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes1"
@@ -1466,13 +1466,14 @@
         },
         {
             "name": "MarkTaskComplete",
-            "argc": "3",
+            "argc": "4",
             "interfaceid": "31",
-            "functionid": "156442494",
-            "fencepost": "233655954",
+            "functionid": "124396754",
+            "fencepost": "201787633",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
-                "bytes8"
+                "bytes8",
+                "string"
             ],
             "serializedreturns": [
             ]

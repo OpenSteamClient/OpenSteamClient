@@ -33,15 +33,12 @@ public unsafe interface IClientCompat
     public string GetCompatToolDisplayName(string name);  // argc: 1, index: 11, ipc args: [string], ipc returns: [string]
     public string GetCompatExperiment(AppId_t appid);  // argc: 1, index: 12, ipc args: [bytes4], ipc returns: [string]
     [BlacklistedInCrossProcessIPC]
-    public void GetWhitelistedGameList(CUtlVector<AppWhitelistSetting_t>* compatTools);  // argc: 1, index: 13, ipc args: [bytes4], ipc returns: []
+    public unknown_ret GetAppCompatCategories();  // argc: 2, index: 13, ipc args: [bytes4, bytes4], ipc returns: []
+    public UInt64 StartSession(AppId_t appid);  // argc: 1, index: 14, ipc args: [bytes4], ipc returns: [bytes8]
     // WARNING: Arguments are unknown!
-    [BlacklistedInCrossProcessIPC]
-    public void GetControllerConfigOverrides();  // argc: 1, index: 14, ipc args: [bytes4], ipc returns: []
-    public UInt64 StartSession(AppId_t appid);  // argc: 1, index: 15, ipc args: [bytes4], ipc returns: [bytes8]
-    // WARNING: Arguments are unknown!
-    public void ReleaseSession(AppId_t appid, UInt64 sessionid);  // argc: 3, index: 16, ipc args: [bytes4, bytes8], ipc returns: []
-    public bool BIsLauncherServiceEnabled(AppId_t appid);  // argc: 1, index: 17, ipc args: [bytes4], ipc returns: [boolean]
-    public void DeleteCompatData(AppId_t appid);  // argc: 1, index: 18, ipc args: [bytes4], ipc returns: []
-    public UInt64 GetCompatibilityDataDiskSize(AppId_t appid);  // argc: 1, index: 19, ipc args: [bytes4], ipc returns: [bytes8]
-    public bool BNeedsUnlockH264(AppId_t appid);  // argc: 1, index: 20, ipc args: [bytes4], ipc returns: [boolean]
+    public void ReleaseSession(AppId_t appid, UInt64 sessionid);  // argc: 3, index: 15, ipc args: [bytes4, bytes8], ipc returns: []
+    public bool BIsLauncherServiceEnabled(AppId_t appid);  // argc: 1, index: 16, ipc args: [bytes4], ipc returns: [boolean]
+    public void DeleteCompatData(AppId_t appid);  // argc: 1, index: 17, ipc args: [bytes4], ipc returns: []
+    public UInt64 GetCompatibilityDataDiskSize(AppId_t appid);  // argc: 1, index: 18, ipc args: [bytes4], ipc returns: [bytes8]
+    public bool BNeedsUnlockH264(AppId_t appid);  // argc: 1, index: 19, ipc args: [bytes4], ipc returns: [boolean]
 }
