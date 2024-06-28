@@ -112,7 +112,7 @@ public class SteamHTML : IClientLifetime {
             return;
         }
 
-        Console.WriteLine("pre: " + initCount.Count);
+        Logger.GeneralLogger.Trace("pre: " + initCount.Count);
         if (initCount.Decrement()) {
             logger.Info("Freeing IClientHTMLSurface, no surfaces left");
             this.steamClient.IClientHTMLSurface.Shutdown();
@@ -127,7 +127,7 @@ public class SteamHTML : IClientLifetime {
                 process.Kill();
             }
         }
-        Console.WriteLine("post: " + initCount.Count);
+        Logger.GeneralLogger.Trace("post: " + initCount.Count);
     }
 
     public bool CanRun() {

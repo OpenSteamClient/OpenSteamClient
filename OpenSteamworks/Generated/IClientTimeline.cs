@@ -13,6 +13,7 @@ using OpenSteamworks.Structs;
 
 namespace OpenSteamworks.Generated;
 
+// Note: These simply post callbacks for the UI to use. steamclient.so does not include clipping functionality, it is up to the UI to do so.
 public unsafe interface IClientTimeline
 {
     // WARNING: Arguments are unknown!

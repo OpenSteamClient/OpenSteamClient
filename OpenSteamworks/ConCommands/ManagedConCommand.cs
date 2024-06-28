@@ -64,7 +64,7 @@ public sealed unsafe class ManagedConCommand : ManagedConCommandBase {
             return;
         }
 
-        Console.WriteLine("IsCommand: " + NativeCommand.IsCommand());
+        Logging.GeneralLogger.Debug("IsCommand: " + NativeCommand.IsCommand());
 
         if (NativeCommand.IsFlagSet(8)) {
             Logging.ConCommandsLogger.Error($"Non-user command %s received at console; ignoring");
@@ -252,7 +252,7 @@ public sealed unsafe class ManagedConVar : ManagedConCommandBase
         Logging.ConCommandsLogger.Info($"\"{Name}\" = \"{val}\" 13");
 
         var thirteen = *(nint*)((nint)(commandBase->pCommandCallback) + (8 * 13));
-        Console.WriteLine("thirteen=" + thirteen); 
+        Logging.GeneralLogger.Debug("thirteen=" + thirteen); 
         if (thirteen > 1000000) {
             val = Marshal.PtrToStringUTF8(thirteen) ?? string.Empty;
             Logging.ConCommandsLogger.Info($"\"{Name}\" = \"{val}\" 13");

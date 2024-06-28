@@ -380,7 +380,7 @@ public class CloudConfigStore : ILogonLifetime {
         }
         
         if (changes.Count == 0) {
-            Console.WriteLine("MarkForUpload: No namespaces to sync");
+            Logger.GeneralLogger.Trace("MarkForUpload: No namespaces to sync");
             return;
         }
 
@@ -394,7 +394,7 @@ public class CloudConfigStore : ILogonLifetime {
         lock (changesLock)
         {
             if (changes.Count == 0) {
-                Console.WriteLine("Attempted to upload namespace data with 0 entries.");
+                Logger.GeneralLogger.Trace("Attempted to upload namespace data with 0 entries.");
                 return;
             }
 
@@ -407,7 +407,7 @@ public class CloudConfigStore : ILogonLifetime {
         {
             var ns = this.loadedNamespaces.Find(n => (uint)n.Namespace == item.Enamespace);
             if (ns == null) {
-                Console.WriteLine("Upload result got unknown namespace: " + item.Enamespace);
+                Logger.GeneralLogger.Warning("Upload result got unknown namespace: " + item.Enamespace);
                 continue;
             }
 

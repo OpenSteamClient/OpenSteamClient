@@ -20,6 +20,6 @@ public unsafe interface IClientUnifiedMessages
     // WARNING: Arguments are unknown!
     public bool GetMethodResponseData(ulong methodID, byte[] buf, uint bufLen, bool unk);  // argc: 5, index: 3, ipc args: [bytes8, bytes4, bytes1], ipc returns: [bytes1, bytes_length_from_mem]
     // WARNING: Arguments are unknown!
-    public unknown_ret ReleaseMethod(ulong methodID);  // argc: 2, index: 4, ipc args: [bytes8], ipc returns: [bytes1]
+    public bool ReleaseMethod(ulong methodID);  // argc: 2, index: 4, ipc args: [bytes8], ipc returns: [bytes1]
     public bool SendNotification(string method, byte[] msg, uint msgLen);  // argc: 3, index: 5, ipc args: [string, bytes4, bytes_length_from_mem], ipc returns: [bytes1]
 }

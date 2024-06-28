@@ -59,7 +59,7 @@ public class ExtendedProgress<T> : IExtendedProgress<T>
     }
 
     void IExtendedProgress<T>.SetProgress(T value) {
-        Console.WriteLine("Prog progress changed: '" + value + "'");
+        Logger.GeneralLogger.Trace("Prog progress changed: '" + value + "'");
         lock (PropertyLock) {
             this.Throbber = false;
             (this as IProgress<T>).Report(value);
@@ -67,7 +67,7 @@ public class ExtendedProgress<T> : IExtendedProgress<T>
     }
 
     void IExtendedProgress<T>.SetMaxProgress(T value) {
-        Console.WriteLine("Prog max changed: '" + value + "'");
+        Logger.GeneralLogger.Trace("Prog max changed: '" + value + "'");
         lock (PropertyLock) {
             this.Throbber = false;
             this.MaxProgress = value;
@@ -76,7 +76,7 @@ public class ExtendedProgress<T> : IExtendedProgress<T>
     }
 
     void IExtendedProgress<T>.SetOperation(string value) {
-        Console.WriteLine("Prog operation changed: '" + value + "'");
+        Logger.GeneralLogger.Trace("Prog operation changed: '" + value + "'");
         lock(PropertyLock) {
             this.Operation = value;
             this.SubOperation = "";
@@ -86,7 +86,7 @@ public class ExtendedProgress<T> : IExtendedProgress<T>
     }
 
     void IExtendedProgress<T>.SetSubOperation(string value) {
-        Console.WriteLine("Prog sub operation changed: '" + value + "'");
+        Logger.GeneralLogger.Trace("Prog sub operation changed: '" + value + "'");
         lock(PropertyLock) {
             this.SubOperation = value;
             (this as IProgress<T>).Report(this.Progress);

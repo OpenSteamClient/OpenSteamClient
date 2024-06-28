@@ -52,12 +52,8 @@ public class ClientApps {
     }
 
     public IEnumerable<AppId_t> GetInstalledApps() {
-        var arr = new uint[2];
-        var len = this.NativeClientAppManager.GetInstalledApps(arr, (uint)arr.Length);
-        Console.WriteLine("len: " + len);
-        arr = new uint[4096];
-        len = this.NativeClientAppManager.GetInstalledApps(arr, (uint)arr.Length);
-        Console.WriteLine("newlen: " + len);
+        var arr = new uint[4096];
+        this.NativeClientAppManager.GetInstalledApps(arr, (uint)arr.Length);
         return arr.Select(a => (AppId_t)a);
     }
 

@@ -200,5 +200,5 @@ public unsafe interface IClientUtils
     public bool BGetMachineID(CUtlBuffer* data);  // argc: 1, index: 110, ipc args: [], ipc returns: [boolean, unknown]
     public void NotifyMissingInterface(string interfaceName);  // argc: 1, index: 111, ipc args: [string], ipc returns: []
     public bool IsSteamInTournamentMode();  // argc: 0, index: 112, ipc args: [], ipc returns: [boolean]
-    public unknown_ret DesktopLockedStateChanged();  // argc: 1, index: 113, ipc args: [bytes1], ipc returns: []
+    public void DesktopLockedStateChanged(bool locked);  // argc: 1, index: 113, ipc args: [bytes1], ipc returns: []
 }

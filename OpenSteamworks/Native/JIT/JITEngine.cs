@@ -465,7 +465,7 @@ namespace OpenSteamworks.Native.JIT
 
             ilgen.Return();
             if (method.Name.Contains("CreateSteamPipe")) {
-                Console.WriteLine(ilgen.ToString());
+                Logging.GeneralLogger.Debug(ilgen.ToString());
             }
         }
 

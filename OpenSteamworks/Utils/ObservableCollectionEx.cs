@@ -94,14 +94,14 @@ public class ObservableCollectionEx<T> : ICollection<T>, IEnumerable<T>, IEnumer
         }
 
         // if (FilterOnChange()) {
-        //     Console.WriteLine("Firing reset");
+        //     Logging.GeneralLogger.Debug("Firing reset");
         //     CollectionChanged?.Invoke(this, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Reset));
         // } else {
         //     CollectionChanged?.Invoke(this, e);
         // }
 
         // Always reset to avoid bugs.
-        Console.WriteLine("Firing reset");
+        Logging.GeneralLogger.Debug("Firing reset");
         CollectionChanged?.Invoke(this, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Reset));
         
         if (prevCount != Count) {

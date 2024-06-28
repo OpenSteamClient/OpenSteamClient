@@ -35,6 +35,23 @@ public class Logger : ILogger {
         }
     }
 
+    public static Logger GeneralLogger {
+        get {
+            if (GeneralLoggerOverride != null) {
+                return GeneralLoggerOverride;
+            }
+
+            return LazyGeneralLogger.Value;
+        }
+
+        internal set {
+            GeneralLoggerOverride = value;
+        }
+    }
+
+    private static Logger? GeneralLoggerOverride;
+    private readonly static Lazy<Logger> LazyGeneralLogger = new(() => new("General"));
+
     public string Name { get; set; } = "";
     public string? LogfilePath { get; init; } = null;
 

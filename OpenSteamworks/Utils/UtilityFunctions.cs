@@ -46,7 +46,7 @@ public static class UtilityFunctions {
         if (!condition)
         {
             string message = $"{sourceFilePath} ({sourceLineNumber}) : Assertion failed: {conditionStr}";
-            Console.WriteLine(message);
+            Logging.GeneralLogger.Debug(message);
             throw new Exception(message);
         }
     }

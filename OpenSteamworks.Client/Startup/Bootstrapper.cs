@@ -226,7 +226,7 @@ public class Bootstrapper {
                 }
 
                 System.Threading.Thread.Sleep(1000);
-                Console.WriteLine("Waiting for ClientUI to terminate");
+                Logger.GeneralLogger.Trace("Waiting for ClientUI to terminate");
             }
 
             // Blacklist these as well so we don't get file lock errors in the bootstrapper
@@ -238,7 +238,7 @@ public class Bootstrapper {
                 }
 
                 System.Threading.Thread.Sleep(1000);
-                Console.WriteLine("Waiting for steamerrorreporter to terminate");
+                Logger.GeneralLogger.Trace("Waiting for steamerrorreporter to terminate");
             }
         }
 
@@ -255,7 +255,7 @@ public class Bootstrapper {
                 }
 
                 System.Threading.Thread.Sleep(1000);
-                Console.WriteLine("Waiting for steamserviced/htmlhost to terminate");
+                Logger.GeneralLogger.Trace("Waiting for steamserviced/htmlhost to terminate");
             }
         }
 

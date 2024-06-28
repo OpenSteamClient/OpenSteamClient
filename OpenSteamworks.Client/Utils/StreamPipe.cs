@@ -55,7 +55,7 @@ public class StreamPiper
                 }
             } else if (this.hasWritten) {
                 // If the pipe closes afterwards, stop piping.
-                Console.WriteLine("Closed");
+                Logger.GeneralLogger.Trace("Closed");
                 this.StopPiping();
             }
         }

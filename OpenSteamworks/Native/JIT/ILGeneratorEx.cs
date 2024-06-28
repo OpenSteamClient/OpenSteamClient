@@ -6,6 +6,7 @@ using System.Reflection;
 using System.Reflection.Emit;
 using System.Runtime.InteropServices;
 using System.Text;
+using OpenSteamworks;
 
 /// <summary>
 /// Extended ILGenerator. Allows you to print the generated method.
@@ -356,7 +357,8 @@ public class ILGeneratorEx {
 
     public void EmitWriteLine(string value) {
         this.Ldstr(value);
-        this.Call(typeof(Console).GetMethod(nameof(Console.WriteLine), new[] { typeof(string) })!);
+        this.Emit(OpCodes.Ldsfld, typeof(Logging).GetField(nameof(Logging.GeneralLogger), BindingFlags.Static | BindingFlags.Public)!);
+        this.Call(typeof(ILogger).GetMethod(nameof(ILogger.Info), BindingFlags.Public | BindingFlags.Instance, [typeof(string)])!);
     }
 
     /// <summary>

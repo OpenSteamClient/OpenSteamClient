@@ -492,7 +492,7 @@ public unsafe interface IClientUser
     public AppId_t GetAppIDForGameID(in CGameID gameid);  // argc: 1, index: 258, ipc args: [bytes8], ipc returns: [bytes4]
     public bool BDoNotDisturb();  // argc: 0, index: 259, ipc args: [], ipc returns: [boolean]
     // WARNING: Arguments are unknown!
-    public unknown_ret SetAdditionalClientArgData(string data);  // argc: 1, index: 260, ipc args: [bytes5], ipc returns: []
+    public void SetAdditionalClientArgData(string data);  // argc: 1, index: 260, ipc args: [bytes5], ipc returns: []
     public ulong GetFamilyGroupID();  // argc: 0, index: 261, ipc args: [], ipc returns: [bytes8]
     public string GetFamilyGroupName();  // argc: 0, index: 262, ipc args: [], ipc returns: [string]
     public uint GetFamilyGroupRole();  // argc: 0, index: 263, ipc args: [], ipc returns: [bytes4]
@@ -505,11 +505,11 @@ public unsafe interface IClientUser
     // WARNING: Arguments are unknown!
     public SteamAPICall_t SetPreferredLender(AppId_t appid, uint accountID);  // argc: 2, index: 267, ipc args: [bytes4, bytes4], ipc returns: [bytes8]
     [BlacklistedInCrossProcessIPC]
-    public unknown_ret GetFamilyCopyCounts();  // argc: 1, index: 268, ipc args: [bytes4], ipc returns: [bytes1]
+    public bool GetFamilyCopyCounts(CUtlMap<AppId_t, int>* counts);  // argc: 1, index: 268, ipc args: [bytes4], ipc returns: [bytes1]
     // WARNING: Arguments are unknown!
-    public unknown_ret NotifyPendingGameLaunch_FetchSteamStreamingEncoderConfig();  // argc: 1, index: 269, ipc args: [bytes4], ipc returns: []
+    public void NotifyPendingGameLaunch_FetchSteamStreamingEncoderConfig(AppId_t appid);  // argc: 1, index: 269, ipc args: [bytes4], ipc returns: []
     // WARNING: Arguments are unknown!
-    public bool BShouldWaitForSteamStreamingEncoderConfig();  // argc: 1, index: 270, ipc args: [bytes4], ipc returns: [boolean]
+    public bool BShouldWaitForSteamStreamingEncoderConfig(AppId_t appid);  // argc: 1, index: 270, ipc args: [bytes4], ipc returns: [boolean]
     // WARNING: Arguments are unknown!
     [BlacklistedInCrossProcessIPC]
     public bool BGetProcessIDsForGame(CGameID gameid, CUtlVector<uint>* gameIDs);  // argc: 3, index: 271, ipc args: [bytes8, bytes4, bytes4], ipc returns: [boolean]

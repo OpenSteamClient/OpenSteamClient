@@ -48,7 +48,7 @@ public class Library
             return;
         }
 
-        Console.WriteLine("Library updated!!!");
+        Logger.GeneralLogger.Trace("Library updated!!!");
 
         //TODO: The whole library system needs a rework.
         // We should be able to listen to individual collections in-ui and outside the UI, but this is what we'll do for now
@@ -115,7 +115,7 @@ public class Library
         var all = new HashSet<CGameID>(AppIDsInCollections);
         all.UnionWith(this.appsManager.OwnedAppsAsGameIDs);
 
-        Console.WriteLine("Firing library updated");
+        Logger.GeneralLogger.Trace("Firing library updated");
         try
         {
             LibraryUpdated?.Invoke(this, EventArgs.Empty);
@@ -323,7 +323,7 @@ public class Library
     private HashSet<CGameID> GetAppsInCollection(Collection collection)
     {
         HashSet<CGameID> apps = new();
-        Console.WriteLine(collection.Name + " d: " + collection.dynamicCollectionAppsCached.Count + " ea: " + collection.explicitlyAddedApps.Count + " er: " + collection.explicitlyRemovedApps.Count);
+        Logger.GeneralLogger.Trace(collection.Name + " d: " + collection.dynamicCollectionAppsCached.Count + " ea: " + collection.explicitlyAddedApps.Count + " er: " + collection.explicitlyRemovedApps.Count);
 
         foreach (var item in collection.dynamicCollectionAppsCached)
         {

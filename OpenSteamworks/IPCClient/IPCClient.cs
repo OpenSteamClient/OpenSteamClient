@@ -164,10 +164,10 @@ public class IPCClient {
     
     private void HandleData(byte[] partial)
     {
-        Console.WriteLine("Got data from server " + string.Join(" ", partial));
+        Logging.IPCLogger.Debug("Got data from server " + string.Join(" ", partial));
         if (HandlePartial(partial, out byte[]? msg))
         {
-            Console.WriteLine("Full msg: " + string.Join(" ", msg));
+            Logging.IPCLogger.Debug("Full msg: " + string.Join(" ", msg));
             using var stream = new MemoryStream(msg);
             using var reader = new EndianAwareBinaryReader(stream, OpenSteamworks.Utils.Enum.Endianness.Little);
 
@@ -175,7 +175,7 @@ public class IPCClient {
             var cmd = reader.ReadByte();
             if (!System.Enum.IsDefined(typeof(IPCResponseCode), cmd))
             {
-                Console.WriteLine("Unsupported response code " + cmd);
+                Logging.IPCLogger.Debug("Unsupported response code " + cmd);
                 return;
                 //throw new InvalidOperationException("Unsupported response code " + cmd);
             }
@@ -186,10 +186,10 @@ public class IPCClient {
             }
             catch (System.Exception e)
             {
-                Console.WriteLine("Got error while handling message:");
-                Console.WriteLine(e);
+                Logging.IPCLogger.Debug("Got error while handling message:");
+                Logging.IPCLogger.Debug(e);
                 if (!pipeIsConnected) {
-                    Console.WriteLine("Error is fatal");
+                    Logging.IPCLogger.Debug("Error is fatal");
 
                     // This has to be done like this, otherwise it will hang forever
                     Task.Run(() => this.Shutdown());
@@ -207,25 +207,25 @@ public class IPCClient {
                 // S: 17 0 0 0 2 1 0 0 0 209 161 16 0 4 0 0 0 1 0 0 0
                 // S: 13 0 0 0 2 0 0 0 0 0 0 0 0 0 0 0 0
                 // S: 1 0 0 0 7
-                Console.WriteLine("Got CB " + ReadCB(cb));
+                Logging.IPCLogger.Debug("Got CB " + ReadCB(cb));
                 while (tcpClient.Client.Poll(TimeSpan.FromMilliseconds(56), SelectMode.SelectRead))
                 {
-                    Console.WriteLine("poll success, avail: " + tcpClient.Available);
+                    Logging.IPCLogger.Debug("poll success, avail: " + tcpClient.Available);
                     if (tcpClient.Available < 13) {
                         break;
                     }
 
                     var cb2 = WaitForMessageOfLength(13); // S: 13 0 0 0 2 0 0 0 0 0 0 0 0 0 0 0 0
                     if (cb2[4] == (byte)IPCCommandCode.SerializeCallbacks) {
-                        Console.WriteLine("More?");
+                        Logging.IPCLogger.Debug("More?");
                         var ca2 = WaitForMessageOfLength(5);
                         if (ca2[4] == (byte)IPCResponseCode.CallbacksAvailable) {
-                            Console.WriteLine("More callbacks available");
+                            Logging.IPCLogger.Debug("More callbacks available");
 
                             cb2 = WaitForMessageOfLength(13);
-                            Console.WriteLine("Got CB2 " + ReadCB(cb2));
+                            Logging.IPCLogger.Debug("Got CB2 " + ReadCB(cb2));
                         } else {
-                            Console.WriteLine("No");
+                            Logging.IPCLogger.Debug("No");
                             break;
                         }
                     } else {
@@ -235,7 +235,7 @@ public class IPCClient {
 
                 break;
             default:
-                Console.WriteLine("Got unsupported command " + code);
+                Logging.IPCLogger.Debug("Got unsupported command " + code);
                 break;
         }
     }
@@ -244,7 +244,7 @@ public class IPCClient {
         using var reader = new EndianAwareBinaryReader(new MemoryStream(cb), Utils.Enum.Endianness.Little);
         var firstByte = reader.ReadByte();
         if (firstByte != 2) {
-            Console.WriteLine("CB unknown first byte " + firstByte);
+            Logging.IPCLogger.Debug("CB unknown first byte " + firstByte);
         }
 
         var steamUser = reader.ReadInt32();
@@ -512,11 +512,11 @@ public class IPCClient {
         //     if (CallbacksAvailable) {
         //         CallbacksAvailable = false;
         //         var resp = SendAndWaitForResponse(IPCCommandCode.SerializeCallbacks, []);
-        //         Console.WriteLine("Resp: " + resp.Length);
+        //         Logging.IPCLogger.Debug("Resp: " + resp.Length);
         //         using var reader = new EndianAwareBinaryReader(new MemoryStream(resp), Utils.Enum.Endianness.Little);
         //         var firstByte = reader.ReadByte();
         //         if (firstByte != 2) {
-        //             Console.WriteLine("CB unknown first byte " + firstByte);
+        //             Logging.IPCLogger.Debug("CB unknown first byte " + firstByte);
         //         }
 
         //         callback.steamUser = reader.ReadInt32();
@@ -527,16 +527,16 @@ public class IPCClient {
         //         if (stream.DataAvailable) {
         //             byte b = (byte)stream.ReadByte();
         //             if (b == (byte)IPCResponseCode.CallbacksAvailable) {
-        //                 Console.WriteLine("Another callback");
+        //                 Logging.IPCLogger.Debug("Another callback");
         //                 CallbacksAvailable = true;
         //             }
 
         //             // byte b2 = (byte)stream.ReadByte();
         //             // if (b2 == (byte)IPCResponseCode.CallbacksAvailable) {
-        //             //     Console.WriteLine("More than 1 callback");
+        //             //     Logging.IPCLogger.Debug("More than 1 callback");
         //             // }
         //         } else {
-        //             Console.WriteLine("No more data");
+        //             Logging.IPCLogger.Debug("No more data");
         //         }
 
         //         return true;

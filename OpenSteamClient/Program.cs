@@ -48,8 +48,16 @@ public static class Program
             throw e;
         }
 
-        MessageBox.Error("OpenSteamClient needs to close", "OpenSteamClient has encountered a fatal exception. Exception message: " + e.Message, e.ToString());
         Console.WriteLine(e.ToString());
+        try
+        {
+            MessageBox.Error("OpenSteamClient needs to close", "OpenSteamClient has encountered a fatal exception. Exception message: " + e.Message, e.ToString());
+        }
+        catch (System.Exception)
+        {
+            
+        }
+        
         Environment.FailFast(null, e);
     }
 

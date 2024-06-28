@@ -90,9 +90,7 @@ public class AppsManager : ILogonLifetime
     public HashSet<AppId_t> ReadyToPlayApps {
         get {
             var apps = InstalledApps;
-            Console.WriteLine("apps: " + apps.Count);
             apps = apps.Where(this.ClientApps.BIsAppUpToDate).ToHashSet();
-            Console.WriteLine("apps2: " + apps.Count);
             return apps;
         }
     }
@@ -248,7 +246,7 @@ public class AppsManager : ILogonLifetime
                 throw new InvalidOperationException("Shortcut GameID is not registered to IClientShortcuts or it is invalid");
             }
 
-            Console.WriteLine("GetAppIDForGameID ret: " + shortcutAppID);
+            Logger.GeneralLogger.Trace("GetAppIDForGameID ret: " + shortcutAppID);
 
             var app = GetShortcutApp(shortcutAppID);
             appCache.Add(app);

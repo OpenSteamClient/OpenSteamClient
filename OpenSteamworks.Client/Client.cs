@@ -16,6 +16,7 @@ using OpenSteamworks.Client.Friends;
 using OpenSteamworks.Client.Apps.Compat;
 using OpenSteamworks.Downloads;
 using Profiler;
+using OpenSteamworks.Client.Experimental;
 
 namespace OpenSteamworks.Client;
 
@@ -58,6 +59,7 @@ public class Client : IClientLifetime
         Instance = this;
         this.Container = container;
 
+        Logger.GeneralLogger = Logger.GetLogger("OpenSteamworks.Client", container.Get<InstallManager>().GetLogPath("OpenSteamworks.Client"));
         container.RegisterFactoryMethod<ISteamClient>((Bootstrapper bootstrapper, AdvancedConfig advancedConfig, InstallManager im) =>
         {
             Logging.GeneralLogger = Logger.GetLogger("OpenSteamworks", im.GetLogPath("OpenSteamworks"));
@@ -121,5 +123,11 @@ public class Client : IClientLifetime
         container.ConstructAndRegister<SteamHTML>();
         container.ConstructAndRegister<SteamService>();
         container.ConstructAndRegister<FriendsManager>();
+
+        // Experimental APIs. Only enabled in debug builds.
+#if DEBUG
+        Logger.GeneralLogger.Warning("Experimental APIs enabled!");
+        container.ConstructAndRegister<TransportManager>();
+#endif
     }
 }

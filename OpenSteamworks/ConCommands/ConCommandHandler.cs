@@ -119,7 +119,7 @@ public static class ConCommandHandler {
 
         foreach (var item in args)
         {
-            Console.WriteLine(item);
+            Logging.GeneralLogger.Debug(item);
         }
 
         return args.ToArray();
