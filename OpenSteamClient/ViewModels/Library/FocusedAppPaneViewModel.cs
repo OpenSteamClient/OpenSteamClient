@@ -279,22 +279,37 @@ public partial class FocusedAppPaneViewModel : AvaloniaCommon.ViewModelBase
 
     private async void Launch()
     {
-        if (this.app.DefaultLaunchOptionID != null)
+        try
         {
-            await this.app.Launch("", this.app.DefaultLaunchOptionID.Value);
-        } else {
-            AvaloniaApp.Current?.RunOnUIThread(DispatcherPriority.Normal, () =>
+            if (this.app.DefaultLaunchOptionID != null)
             {
-                var dialog = new PickLaunchOptionDialog();
-                var vm = new PickLaunchOptionDialogViewModel(dialog, app);
-                dialog.DataContext = vm;
-                vm.OptionSelected += (object? sender, int selectedOption) =>
+                await this.app.Launch("", this.app.DefaultLaunchOptionID.Value);
+            } else {
+                AvaloniaApp.Current?.RunOnUIThread(DispatcherPriority.Normal, () =>
                 {
-                    this.app.Launch("", selectedOption);
-                };
-
-                dialog.Show();
-            });
+                    var dialog = new PickLaunchOptionDialog();
+                    var vm = new PickLaunchOptionDialogViewModel(dialog, app);
+                    dialog.DataContext = vm;
+                    vm.OptionSelected += (object? sender, int selectedOption) =>
+                    {
+                        this.app.Launch("", selectedOption);
+                    };
+    
+                    dialog.Show();
+                });
+            }
+        }
+        catch (System.Exception e)
+        {
+            Console.WriteLine("Error launching app " + e.ToString());
+            try
+            {
+                MessageBox.Error("Error launching app " + this.name, "Exception message: " + e.Message, e.ToString());
+            }
+            catch (System.Exception)
+            {
+                
+            }
         }
     }
 }

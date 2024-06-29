@@ -187,7 +187,7 @@ public class IPCClient {
             catch (System.Exception e)
             {
                 Logging.IPCLogger.Debug("Got error while handling message:");
-                Logging.IPCLogger.Debug(e);
+                Logging.IPCLogger.Debug(e.ToString());
                 if (!pipeIsConnected) {
                     Logging.IPCLogger.Debug("Error is fatal");
 

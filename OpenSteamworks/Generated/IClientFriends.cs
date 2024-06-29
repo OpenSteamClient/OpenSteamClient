@@ -472,5 +472,5 @@ public unsafe interface IClientFriends
     public unknown_ret GetProfileItemPropertyUint();  // argc: 4, index: 248, ipc args: [uint64, bytes4, bytes4], ipc returns: [bytes4]
     // WARNING: Arguments are unknown!
     public unknown_ret DownloadCommunityItemAsset();  // argc: 4, index: 249, ipc args: [bytes8, string, string], ipc returns: [bytes8]
-    public unknown_ret GetMultiplayerSessionShareURL();  // argc: 1, index: 250, ipc args: [bytes4], ipc returns: [string]
+    public string GetMultiplayerSessionShareURL(AppId_t appid);  // argc: 1, index: 250, ipc args: [bytes4], ipc returns: [string]
 }

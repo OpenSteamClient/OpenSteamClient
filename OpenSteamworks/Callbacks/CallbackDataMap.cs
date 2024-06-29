@@ -80,6 +80,8 @@ internal static partial class CallbackConstants {
         {typeof(RemoteStorageAppSyncedClient_t), 1260001},
         {typeof(SetTimelineStateDescription_t), 1360001},
         {typeof(LibraryFoldersChanged_t), 1280031},
+        {typeof(ExecuteSteamURL_t), 1020111}
     };
+    
     public readonly static Dictionary<int, Type> IDToType = TypeToID.ToDictionary(x => x.Value, x => x.Key);
 }
